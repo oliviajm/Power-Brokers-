@@ -1,0 +1,3533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<title>Garry's List — Why can people openly use drugs on SF streets?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bridge-red: #B04A32;
+  --bridge-red-dark: #8E3924;
+  --terracotta: #C8704F;
+  --ochre: #C4923E;
+  --fog: #D6D4CF;
+  --fog-dark: #A8A39B;
+  --paper: #F5F1EA;
+  --paper-warm: #EFE7D8;
+  --sand: #E8D9C4;
+  --ink: #1A1614;
+  --ink-mid: #5C5048;
+  --ink-soft: #8A7E73;
+  --teal: #3D7B7B;
+  --rule: rgba(26, 22, 20, 0.12);
+  --shadow-soft: 0 1px 2px rgba(26, 22, 20, 0.04), 0 12px 32px rgba(26, 22, 20, 0.08);
+
+  /* type */
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+
+/* ----- MASTHEAD ----- */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  background-color: rgba(245, 241, 234, 0.92);
+}
+.masthead-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bridge-red);
+  color: white;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+}
+.brand-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.kicker {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ----- HERO ----- */
+.hero {
+  padding: 64px 28px 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.hero-kicker {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  margin-bottom: 18px;
+}
+.hero-question {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(34px, 5.5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 50;
+}
+.hero-answer {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: var(--ink-mid);
+  margin: 0 0 36px;
+  max-width: 780px;
+}
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.key-stat .value {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(36px, 5vw, 52px);
+  line-height: 1;
+  color: var(--bridge-red);
+  letter-spacing: -0.02em;
+}
+.key-stat .label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.key-stat .sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.result-line {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-mid);
+}
+.result-line em { font-style: normal; font-weight: 600; color: var(--bridge-red); }
+
+@media (max-width: 720px) {
+  .hero { padding: 40px 22px 24px; }
+  .key-stats { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ----- VIEW BAR ----- */
+.view-bar {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 60px;
+  z-index: 4;
+}
+.view-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.view-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.view-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tab {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 8px 14px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  cursor: pointer;
+  border-radius: 999px;
+  letter-spacing: 0;
+  transition: all 0.15s ease;
+}
+.tab:hover { background: rgba(176, 74, 50, 0.08); color: var(--ink); }
+.tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ----- VIEW ----- */
+.view {
+  padding: 48px 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.view.is-hidden { display: none; }
+.view-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.view-head { margin-bottom: 28px; }
+.view-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.view-head .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-mid);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ----- LEGEND ----- */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 8px; }
+.dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+.dot-philanthropy { background: var(--ochre); color: var(--ochre); }
+.dot-government   { background: var(--teal); color: var(--teal); }
+.dot-advocacy     { background: var(--bridge-red); color: var(--bridge-red); }
+.dot-service      { background: var(--terracotta); color: var(--terracotta); }
+.dot-policy       { background: var(--ink); color: var(--ink); }
+
+/* ----- SANKEY ----- */
+.sankey-wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+#sankey {
+  width: 100%;
+  min-width: 880px;
+  height: auto;
+  display: block;
+}
+.sk-col-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  fill: var(--ink-soft);
+}
+.sk-node rect {
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+.sk-node text {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  fill: var(--ink);
+  pointer-events: none;
+}
+.sk-node text.sk-amt {
+  font-weight: 500;
+  fill: var(--ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+.sk-node:hover rect { opacity: 0.85; }
+.sk-node.is-dim rect { opacity: 0.18; }
+.sk-node.is-dim text { opacity: 0.4; }
+.sk-link {
+  fill: none;
+  stroke-linecap: round;
+  transition: opacity 0.2s ease, stroke 0.2s ease;
+}
+.sk-link.is-dim { opacity: 0.04; }
+.sk-link.is-hot { opacity: 0.85; }
+.sk-outcome {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  fill: var(--bridge-red);
+}
+.sk-outcome-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  fill: var(--ink-mid);
+}
+
+/* ----- TIMELINE ----- */
+.timeline-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+#timeline {
+  width: 100%;
+  height: auto;
+  min-width: 760px;
+}
+.timeline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+.timeline-legend .swatch {
+  display: inline-block; width: 14px; height: 14px;
+  border-radius: 3px; margin-right: 8px; vertical-align: -2px;
+}
+.tl-lane-label {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.tl-event circle { cursor: pointer; }
+.tl-event text {
+  font-family: var(--sans);
+  font-size: 10px;
+  fill: var(--ink-soft);
+  pointer-events: none;
+}
+.tl-axis text {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--ink-soft);
+}
+.tl-converge {
+  stroke: var(--bridge-red);
+  stroke-dasharray: 2 4;
+  stroke-width: 1;
+  opacity: 0.45;
+}
+.tl-converge-label {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 10px;
+  fill: var(--bridge-red);
+}
+.tl-landmark-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+}
+
+/* ----- PEOPLE ----- */
+.people-tiers { display: grid; gap: 36px; }
+.people-tier {}
+.tier-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+.tier-head h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.tier-head .tier-blurb {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-mid);
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--ink);
+}
+.card .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+.card-head { display: flex; align-items: center; gap: 12px; }
+.card-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.card-role {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.card-org {
+  font-size: 13px;
+  color: var(--ink-mid);
+  font-style: italic;
+}
+.card-blurb {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card .tier-pill {
+  align-self: flex-start;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.tier-pill.architects, .avatar.architects { background: var(--ink); color: var(--paper); }
+.tier-pill.operators, .avatar.operators { background: var(--bridge-red); color: white; }
+.tier-pill.infrastructure, .avatar.infrastructure { background: var(--ochre); color: var(--ink); }
+.tier-pill.backlash, .avatar.backlash { background: var(--teal); color: white; }
+
+/* ----- MEMORIAL / VICTIMS ----- */
+.memorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+.memorial-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--bridge-red);
+  padding: 22px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.memorial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.memorial-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.memorial-meta {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.memorial-summary {
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.memorial-chain {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+.memorial-chain .count {
+  color: var(--bridge-red);
+  font-weight: 700;
+}
+
+/* ----- JUDGES ----- */
+.subhead {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin: 36px 0 14px;
+  color: var(--ink);
+}
+.judge-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+  padding: 22px;
+  background: var(--paper-warm);
+  border-radius: 4px;
+}
+.judge-stat .val {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--bridge-red);
+  line-height: 1;
+}
+.judge-stat .label {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.judge-stat .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+.judges-list {
+  display: grid;
+  gap: 14px;
+}
+.judge-card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 18px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 18px;
+  align-items: start;
+}
+.judge-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+.judge-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.judge-court {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.judge-pattern {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.judge-election {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--sand);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.judge-election.unopposed {
+  background: var(--bridge-red);
+  color: white;
+}
+.patterns-list {
+  display: grid;
+  gap: 12px;
+}
+.pattern-card {
+  background: white;
+  border-left: 3px solid var(--ochre);
+  padding: 14px 18px;
+  border-radius: 0 4px 4px 0;
+}
+.pattern-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.pattern-stat {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bridge-red);
+  margin-bottom: 6px;
+}
+.pattern-summary-text {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .judge-card { grid-template-columns: 1fr; gap: 8px; }
+  .judge-election { justify-self: start; }
+}
+
+/* ----- COUNTER-NETWORK ----- */
+.asymmetry-section {
+  background: var(--paper-warm);
+  padding: 26px;
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+.asymmetry-summary {
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+  margin: 0 0 22px;
+  max-width: 760px;
+}
+.asymmetry-chart {
+  display: grid;
+  gap: 14px;
+}
+.asym-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+.asym-year {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.asym-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.asym-row .asym-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.asym-bar {
+  display: grid;
+  grid-template-columns: 110px 1fr 110px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.asym-bar .side {
+  font-weight: 600;
+  color: var(--ink);
+}
+.asym-bar.harm .side { color: var(--bridge-red); }
+.asym-bar.recovery .side { color: var(--teal); }
+.asym-bar .track {
+  background: var(--fog);
+  height: 16px;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.asym-bar .fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  border-radius: 2px;
+}
+.asym-bar.harm .fill { background: var(--bridge-red); }
+.asym-bar.recovery .fill { background: var(--teal); }
+.asym-bar .amt {
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-section { margin-top: 12px; }
+.counter-orgs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.counter-org-card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.counter-org-card:hover { border-color: var(--ink); transform: translateY(-1px); }
+.counter-org-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.counter-org-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.counter-org-role {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.counter-wins {
+  display: grid;
+  gap: 14px;
+}
+.counter-win-card {
+  background: white;
+  border-left: 3px solid var(--teal);
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.counter-win-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-soft); }
+.counter-win-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.counter-win-year {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+.counter-win-detail {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-top: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.counter-funders {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.counter-funder-card {
+  background: white;
+  border: 1px solid var(--rule);
+  padding: 14px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.counter-funder-card:hover { border-color: var(--ink); }
+.counter-funder-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+.counter-funder-detail {
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.counter-people {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* Memorial-specific panel quote treatment */
+.panel .quote.memorial {
+  border-left-color: var(--ink);
+  font-size: 18px;
+}
+
+/* Failure chain in panel */
+.failure-chain {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+.failure-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.failure-step.clickable { cursor: pointer; transition: border-color 0.15s ease; }
+.failure-step.clickable:hover { border-color: var(--bridge-red); }
+.failure-step .step-tag {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--bridge-red);
+  background: var(--sand);
+  padding: 3px 8px;
+  border-radius: 999px;
+  align-self: start;
+  white-space: nowrap;
+}
+.failure-step .step-detail {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* Timeline rows inside the judge case panel */
+.case-timeline {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  border-left: 2px solid var(--rule);
+  padding-left: 16px;
+}
+.case-event {
+  display: grid;
+  gap: 2px;
+}
+.case-event .case-date {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  font-weight: 600;
+}
+.case-event .case-what {
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.case-event .case-out {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.45;
+  font-style: italic;
+}
+
+/* ----- FISCAL ----- */
+.fiscal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.fiscal-list li {
+  background: white;
+  border-left: 3px solid var(--bridge-red);
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: var(--shadow-soft);
+}
+.fiscal-event {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.fiscal-detail {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+/* ----- CONNECTIONS ----- */
+.connections {
+  background: var(--paper-warm);
+  padding: 48px 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.connections-inner { max-width: 1200px; margin: 0 auto; }
+.connections h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 24px;
+  letter-spacing: -0.015em;
+}
+#connections-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+}
+.conn-card {
+  background: white;
+  padding: 16px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.conn-edge {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.conn-edge .arrow {
+  color: var(--bridge-red);
+  margin: 0 6px;
+}
+.conn-type {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.conn-detail {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ----- SOURCES ----- */
+.sources { padding: 48px 28px; }
+.sources-inner { max-width: 1200px; margin: 0 auto; }
+.sources h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 24px;
+  letter-spacing: -0.015em;
+}
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+.sources-col h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.sources-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sources-col li {
+  font-size: 13px;
+  color: var(--ink-mid);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.45;
+}
+.sources-col li:last-child { border-bottom: 0; }
+
+/* ----- FOOTER ----- */
+.foot {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px;
+}
+.foot-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--fog);
+}
+
+/* ----- DETAIL PANEL ----- */
+.panel-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 22, 20, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9;
+}
+.panel-scrim.is-open { opacity: 1; pointer-events: auto; }
+
+.panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(520px, 92vw);
+  height: 100dvh;
+  background: var(--paper);
+  z-index: 10;
+  box-shadow: -8px 0 32px rgba(26, 22, 20, 0.14);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow-y: auto;
+}
+.panel.is-open { transform: translateX(0); }
+.panel-close {
+  position: sticky;
+  top: 8px;
+  margin-left: auto;
+  display: block;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 8px 20px;
+  line-height: 1;
+  z-index: 2;
+}
+.panel-inner {
+  padding: 0 32px 48px;
+}
+
+.panel-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.panel-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.panel-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.panel-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.panel-section h5 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.panel-section p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+}
+.flow-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  align-items: baseline;
+}
+.flow-row:hover .flow-target { color: var(--bridge-red); }
+.flow-row:last-child { border-bottom: 0; }
+.flow-target {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+.flow-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.flow-amount {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--bridge-red);
+  white-space: nowrap;
+}
+.quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  border-left: 3px solid var(--bridge-red);
+  padding: 4px 0 4px 14px;
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag-list li {
+  background: var(--sand);
+  color: var(--ink);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.tag-list li:hover { background: var(--bridge-red); color: white; }
+
+.mini-series {
+  width: 100%;
+  height: 120px;
+  margin-top: 8px;
+}
+
+/* small screens */
+@media (max-width: 720px) {
+  .view-bar { top: 56px; }
+  .view-bar-inner { padding: 12px 18px; }
+  .view { padding: 32px 18px; }
+  .legend { gap: 14px; }
+  #sankey { min-width: 720px; }
+  .panel-inner { padding: 0 22px 36px; }
+}
+
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="#" aria-label="Garry's List">
+        <span class="brand-mark">GL</span>
+        <span class="brand-name">Garry's List</span>
+      </a>
+      <nav class="masthead-nav">
+        <span class="kicker">Public Benefit Investigation · No. 01</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-kicker">San Francisco · Drug Policy</div>
+        <h1 class="hero-question" id="question"></h1>
+        <p class="hero-answer" id="short-answer"></p>
+
+        <div class="key-stats" id="key-stats"></div>
+
+        <div class="result-line">
+          <em>The result:</em> the highest per-capita overdose death rate of any major US city except Baltimore.
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW SWITCHER -->
+    <section class="view-bar">
+      <div class="view-bar-inner">
+        <div class="view-label">Explore the answer</div>
+        <div class="view-tabs" role="tablist">
+          <button class="tab is-active" data-view="money" role="tab">Follow the money</button>
+          <button class="tab" data-view="names" role="tab">The names</button>
+          <button class="tab" data-view="judges" role="tab">The judges</button>
+          <button class="tab" data-view="counter" role="tab">The counter-network</button>
+          <button class="tab" data-view="timeline" role="tab">How we got here</button>
+          <button class="tab" data-view="people" role="tab">The power brokers</button>
+          <button class="tab" data-view="fiscal" role="tab">Fiscal context</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: MONEY -->
+    <section class="view" id="view-money" data-view="money">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>Follow the money</h2>
+          <p class="lede">Money flows left to right. Foundations and government give to advocacy groups and service providers, who shape policy, which produces the death toll on the right. Line thickness shows the dollar amount. Click any node.</p>
+        </header>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-philanthropy"></span> Private philanthropy</span>
+          <span class="legend-item"><span class="dot dot-government"></span> Government</span>
+          <span class="legend-item"><span class="dot dot-advocacy"></span> Advocacy</span>
+          <span class="legend-item"><span class="dot dot-service"></span> Service provider</span>
+          <span class="legend-item"><span class="dot dot-policy"></span> Policy change</span>
+        </div>
+        <div class="sankey-wrap">
+          <svg id="sankey" viewBox="0 0 1400 760" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Money flow diagram"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: NAMES (victims) -->
+    <section class="view is-hidden" id="view-names" data-view="names">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The names</h2>
+          <p class="lede" id="names-narrative"></p>
+        </header>
+        <div class="memorial-grid" id="memorial-grid"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: JUDGES -->
+    <section class="view is-hidden" id="view-judges" data-view="judges">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The judges</h2>
+          <p class="lede" id="judges-narrative"></p>
+        </header>
+        <div class="judge-stats" id="judge-stats"></div>
+        <div class="judges-list" id="judges-list"></div>
+        <div class="patterns-section">
+          <h3 class="subhead">Patterns across the bench</h3>
+          <div class="patterns-list" id="patterns-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: COUNTER-NETWORK -->
+    <section class="view is-hidden" id="view-counter" data-view="counter">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The counter-network</h2>
+          <p class="lede" id="counter-narrative"></p>
+        </header>
+
+        <div class="asymmetry-section">
+          <h3 class="subhead">The funding flip</h3>
+          <p class="asymmetry-summary" id="asymmetry-summary"></p>
+          <div class="asymmetry-chart" id="asymmetry-chart"></div>
+        </div>
+
+        <div class="counter-section">
+          <h3 class="subhead">Counter-orgs</h3>
+          <div class="counter-orgs" id="counter-orgs"></div>
+        </div>
+
+        <div class="counter-section">
+          <h3 class="subhead">Wins (since 2022)</h3>
+          <div class="counter-wins" id="counter-wins"></div>
+        </div>
+
+        <div class="counter-section">
+          <h3 class="subhead">Counter-funders</h3>
+          <div class="counter-funders" id="counter-funders"></div>
+        </div>
+
+        <div class="counter-section">
+          <h3 class="subhead">Counter-people</h3>
+          <div class="counter-people" id="counter-people"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: TIMELINE -->
+    <section class="view is-hidden" id="view-timeline" data-view="timeline">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>How we got here</h2>
+          <p class="lede">Four streams of policy and ideology converged on the streets of San Francisco. Click an event for context.</p>
+        </header>
+        <div class="timeline-legend" id="timeline-legend"></div>
+        <div class="timeline-wrap">
+          <svg id="timeline" viewBox="0 0 1200 540" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Idea timeline"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: PEOPLE -->
+    <section class="view is-hidden" id="view-people" data-view="people">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The power brokers</h2>
+          <p class="lede">The people who built, ran, and are now partially rolling back the system. Click any card.</p>
+        </header>
+        <div class="people-tiers" id="people-tiers"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: FISCAL -->
+    <section class="view is-hidden" id="view-fiscal" data-view="fiscal">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The budget crisis motivating the "reform"</h2>
+          <p class="lede" id="fiscal-narrative"></p>
+        </header>
+        <ol class="fiscal-list" id="fiscal-list"></ol>
+      </div>
+    </section>
+
+    <!-- CONNECTIONS -->
+    <section class="connections">
+      <div class="connections-inner">
+        <h2>Key connections</h2>
+        <ul id="connections-list"></ul>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="sources">
+      <div class="sources-inner">
+        <h2>Sources</h2>
+        <div class="sources-grid" id="sources-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <p>A Public Benefit Investigation by Garry's List. Prototype.</p>
+    </div>
+  </footer>
+
+  <!-- DETAIL PANEL -->
+  <aside class="panel" id="panel" aria-hidden="true">
+    <button class="panel-close" id="panel-close" aria-label="Close">×</button>
+    <div class="panel-inner" id="panel-inner"></div>
+  </aside>
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+  <script>
+// PBI Demo Q1 — research package extracted from DEMO-Q1-open-drug-use.md
+const DATA = {
+  question: "Why can people openly use drugs on San Francisco streets without consequences?",
+  shortAnswer: "Because decades of policy choices removed every consequence one by one: the LPS Act (1967) made it nearly impossible to compel treatment, harm reduction (official SF policy since 2000) reframed enforcement itself as the problem, and Prop 47 (2014) — the hamhanded fix for Brown v. Plata's prison-overcrowding order, sold to voters as reform — gutted felony drug possession. Then fentanyl arrived to a system with 690 treatment beds for 24,500 injection drug users, and from 2020 to 2022 DA Chesa Boudin stopped prosecuting dealers. The death toll hit 810 in 2023, and every piece of this was chosen, funded, and defended by named people.",
+  keyStats: [
+    { value: "810", label: "overdose deaths in SF, 2023", sub: "the deadliest year on record" },
+    { value: "70.5", label: "per 100,000 — death rate", sub: "2nd in US, behind only Baltimore" },
+    { value: "690", label: "treatment beds", sub: "for an estimated 24,500 injection drug users" }
+  ],
+
+  // -------- LAYER 1: IDEAS TIMELINE --------
+  ideas: {
+    title: "How We Got Here: The Ideas",
+    streams: [
+      {
+        id: "harm_reduction",
+        name: "Harm Reduction",
+        color: "#4A90D9",
+        events: [
+          { year: 1984, event: "First needle exchange — Amsterdam (Junkiebond)", type: "origin" },
+          { year: 1985, event: "Allan Parry creates 'Mersey Model' in Liverpool", type: "origin" },
+          { year: 1988, event: "Edith Springer brings harm reduction to US after UK visit", type: "bridge" },
+          { year: 1988, event: "Prevention Point SF founded — underground needle exchange", type: "sf_arrival" },
+          { year: 1990, event: "ACT UP begins illegal needle distribution in NYC", type: "key" },
+          { year: 1993, event: "Mayor Jordan legalizes SF needle exchange via emergency declaration", type: "policy" },
+          { year: 1994, event: "Harm Reduction Coalition founded in San Francisco", type: "institution" },
+          { year: 2000, event: "SFDPH makes harm reduction OFFICIAL city policy", type: "critical_shift", title: "Harm reduction → SF policy" },
+          { year: 2001, event: "Portugal decriminalizes drug possession (US advocates adopt as model)", type: "intellectual" },
+          { year: 2025, event: "Mayor Lurie's 'Breaking the Cycle' — partial reversal", type: "backlash" }
+        ]
+      },
+      {
+        id: "deinst",
+        name: "Deinstitutionalization",
+        color: "#D94A4A",
+        events: [
+          { year: 1957, event: "Short-Doyle Act — state funds for local mental health programs", type: "origin" },
+          { year: 1963, event: "Federal Community Mental Health Act", type: "policy" },
+          { year: 1967, event: "Lanterman-Petris-Short Act signed by Reagan — limits involuntary commitment", type: "critical_shift", title: "LPS Act" },
+          { year: 1969, event: "First CA state hospitals close (Modesto, DeWitt, Mendocino)", type: "institution" },
+          { year: 1972, event: "LPS Act fully implemented — 'gravely disabled' standard", type: "policy" },
+          { year: 2004, event: "Prop 63/MHSA — 1% millionaire tax for community mental health ($31B+ since)", type: "funding" }
+        ]
+      },
+      {
+        id: "cj_reform",
+        name: "Criminal Justice Reform",
+        color: "#D9A84A",
+        events: [
+          { year: 1994, event: "Ethan Nadelmann + George Soros found Lindesmith Center", type: "origin" },
+          { year: 2000, event: "Lindesmith merges with Drug Policy Foundation → Drug Policy Alliance", type: "institution" },
+          { year: 2011, event: "Brown v. Plata — SCOTUS orders CA to reduce prison population to 137.5% capacity", type: "critical_shift", title: "Brown v. Plata" },
+          { year: 2011, event: "Public Safety Realignment — shifts low-level felons from state prison to county jail", type: "policy" },
+          { year: 2014, event: "Prop 47 passes — drug possession reclassified felony → misdemeanor", type: "critical_shift", title: "Prop 47" },
+          { year: 2019, event: "Chesa Boudin elected SF DA on progressive platform", type: "key" },
+          { year: 2022, event: "Boudin recalled — 55% vote", type: "backlash" },
+          { year: 2024, event: "Prop 36 passes — partially rolls back Prop 47", type: "backlash" }
+        ]
+      },
+      {
+        id: "fentanyl",
+        name: "Fentanyl Arrival",
+        color: "#333333",
+        events: [
+          { year: 2015, event: "11 fentanyl deaths in SF — first significant presence", type: "origin" },
+          { year: 2018, event: "89 fentanyl deaths — fentanyl saturating heroin supply", type: "escalation" },
+          { year: 2019, event: "234 fentanyl deaths — 163% increase", type: "escalation" },
+          { year: 2020, event: "518 fentanyl deaths — pandemic + enforcement gap", type: "crisis" },
+          { year: 2023, event: "653 fentanyl deaths — peak; 81% of all OD deaths", type: "crisis" }
+        ]
+      }
+    ],
+    convergencePoints: [
+      { year: 2000, note: "Harm reduction goes official; DPA founded" },
+      { year: 2011, note: "Brown v. Plata + Realignment open the door" },
+      { year: 2014, note: "Prop 47 passes" },
+      { year: 2019, note: "Boudin elected; fentanyl saturation begins" }
+    ]
+  },
+
+  // -------- LAYER 2: MONEY GRAPH --------
+  money: {
+    title: "Follow the Money",
+    funders: [
+      {
+        id: "soros",
+        name: "George Soros",
+        org: "Open Society Foundations",
+        kind: "philanthropy",
+        detail: "$300M+ globally on drug policy reform since 1994. The single most influential funder of the modern US drug-policy-reform infrastructure.",
+        flows: [
+          { to: "dpa", amount: "$4M/year", label: "annual grant", type: "annual_grant" },
+          { to: "aclu", amount: "$50M grant", label: "one-time grant (Oct 2014)", type: "one_time" },
+          { to: "prop47", amount: "$2.86M", label: "direct campaign contribution", type: "campaign" }
+        ]
+      },
+      {
+        id: "ford",
+        name: "Ford Foundation",
+        kind: "philanthropy",
+        detail: "Major criminal-justice-reform funder.",
+        flows: [
+          { to: "dpa", amount: "$4.575M", label: "grant (Nov 2023)", type: "one_time" }
+        ]
+      },
+      {
+        id: "hughes",
+        name: "B. Wayne Hughes Jr.",
+        kind: "philanthropy",
+        detail: "Malibu Republican, son of Public Storage co-founder. The conservative fiscal-reform half of the Prop 47 coalition.",
+        flows: [
+          { to: "prop47", amount: "$1.275M", label: "campaign contribution", type: "campaign" }
+        ]
+      },
+      {
+        id: "atlantic",
+        name: "Atlantic Advocacy Fund",
+        kind: "philanthropy",
+        detail: "Charles Feeney philanthropy.",
+        flows: [
+          { to: "prop47", amount: "$850K", label: "campaign contribution", type: "campaign" }
+        ]
+      },
+      {
+        id: "ca_state",
+        name: "State of California",
+        kind: "government",
+        detail: "MHSA ($31B+ since 2004), Criminal History Reporting ($61M), Realignment ($1B/year to counties).",
+        flows: [
+          { to: "sf_dph", amount: "$3.5B/yr", label: "MHSA statewide system (FY2022–23)", type: "annual" },
+          { to: "sf_dph", amount: "$61M", label: "CHRI over 4 years", type: "program" }
+        ]
+      },
+      {
+        id: "sf_city",
+        name: "City of San Francisco",
+        kind: "government",
+        detail: "DPH $3.2B total budget; $1.1B homelessness budget (FY2021–22).",
+        flows: [
+          { to: "sf_dph", amount: "$17.5M/yr + $47M", label: "harm reduction + overdose prevention", type: "annual" },
+          { to: "sfaf", amount: "$1.5M", label: "naloxone contract", type: "contract" },
+          { to: "nhrc", amount: "$3.6M+", label: "DOPE Project (via Heluna Health)", type: "contract" },
+          { to: "nhrc", amount: "$5.5M", label: "Harm Reduction Therapy Center, 5-year", type: "contract" },
+          { to: "hr360", amount: "$1M+/yr", label: "SoMa RISE and other programs", type: "contract" }
+        ]
+      },
+      {
+        id: "cdc_fed",
+        name: "CDC / Federal Government",
+        kind: "government",
+        detail: "Federal overdose prevention grants.",
+        flows: [
+          { to: "sf_dph", amount: "$2.25M/yr", label: "5-year overdose prevention grant", type: "grant" }
+        ]
+      }
+    ],
+    orgs: [
+      {
+        id: "dpa",
+        name: "Drug Policy Alliance",
+        kind: "advocacy",
+        budget: "$12M/yr",
+        leader: "Kassandra Frederique (ED). Laura Thomas (former SF director → SFAF).",
+        founded: "2000 (Soros + Nadelmann)",
+        role: "Primary advocacy org behind Prop 47, decriminalization, and the harm-reduction framework.",
+        connectsTo: ["prop47"]
+      },
+      {
+        id: "csj",
+        name: "Californians for Safety and Justice",
+        kind: "advocacy",
+        leader: "Lenore Anderson (founder, Prop 47 campaign chair & co-author)",
+        role: "Designed and ran the Prop 47 campaign.",
+        connectsTo: ["prop47"]
+      },
+      {
+        id: "aclu",
+        name: "ACLU",
+        kind: "advocacy",
+        role: "Largest single Prop 47 donor ($3.5M) — funded by Soros's $50M grant. Pass-through and validator.",
+        connectsTo: ["prop47"]
+      },
+      {
+        id: "sfaf",
+        name: "SF AIDS Foundation",
+        kind: "service",
+        budget: "$37.9M/yr",
+        leader: "Tyler TerMeer (CEO). Laura Thomas (Senior Dir., HR Policy — formerly DPA).",
+        role: "Syringe exchange, naloxone distribution, PROP contingency management, overdose prevention.",
+        note: "Laura Thomas moved from DPA → SFAF in 2019 — the advocacy-to-provider revolving door.",
+        connectsTo: ["sfdph_policy"]
+      },
+      {
+        id: "glide",
+        name: "GLIDE Foundation",
+        kind: "service",
+        budget: "$26.7M/yr",
+        role: "Syringe access, overdose prevention, HEAT outreach, Narcan distribution.",
+        connectsTo: ["sfdph_policy"]
+      },
+      {
+        id: "nhrc",
+        name: "National Harm Reduction Coalition",
+        kind: "service",
+        budget: "$8.6M/yr",
+        role: "Operates the DOPE Project — largest single-city naloxone program in the US. Founded in SF in 1994.",
+        connectsTo: ["sfdph_policy"]
+      },
+      {
+        id: "hr360",
+        name: "HealthRIGHT 360",
+        kind: "service",
+        budget: "$44M–$144M/yr",
+        leader: "Dr. Vitka Eisen (CEO)",
+        role: "Largest treatment provider in CA. Runs SoMa RISE Center, residential treatment, syringe services, MAT.",
+        connectsTo: ["sfdph_policy"]
+      },
+      {
+        id: "sf_dph",
+        name: "SF Dept. of Public Health",
+        kind: "service",
+        budget: "$3.2B total",
+        role: "City agency. Adopted harm reduction as official policy in 2000. Contracts out to service providers.",
+        connectsTo: ["sfdph_policy"]
+      }
+    ],
+    policies: [
+      {
+        id: "prop47",
+        name: "Proposition 47",
+        year: 2014,
+        detail: "Drug possession: felony → misdemeanor. Eliminated mandatory-treatment leverage. Passed 59.6%. Campaign spending: $9.5M yes vs $500K no (20:1 ratio). Soros-connected money ≈ 2/3 of yes campaign.",
+        effect: "Statewide felony drug arrests dropped 92,000+ in first year. Cite-and-release became standard. Treatment pipeline severed."
+      },
+      {
+        id: "boudin_policy",
+        name: "Boudin DA Policies",
+        year: 2020,
+        detail: "De facto decriminalization of street-level dealing. 75% of fentanyl dealers pled to 'accessory after the fact' (avoids deportation). Zero fentanyl convictions in 2021. Diversions surpassed convictions by 2022.",
+        effect: "3 drug-dealing convictions in 2021 (0 for fentanyl) while 475 people died of fentanyl OD."
+      },
+      {
+        id: "sfdph_policy",
+        name: "SFDPH Harm Reduction Policy",
+        year: 2000,
+        detail: "Harm reduction adopted as official city health policy. Framework designed for HIV/needle exchange — never stress-tested against fentanyl.",
+        effect: "City contracts flow only to providers operating inside the harm-reduction frame."
+      },
+      {
+        id: "lps_act",
+        name: "Lanterman-Petris-Short Act",
+        year: 1967,
+        detail: "Limits involuntary psychiatric commitment to 'gravely disabled' or danger to self/others.",
+        effect: "Made it nearly impossible to compel treatment — the legal substrate everything else sits on top of."
+      }
+    ],
+    outcomes: [
+      {
+        id: "od_deaths",
+        name: "Overdose Deaths",
+        stat: "810 in 2023",
+        sub: "653 from fentanyl alone (81%)",
+        series: [
+          { year: 2015, fentanyl: 11, total: 264 },
+          { year: 2016, fentanyl: 22, total: 259 },
+          { year: 2017, fentanyl: 36, total: 262 },
+          { year: 2018, fentanyl: 89, total: 259 },
+          { year: 2019, fentanyl: 234, total: 441 },
+          { year: 2020, fentanyl: 518, total: 699 },
+          { year: 2021, fentanyl: 475, total: 623 },
+          { year: 2022, fentanyl: 453, total: 647 },
+          { year: 2023, fentanyl: 653, total: 810 },
+          { year: 2024, fentanyl: 500, total: 635 }
+        ]
+      },
+      { id: "treatment_gap", name: "Treatment Capacity Gap", stat: "690 SUD beds for 24,500 injection drug users (3% coverage)" },
+      { id: "spending_per_homeless", name: "Spending Per Homeless Person", stat: "$57,000/yr — $2.8B since 2016–17. Count rose from 12,249 to 19,086." },
+      { id: "per_capita_rate", name: "Per-Capita OD Death Rate", stat: "70.5 per 100K — 2nd in US (Baltimore 108.6); 3× the national average." },
+      { id: "non_resident", name: "Non-Resident Drug Users", stat: "47% of people cited for drug use in SF drug markets don't live in SF." }
+    ]
+  },
+
+  // -------- LAYER 3: PEOPLE --------
+  people: {
+    title: "The Power Brokers",
+    tiers: {
+      architects: {
+        label: "Architects",
+        blurb: "Built the infrastructure. Decades, not years.",
+        people: [
+          {
+            id: "soros_p",
+            name: "George Soros",
+            role: "Founder & Funder",
+            org: "Open Society Foundations",
+            relevance: "Co-founded DPA (2000). $300M+ into drug policy reform globally. Funded the Prop 47 campaign (~$6.4M via direct + ACLU). Created the advocacy infrastructure that reshaped CA criminal justice.",
+            connected: ["nadelmann_p", "anderson_p"]
+          },
+          {
+            id: "nadelmann_p",
+            name: "Ethan Nadelmann",
+            role: "Founder / Intellectual",
+            org: "Drug Policy Alliance (2000–2017)",
+            relevance: "Princeton political scientist who built DPA into the dominant drug-reform advocacy org. Key insight: marry libertarian anti-prohibition with racial-justice framing.",
+            connected: ["soros_p"]
+          },
+          {
+            id: "anderson_p",
+            name: "Lenore Anderson",
+            role: "Campaign Architect",
+            org: "Californians for Safety and Justice; Alliance for Safety and Justice",
+            relevance: "Co-author and campaign chair of Prop 47. Designed the 'Safe Neighborhoods and Schools Act' framing. Built the ballot initiative that eliminated felony drug possession in CA.",
+            connected: ["soros_p"]
+          }
+        ]
+      },
+      operators: {
+        label: "Operators",
+        blurb: "Translated ideas into prosecutorial practice and service delivery.",
+        people: [
+          {
+            id: "boudin_p",
+            name: "Chesa Boudin",
+            role: "SF District Attorney (2020–2022)",
+            relevance: "De facto decriminalized street dealing. 75% of fentanyl dealers pled to 'accessory after the fact.' Zero fentanyl convictions in 2021 while 475 died. Recalled 55–45 in June 2022.",
+            staff: ["Kate Chatfield (policy director)", "Rachel Marshall (comms)", "Tal Klement (criminal division chief)"],
+            cases: ["Troy McAlister (NYE 2020 fatal hit-and-run)", "Tenderloin dealer w/ 6 open cases → single misdemeanor plea"],
+            quotes: [
+              "We don't see jail or prison as the only or basic response to crime.",
+              "Bring me kilos, not crumbs."
+            ],
+            connected: ["chatfield_p", "jenkins_p"]
+          },
+          {
+            id: "thomas_p",
+            name: "Laura Thomas",
+            role: "Policy Director → Service Provider",
+            org: "DPA (former) → SF AIDS Foundation (current)",
+            relevance: "Was DPA's SF director (advocacy), moved to SFAF in 2019 (service delivery). Now Senior Director of HIV & Harm Reduction Policy at SFAF ($37.9M budget). Embodies the advocacy-to-provider pipeline.",
+            connected: []
+          },
+          {
+            id: "ciccarone_p",
+            name: "Dr. Daniel Ciccarone",
+            role: "Academic & Advisor",
+            org: "UCSF",
+            relevance: "Justine Miner Professor of Addiction Medicine. 20+ years at SF syringe exchanges. Consults for ONDCP, CDC, FDA. Most prominent academic defender of SF's harm-reduction framework. Key node in the UCSF → SFDPH pipeline.",
+            connected: []
+          },
+          {
+            id: "chatfield_p",
+            name: "Kate Chatfield",
+            role: "Policy Director / Chief of Staff",
+            org: "SF DA's Office (under Boudin)",
+            relevance: "Central figure shaping Boudin's drug-prosecution policies. Previously at Stanford Three Strikes Project. Fired by Jenkins after the recall.",
+            connected: ["boudin_p"]
+          }
+        ]
+      },
+      infrastructure: {
+        label: "Infrastructure",
+        blurb: "The orgs and pipelines that keep the framework running.",
+        people: [
+          { id: "dpa_org", name: "Drug Policy Alliance", role: "Advocacy org", relevance: "$12M/yr. Co-founded by Soros/Nadelmann. Drove Prop 47 + decriminalization movement.", connected: [] },
+          { id: "sfaf_org", name: "SF AIDS Foundation", role: "Service provider", relevance: "$37.9M/yr. Largest harm-reduction service provider in SF. Hired Laura Thomas from DPA in 2019.", connected: [] },
+          { id: "nhrc_org", name: "National Harm Reduction Coalition", role: "Service provider", relevance: "$8.6M/yr. Runs DOPE Project — largest single-city naloxone program in US ($3.6M+ DPH contract). Founded in SF (1994).", connected: [] },
+          { id: "hr360_org", name: "HealthRIGHT 360", role: "Service provider", relevance: "$44M–$144M/yr. Largest treatment provider in CA. Runs SoMa RISE.", connected: [] },
+          { id: "ucsf_org", name: "UCSF Addiction Medicine", role: "Academic pipeline", relevance: "Fellowship programs feed directly into SFDPH. Faculty serve as city policy advisors. Continuous loop.", connected: [] }
+        ]
+      },
+      backlash: {
+        label: "Backlash",
+        blurb: "Politically rolling back parts of the framework — partially, slowly.",
+        people: [
+          {
+            id: "jenkins_p",
+            name: "Brooke Jenkins",
+            role: "SF DA (2022–present)",
+            relevance: "Replaced Boudin. Revoked 30+ plea deals, created a 5-gram threshold, reduced diversions 70%, conviction rate rose from 37% to 43%. Filed a record 952 felony narcotics cases in 2023.",
+            connected: ["boudin_p"]
+          },
+          {
+            id: "dorsey_p",
+            name: "Matt Dorsey",
+            role: "SF Supervisor, District 6",
+            relevance: "In recovery himself. Led 'Recovery First' ordinance (passed unanimously). Pushing drug-free supportive housing. RESET sobering facility.",
+            connected: []
+          },
+          {
+            id: "lurie_p",
+            name: "Daniel Lurie",
+            role: "SF Mayor (2025–present)",
+            relevance: "'Breaking the Cycle' initiative — requires treatment counseling with supply distribution. Bans outdoor smoking-supply distribution. Partial reversal of 25 years of harm-reduction-first policy.",
+            connected: []
+          }
+        ]
+      }
+    }
+  },
+
+  // -------- LAYER 5: NAMED VICTIMS --------
+  victims: {
+    title: "The Names",
+    narrative: "Nine people whose deaths or injuries trace directly to the system failures documented in this project. Each name is a thread you can pull, from a policy decision in Sacramento or City Hall, through a DA's office, past a judge's bench, to a street corner where someone died.",
+    items: [
+      {
+        id: "hanako-abe",
+        name: "Hanako Abe",
+        age: 27,
+        date: "2020-12-31",
+        location: "Second Street, South Beach, San Francisco",
+        kind: "violent_death",
+        summary: "Killed in a crosswalk on New Year's Eve by Troy McAlister, who was driving a stolen car under the influence of methamphetamine and alcohol. McAlister ran a red light and struck Abe and Elizabeth Platt. McAlister had 91+ felonies on his record. Between his April 2020 release and the fatal crash, he was arrested 5 times. Boudin's office declined to file charges every time.",
+        perpetrator: {
+          name: "Troy Ramon McAlister",
+          priorRecord: "91+ felonies (73 felonies + 34 misdemeanors in SF). Convictions for robbery (1995, 2010, 2015), attempted carjacking (2005), receiving stolen property (2006), battery on police officer. Three-strikes eligible.",
+          judicialHistory: "Judge Loretta Giorgi finalized plea deal April 10, 2020. 'Time served' for 2015 robbery, ankle monitor removed. 5 subsequent felony arrests, zero charges filed by Boudin's office. CDCR parole agents declined to revoke (COVID-era memos). SFPD failed to notify parole office of December arrest.",
+          outcome: "Trial set March 2026 after 5+ years of delays. Drug diversion denied by Judge Begert (Oct 2025). Case dismissal sought by public defender. Still pending."
+        },
+        systemFailures: [
+          { actor: "judge", actorId: "judge-loretta-giorgi", failure: "Finalized plea deal releasing McAlister with 100+ felonies. Removed ankle monitor. Wished him luck." },
+          { actor: "policy", actorId: "boudin_policy", failure: "Declined to file charges on 5 post-release arrests in 8 months. Referred each to parole instead of prosecution." },
+          { actor: "parole", failure: "COVID-era memos told parole agents to avoid sending parolees to jail. McAlister's agent declined to revoke despite 4 arrest notifications." },
+          { actor: "sfpd", failure: "SFPD failed to contact parole office after December 2020 arrest, violating its own policy despite written reminder from DA's office." }
+        ],
+        familyQuotes: [
+          { speaker: "Hiroko Abe, mother", quote: "I have been simply wondering why it would take this long.", source: "Nichi Bei News, January 2026" },
+          { speaker: "Hiroko Abe, mother", quote: "Nothing more than an attempt to evade responsibility for the crimes.", source: "Voice of SF, on McAlister's diversion motion" }
+        ],
+        mediaCoverage: [
+          { outlet: "Mission Local", date: "2021-01", headline: "The strange and terrible saga of a parolee and a fatal hit-and-run" },
+          { outlet: "Nichi Bei News", date: "2026-01", headline: "Mother of slain woman discusses long wait for trial" },
+          { outlet: "The Guardian", date: "2024-02-26", headline: "Troy McAlister case feature" },
+          { outlet: "KTVU", date: "2025", headline: "Repeat offender in deadly SF NYE crash seeks diversion" }
+        ],
+        currentStatus: "Active trial (March 2026). Family filed government claim against State of California (CDCR negligence) March 2026. 5+ years and counting without resolution."
+      },
+      {
+        id: "elizabeth-platt",
+        name: "Elizabeth Platt",
+        age: 60,
+        date: "2020-12-31",
+        location: "Second Street, South Beach, San Francisco",
+        kind: "violent_death",
+        summary: "Radio DJ killed alongside Hanako Abe in the same Troy McAlister hit-and-run. Same perpetrator, same failure chain: 5 unanswered arrests, non-prosecution, parole non-revocation, SFPD notification failure.",
+        perpetrator: {
+          name: "Troy Ramon McAlister",
+          priorRecord: "Same as Hanako Abe: 91+ felonies.",
+          judicialHistory: "Same as Hanako Abe.",
+          outcome: "Same active trial as Abe case. Family co-plaintiffs in CDCR claim."
+        },
+        systemFailures: [
+          { actor: "judge", actorId: "judge-loretta-giorgi", failure: "Plea deal released McAlister." },
+          { actor: "policy", actorId: "boudin_policy", failure: "5 arrests, zero charges." },
+          { actor: "parole", failure: "COVID-era non-revocation." }
+        ],
+        familyQuotes: [],
+        mediaCoverage: [
+          { outlet: "Voice of SF", date: "2024", headline: "Four years after Troy McAlister killed Hanako Abe and Elizabeth Platt, their families still wait for justice" }
+        ],
+        currentStatus: "Same active trial and government claim as Abe case."
+      },
+      {
+        id: "emma-hunt",
+        name: "Emma Hunt",
+        age: 32,
+        date: "2020-01",
+        location: "Tenderloin, San Francisco",
+        kind: "violent_death",
+        summary: "Mother of two shot and killed in the Tenderloin. DA Boudin's office declined to file murder charges despite arrests; filed firearms charges only. Suspect later seen selling drugs at the site where Hunt was killed. One of three Black mothers killed in SF in the same 30-day period, 11 children left motherless total.",
+        perpetrator: {
+          name: "Not publicly named in available sources",
+          priorRecord: "Multiple prior arrests per news coverage",
+          judicialHistory: "Boudin's office filed firearms charges only. No murder charge. Suspect failed to appear.",
+          outcome: "No murder prosecution. Suspect FTA on firearms charges."
+        },
+        systemFailures: [
+          { actor: "policy", actorId: "boudin_policy", failure: "Declined murder charges. Filed only firearms charges. Suspect subsequently failed to appear." }
+        ],
+        familyQuotes: [
+          { speaker: "Family members", quote: "The suspect was seen selling drugs at the very spot where Emma was killed.", source: "Local news coverage, 2020" }
+        ],
+        mediaCoverage: [
+          { outlet: "Local SF outlets", date: "2020-01", headline: "Coverage of Tenderloin shooting" }
+        ],
+        currentStatus: "No murder prosecution. Suspect at large (FTA)."
+      },
+      {
+        id: "trevor-leopold",
+        name: "Trevor Leopold",
+        age: 18,
+        date: "2019-11",
+        location: "Sonoma State University, Rohnert Park, CA",
+        kind: "overdose_death",
+        summary: "18-year-old college freshman died from fentanyl poisoning after taking a counterfeit pill at Sonoma State University. His death connected the campus fentanyl crisis to the street crisis: counterfeit pills manufactured by Mexican cartels killed suburban college students the same way they killed Tenderloin residents. His mother Michelle Leopold became one of the Bay Area's leading Narcan distribution advocates.",
+        perpetrator: null,
+        systemFailures: [
+          { actor: "policy", failure: "No Narcan availability at Sonoma State at the time. No public awareness campaign about counterfeit pills on campus." },
+          { actor: "policy", failure: "Counterfeit pills containing fentanyl widely available with no effective interdiction. DEA one-pill-can-kill campaign came later." }
+        ],
+        familyQuotes: [
+          { speaker: "Michelle Leopold, mother", quote: "Narcan should be as common as a fire extinguisher.", source: "CBS News SF; rally speeches" }
+        ],
+        mediaCoverage: [
+          { outlet: "CBS News SF", date: "2019-2020", headline: "Coverage of Sonoma State fentanyl death" }
+        ],
+        currentStatus: "Mother Michelle Leopold continues as leading Bay Area Narcan advocate and MADAAD spokesperson."
+      },
+      {
+        id: "aurelio-jimenez-jr",
+        name: "Aurelio Jimenez Jr.",
+        age: 24,
+        date: "2023",
+        location: "San Francisco",
+        kind: "overdose_death",
+        summary: "24-year-old Marine reservist and healthcare data analyst. One of 806 people who died of drug overdoses in San Francisco in 2023, the city's deadliest year. His profile challenges the stereotype that fentanyl only kills people in the Tenderloin. He represents the broader demographic reach of the crisis.",
+        perpetrator: null,
+        systemFailures: [
+          { actor: "policy", failure: "Open-air drug markets in SF remain operational. Fentanyl available within minutes of arrival in the Tenderloin." },
+          { actor: "policy", actorId: "sfdph_policy", failure: "City's harm-reduction framework focused on safe use rather than preventing initiation or providing accessible treatment. 690 SUD beds for 24,500 injection drug users (3% coverage)." }
+        ],
+        familyQuotes: [],
+        mediaCoverage: [
+          { outlet: "SF Standard", date: "2023-2024", headline: "Faces of Fentanyl series / OD death coverage" }
+        ],
+        currentStatus: "One of 806 OD deaths in 2023. Family has spoken publicly but less prominently than other victims' families."
+      },
+      {
+        id: "alexandra-capelouto",
+        name: "Alexandra Capelouto",
+        age: 20,
+        date: "2019-12",
+        location: "Temecula, CA (not SF — included because her parents created the law that became Prop 36)",
+        kind: "overdose_death",
+        summary: "20-year-old died from fentanyl poisoning after taking a counterfeit pill purchased via Snapchat. Her parents created 'Alexandra's Law,' enabling murder/manslaughter charges against fentanyl dealers whose drugs cause death. This framework was incorporated into Proposition 36 (2024), which passed with 70% of the vote. The Capeloutos' advocacy directly connects a single death to the statewide policy reversal.",
+        perpetrator: {
+          name: "Dealer identified via Snapchat",
+          priorRecord: "Social media drug dealer",
+          judicialHistory: "CA law at the time (under Prop 47 framework) blocked murder/manslaughter charges against dealers whose drugs caused death. Alexandra's Law was created to close this gap.",
+          outcome: "Alexandra's Law introduced in CA legislature. Framework incorporated into Prop 36 (2024)."
+        },
+        systemFailures: [
+          { actor: "policy", actorId: "prop47", failure: "Prop 47's reclassification of drug offenses made it harder to bring serious charges against fentanyl dealers. No mechanism for murder/manslaughter charges when drugs caused death." },
+          { actor: "policy", failure: "Counterfeit pills sold via social media (Snapchat) with no platform accountability. No effective interdiction." }
+        ],
+        familyQuotes: [
+          { speaker: "Matt Capelouto, father", quote: "Our daughter was poisoned. The person who sold her that pill should face murder charges.", source: "CalMatters; Prop 36 campaign materials" },
+          { speaker: "Kim Capelouto, mother", quote: "No parent should have to create a law to get justice for their child.", source: "Prop 36 campaign events" }
+        ],
+        mediaCoverage: [
+          { outlet: "CalMatters", date: "2024", headline: "The families behind Prop 36" },
+          { outlet: "Ballotpedia", date: "2024", headline: "Prop 36 background and campaign" }
+        ],
+        currentStatus: "Parents continue advocacy. Alexandra's Law framework now embedded in Prop 36 (effective 2025)."
+      }
+    ]
+  },
+
+  // -------- LAYER 6: JUDICIARY --------
+  judiciary: {
+    title: "The Judges",
+    narrative: "The judiciary is where reform policy becomes lived reality. A DA can charge aggressively, but if judges release defendants on their own recognizance, grant diversion for violent offenses, or dismiss cases, the enforcement apparatus is neutralized. Eleven SF Superior Court judges have documented patterns of exactly this, and most will win reelection unopposed.",
+    systemicContext: [
+      { stat: "32%", label: "of filed cases resolved by SF courts", sub: "52nd of 56 CA counties" },
+      { stat: "10%", label: "of DA detention motions granted", sub: "373 filed, only 38 granted for drug suspects" },
+      { stat: "517", label: "defendants with outstanding drug-case bench warrants", sub: "missing an average of 30+ months" },
+      { stat: "38%", label: "of SF judges with public defender backgrounds", sub: "up from 29% in 2019" },
+      { stat: "1,908", label: "Drug Court referrals in 2025", sub: "up from 192 in 2022; 91% diverted from trial" },
+      { stat: "Since 2020", label: "SF courts have not reported to the Judicial Council", sub: "the opacity itself is a finding" }
+    ],
+    judges: [
+      {
+        id: "judge-michael-begert",
+        name: "Michael Begert",
+        court: "SF Superior Court, Drug Court",
+        tenureStart: "Pre-2022",
+        nextElection: "Survived March 2024 challenge",
+        lastContested: "2024",
+        patternSummary: "FAIL grade from Stop Crime Action. Oversees Drug Court where referrals surged from 192 (2022) to 1,908 (2025), with 91% diverted to mental health programs. Gave diversion to serial burglar with 18 burglaries who then skipped court. Repeatedly released convicted sex offender. Lives in Piedmont (East Bay), not SF. Did deny McAlister's diversion request.",
+        keyCases: ["potter-serial-burglar"],
+        source: "Garry's List, 'SF's Worst Judge Lets Serial Burglar Walk Free,' Jan 2026; Stop Crime Action Report Card, 2024"
+      },
+      {
+        id: "judge-patrick-thompson",
+        name: "Patrick Thompson",
+        court: "SF Superior Court",
+        tenureStart: "2022",
+        nextElection: "Survived March 2024 challenge",
+        lastContested: "2024",
+        patternSummary: "Lowest attorney rating of any SF judge: 1.6 out of 7. FAIL grade from Stop Crime Action. Released felony drug dealers on own recognizance in 17 different cases; 10 of those defendants were arrested for new felonies while on pretrial release. Released one defendant who was later found with nearly 1 kg of fentanyl.",
+        keyCases: ["lopez-fentanyl-dealer"],
+        source: "Stop Crime Action, 2024; Financial Samurai, 2024"
+      },
+      {
+        id: "judge-maria-evangelista",
+        name: "Maria Evangelista",
+        court: "SF Superior Court",
+        tenureStart: "2021",
+        appointedBy: "Former SF Public Defender",
+        nextElection: "Unknown",
+        lastContested: "Never (appointed ~2021)",
+        patternSummary: "Accounted for almost one-third of all criminal bench warrants in 2024–25 SF Superior Court. Pattern of releasing serial perpetrators on own recognizance who then fail to appear.",
+        keyCases: [],
+        source: "Garry's List, 'SF's Worst Judges Are About to Win Without a Vote,' Jan 2026; Stop Crime Action Report Card, 2024–25"
+      },
+      {
+        id: "judge-carolyn-gold",
+        name: "Carolyn Gold",
+        court: "SF Superior Court (reassigned to Unified Family Court Aug 2025)",
+        tenureStart: "2021",
+        nextElection: "Unknown",
+        patternSummary: "Released domestic violence defendant who violated stay-away order within one week. Granted pretrial release to repeat offender with firearm and drug dealing charges despite prior judge deeming release dangerous. DA prosecutors challenged her in two different courtrooms before her reassignment to Family Court in August 2025.",
+        keyCases: [],
+        source: "Voice of SF, 'Few Challengers,' Jan 2026; Mission Local, 'SF prosecutors challenge judge en masse,' Mar 2025"
+      },
+      {
+        id: "judge-gerardo-sandoval",
+        name: "Gerardo Sandoval",
+        court: "SF Superior Court",
+        tenureStart: "Former Board of Supervisors member",
+        nextElection: "2026 cycle",
+        patternSummary: "Stop Crime Action rating: 2.6/7. Knowledge of law: 1.0/7. Fairness: 1.3/7. 59% voter disapproval. Released defendant who fled police with concealed machine gun, defendant later arrested for murder. Released serial thief ($16K Walgreens). Minimized fentanyl dealing cases. Had to publicly apologize for anti-Semitic comments as Supervisor (2001).",
+        keyCases: [],
+        source: "Garry's List, Jan 2026; SFGate, 2001"
+      },
+      {
+        id: "judge-loretta-giorgi",
+        name: "Loretta Giorgi",
+        court: "SF Superior Court",
+        nextElection: "Unknown",
+        patternSummary: "Presided over the April 10, 2020 plea deal (brokered by DA Boudin's office) that sentenced Troy McAlister to 'time served' for a 2015 robbery and removed his ankle monitor. Within months, McAlister was arrested 5 more times. On Dec 31, 2020, he killed Hanako Abe and Elizabeth Platt in a stolen-car hit-and-run.",
+        keyCases: ["mcalister-2020-hit-run"],
+        source: "Susan Reynolds/Substack, 2021; The Guardian, Feb 2024; Voice of SF, Oct 2025"
+      },
+    ],
+    caseDispositions: [
+      {
+        id: "mcalister-2020-hit-run",
+        defendant: "Troy Ramon McAlister",
+        judge: "judge-loretta-giorgi",
+        daOffice: "Boudin",
+        victimName: "Hanako Abe, Elizabeth Platt",
+        victimId: "hanako-abe",
+        priorRecord: "91+ felonies (73 felonies + 34 misdemeanors in SF). Three-strikes eligible.",
+        keyDecision: "Judge Giorgi's April 2020 plea deal released McAlister with 100+ felonies on his record. Boudin's office then declined to file charges on 5 subsequent arrests in 8 months. CDCR parole agents declined to revoke despite 4 arrest notifications.",
+        subsequentOutcome: "Two women killed. Trial finally set for March 2026 after 5+ years of delays.",
+        timeline: [
+          { date: "2020-04-10", event: "Plea deal finalized for 2015 robbery", outcome: "'Time served.' Ankle monitor removed. Judge Giorgi wished him luck." },
+          { date: "2020-06", event: "First post-release arrest (residential burglary)", outcome: "Boudin's office declined to file charges" },
+          { date: "2020-07", event: "Second arrest (vehicle theft)", outcome: "Boudin's office declined to file charges" },
+          { date: "2020-09", event: "Third arrest (narcotics)", outcome: "Boudin's office declined to file charges" },
+          { date: "2020-11", event: "Fourth arrest (false name to police, parole violation)", outcome: "Boudin's office declined to file charges" },
+          { date: "2020-12", event: "Fifth arrest (burglary)", outcome: "SFPD failed to contact parole office" },
+          { date: "2020-12-31", event: "McAlister kills Hanako Abe and Elizabeth Platt", outcome: "Fatal hit-and-run after running red light under influence" },
+          { date: "2025-10", event: "McAlister requests drug diversion", outcome: "Denied by Judge Begert" }
+        ]
+      },
+      {
+        id: "lopez-fentanyl-dealer",
+        defendant: "Joshua Lopez",
+        judge: "judge-patrick-thompson",
+        daOffice: "Jenkins",
+        victimName: null,
+        keyDecision: "Thompson released Lopez on own recognizance 20 days after arrest despite DA objections, 14 prior arrests, and history of removing GPS monitors. Lopez was found with nearly 1 kg of fentanyl less than 2 months later.",
+        subsequentOutcome: "Federal detention without bail. Transferred to federal jurisdiction.",
+        priorRecord: "14 arrests since 2020. Had previously removed GPS monitors.",
+        timeline: [
+          { date: "2024", event: "Lopez arrested for drug dealing", outcome: "DA objects to release" },
+          { date: "2024", event: "Judge Thompson releases on OR 20 days after arrest", outcome: "OR release despite DA objections and 14 prior arrests" },
+          { date: "2024", event: "Re-arrested less than 2 months later", outcome: "Found with ~1 kg of fentanyl. Federal judge detained without bail." }
+        ]
+      }
+    ],
+    patterns: [
+      { pattern: "Drug dealers released on OR despite DA detention requests", judges: ["judge-patrick-thompson", "judge-maria-evangelista"], stat: "373 detention motions filed by DA, only 38 granted (~10%)", summary: "DA Jenkins filed 373 detention motions for drug suspects. Courts granted only 38, a 10% success rate. The judiciary systematically overrides prosecutorial detention requests for drug offenders." },
+      { pattern: "Bench warrants for failure to appear", judges: ["judge-maria-evangelista"], stat: "517 defendants with outstanding bench warrants, avg 30+ months missing", summary: "Defendants released on OR fail to appear for court dates. 517 have outstanding bench warrants. The average time missing: over 2.5 years. Judge Evangelista's department generates a third of all criminal bench warrants." },
+      { pattern: "Public defender pipeline to bench", judges: ["judge-maria-evangelista"], stat: "38% of SF judges have PD backgrounds (up from 29% in 2019)", summary: "The share of SF judges with public defender backgrounds rose from 29% to 38% between 2019 and 2025. This pipeline may explain the systematic bias toward defendant release and diversion in drug cases." }
+    ],
+    electionsOutlook: [
+      { judgeId: "judge-michael-begert", nextElection: "Survived March 2024", challenger: "no", notes: "Survived voter challenge alongside Thompson. SF voters rejected removal despite Stop Crime Action campaign." },
+      { judgeId: "judge-patrick-thompson", nextElection: "Survived March 2024", challenger: "no", notes: "Lowest attorney rating (1.6/7) but retained by voters." },
+      { judgeId: "judge-gerardo-sandoval", nextElection: "2026", challenger: "no", notes: "59% voter disapproval but no filed challenger as of Feb 4, 2026 deadline. Will appear unopposed." }
+    ]
+  },
+
+  // -------- LAYER 7: COUNTER-NETWORK --------
+  opposition: {
+    title: "The Counter-Network",
+    narrative: "The recovery-first counter-network is a loose coalition of victim families, small business owners, neighborhood safety groups, and wealthy SF moderates. It has no Soros-equivalent patron and is outspent roughly 5-to-1 on permanent institutional infrastructure. But it has won every major fight it has picked since 2022: the Boudin recall, Prop 36, the Lurie mayoralty, and the Recovery First ordinance.",
+    asymmetry: {
+      summary: "Harm-reduction advocacy outspends recovery-first advocacy roughly 5-to-1 on permanent institutional infrastructure in California. But in episodic campaigns (recalls, ballot measures, mayoral races), the recovery-first side has outraised the harm-reduction side 2:1 since 2022. The 10-year reversal from Prop 47 (enabling side 17:1 advantage) to Prop 36 (recovery side 2:1 advantage) is one of the most dramatic funding shifts in California political history.",
+      data: [
+        { year: 2014, fight: "Prop 47 (Yes)", harmReduction: 5200000, recoveryFirst: 300000, label: "17:1 enabling advantage", winner: "harm_reduction" },
+        { year: 2022, fight: "Boudin recall", harmReduction: 3300000, recoveryFirst: 7200000, label: "2.2:1 recovery advantage", winner: "recovery_first" },
+        { year: 2024, fight: "Prop 36 (Yes)", harmReduction: 7740000, recoveryFirst: 16800000, label: "2.2:1 recovery advantage", winner: "recovery_first" },
+        { year: 2025, fight: "Annual institutional ongoing", harmReduction: 75000000, recoveryFirst: 15500000, label: "5:1 institutional enabling advantage", winner: "harm_reduction" }
+      ]
+    },
+    orgs: [
+      { id: "neighbors-for-better-sf", name: "Neighbors for a Better SF / Blueprint", kind: "advocacy", founded: "2020", budget: "$10M combined c3+c4 (2024)", leader: "Jay Cheng (ED); William Oberndorf (co-director)", role: "The counter-network's primary spending vehicle. Spent $14.5M+ on political campaigns 2020-2024, including $4.7M on the Boudin recall. Merged with TogetherSF in January 2025 to form Blueprint.", theoryOfChange: "Fund moderate candidates and ballot measures to shift SF's political center toward public safety and accountability.", wins: ["Boudin recall ($4.7M, 55% yes)", "Multiple supervisor endorsements", "Prop 36 support", "Lurie mayoral support"], keyPeople: ["William Oberndorf", "Jay Cheng", "Kanishka Cheng"] },
+      { id: "growsf", name: "GrowSF", kind: "advocacy", founded: "2021", budget: "$1.24M (2024)", leader: "Sachin Agarwal, co-founder", role: "Voter education and candidate endorsement platform. Launched 'GrowSF Talent' (March 2025) to recruit future political leaders. Focused on moderate, pro-housing, pro-safety candidates.", theoryOfChange: "Mobilize SF's silent moderate majority through voter guides, endorsements, and civic participation tools.", wins: ["Multiple endorsed candidates elected", "Large voter contact list", "GrowSF Talent pipeline launched"], keyPeople: ["Sachin Agarwal", "Ryan Brown"] },
+      { id: "stop-crime-sf", name: "Stop Crime SF / Stop Crime Action", kind: "advocacy", founded: "2019", budget: "<$100K (2023)", leader: "Frank Noto, co-founder", role: "Grassroots neighborhood safety advocacy. Created the Judge Report Card system that grades SF Superior Court judges. Co-founded by Joel Engardio (now SF Supervisor).", theoryOfChange: "Transparency as accountability: publish judicial records and crime data that officials don't want public. Make judges electorally vulnerable.", wins: ["Judge Report Card (only systematic judicial accountability tool in SF)", "Multiple judges rated FAIL", "Public defender pipeline documented"], keyPeople: ["Frank Noto", "Joel Engardio"] },
+      { id: "madaad", name: "Mothers Against Drug Deaths (MADAAD)", kind: "victim_advocacy", founded: "2021", budget: "Likely <$100K, grassroots-funded", leader: "Jacqui Berlinn and Gina McDonald, co-founders", role: "Protest-driven victim family advocacy. Billboards, rallies, direct political pressure. Demands shutdown of open-air drug markets and 'Shelter First' policy. Founders' personal stories (Berlinn's son Corey, McDonald's daughter Sam) drive media coverage.", theoryOfChange: "Make the human cost of harm-reduction-as-default-policy undeniable through persistent public presence and family stories.", wins: ["Sustained media coverage", "Political access (met with Lurie, Jenkins, supervisors)", "Shifted public narrative on open-air drug markets"], keyPeople: ["Jacqui Berlinn", "Gina McDonald", "Michelle Leopold"] },
+      { id: "papr", name: "Pacific Alliance for Prevention and Recovery (PAPR)", kind: "advocacy", founded: "2021", budget: "<$500K estimated", leader: "Tom Wolf, founder", role: "Recovery-focused policy advocacy arm. Advises local/state/federal government. Presented at UN Commission on Narcotic Drugs. Wolf's personal recovery story (formerly homeless, fentanyl addict in Tenderloin, recovered after 6 arrests) gives credibility institutional advocates lack.", theoryOfChange: "Replace 'compassion without accountability' with 'compassion through accountability' — recovery, not harm management.", wins: ["Policy advisor to Lurie administration", "UN-level credibility", "Recovery narrative in mainstream media"], keyPeople: ["Tom Wolf"] },
+      { id: "salvation-army-harbor-light", name: "Salvation Army Harbor Light Center", kind: "service_provider", founded: "Long-standing SF presence", budget: "$3.8M (FY 2024-25)", leader: "Salvation Army Western Territory", role: "Major recovery/treatment provider in SF. Government-contracted residential SUD treatment. 'The Way Out' initiative (12-24 clients, up to 3 years counseling + workforce development + transitional housing). One of few recovery-first service providers with government funding.", theoryOfChange: "Long-term residential treatment with accountability, employment, and housing, the opposite of 'managed use.'", wins: ["$6M Prop 47 grant for detox + residential", "Ongoing city contracts", "'The Way Out' fully self-funded"], keyPeople: [] }
+    ],
+    funders: [
+      { id: "oberndorf", name: "William Oberndorf", kind: "individual", detail: "Billionaire hedge fund manager. Republican mega-donor. The closest thing the counter-network has to a Soros, but his cumulative giving (~$1-2M) is two orders of magnitude smaller than Soros's drug policy spending ($200M+ over two decades).", flows: [ { to: "neighbors-for-better-sf", amount: "$1M+", label: "2020-2024, PAC funding + Boudin recall" }, { to: "boudin-recall-2022", amount: "$900K+", label: "2022, direct to recall campaign" } ] },
+      { id: "tipping-point", name: "Tipping Point Community", kind: "philanthropy", detail: "Founded by Daniel Lurie (now Mayor). $11M to Breaking the Cycle Fund. The founder-to-mayor-to-funder pipeline is the counter-network's most direct institutional capture.", flows: [ { to: "breaking-the-cycle", amount: "$11M", label: "2025, Breaking the Cycle Fund" } ] },
+      { id: "schwab-foundation", name: "Charles & Helen Schwab Foundation", kind: "philanthropy", detail: "Major 2025 commitment to Breaking the Cycle Fund. First significant philanthropic investment in recovery-first infrastructure.", flows: [ { to: "breaking-the-cycle", amount: "$10M", label: "2025, Breaking the Cycle Fund" } ] },
+      { id: "moritz-crankstart", name: "Michael Moritz / Crankstart Foundation", kind: "philanthropy", detail: "Venture capitalist. Dual role: $300K to Neighbors PAC (political) + $10M to Breaking the Cycle Fund (infrastructure). One of few donors bridging campaign and institutional spending.", flows: [ { to: "neighbors-for-better-sf", amount: "$300K", label: "2020-2024, PAC funding" }, { to: "breaking-the-cycle", amount: "$10M", label: "2025, Breaking the Cycle Fund" } ] },
+      { id: "geeslin", name: "Keith & Priscilla Geeslin", kind: "individual", detail: "SF philanthropists. $6M to Breaking the Cycle Fund.", flows: [ { to: "breaking-the-cycle", amount: "$6M", label: "2025, Breaking the Cycle Fund" } ] },
+      { id: "walmart-target-home-depot", name: "Walmart, Target, Home Depot", kind: "individual", detail: "Top three retail donors to Prop 36. Motivated by retail theft, not drug policy ideology. Episodic, unlikely to fund permanent recovery-first infrastructure.", flows: [ { to: "prop-36-2024", amount: "$6.1M combined", label: "2024, Yes on Prop 36 campaign" } ] }
+    ],
+    wins: [
+      { id: "boudin-recall-2022", name: "Boudin Recall — Yes on Prop H (2022)", year: 2022, detail: "Recall of DA Chesa Boudin. 55% of voters supported recall. Replaced by Brooke Jenkins. The recall was the counter-network's proof of concept: concentrated spending on a single target produced a decisive result.", effect: "Immediate policy reversal: Jenkins revoked 30+ Boudin-era plea deals, filed felony drug sales charges against 125 individuals by Aug 31, 2022, pursued murder charges against fentanyl dealers.", campaignFundedBy: [{ name: "Neighbors for a Better SF PAC", amount: "$4.7M" }, { name: "William Oberndorf", amount: "$900K+" }, { name: "Shorenstein Realty Services", amount: "$600K+" }, { name: "CA Association of Realtors", amount: "$458K" }], opposition: "$3.3M (ACLU NorCal $350K, SEIU 2015 $100K+, SEIU 1021 $100K+, Smart Justice CA $100K+). 78% of Yes donors were SF-based; 83% were registered Democrats or NPP." },
+      { id: "prop-36-2024", name: "Proposition 36 (2024)", year: 2024, detail: "Statewide ballot measure reversing key provisions of Prop 47 (2014). Reclassified certain drug and theft offenses as felonies. Created 'treatment-mandated felonies.' Passed with ~70% of the vote, the most decisive repudiation of criminal justice reform in California in a decade.", effect: "Reclassified possession of fentanyl, methamphetamine, cocaine, and PCP as potentially felony offenses. Created mandatory treatment diversion for repeat drug offenders. Increased penalties for retail theft over $950. Implementation began 2025.", campaignFundedBy: [{ name: "Walmart", amount: "$3.6M" }, { name: "Target", amount: "$1.5M" }, { name: "Home Depot", amount: "$1M" }, { name: "In-N-Out Burger", amount: "$500K" }, { name: "CA Correctional Peace Officers Association", amount: "$300K" }, { name: "Macy's", amount: "$215K" }], opposition: "$7.74M (Patty Quillin $2.5M, Stacy Schusterman $1M, Heising/Simons $855K, Quinn Delaney $225K). ACLU of NorCal, Anti-Recidivism Coalition, CA Democratic Party opposed." },
+      { id: "recovery-first-ordinance", name: "Recovery First Ordinance (2025)", year: 2025, detail: "Changed SF's primary drug policy goal from harm reduction to 'long-term remission and recovery.' Introduced by Supervisor Matt Dorsey, co-sponsored by 7 of 11 supervisors. Signed by Mayor Lurie May 23, 2025.", effect: "Official policy framework shift. City agencies must now orient programming toward recovery, not managed use.", campaignFundedBy: [], opposition: "No significant organized spending. Harm-reduction advocates opposed initially but offered no organized campaign." },
+      { id: "breaking-the-cycle", name: "Breaking the Cycle Initiative + Fund (2025)", year: 2025, detail: "Mayor Lurie's comprehensive recovery-first policy framework. Ended free paraphernalia distribution (Apr 2025). Launched RESET Center (24/7 stabilization facility at 822 Geary). Fentanyl State of Emergency ordinance (Feb 2025). Breaking the Cycle Fund: $37.5M in private funding, the first major private infrastructure investment in recovery-first approaches.", effect: "Direct reversal of harm-reduction-era policies. City-funded programs can no longer distribute free paraphernalia without treatment counseling. RESET Center provides police-friendly alternative to jail. $37.5M fund builds recovery infrastructure.", campaignFundedBy: [{ name: "Tipping Point Community", amount: "$11M" }, { name: "Charles & Helen Schwab Foundation", amount: "$10M" }, { name: "Crankstart Foundation (Moritz)", amount: "$10M" }, { name: "Keith & Priscilla Geeslin", amount: "$6M" }, { name: "Horace W. Goldsmith Foundation", amount: "$500K" }], opposition: "Harm-reduction advocates and some service providers opposed paraphernalia restrictions. No organized campaign spending against." }
+    ],
+    people: [
+      { id: "tom-wolf", name: "Tom Wolf", role: "Founder, PAPR; West Coast Director, Foundation for Drug Policy Solutions", tier: "architect", relevance: "The counter-network's most credible voice. Formerly homeless heroin/fentanyl addict in SF's Tenderloin, recovered after six arrests and inpatient treatment. His personal story neutralizes the 'you just want to punish addicts' critique. Advises Lurie; presented at UN Commission on Narcotic Drugs. Coined 'compassion through accountability.'", quotes: ["Recovery is possible. We have to stop acting like it isn't.", "The Tenderloin is not a containment zone — it's a death trap. And we built it with compassion."] },
+      { id: "keith-humphreys", name: "Keith Humphreys", role: "Esther Ting Memorial Professor, Stanford Psychiatry", tier: "architect", relevance: "The academic counterweight to UCSF's Daniel Ciccarone. Critiques 'libertarian harm reduction' that opposes constraints on drug use. Served in both Bush and Obama White Houses, bipartisan credibility Ciccarone lacks. Argues Pacific Northwest harm reduction expansion (2020-2024) produced more overdoses, not fewer.", quotes: ["The idea that coercion has no place in addiction treatment is not supported by the evidence.", "In the Pacific Northwest, we ran the experiment. Decriminalize, expand harm reduction, don't expand treatment. Overdoses soared."] },
+      { id: "adam-mesnick", name: "Adam Mesnick", role: "Owner, Deli Board; founder, @bettersoma", tier: "operator", relevance: "Street-level activist who documented the SoMa drug crisis via social media before it was mainstream. Jewish, registered Democrat, hard to dismiss as a right-wing crank. Personal history with addiction gives lived-experience credibility. Faced accusations of white supremacy from activists for documenting open drug use.", quotes: [] },
+      { id: "jacqui-berlinn", name: "Jacqui Berlinn", role: "Co-founder, MADAAD", tier: "victim_advocate", relevance: "Son Corey struggles with fentanyl addiction on SF streets. Co-founded MADAAD with Gina McDonald in August 2021. Protests, billboards, direct confrontation with politicians. The emotional center of the counter-network: a mother watching her son die in slow motion while the city debates 'harm reduction.'", quotes: [] },
+      { id: "gina-mcdonald", name: "Gina McDonald", role: "Co-founder, MADAAD", tier: "victim_advocate", relevance: "Daughter Sam experienced drug addiction in the Tenderloin. Co-founded MADAAD with Berlinn.", quotes: [] },
+      { id: "michelle-leopold", name: "Michelle Leopold", role: "MADAAD member; mother of Trevor Leopold (fentanyl OD victim)", tier: "victim_advocate", relevance: "Lost 18-year-old son Trevor to fentanyl overdose (Nov 2019, Sonoma State). Became leading Bay Area Narcan distribution advocate. Her story connects the campus fentanyl crisis to the street crisis: counterfeit pills kill suburban kids too.", quotes: [] },
+      { id: "joel-engardio", name: "Joel Engardio", role: "SF Supervisor, District 4 (Sunset); co-founder, Stop Crime SF", tier: "political", relevance: "Bridges grassroots safety advocacy with legislative power. Co-founded Stop Crime SF, then won supervisor seat. Co-sponsor of Recovery First Ordinance.", quotes: [] },
+      { id: "greg-totten", name: "Greg Totten", role: "CEO, California District Attorneys Association", tier: "operator", relevance: "Co-chaired Yes on Prop 36 campaign. Gave the ballot measure law enforcement credibility and organizational infrastructure. CDAA's endorsement was critical for the 70% yes vote.", quotes: [] },
+      { id: "william-oberndorf", name: "William Oberndorf", role: "Co-director, Neighbors for a Better SF", tier: "architect", relevance: "The counter-network's largest individual funder. Republican mega-donor who funds moderate SF politics. $1M+ to Neighbors PAC, $900K+ to Boudin recall. The closest thing to a Soros-equivalent on the recovery-first side, but his cumulative giving is two orders of magnitude smaller.", quotes: [] }
+    ]
+  },
+
+  // -------- LAYER 4: FISCAL CONTEXT --------
+  fiscal: {
+    title: "The Budget Crisis Behind the Reform",
+    narrative: "Prop 47 wasn't just ideology. It was a hamhanded fix for California's own runaway prison spending, sold to voters as \"reform.\"",
+    facts: [
+      { event: "Brown v. Plata (2011)", detail: "US Supreme Court ruled CA prison overcrowding = cruel & unusual punishment. 156,000 inmates in facilities designed for 80,000. Ordered reduction to 137.5% of capacity — requiring 38,000–46,000 fewer inmates." },
+      { event: "2011 Public Safety Realignment", detail: "CA shifts non-violent felons from state prisons to county jails. $1B/year to counties. Direct response to court order + state budget deficit." },
+      { event: "Prop 47 (2014)", detail: "Further reduces prison population by reclassifying drug possession + petty theft to misdemeanors. LAO estimated savings 'in the low hundreds of millions annually.' Framed as 'Safe Neighborhoods and Schools Act' — savings go to schools, mental health, victim services." },
+      { event: "CA incarceration cost (2025–26)", detail: "$127,800 per inmate per year. Prop 47 has saved CA nearly $1B since passage." },
+      { event: "The coalition", detail: "Fiscal conservatives (Hughes, $1.275M) and progressive reformers (Soros/DPA, $6.4M) aligned on reducing incarceration — for very different reasons. The fiscal case made the reform case politically possible." }
+    ]
+  },
+
+  // -------- KEY CONNECTIONS --------
+  connections: [
+    { from: "Laura Thomas", to: "DPA → SFAF", type: "revolving_door", detail: "Left advocacy org (DPA) for service provider (SFAF) in 2019. Now directs policy at org receiving city harm-reduction contracts." },
+    { from: "UCSF", to: "SFDPH", type: "pipeline", detail: "Fellowship programs train practitioners → SFDPH hires them → UCSF faculty advise on city policy → city programs provide UCSF research sites. Continuous loop." },
+    { from: "Soros/OSF", to: "DPA → Prop 47 → enforcement collapse", type: "funding_chain", detail: "$300M+ since 1994 → created DPA → DPA co-designed Prop 47 → Prop 47 eliminated felony drug possession → cite-and-release becomes standard → open drug markets." },
+    { from: "Brown v. Plata", to: "Prop 47", type: "causal", detail: "Federal court order to reduce prison population created the political opening for Prop 47. Fiscal conservatives and reformers aligned on reducing incarceration." },
+    { from: "Prop 47", to: "Boudin policies", type: "enabling", detail: "Prop 47 set the floor (misdemeanor possession); Boudin's office went further (non-prosecution of dealing, accessory-after-the-fact pleas)." },
+    { from: "Harm reduction framework (2000)", to: "Fentanyl crisis (2019+)", type: "failure", detail: "Framework designed for HIV prevention via needle exchange was never stress-tested against synthetic opioids. When fentanyl arrived, the framework had no mechanism to compel treatment for people dying on the street." },
+    { from: "Neighbors for a Better SF", to: "Boudin recall", type: "recalled", detail: "Neighbors PAC spent $4.7M (80% of total) on the Boudin recall campaign. The single largest expenditure in the counter-network's history." },
+    { from: "Prop 36 (2024)", to: "Prop 47 (2014)", type: "rolled_back", detail: "Prop 36 reversed key provisions of Prop 47, reclassifying drug and theft offenses as potential felonies. The 2014-to-2024 reversal is one of the most dramatic policy swings in CA history. Funders flipped sides: enforcement raised $16.8M vs reform's $7.7M." },
+    { from: "Matt Dorsey", to: "SFDPH harm reduction policy", type: "replaced", detail: "Recovery First Ordinance changed SF's official drug policy goal from harm reduction to recovery. Direct legislative replacement of the framework established in 2000." },
+    { from: "Daniel Lurie / Tipping Point", to: "Breaking the Cycle Fund", type: "founder_to_mayor_to_funder", detail: "Lurie founded Tipping Point Community, then as mayor accepted $11M from that same Tipping Point for his Breaking the Cycle Fund. The most direct institutional capture in the counter-network's history." },
+    { from: "Stop Crime SF", to: "SF judiciary", type: "accountability", detail: "Judge Report Card system is the only systematic accountability tool for SF Superior Court judges. Grades of FAIL for Thompson and Begert created the first public accountability for judicial decisions." },
+    { from: "Judge Giorgi", to: "Hanako Abe death", type: "causal_chain", detail: "Giorgi's April 2020 plea deal released Troy McAlister with 100+ felonies. 8 months later, McAlister killed Abe and Platt in a NYE hit-and-run. The plea release is the inflection point in the failure chain." }
+  ],
+
+  sources: {
+    government: [
+      "SF Office of Chief Medical Examiner — annual overdose reports",
+      "SF DA Office Data Dashboard",
+      "SFPD press releases + DMACC data",
+      "SF DPH Drug Overdose and Treatment Data",
+      "CA Legislative Analyst's Office — Prop 47 fiscal analysis",
+      "CDC Data Brief No. 549",
+      "Brown v. Plata, 563 U.S. 493 (2011)"
+    ],
+    journalism: [
+      "SF Chronicle: Boudin prosecution data (Nov 2021), Boudin charts (2022)",
+      "LA Times: Prop 47 foundation funding (Feb 2015), Jenkins policy changes (Aug 2022)",
+      "Mission Local: Boudin filing rates (Apr 2022), crime stats (Jan 2026)",
+      "SF Standard: zero fentanyl convictions reporting"
+    ],
+    academic: [
+      "Barnard, Alex V. Conservatorship (Columbia UP, 2023)",
+      "PPIC: Crime After Prop 47 and the Pandemic",
+      "CJCJ: Declining Drug Enforcement After Prop 47",
+      "Laqueur (UC Berkeley): Uses and Abuses of Drug Decriminalization in Portugal",
+      "UCSF: Prop 47 racial disparity study (2018)"
+    ],
+    financial: [
+      "Ballotpedia: Prop 47 campaign finance",
+      "LA Times: New York foundations bankrolled Prop 47 (Feb 2015)",
+      "ProPublica Nonprofit Explorer: 990 filings for DPA, SFAF, GLIDE, NHRC, HR360"
+    ]
+  }
+};
+
+</script>
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  // short labels for the graph (full names live in the panel)
+  const SHORT = {
+    soros: "Soros / OSF",
+    ford: "Ford Foundation",
+    hughes: "Hughes Jr.",
+    atlantic: "Atlantic Advocacy",
+    ca_state: "California",
+    sf_city: "City of SF",
+    cdc_fed: "CDC / Federal",
+    dpa: "DPA",
+    csj: "CSJ",
+    aclu: "ACLU",
+    sfaf: "SFAF",
+    glide: "GLIDE",
+    nhrc: "NHRC",
+    hr360: "HR360",
+    sf_dph: "SF DPH",
+    prop47: "Prop 47",
+    boudin_policy: "Boudin DA",
+    sfdph_policy: "SFDPH HR policy",
+    lps_act: "LPS Act"
+  };
+
+  // hex values (SVG presentation attributes don't resolve CSS vars)
+  const C = {
+    ochre: "#C4923E",
+    teal: "#3D7B7B",
+    bridgeRed: "#B04A32",
+    terracotta: "#C8704F",
+    ink: "#1A1614",
+    inkSoft: "#8A7E73",
+    paper: "#F5F1EA"
+  };
+  const KIND_COLOR = {
+    philanthropy: C.ochre,
+    government: C.teal,
+    advocacy: C.bridgeRed,
+    service: C.terracotta,
+    policy: C.ink
+  };
+
+  // -------- HERO --------
+  function renderHero() {
+    $("#question").textContent = DATA.question;
+    $("#short-answer").textContent = DATA.shortAnswer;
+    const stats = $("#key-stats");
+    DATA.keyStats.forEach(s => {
+      const d = document.createElement("div");
+      d.className = "key-stat";
+      d.innerHTML = `
+        <div class="value">${s.value}</div>
+        <div class="label">${s.label}</div>
+        <div class="sub">${s.sub}</div>`;
+      stats.appendChild(d);
+    });
+  }
+
+  // -------- VIEW SWITCHER --------
+  function bindViews() {
+    $$(".tab").forEach(t => {
+      t.addEventListener("click", () => {
+        $$(".tab").forEach(x => x.classList.remove("is-active"));
+        t.classList.add("is-active");
+        const view = t.dataset.view;
+        $$(".view").forEach(v => v.classList.toggle("is-hidden", v.dataset.view !== view));
+        if (view === "timeline" && !timelineRendered) { renderTimeline(); timelineRendered = true; }
+        if (view === "people" && !peopleRendered) { renderPeople(); peopleRendered = true; }
+        if (view === "fiscal" && !fiscalRendered) { renderFiscal(); fiscalRendered = true; }
+        if (view === "names" && !namesRendered) { renderNames(); namesRendered = true; }
+        if (view === "judges" && !judgesRendered) { renderJudges(); judgesRendered = true; }
+        if (view === "counter" && !counterRendered) { renderCounter(); counterRendered = true; }
+        window.scrollTo({ top: $(`#view-${view}`).offsetTop - 110, behavior: "smooth" });
+      });
+    });
+  }
+
+  // ============================================================
+  // SANKEY MONEY FLOW
+  // ============================================================
+  const SK = {
+    W: 1400, H: 760,
+    COL_X: [200, 560, 900, 1200],
+    COL_LABELS: ["Funders", "Orgs / Providers", "Policies", "Outcome"],
+    NODE_W: 14,
+    LABEL_GAP: 10,
+    TOP: 90,
+    BOTTOM: 720
+  };
+
+  const sankeyState = { links: [], positions: null };
+
+  function parseAmount(s) {
+    if (!s) return 0;
+    const re = /\$(\d+(?:\.\d+)?)\s*(K|M|B)?/gi;
+    let total = 0;
+    let m;
+    while ((m = re.exec(s)) !== null) {
+      let val = parseFloat(m[1]);
+      const suf = (m[2] || "M").toUpperCase();
+      if (suf === "K") val *= 0.001;
+      else if (suf === "B") val *= 1000;
+      total += val;
+    }
+    return total;
+  }
+
+  function renderSankey() {
+    const svg = $("#sankey");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    const funders = DATA.money.funders;
+    const orgs = DATA.money.orgs;
+    const policies = DATA.money.policies;
+
+    // Build flow list (kind: "money" with amount, or "structural" with weight 0)
+    const flows = [];
+    funders.forEach(f => {
+      (f.flows || []).forEach(flow => {
+        flows.push({ src: f.id, dst: flow.to, amount: parseAmount(flow.amount), kind: "money", raw: flow });
+      });
+    });
+    orgs.forEach(o => {
+      (o.connectsTo || []).forEach(pid => {
+        flows.push({ src: o.id, dst: pid, amount: 0, kind: "structural" });
+      });
+    });
+    policies.forEach(p => {
+      flows.push({ src: p.id, dst: "od_deaths", amount: 0, kind: "outcome" });
+    });
+
+    // Cap CA State's MHSA ($3.5B) for visual scale, since it dwarfs everything
+    flows.forEach(f => {
+      if (f.amount > 100) f.amount = 100;
+    });
+
+    // Compute node weights
+    const nodeWeight = new Map();
+    flows.forEach(f => {
+      if (f.amount > 0) {
+        nodeWeight.set(f.src, (nodeWeight.get(f.src) || 0) + f.amount);
+        nodeWeight.set(f.dst, (nodeWeight.get(f.dst) || 0) + f.amount);
+      }
+    });
+    const maxNodeW = Math.max(...Array.from(nodeWeight.values()), 1);
+    const maxFlow = Math.max(...flows.map(f => f.amount), 1);
+
+    const nodeH = id => 16 + Math.sqrt((nodeWeight.get(id) || 1) / maxNodeW) * 44;
+    const flowW = amt => amt === 0 ? 1.4 : 2 + Math.sqrt(amt / maxFlow) * 24;
+
+    // Place columns
+    const positions = new Map();
+    placeColumn(0, funders);
+    placeColumn(1, orgs);
+    placeColumn(2, policies);
+
+    function placeColumn(colIdx, nodes) {
+      const heights = nodes.map(n => nodeH(n.id));
+      const totalH = heights.reduce((a, b) => a + b, 0);
+      const gap = Math.max(8, (SK.BOTTOM - SK.TOP - totalH) / Math.max(1, nodes.length - 1));
+      let y = SK.TOP;
+      // For first column align top; for inner columns center vertically
+      if (colIdx > 0) {
+        const used = totalH + gap * (nodes.length - 1);
+        y = SK.TOP + (SK.BOTTOM - SK.TOP - used) / 2;
+      }
+      nodes.forEach((n, i) => {
+        const h = heights[i];
+        positions.set(n.id, {
+          x: SK.COL_X[colIdx], y, h,
+          data: n, layer: ["funder", "org", "policy"][colIdx],
+          color: layerColor(colIdx, n)
+        });
+        y += h + gap;
+      });
+    }
+
+    function layerColor(col, n) {
+      if (col === 0) return n.kind === "government" ? C.teal : C.ochre;
+      if (col === 1) return n.kind === "advocacy" ? C.bridgeRed : C.terracotta;
+      if (col === 2) return C.ink;
+      return C.bridgeRed;
+    }
+
+    // Column headers
+    SK.COL_LABELS.forEach((label, i) => {
+      const t = el("text", {
+        x: SK.COL_X[i] + SK.NODE_W / 2,
+        y: 50,
+        class: "sk-col-label",
+        "text-anchor": "middle"
+      });
+      t.textContent = label;
+      svg.appendChild(t);
+    });
+
+    // Draw links first (under nodes)
+    const linksG = el("g", { class: "sk-links" });
+    svg.appendChild(linksG);
+    const allLinks = [];
+
+    flows.forEach(f => {
+      const src = positions.get(f.src);
+      const dst = positions.get(f.dst) || (f.dst === "od_deaths" ? { x: SK.COL_X[3], y: 380, h: 0, color: C.bridgeRed } : null);
+      if (!src || !dst) return;
+      const sx = src.x + SK.NODE_W;
+      const sy = src.y + src.h / 2;
+      const tx = dst.x;
+      const ty = (f.dst === "od_deaths") ? 380 : (dst.y + dst.h / 2);
+      const midX = (sx + tx) / 2;
+      const d = `M ${sx} ${sy} C ${midX} ${sy}, ${midX} ${ty}, ${tx} ${ty}`;
+      const path = el("path", {
+        d,
+        class: "sk-link",
+        stroke: src.color,
+        "stroke-width": flowW(f.amount),
+        "stroke-opacity": 0.32,
+        "data-src": f.src,
+        "data-dst": f.dst
+      });
+      if (f.raw && f.raw.amount) path.dataset.amount = f.raw.amount;
+      linksG.appendChild(path);
+      allLinks.push({ el: path, src: f.src, dst: f.dst });
+    });
+
+    // Draw nodes
+    positions.forEach((pos, id) => {
+      const g = el("g", { class: "sk-node", "data-id": id });
+      const r = el("rect", {
+        x: pos.x, y: pos.y,
+        width: SK.NODE_W, height: pos.h,
+        fill: pos.color, rx: 2
+      });
+      g.appendChild(r);
+      // label
+      const placeLeft = pos.layer === "funder";
+      const labelX = placeLeft ? pos.x - SK.LABEL_GAP : pos.x + SK.NODE_W + SK.LABEL_GAP;
+      const anchor = placeLeft ? "end" : "start";
+      const t = el("text", {
+        x: labelX,
+        y: pos.y + pos.h / 2 + 4,
+        "text-anchor": anchor
+      });
+      t.textContent = pos.data.name;
+      g.appendChild(t);
+
+      // sub-amount for funders (total out)
+      if (pos.layer === "funder") {
+        const w = nodeWeight.get(id);
+        if (w && w >= 1) {
+          const subt = el("text", {
+            class: "sk-amt",
+            x: labelX,
+            y: pos.y + pos.h / 2 + 19,
+            "text-anchor": anchor
+          });
+          subt.textContent = w >= 100 ? "$100M+ total" : ("$" + (w >= 10 ? w.toFixed(0) : w.toFixed(1)) + "M total");
+          g.appendChild(subt);
+        }
+      }
+
+      g.addEventListener("mouseenter", () => highlightSankey(id, true));
+      g.addEventListener("mouseleave", () => highlightSankey(id, false));
+      g.addEventListener("click", () => openNode(pos.layer, pos.data));
+      svg.appendChild(g);
+    });
+
+    // Outcome: big 810 on right
+    const outcomeG = el("g", { class: "sk-node", "data-id": "od_deaths" });
+    outcomeG.style.cursor = "pointer";
+    const stat = el("text", {
+      x: SK.COL_X[3] + 70, y: 392,
+      class: "sk-outcome",
+      "text-anchor": "middle",
+      "font-size": 108
+    });
+    stat.textContent = "810";
+    outcomeG.appendChild(stat);
+    const ol1 = el("text", {
+      x: SK.COL_X[3] + 70, y: 432,
+      class: "sk-outcome-label",
+      "text-anchor": "middle"
+    });
+    ol1.textContent = "OD deaths · 2023";
+    outcomeG.appendChild(ol1);
+    const ol2 = el("text", {
+      x: SK.COL_X[3] + 70, y: 456,
+      class: "sk-outcome-label",
+      "text-anchor": "middle",
+      "font-size": 10,
+      "fill-opacity": 0.6
+    });
+    ol2.textContent = "81% from fentanyl";
+    outcomeG.appendChild(ol2);
+    outcomeG.addEventListener("click", () => openOutcome(DATA.money.outcomes.find(o => o.id === "od_deaths")));
+    svg.appendChild(outcomeG);
+
+    sankeyState.links = allLinks;
+    sankeyState.positions = positions;
+  }
+
+  function highlightSankey(id, on) {
+    if (!sankeyState.links) return;
+    const related = new Set([id]);
+    sankeyState.links.forEach(L => {
+      if (L.src === id || L.dst === id) {
+        related.add(L.src); related.add(L.dst);
+        L.el.classList.toggle("is-hot", on);
+        L.el.classList.toggle("is-dim", false);
+      } else {
+        L.el.classList.toggle("is-dim", on);
+      }
+    });
+    $$("#sankey .sk-node").forEach(n => {
+      const nid = n.dataset.id;
+      n.classList.toggle("is-dim", on && !related.has(nid));
+    });
+  }
+
+  function openOutcome(o) {
+    if (!o) return;
+    const series = o.series || [];
+    const max = Math.max(...series.map(s => s.total));
+    openPanel(`
+      <div class="panel-eyebrow">Outcome</div>
+      <h3 class="panel-title">${o.name}</h3>
+      <div class="panel-section">
+        <h5>Headline</h5>
+        <p><strong>${o.stat}</strong></p>
+        ${o.sub ? `<p>${o.sub}</p>` : ""}
+      </div>
+      ${series.length ? `
+        <div class="panel-section">
+          <h5>Death toll by year</h5>
+          <div style="display:grid; gap:6px; margin-top:8px;">
+            ${series.map(s => `
+              <div style="display:grid; grid-template-columns: 50px 1fr 90px; gap:8px; align-items:center; font-size: 13px;">
+                <div style="font-weight: 600; color: var(--ink);">${s.year}</div>
+                <div style="background: var(--fog); height: 14px; position:relative; border-radius: 2px;">
+                  <div style="position:absolute; top:0; left:0; height:100%; width: ${(s.total/max*100).toFixed(1)}%; background: var(--bridge-red); border-radius: 2px;"></div>
+                </div>
+                <div style="text-align:right; color: var(--ink-mid); font-variant-numeric: tabular-nums;">${s.total} <span style="color: var(--ink-soft); font-size: 12px;">(${s.fentanyl} F)</span></div>
+              </div>
+            `).join("")}
+          </div>
+        </div>` : ""}
+    `);
+  }
+
+  // ============================================================
+  // TIMELINE
+  // ============================================================
+  let timelineRendered = false;
+  function renderTimeline() {
+    const streams = DATA.ideas.streams;
+    const svg = $("#timeline");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    const W = 1200, H = 540;
+    const left = 160, right = 40, top = 50, bottom = 60;
+    const innerW = W - left - right;
+    const innerH = H - top - bottom;
+
+    // year range
+    let minY = Infinity, maxY = -Infinity;
+    streams.forEach(s => s.events.forEach(e => { minY = Math.min(minY, e.year); maxY = Math.max(maxY, e.year); }));
+    minY = Math.floor(minY / 5) * 5;
+    maxY = Math.ceil(maxY / 5) * 5;
+    const xOf = y => left + ((y - minY) / (maxY - minY)) * innerW;
+    const laneH = innerH / streams.length;
+    const yOf = i => top + laneH * i + laneH / 2;
+
+    // convergence vertical lines (drawn behind)
+    DATA.ideas.convergencePoints.forEach(c => {
+      const x = xOf(c.year);
+      const line = el("line", {
+        x1: x, x2: x, y1: top - 16, y2: H - bottom + 4,
+        class: "tl-converge"
+      });
+      svg.appendChild(line);
+      const label = el("text", {
+        x, y: top - 22, class: "tl-converge-label", "text-anchor": "middle"
+      });
+      label.textContent = c.year;
+      svg.appendChild(label);
+    });
+
+    // lanes
+    streams.forEach((s, i) => {
+      const y = yOf(i);
+      const lane = el("line", { x1: left, x2: W - right, y1: y, y2: y, stroke: s.color, "stroke-width": 1.2, opacity: 0.32 });
+      svg.appendChild(lane);
+      const lbl = el("text", {
+        x: left - 12, y, class: "tl-lane-label",
+        "text-anchor": "end", "dominant-baseline": "middle",
+        fill: s.color
+      });
+      lbl.textContent = s.name;
+      svg.appendChild(lbl);
+    });
+
+    // x axis ticks every 5 years
+    const axisG = el("g", { class: "tl-axis" });
+    for (let y = minY; y <= maxY; y += 5) {
+      const x = xOf(y);
+      const tick = el("line", { x1: x, x2: x, y1: H - bottom + 4, y2: H - bottom + 8, stroke: C.inkSoft });
+      axisG.appendChild(tick);
+      if (y % 10 === 0) {
+        const t = el("text", { x, y: H - bottom + 22, "text-anchor": "middle" });
+        t.textContent = y;
+        axisG.appendChild(t);
+      }
+    }
+    svg.appendChild(axisG);
+
+    // events
+    streams.forEach((s, i) => {
+      const y = yOf(i);
+      let prevLandmarkX = -Infinity;
+      let prevLandmarkHigh = false;
+      s.events.forEach(ev => {
+        const x = xOf(ev.year);
+        const isLandmark = !!ev.title;
+        const isSig = ["critical_shift", "crisis"].includes(ev.type);
+
+        const g = el("g", { class: "tl-event", transform: `translate(${x}, ${y})` });
+
+        if (isLandmark) {
+          // halo + bigger dot
+          const halo = el("circle", { r: 14, fill: C.paper, stroke: s.color, "stroke-width": 2.5, "stroke-opacity": 0.55 });
+          g.appendChild(halo);
+          const c = el("circle", { r: 9, fill: s.color, stroke: C.paper, "stroke-width": 2.5 });
+          g.appendChild(c);
+        } else {
+          const r = isSig ? 7 : 5;
+          const c = el("circle", { r, fill: s.color, stroke: C.paper, "stroke-width": 2 });
+          g.appendChild(c);
+        }
+
+        g.addEventListener("click", () => openEvent(ev, s));
+        g.addEventListener("mouseenter", e => showTooltip(e, ev));
+        g.addEventListener("mouseleave", hideTooltip);
+        svg.appendChild(g);
+
+        // landmark title — placed above the dot, with vertical staggering when neighbors are close
+        if (isLandmark) {
+          const tooClose = (x - prevLandmarkX) < 95 && prevLandmarkX !== -Infinity;
+          // if previous was at default y, stagger this one higher; otherwise default
+          const high = tooClose && !prevLandmarkHigh;
+          const labelY = y + (high ? -38 : -22);
+          // leader line from dot to label
+          const leader = el("line", {
+            x1: x, x2: x,
+            y1: y - 14, y2: labelY + 6,
+            stroke: s.color, "stroke-width": 1, "stroke-opacity": 0.5
+          });
+          svg.appendChild(leader);
+          const title = el("text", {
+            x, y: labelY, class: "tl-landmark-title",
+            "text-anchor": "middle", fill: C.ink
+          });
+          title.textContent = ev.title;
+          svg.appendChild(title);
+          prevLandmarkX = x;
+          prevLandmarkHigh = high;
+        }
+
+        // small year label below significant events
+        if (["critical_shift", "crisis", "key", "backlash"].includes(ev.type)) {
+          const yt = el("text", { x, y: y + (isLandmark ? 24 : 18), "text-anchor": "middle" });
+          yt.textContent = ev.year;
+          svg.appendChild(yt);
+        }
+      });
+    });
+
+    // legend
+    const lg = $("#timeline-legend");
+    lg.innerHTML = "";
+    streams.forEach(s => {
+      const sp = document.createElement("span");
+      sp.className = "legend-item";
+      sp.innerHTML = `<span class="swatch" style="background:${s.color}"></span>${s.name}`;
+      lg.appendChild(sp);
+    });
+  }
+
+  // tooltip
+  let tip;
+  function showTooltip(e, ev) {
+    if (!tip) {
+      tip = document.createElement("div");
+      tip.style.cssText = `position:fixed;z-index:20;background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:3px;font-size:13px;max-width:280px;line-height:1.4;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-family:var(--sans);`;
+      document.body.appendChild(tip);
+    }
+    tip.innerHTML = `<div style="font-weight:600;margin-bottom:2px;">${ev.year}</div>${ev.event}`;
+    tip.style.display = "block";
+    moveTooltip(e);
+  }
+  function moveTooltip(e) {
+    if (!tip) return;
+    tip.style.left = (e.clientX + 14) + "px";
+    tip.style.top = (e.clientY + 14) + "px";
+  }
+  function hideTooltip() { if (tip) tip.style.display = "none"; }
+  document.addEventListener("mousemove", e => { if (tip && tip.style.display !== "none") moveTooltip(e); });
+
+  // ============================================================
+  // PEOPLE
+  // ============================================================
+  let peopleRendered = false;
+  function renderPeople() {
+    const wrap = $("#people-tiers");
+    Object.entries(DATA.people.tiers).forEach(([tierKey, tier]) => {
+      const tierEl = document.createElement("div");
+      tierEl.className = "people-tier";
+      tierEl.innerHTML = `
+        <div class="tier-head">
+          <h3>${tier.label}</h3>
+          <span class="tier-blurb">${tier.blurb}</span>
+        </div>
+        <div class="cards"></div>
+      `;
+      const cardsEl = tierEl.querySelector(".cards");
+      tier.people.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card-head">
+            <div class="avatar ${tierKey}">${initials(p.name)}</div>
+            <div>
+              <div class="card-name">${p.name}</div>
+              <div class="card-role">${p.role || ""}</div>
+            </div>
+          </div>
+          ${p.org ? `<div class="card-org">${p.org}</div>` : ""}
+          <div class="card-blurb">${p.relevance || ""}</div>
+          <span class="tier-pill ${tierKey}">${tierKey}</span>
+        `;
+        card.addEventListener("click", () => openPerson(p, tierKey));
+        cardsEl.appendChild(card);
+      });
+      wrap.appendChild(tierEl);
+    });
+  }
+
+  function initials(name) {
+    return name.split(/\s+/).map(w => w[0]).filter(Boolean).slice(0, 2).join("");
+  }
+
+  // ============================================================
+  // FISCAL
+  // ============================================================
+  let fiscalRendered = false;
+  function renderFiscal() {
+    $("#fiscal-narrative").textContent = DATA.fiscal.narrative;
+    const list = $("#fiscal-list");
+    DATA.fiscal.facts.forEach(f => {
+      const li = document.createElement("li");
+      li.innerHTML = `<div class="fiscal-event">${f.event}</div><div class="fiscal-detail">${f.detail}</div>`;
+      list.appendChild(li);
+    });
+  }
+
+  // ============================================================
+  // NAMES (victims)
+  // ============================================================
+  let namesRendered = false;
+  function renderNames() {
+    $("#names-narrative").textContent = DATA.victims.narrative;
+    const grid = $("#memorial-grid");
+    DATA.victims.items.forEach(v => {
+      const card = document.createElement("div");
+      card.className = "memorial-card";
+      const meta = [
+        v.age ? `age ${v.age}` : null,
+        v.date,
+        v.location
+      ].filter(Boolean).join(" · ");
+      card.innerHTML = `
+        <div class="memorial-meta">${meta}</div>
+        <div class="memorial-name">${v.name}</div>
+        <div class="memorial-summary">${v.summary}</div>
+        <div class="memorial-chain"><span class="count">${v.systemFailures.length}</span> documented system failures</div>
+      `;
+      card.addEventListener("click", () => openVictim(v));
+      grid.appendChild(card);
+    });
+  }
+
+  function openVictim(v) {
+    const meta = [v.age ? `age ${v.age}` : null, v.date, v.location].filter(Boolean).join(" · ");
+    const perp = v.perpetrator;
+    openPanel(`
+      <div class="panel-eyebrow">Named victim</div>
+      <h3 class="panel-title">${v.name}</h3>
+      <div class="panel-sub">${meta}</div>
+
+      <div class="panel-section">
+        <h5>What happened</h5>
+        <p>${v.summary}</p>
+      </div>
+
+      ${perp ? `
+        <div class="panel-section">
+          <h5>Perpetrator</h5>
+          <p><strong>${perp.name}</strong></p>
+          ${perp.priorRecord ? `<p><em>Prior record:</em> ${perp.priorRecord}</p>` : ""}
+          ${perp.judicialHistory ? `<p><em>Judicial history:</em> ${perp.judicialHistory}</p>` : ""}
+          ${perp.outcome ? `<p><em>Outcome:</em> ${perp.outcome}</p>` : ""}
+        </div>` : ""}
+
+      <div class="panel-section">
+        <h5>Chain of system failures</h5>
+        <div class="failure-chain">
+          ${v.systemFailures.map(f => {
+            const clickable = f.actorId && (findJudgeById(f.actorId) || findPolicyById(f.actorId));
+            return `
+              <div class="failure-step ${clickable ? "clickable" : ""}" ${clickable ? `data-actor-id="${f.actorId}"` : ""}>
+                <div class="step-tag">${f.actor.replace(/_/g, " ")}</div>
+                <div class="step-detail">${f.failure}</div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+
+      ${v.familyQuotes && v.familyQuotes.length ? `
+        <div class="panel-section">
+          <h5>In their families' words</h5>
+          ${v.familyQuotes.map(q => `
+            <blockquote class="quote memorial">"${q.quote}"</blockquote>
+            <div class="flow-label" style="margin: -8px 0 14px;">${q.speaker}${q.source ? ` · ${q.source}` : ""}</div>
+          `).join("")}
+        </div>` : ""}
+
+      ${v.mediaCoverage && v.mediaCoverage.length ? `
+        <div class="panel-section">
+          <h5>Media coverage</h5>
+          ${v.mediaCoverage.map(m => `<p><strong>${m.outlet}</strong> · ${m.date}<br><em>${m.headline}</em></p>`).join("")}
+        </div>` : ""}
+
+      ${v.currentStatus ? `
+        <div class="panel-section">
+          <h5>Current status</h5>
+          <p>${v.currentStatus}</p>
+        </div>` : ""}
+    `);
+    // wire failure step routing
+    $$(".failure-step.clickable", panelInner).forEach(step => {
+      step.addEventListener("click", () => {
+        const id = step.dataset.actorId;
+        const j = findJudgeById(id);
+        if (j) return openJudge(j);
+        const p = findPolicyById(id);
+        if (p) return openPolicy(p);
+      });
+    });
+  }
+
+  // ============================================================
+  // JUDGES
+  // ============================================================
+  let judgesRendered = false;
+  function renderJudges() {
+    $("#judges-narrative").textContent = DATA.judiciary.narrative;
+
+    const stats = $("#judge-stats");
+    DATA.judiciary.systemicContext.forEach(s => {
+      const d = document.createElement("div");
+      d.className = "judge-stat";
+      d.innerHTML = `<div class="val">${s.stat}</div><div class="label">${s.label}</div><div class="sub">${s.sub}</div>`;
+      stats.appendChild(d);
+    });
+
+    const list = $("#judges-list");
+    DATA.judiciary.judges.forEach(j => {
+      const outlook = (DATA.judiciary.electionsOutlook || []).find(e => e.judgeId === j.id);
+      const electionTag = outlook
+        ? (outlook.challenger === "no" && /2026|2029/.test(outlook.nextElection) ? `Unopposed ${outlook.nextElection}` : outlook.nextElection)
+        : (j.nextElection || "");
+      const isUnopposed = outlook && outlook.challenger === "no" && /2026/.test(outlook.nextElection);
+      const card = document.createElement("div");
+      card.className = "judge-card";
+      card.innerHTML = `
+        <div>
+          <div class="judge-name">${j.name}</div>
+          <div class="judge-court">${j.court}</div>
+        </div>
+        <div class="judge-pattern">${j.patternSummary}</div>
+        <div class="judge-election ${isUnopposed ? "unopposed" : ""}">${electionTag}</div>
+      `;
+      card.addEventListener("click", () => openJudge(j));
+      list.appendChild(card);
+    });
+
+    const pl = $("#patterns-list");
+    DATA.judiciary.patterns.forEach(p => {
+      const c = document.createElement("div");
+      c.className = "pattern-card";
+      c.innerHTML = `
+        <div class="pattern-name">${p.pattern}</div>
+        <div class="pattern-stat">${p.stat}</div>
+        <div class="pattern-summary-text">${p.summary}</div>
+      `;
+      pl.appendChild(c);
+    });
+  }
+
+  function openJudge(j) {
+    const outlook = (DATA.judiciary.electionsOutlook || []).find(e => e.judgeId === j.id);
+    const cases = (j.keyCases || []).map(cid => findCaseById(cid)).filter(Boolean);
+    openPanel(`
+      <div class="panel-eyebrow">Judge · ${j.court}</div>
+      <h3 class="panel-title">${j.name}</h3>
+      ${j.tenureStart ? `<div class="panel-sub">Tenure since ${j.tenureStart}${j.appointedBy ? " · " + j.appointedBy : ""}</div>` : ""}
+
+      <div class="panel-section">
+        <h5>Pattern on the bench</h5>
+        <p>${j.patternSummary}</p>
+      </div>
+
+      ${cases.length ? `
+        <div class="panel-section">
+          <h5>Documented cases</h5>
+          ${cases.map(c => `
+            <div style="margin-bottom: 16px;">
+              <div class="flow-target" data-case-id="${c.id}" style="cursor:pointer;">${c.defendant}${c.victimName ? ` → ${c.victimName}` : ""}</div>
+              <div class="flow-label">${c.keyDecision}</div>
+            </div>
+          `).join("")}
+        </div>` : ""}
+
+      ${outlook ? `
+        <div class="panel-section">
+          <h5>Electoral outlook</h5>
+          <p><strong>Next election:</strong> ${outlook.nextElection}<br>
+             <strong>Challenger filed:</strong> ${outlook.challenger}<br>
+             ${outlook.notes}</p>
+        </div>` : ""}
+
+      ${j.source ? `
+        <div class="panel-section">
+          <h5>Sources</h5>
+          <p style="font-size: 13px; color: var(--ink-soft);">${j.source}</p>
+        </div>` : ""}
+    `);
+    // wire case clicks
+    $$("[data-case-id]", panelInner).forEach(el => {
+      el.addEventListener("click", () => {
+        const c = findCaseById(el.dataset.caseId);
+        if (c) openCase(c);
+      });
+    });
+  }
+
+  function openCase(c) {
+    const judge = findJudgeById(c.judge);
+    openPanel(`
+      <div class="panel-eyebrow">Case · ${judge ? judge.name : c.judge}</div>
+      <h3 class="panel-title">${c.defendant}${c.victimName ? ` → ${c.victimName}` : ""}</h3>
+      ${c.daOffice ? `<div class="panel-sub">DA: ${c.daOffice}</div>` : ""}
+
+      <div class="panel-section">
+        <h5>Key decision</h5>
+        <p>${c.keyDecision}</p>
+      </div>
+
+      ${c.priorRecord ? `
+        <div class="panel-section">
+          <h5>Defendant's prior record</h5>
+          <p>${c.priorRecord}</p>
+        </div>` : ""}
+
+      ${c.timeline && c.timeline.length ? `
+        <div class="panel-section">
+          <h5>Timeline</h5>
+          <div class="case-timeline">
+            ${c.timeline.map(t => `
+              <div class="case-event">
+                <div class="case-date">${t.date}</div>
+                <div class="case-what">${t.event}</div>
+                <div class="case-out">${t.outcome}</div>
+              </div>`).join("")}
+          </div>
+        </div>` : ""}
+
+      <div class="panel-section">
+        <h5>Subsequent outcome</h5>
+        <p>${c.subsequentOutcome}</p>
+      </div>
+
+      ${c.victimId ? `
+        <div class="panel-section">
+          <h5>Connected to victim</h5>
+          <ul class="tag-list"><li data-victim-id="${c.victimId}">${c.victimName}</li></ul>
+        </div>` : ""}
+    `);
+    $$("[data-victim-id]", panelInner).forEach(el => {
+      el.addEventListener("click", () => {
+        const v = findVictimById(el.dataset.victimId);
+        if (v) openVictim(v);
+      });
+    });
+  }
+
+  // ============================================================
+  // COUNTER-NETWORK
+  // ============================================================
+  let counterRendered = false;
+  function renderCounter() {
+    $("#counter-narrative").textContent = DATA.opposition.narrative;
+    $("#asymmetry-summary").textContent = DATA.opposition.asymmetry.summary;
+
+    // chart
+    const max = Math.max(...DATA.opposition.asymmetry.data.flatMap(d => [d.harmReduction, d.recoveryFirst]));
+    const chart = $("#asymmetry-chart");
+    DATA.opposition.asymmetry.data.forEach(d => {
+      const row = document.createElement("div");
+      row.className = "asym-row";
+      row.innerHTML = `
+        <div class="asym-year">${d.year}</div>
+        <div class="asym-bars">
+          <div class="asym-meta">${d.fight} · ${d.label}</div>
+          <div class="asym-bar harm">
+            <div class="side">Enabling side</div>
+            <div class="track"><div class="fill" style="width:${(d.harmReduction/max*100).toFixed(1)}%"></div></div>
+            <div class="amt">$${fmtMoney(d.harmReduction)}</div>
+          </div>
+          <div class="asym-bar recovery">
+            <div class="side">Recovery side</div>
+            <div class="track"><div class="fill" style="width:${(d.recoveryFirst/max*100).toFixed(1)}%"></div></div>
+            <div class="amt">$${fmtMoney(d.recoveryFirst)}</div>
+          </div>
+        </div>
+      `;
+      chart.appendChild(row);
+    });
+
+    // orgs
+    const orgsEl = $("#counter-orgs");
+    DATA.opposition.orgs.forEach(o => {
+      const card = document.createElement("div");
+      card.className = "counter-org-card";
+      card.innerHTML = `
+        <div class="counter-org-name">${o.name}</div>
+        <div class="counter-org-meta">${o.kind.replace(/_/g, " ")} · founded ${o.founded}${o.budget ? " · " + o.budget : ""}</div>
+        <div class="counter-org-role">${o.role}</div>
+      `;
+      card.addEventListener("click", () => openCounterOrg(o));
+      orgsEl.appendChild(card);
+    });
+
+    // wins
+    const winsEl = $("#counter-wins");
+    DATA.opposition.wins.forEach(w => {
+      const card = document.createElement("div");
+      card.className = "counter-win-card";
+      card.innerHTML = `
+        <div class="counter-win-year">${w.year}</div>
+        <div class="counter-win-name">${w.name}</div>
+        <div class="counter-win-detail">${w.detail}</div>
+      `;
+      card.addEventListener("click", () => openCounterWin(w));
+      winsEl.appendChild(card);
+    });
+
+    // funders
+    const fundersEl = $("#counter-funders");
+    DATA.opposition.funders.forEach(f => {
+      const card = document.createElement("div");
+      card.className = "counter-funder-card";
+      card.innerHTML = `
+        <div class="counter-funder-name">${f.name}</div>
+        <div class="counter-funder-detail">${f.detail}</div>
+      `;
+      card.addEventListener("click", () => openCounterFunder(f));
+      fundersEl.appendChild(card);
+    });
+
+    // people (use cards similar to existing people view)
+    const peopleEl = $("#counter-people");
+    DATA.opposition.people.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-head">
+          <div class="avatar operators">${initials(p.name)}</div>
+          <div>
+            <div class="card-name">${p.name}</div>
+            <div class="card-role">${p.role || ""}</div>
+          </div>
+        </div>
+        <div class="card-blurb">${p.relevance || ""}</div>
+        <span class="tier-pill operators">${p.tier.replace(/_/g, " ")}</span>
+      `;
+      card.addEventListener("click", () => openCounterPerson(p));
+      peopleEl.appendChild(card);
+    });
+  }
+
+  function fmtMoney(n) {
+    if (n >= 1e9) return (n / 1e9).toFixed(1) + "B";
+    if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
+    if (n >= 1e3) return (n / 1e3).toFixed(0) + "K";
+    return String(n);
+  }
+
+  function openCounterOrg(o) {
+    openPanel(`
+      <div class="panel-eyebrow">Counter-network · ${o.kind.replace(/_/g, " ")}</div>
+      <h3 class="panel-title">${o.name}</h3>
+      ${o.budget ? `<div class="panel-sub">${o.budget}${o.founded ? " · founded " + o.founded : ""}</div>` : ""}
+      ${o.leader ? `<div class="panel-section"><h5>Leadership</h5><p>${o.leader}</p></div>` : ""}
+      <div class="panel-section"><h5>Role</h5><p>${o.role}</p></div>
+      ${o.theoryOfChange ? `<div class="panel-section"><h5>Theory of change</h5><p>${o.theoryOfChange}</p></div>` : ""}
+      ${(o.wins || []).length ? `
+        <div class="panel-section">
+          <h5>Wins</h5>
+          <ul class="tag-list">${o.wins.map(w => `<li>${w}</li>`).join("")}</ul>
+        </div>` : ""}
+      ${(o.keyPeople || []).length ? `
+        <div class="panel-section">
+          <h5>Key people</h5>
+          <ul class="tag-list">${o.keyPeople.map(p => `<li>${p}</li>`).join("")}</ul>
+        </div>` : ""}
+    `);
+  }
+
+  function openCounterWin(w) {
+    openPanel(`
+      <div class="panel-eyebrow">Policy win · ${w.year}</div>
+      <h3 class="panel-title">${w.name}</h3>
+      <div class="panel-section"><h5>What it did</h5><p>${w.detail}</p></div>
+      <div class="panel-section"><h5>Effect</h5><p>${w.effect}</p></div>
+      ${(w.campaignFundedBy || []).length ? `
+        <div class="panel-section">
+          <h5>Campaign funded by</h5>
+          ${w.campaignFundedBy.map(f => `
+            <div class="flow-row">
+              <div><div class="flow-target">${f.name}</div></div>
+              <div class="flow-amount">${f.amount}</div>
+            </div>
+          `).join("")}
+        </div>` : ""}
+      ${w.opposition ? `
+        <div class="panel-section">
+          <h5>Opposition</h5>
+          <p>${w.opposition}</p>
+        </div>` : ""}
+    `);
+  }
+
+  function openCounterFunder(f) {
+    openPanel(`
+      <div class="panel-eyebrow">${f.kind === "philanthropy" ? "Philanthropy" : f.kind === "individual" ? "Individual donor" : "Funder"}</div>
+      <h3 class="panel-title">${f.name}</h3>
+      <div class="panel-section"><h5>Why they matter</h5><p>${f.detail}</p></div>
+      ${(f.flows || []).length ? `
+        <div class="panel-section">
+          <h5>Money flows</h5>
+          ${f.flows.map(fl => `
+            <div class="flow-row">
+              <div>
+                <div class="flow-target">→ ${fl.to}</div>
+                <div class="flow-label">${fl.label || ""}</div>
+              </div>
+              <div class="flow-amount">${fl.amount}</div>
+            </div>
+          `).join("")}
+        </div>` : ""}
+    `);
+  }
+
+  function openCounterPerson(p) {
+    openPanel(`
+      <div class="panel-eyebrow">${p.tier.replace(/_/g, " ")}</div>
+      <h3 class="panel-title">${p.name}</h3>
+      ${p.role ? `<div class="panel-sub">${p.role}</div>` : ""}
+      ${p.relevance ? `<div class="panel-section"><h5>Why they matter</h5><p>${p.relevance}</p></div>` : ""}
+      ${(p.quotes || []).length ? `
+        <div class="panel-section">
+          <h5>In their own words</h5>
+          ${p.quotes.map(q => `<blockquote class="quote">"${q}"</blockquote>`).join("")}
+        </div>` : ""}
+    `);
+  }
+
+  // helpers for the new data
+  function findVictimById(id) { return DATA.victims.items.find(v => v.id === id); }
+  function findJudgeById(id) { return DATA.judiciary.judges.find(j => j.id === id); }
+  function findCaseById(id) { return DATA.judiciary.caseDispositions.find(c => c.id === id); }
+
+  // ============================================================
+  // CONNECTIONS + SOURCES
+  // ============================================================
+  function renderConnections() {
+    const ul = $("#connections-list");
+    DATA.connections.forEach(c => {
+      const li = document.createElement("li");
+      li.className = "conn-card";
+      li.innerHTML = `
+        <div class="conn-type">${c.type.replace(/_/g, " ")}</div>
+        <div class="conn-edge">${c.from} <span class="arrow">→</span> ${c.to}</div>
+        <div class="conn-detail">${c.detail}</div>
+      `;
+      ul.appendChild(li);
+    });
+  }
+  function renderSources() {
+    const grid = $("#sources-grid");
+    const cols = [
+      ["Government & primary", DATA.sources.government],
+      ["Journalism", DATA.sources.journalism],
+      ["Academic & policy", DATA.sources.academic],
+      ["Financial & campaign", DATA.sources.financial]
+    ];
+    cols.forEach(([label, items]) => {
+      const col = document.createElement("div");
+      col.className = "sources-col";
+      col.innerHTML = `<h4>${label}</h4><ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+      grid.appendChild(col);
+    });
+  }
+
+  // ============================================================
+  // DETAIL PANEL
+  // ============================================================
+  const panel = $("#panel"), panelInner = $("#panel-inner"), panelScrim = $("#panel-scrim");
+  function openPanel(html) {
+    panelInner.innerHTML = html;
+    panel.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+    panelScrim.classList.add("is-open");
+  }
+  function closePanel() {
+    panel.classList.remove("is-open");
+    panelScrim.classList.remove("is-open");
+    panel.setAttribute("aria-hidden", "true");
+  }
+  $("#panel-close").addEventListener("click", closePanel);
+  panelScrim.addEventListener("click", closePanel);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+  function findFunderById(id) { return DATA.money.funders.find(f => f.id === id); }
+  function findOrgById(id) { return DATA.money.orgs.find(o => o.id === id); }
+  function findPolicyById(id) { return DATA.money.policies.find(p => p.id === id); }
+  function findOutcomeById(id) { return DATA.money.outcomes.find(o => o.id === id); }
+  function findPersonById(id) {
+    for (const tier of Object.values(DATA.people.tiers)) {
+      const m = tier.people.find(p => p.id === id);
+      if (m) return m;
+    }
+    return null;
+  }
+  function targetName(id) {
+    const o = findOrgById(id); if (o) return o.name;
+    const p = findPolicyById(id); if (p) return p.name;
+    const f = findFunderById(id); if (f) return f.name;
+    return id;
+  }
+
+  function openNode(layer, d) {
+    if (layer === "funder") openFunder(d);
+    else if (layer === "org") openOrg(d);
+    else if (layer === "policy") openPolicy(d);
+  }
+
+  function openFunder(f) {
+    const flows = (f.flows || []).map(flow => `
+      <div class="flow-row" data-target-id="${flow.to}">
+        <div>
+          <div class="flow-target">→ ${targetName(flow.to)}</div>
+          <div class="flow-label">${flow.label || ""}</div>
+        </div>
+        <div class="flow-amount">${flow.amount}</div>
+      </div>
+    `).join("");
+    openPanel(`
+      <div class="panel-eyebrow">${f.kind === "government" ? "Government funder" : "Private philanthropy"}</div>
+      <h3 class="panel-title">${f.name}</h3>
+      ${f.org ? `<div class="panel-sub">${f.org}</div>` : ""}
+      <div class="panel-section">
+        <h5>Why it matters</h5>
+        <p>${f.detail}</p>
+      </div>
+      <div class="panel-section">
+        <h5>Money flows</h5>
+        ${flows || "<p>No flows recorded.</p>"}
+      </div>
+    `);
+    bindFlowRows();
+  }
+
+  function openOrg(o) {
+    openPanel(`
+      <div class="panel-eyebrow">${o.kind === "advocacy" ? "Advocacy organization" : "Service provider"}</div>
+      <h3 class="panel-title">${o.name}</h3>
+      ${o.budget ? `<div class="panel-sub">Annual budget · ${o.budget}</div>` : ""}
+      ${o.leader ? `<div class="panel-section"><h5>Leadership</h5><p>${o.leader}</p></div>` : ""}
+      <div class="panel-section"><h5>Role</h5><p>${o.role}</p></div>
+      ${o.programs ? `<div class="panel-section"><h5>Programs</h5><p>${o.programs}</p></div>` : ""}
+      ${o.note ? `<div class="panel-section"><h5>Note</h5><p>${o.note}</p></div>` : ""}
+      ${o.founded ? `<div class="panel-section"><h5>Founded</h5><p>${o.founded}</p></div>` : ""}
+      <div class="panel-section">
+        <h5>Who funds this</h5>
+        ${fundersOf(o.id)}
+      </div>
+      ${(o.connectsTo || []).length ? `
+        <div class="panel-section">
+          <h5>Connects to</h5>
+          <ul class="tag-list">
+            ${o.connectsTo.map(pid => `<li data-target-id="${pid}">${targetName(pid)}</li>`).join("")}
+          </ul>
+        </div>` : ""}
+    `);
+    bindTagList();
+    bindFlowRows();
+  }
+
+  function fundersOf(targetId) {
+    const rows = [];
+    DATA.money.funders.forEach(f => {
+      (f.flows || []).forEach(flow => {
+        if (flow.to === targetId) {
+          rows.push(`
+            <div class="flow-row" data-target-id="${f.id}">
+              <div>
+                <div class="flow-target">${f.name}</div>
+                <div class="flow-label">${flow.label || ""}</div>
+              </div>
+              <div class="flow-amount">${flow.amount}</div>
+            </div>
+          `);
+        }
+      });
+    });
+    return rows.length ? rows.join("") : "<p>No tracked direct funding.</p>";
+  }
+
+  function openPolicy(p) {
+    // who connected to this policy
+    const orgConn = DATA.money.orgs.filter(o => (o.connectsTo || []).includes(p.id));
+    const fundedBy = [];
+    DATA.money.funders.forEach(f => {
+      (f.flows || []).forEach(flow => {
+        if (flow.to === p.id) fundedBy.push({ f, flow });
+      });
+    });
+    openPanel(`
+      <div class="panel-eyebrow">Policy change · ${p.year || ""}</div>
+      <h3 class="panel-title">${p.name}</h3>
+      <div class="panel-section">
+        <h5>What it did</h5>
+        <p>${p.detail}</p>
+      </div>
+      ${p.effect ? `<div class="panel-section"><h5>Effect</h5><p>${p.effect}</p></div>` : ""}
+      ${fundedBy.length ? `
+        <div class="panel-section">
+          <h5>${p.id === "prop47" ? "Campaign funding" : "Funded by"}</h5>
+          ${fundedBy.map(({ f, flow }) => `
+            <div class="flow-row" data-target-id="${f.id}">
+              <div>
+                <div class="flow-target">${f.name}</div>
+                <div class="flow-label">${flow.label || ""}</div>
+              </div>
+              <div class="flow-amount">${flow.amount}</div>
+            </div>`).join("")}
+        </div>` : ""}
+      ${orgConn.length ? `
+        <div class="panel-section">
+          <h5>Advocacy & implementation</h5>
+          <ul class="tag-list">${orgConn.map(o => `<li data-target-id="${o.id}">${o.name}</li>`).join("")}</ul>
+        </div>` : ""}
+    `);
+    bindFlowRows();
+    bindTagList();
+  }
+
+  function openPerson(p, tierKey) {
+    openPanel(`
+      <div class="panel-eyebrow">${tierKey.charAt(0).toUpperCase() + tierKey.slice(1)}</div>
+      <h3 class="panel-title">${p.name}</h3>
+      ${p.role ? `<div class="panel-sub">${p.role}${p.org ? ` · ${p.org}` : ""}</div>` : ""}
+      ${p.relevance ? `<div class="panel-section"><h5>Why they matter</h5><p>${p.relevance}</p></div>` : ""}
+      ${(p.quotes || []).length ? `
+        <div class="panel-section">
+          <h5>In their own words</h5>
+          ${p.quotes.map(q => `<blockquote class="quote">"${q}"</blockquote>`).join("")}
+        </div>` : ""}
+      ${(p.staff || []).length ? `
+        <div class="panel-section">
+          <h5>Key staff</h5>
+          <ul class="tag-list">${p.staff.map(s => `<li>${s}</li>`).join("")}</ul>
+        </div>` : ""}
+      ${(p.cases || []).length ? `
+        <div class="panel-section">
+          <h5>Key cases</h5>
+          <ul class="tag-list">${p.cases.map(c => `<li>${c}</li>`).join("")}</ul>
+        </div>` : ""}
+      ${(p.connected || []).length ? `
+        <div class="panel-section">
+          <h5>Connected to</h5>
+          <ul class="tag-list">${p.connected.map(id => {
+            const m = findPersonById(id);
+            return m ? `<li data-person-id="${id}">${m.name}</li>` : "";
+          }).join("")}</ul>
+        </div>` : ""}
+    `);
+    $$("li[data-person-id]", panelInner).forEach(li => {
+      li.addEventListener("click", () => {
+        const id = li.dataset.personId;
+        const m = findPersonById(id);
+        if (m) {
+          const tier = Object.entries(DATA.people.tiers).find(([, t]) => t.people.includes(m))[0];
+          openPerson(m, tier);
+        }
+      });
+    });
+  }
+
+  function openEvent(ev, stream) {
+    openPanel(`
+      <div class="panel-eyebrow" style="color:${stream.color}">${stream.name} · ${ev.year}</div>
+      <h3 class="panel-title">${ev.event}</h3>
+      <div class="panel-section">
+        <h5>Event type</h5>
+        <p>${ev.type.replace(/_/g, " ")}</p>
+      </div>
+      <div class="panel-section">
+        <h5>Why this matters</h5>
+        <p>This event falls in the <em>${stream.name}</em> stream — one of the four parallel histories that converged on San Francisco's open drug markets.</p>
+      </div>
+    `);
+  }
+
+  function bindFlowRows() {
+    $$(".flow-row[data-target-id]", panelInner).forEach(row => {
+      row.addEventListener("click", () => {
+        const id = row.dataset.targetId;
+        routeOpen(id);
+      });
+    });
+  }
+  function bindTagList() {
+    $$("li[data-target-id]", panelInner).forEach(li => {
+      li.addEventListener("click", () => routeOpen(li.dataset.targetId));
+    });
+  }
+  function routeOpen(id) {
+    const f = findFunderById(id); if (f) return openFunder(f);
+    const o = findOrgById(id); if (o) return openOrg(o);
+    const p = findPolicyById(id); if (p) return openPolicy(p);
+  }
+
+  // ============================================================
+  // UTIL
+  // ============================================================
+  function el(name, attrs = {}) {
+    const e = document.createElementNS(svgNS, name);
+    Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+    return e;
+  }
+
+  // ============================================================
+  // INIT
+  // ============================================================
+  document.addEventListener("DOMContentLoaded", () => {
+    renderHero();
+    bindViews();
+    renderSankey();
+    renderConnections();
+    renderSources();
+  });
+})();
+
+</script>
+<script>
+
+// Post height to parent for iframe resize
+function postHeight() {
+  if (window.parent !== window) {
+    window.parent.postMessage({ type: 'resize', height: document.body.scrollHeight }, '*');
+  }
+}
+window.addEventListener('load', postHeight);
+window.addEventListener('resize', postHeight);
+new MutationObserver(postHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+
+</script>
+</body>
+</html>
