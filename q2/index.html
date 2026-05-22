@@ -1,0 +1,1385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<title>Garry's List — Why does SF have a homelessness crisis despite spending so much?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bridge-red: #B04A32;
+  --bridge-red-dark: #8E3924;
+  --terracotta: #C8704F;
+  --ochre: #C4923E;
+  --fog: #D6D4CF;
+  --fog-dark: #A8A39B;
+  --paper: #F5F1EA;
+  --paper-warm: #EFE7D8;
+  --sand: #E8D9C4;
+  --ink: #1A1614;
+  --ink-mid: #5C5048;
+  --ink-soft: #8A7E73;
+  --teal: #3D7B7B;
+  --rule: rgba(26, 22, 20, 0.12);
+  --shadow-soft: 0 1px 2px rgba(26, 22, 20, 0.04), 0 12px 32px rgba(26, 22, 20, 0.08);
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; }
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  position: sticky; top: 0; z-index: 5;
+  backdrop-filter: blur(8px);
+  background-color: rgba(245, 241, 234, 0.92);
+}
+.masthead-inner {
+  max-width: 1200px; margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand-mark {
+  display: inline-grid; place-items: center; width: 32px; height: 32px;
+  background: var(--bridge-red); color: white;
+  font-family: var(--serif); font-weight: 700; font-size: 16px;
+  letter-spacing: 0.02em; border-radius: 2px;
+}
+.brand-name { font-family: var(--serif); font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+.kicker {
+  font-family: var(--sans); font-weight: 600; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft);
+}
+
+/* HERO */
+.hero { padding: 64px 28px 36px; border-bottom: 1px solid var(--rule); }
+.hero-inner { max-width: 920px; margin: 0 auto; }
+.hero-kicker {
+  font-weight: 600; font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--bridge-red); margin-bottom: 18px;
+}
+.hero-question {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(34px, 5.5vw, 60px); line-height: 1.05;
+  letter-spacing: -0.02em; margin: 0 0 28px; color: var(--ink);
+  font-variation-settings: "SOFT" 50;
+}
+.hero-answer {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px); line-height: 1.5;
+  color: var(--ink-mid); margin: 0 0 36px; max-width: 780px;
+}
+.key-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  padding: 28px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.key-stat .value {
+  font-family: var(--serif); font-weight: 600;
+  font-size: clamp(36px, 5vw, 52px); line-height: 1;
+  color: var(--bridge-red); letter-spacing: -0.02em;
+}
+.key-stat .label { font-weight: 600; font-size: 14px; color: var(--ink); margin-top: 6px; }
+.key-stat .sub { font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
+.result-line {
+  margin-top: 28px; font-family: var(--serif); font-style: italic;
+  font-size: 16px; color: var(--ink-mid);
+}
+.result-line em { font-style: normal; font-weight: 600; color: var(--bridge-red); }
+@media (max-width: 720px) {
+  .hero { padding: 40px 22px 24px; }
+  .key-stats { grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* VIEW BAR */
+.view-bar {
+  background: var(--paper-warm); border-bottom: 1px solid var(--rule);
+  position: sticky; top: 60px; z-index: 4;
+}
+.view-bar-inner {
+  max-width: 1200px; margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.view-label {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ink-soft); font-weight: 600;
+}
+.view-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.tab {
+  appearance: none; background: transparent; border: 1px solid transparent;
+  padding: 8px 14px; font-family: var(--sans); font-size: 14px; font-weight: 600;
+  color: var(--ink-mid); cursor: pointer; border-radius: 999px;
+  letter-spacing: 0; transition: all 0.15s ease;
+}
+.tab:hover { background: rgba(176, 74, 50, 0.08); color: var(--ink); }
+.tab.is-active { background: var(--ink); color: var(--paper); }
+
+/* VIEW */
+.view { padding: 48px 28px; border-bottom: 1px solid var(--rule); }
+.view.is-hidden { display: none; }
+.view-inner { max-width: 1200px; margin: 0 auto; }
+.view-head { margin-bottom: 28px; }
+.view-head h2 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.015em;
+  margin: 0 0 10px; color: var(--ink);
+}
+.view-head .lede {
+  font-family: var(--serif); font-style: italic; font-size: 17px;
+  color: var(--ink-mid); margin: 0; max-width: 720px;
+}
+
+/* LEGEND */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 22px; margin-bottom: 24px;
+  font-size: 13px; color: var(--ink-mid);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 8px; }
+.dot { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid currentColor; }
+.dot-tax { background: var(--ochre); color: var(--ochre); }
+.dot-government { background: var(--teal); color: var(--teal); }
+.dot-department { background: var(--bridge-red); color: var(--bridge-red); }
+.dot-nonprofit { background: var(--terracotta); color: var(--terracotta); }
+.dot-policy { background: var(--ink); color: var(--ink); }
+
+/* SANKEY */
+.sankey-wrap { position: relative; width: 100%; margin: 0 auto; overflow-x: auto; }
+#sankey { width: 100%; min-width: 900px; height: auto; display: block; }
+.sk-col-label {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; font-weight: 600; fill: var(--ink-soft);
+}
+.sk-node rect { transition: opacity 0.15s ease; cursor: pointer; }
+.sk-node text {
+  font-family: var(--sans); font-weight: 600; font-size: 13px;
+  fill: var(--ink); pointer-events: none;
+}
+.sk-node text.sk-amt {
+  font-weight: 500; fill: var(--ink-soft); font-size: 11px; letter-spacing: 0.02em;
+}
+.sk-node:hover rect { opacity: 0.85; }
+.sk-node.is-dim rect { opacity: 0.18; }
+.sk-node.is-dim text { opacity: 0.4; }
+.sk-link { fill: none; stroke-linecap: round; transition: opacity 0.2s ease, stroke 0.2s ease; }
+.sk-link.is-dim { opacity: 0.04; }
+.sk-link.is-hot { opacity: 0.85; }
+.sk-outcome {
+  font-family: var(--serif); font-weight: 600; letter-spacing: -0.02em;
+  fill: var(--bridge-red);
+}
+.sk-outcome-label {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 600; fill: var(--ink-mid);
+}
+
+/* TIMELINE */
+.timeline-wrap { width: 100%; overflow-x: auto; }
+#timeline { width: 100%; height: auto; min-width: 760px; }
+.timeline-legend {
+  display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 24px;
+  font-size: 13px; color: var(--ink-mid);
+}
+.timeline-legend .swatch {
+  display: inline-block; width: 14px; height: 14px;
+  border-radius: 3px; margin-right: 8px; vertical-align: -2px;
+}
+.tl-lane-label { font-family: var(--serif); font-weight: 500; font-size: 13px; letter-spacing: 0.04em; }
+.tl-event circle { cursor: pointer; }
+.tl-event text { font-family: var(--sans); font-size: 10px; fill: var(--ink-soft); pointer-events: none; }
+.tl-axis text { font-family: var(--sans); font-size: 11px; font-weight: 500; fill: var(--ink-soft); }
+.tl-converge { stroke: var(--bridge-red); stroke-dasharray: 2 4; stroke-width: 1; opacity: 0.45; }
+.tl-converge-label { font-family: var(--serif); font-style: italic; font-size: 10px; fill: var(--bridge-red); }
+.tl-landmark-title { font-family: var(--serif); font-weight: 600; font-size: 13px; letter-spacing: -0.01em; }
+
+/* PEOPLE */
+.people-tiers { display: grid; gap: 36px; }
+.tier-head {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--rule); padding-bottom: 8px;
+}
+.tier-head h3 { font-family: var(--serif); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+.tier-head .tier-blurb { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-mid); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.card {
+  background: white; border: 1px solid var(--rule); padding: 18px; border-radius: 4px;
+  cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); border-color: var(--ink); }
+.card .avatar {
+  width: 40px; height: 40px; border-radius: 50%; display: grid;
+  place-items: center; font-family: var(--serif); font-weight: 600;
+  font-size: 14px; color: white; flex-shrink: 0; letter-spacing: 0.02em;
+}
+.card-head { display: flex; align-items: center; gap: 12px; }
+.card-name { font-family: var(--serif); font-weight: 600; font-size: 17px; color: var(--ink); line-height: 1.2; }
+.card-role { font-size: 12px; color: var(--ink-soft); font-weight: 500; }
+.card-org { font-size: 13px; color: var(--ink-mid); font-style: italic; }
+.card-blurb {
+  font-size: 14px; color: var(--ink-mid); line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card .tier-pill {
+  align-self: flex-start; font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+}
+.tier-pill.architects, .avatar.architects { background: var(--ink); color: var(--paper); }
+.tier-pill.operators, .avatar.operators { background: var(--bridge-red); color: white; }
+.tier-pill.political, .avatar.political { background: var(--ochre); color: var(--ink); }
+.tier-pill.backlash, .avatar.backlash { background: var(--teal); color: white; }
+
+/* NONPROFIT CARDS */
+.np-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.np-card {
+  background: white; border: 1px solid var(--rule); padding: 20px; border-radius: 4px;
+  cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.np-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); border-color: var(--ink); }
+.np-card .np-name { font-family: var(--serif); font-weight: 600; font-size: 18px; color: var(--ink); }
+.np-card .np-meta { font-size: 12px; color: var(--ink-soft); font-weight: 500; }
+.np-card .np-leader { font-size: 13px; color: var(--ink-mid); font-style: italic; }
+.np-card .np-finding {
+  font-size: 14px; color: var(--ink-mid); line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.np-type-pill {
+  align-self: flex-start; font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 600; padding: 3px 8px; border-radius: 999px;
+}
+.np-type-pill.service { background: var(--terracotta); color: white; }
+.np-type-pill.advocacy { background: var(--bridge-red); color: white; }
+.np-type-pill.fiscal { background: var(--ochre); color: var(--ink); }
+.np-type-pill.terminated { background: var(--ink); color: var(--paper); }
+
+/* MEMORIAL / HUMAN COST */
+.memorial-section { background: var(--ink); color: var(--paper); padding: 48px 28px; border-bottom: 1px solid var(--rule); }
+.memorial-section .view-inner { max-width: 1200px; margin: 0 auto; }
+.memorial-section h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(28px,4vw,38px); color: var(--paper); margin: 0 0 10px; }
+.memorial-section .lede { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--fog); margin: 0 0 28px; max-width: 720px; }
+.memorial-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px; margin-bottom: 36px;
+}
+.memorial-stat {
+  padding: 22px; background: rgba(255,255,255,0.06); border-radius: 4px;
+  border-left: 4px solid var(--bridge-red);
+}
+.memorial-stat .ms-val {
+  font-family: var(--serif); font-weight: 600; font-size: 36px;
+  line-height: 1; color: var(--bridge-red); letter-spacing: -0.02em;
+}
+.memorial-stat .ms-label { font-weight: 600; font-size: 14px; color: var(--paper); margin-top: 6px; }
+.memorial-stat .ms-sub { font-size: 13px; color: var(--fog-dark); margin-top: 4px; line-height: 1.4; }
+.memorial-categories { display: grid; gap: 18px; }
+.memorial-cat {
+  padding: 22px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+.memorial-cat h4 {
+  font-family: var(--serif); font-weight: 600; font-size: 18px;
+  color: var(--paper); margin: 0 0 8px;
+}
+.memorial-cat p { font-size: 15px; color: var(--fog); line-height: 1.55; margin: 0; }
+
+/* CONNECTIONS */
+.connections-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px;
+}
+.conn-card {
+  background: white; padding: 16px; border: 1px solid var(--rule); border-radius: 4px;
+  cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.conn-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.conn-edge { font-family: var(--serif); font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+.conn-edge .arrow { color: var(--bridge-red); margin: 0 6px; }
+.conn-type {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--bridge-red); font-weight: 600; margin-bottom: 8px;
+}
+.conn-detail { font-size: 14px; color: var(--ink-mid); line-height: 1.5; }
+
+/* SOURCES */
+.sources { padding: 48px 28px; }
+.sources-inner { max-width: 1200px; margin: 0 auto; }
+.sources h2 {
+  font-family: var(--serif); font-weight: 500; font-size: 28px;
+  margin: 0 0 24px; letter-spacing: -0.015em;
+}
+.sources-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;
+}
+.sources-col h4 {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px; font-weight: 600;
+}
+.sources-col ul { list-style: none; margin: 0; padding: 0; }
+.sources-col li {
+  font-size: 13px; color: var(--ink-mid); padding: 6px 0;
+  border-bottom: 1px solid var(--rule); line-height: 1.45;
+}
+.sources-col li:last-child { border-bottom: 0; }
+
+/* FOOTER */
+.foot { background: var(--ink); color: var(--paper); padding: 28px; }
+.foot-inner { max-width: 1200px; margin: 0 auto; font-size: 13px; color: var(--fog); }
+
+/* DETAIL PANEL */
+.panel-scrim {
+  position: fixed; inset: 0; background: rgba(26, 22, 20, 0.4);
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 9;
+}
+.panel-scrim.is-open { opacity: 1; pointer-events: auto; }
+.panel {
+  position: fixed; top: 0; right: 0; width: min(520px, 92vw); height: 100dvh;
+  background: var(--paper); z-index: 10;
+  box-shadow: -8px 0 32px rgba(26, 22, 20, 0.14);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow-y: auto;
+}
+.panel.is-open { transform: translateX(0); }
+.panel-close {
+  position: sticky; top: 8px; margin-left: auto; display: block;
+  background: transparent; border: 0; font-size: 30px; color: var(--ink);
+  cursor: pointer; padding: 8px 20px; line-height: 1; z-index: 2;
+}
+.panel-inner { padding: 0 32px 48px; }
+.panel-eyebrow {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--bridge-red); font-weight: 600; margin-bottom: 8px;
+}
+.panel-title {
+  font-family: var(--serif); font-weight: 500; font-size: 28px;
+  line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 0 0 6px;
+}
+.panel-sub { font-size: 14px; color: var(--ink-soft); font-style: italic; margin-bottom: 20px; }
+.panel-section { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.panel-section h5 {
+  font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px; font-weight: 600;
+}
+.panel-section p { margin: 0 0 8px; font-size: 15px; line-height: 1.55; color: var(--ink-mid); }
+.flow-row {
+  display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 10px 0;
+  border-bottom: 1px solid var(--rule); cursor: pointer; align-items: baseline;
+}
+.flow-row:hover .flow-target { color: var(--bridge-red); }
+.flow-row:last-child { border-bottom: 0; }
+.flow-target {
+  font-family: var(--serif); font-weight: 600; font-size: 16px;
+  color: var(--ink); transition: color 0.15s ease;
+}
+.flow-label { font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
+.flow-amount {
+  font-family: var(--serif); font-weight: 600; font-size: 16px;
+  color: var(--bridge-red); white-space: nowrap;
+}
+.quote {
+  font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink);
+  border-left: 3px solid var(--bridge-red); padding: 4px 0 4px 14px;
+  margin: 0 0 12px; line-height: 1.45;
+}
+.tag-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-list li {
+  background: var(--sand); color: var(--ink); padding: 6px 10px;
+  border-radius: 999px; font-size: 13px; cursor: pointer;
+}
+.tag-list li:hover { background: var(--bridge-red); color: white; }
+
+@media (max-width: 720px) {
+  .view-bar { top: 56px; }
+  .view-bar-inner { padding: 12px 18px; }
+  .view { padding: 32px 18px; }
+  .legend { gap: 14px; }
+  #sankey { min-width: 720px; }
+  .panel-inner { padding: 0 22px 36px; }
+  .memorial-section { padding: 32px 18px; }
+}
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="#" aria-label="Garry's List">
+        <span class="brand-mark">GL</span>
+        <span class="brand-name">Garry's List</span>
+      </a>
+      <nav class="masthead-nav">
+        <span class="kicker">Public Benefit Investigation · No. 02</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-kicker">San Francisco · Homelessness Spending</div>
+        <h1 class="hero-question" id="question"></h1>
+        <p class="hero-answer" id="short-answer"></p>
+        <div class="key-stats" id="key-stats"></div>
+        <div class="result-line">
+          <em>The result:</em> more money, more homelessness, and 875 people dead in the housing the system provided.
+        </div>
+      </div>
+    </section>
+
+    <section class="view-bar">
+      <div class="view-bar-inner">
+        <div class="view-label">Explore the answer</div>
+        <div class="view-tabs" role="tablist">
+          <button class="tab is-active" data-view="money" role="tab">Follow the money</button>
+          <button class="tab" data-view="timeline" role="tab">How we got here</button>
+          <button class="tab" data-view="people" role="tab">The power brokers</button>
+          <button class="tab" data-view="nonprofits" role="tab">The nonprofits</button>
+          <button class="tab" data-view="names" role="tab">The names</button>
+          <button class="tab" data-view="connections" role="tab">Key connections</button>
+          <button class="tab" data-view="sources" role="tab">The receipts</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MONEY -->
+    <section class="view" id="view-money" data-view="money">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>Follow the money</h2>
+          <p class="lede">$846 million per year flows from taxpayers through one department to a network of nonprofits — with no competitive bidding and no outcome requirements. Line thickness shows the dollar amount. Click any node.</p>
+        </header>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-tax"></span> Tax revenue</span>
+          <span class="legend-item"><span class="dot dot-government"></span> Government</span>
+          <span class="legend-item"><span class="dot dot-department"></span> HSH Department</span>
+          <span class="legend-item"><span class="dot dot-nonprofit"></span> Nonprofit</span>
+          <span class="legend-item"><span class="dot dot-policy"></span> Policy / Outcome</span>
+        </div>
+        <div class="sankey-wrap">
+          <svg id="sankey" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Money flow diagram"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="view is-hidden" id="view-timeline" data-view="timeline">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>How we got here</h2>
+          <p class="lede">Four streams of policy, funding, and ideology converged to create the system. Click an event for context.</p>
+        </header>
+        <div class="timeline-legend" id="timeline-legend"></div>
+        <div class="timeline-wrap">
+          <svg id="timeline" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Idea timeline"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- PEOPLE -->
+    <section class="view is-hidden" id="view-people" data-view="people">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The power brokers</h2>
+          <p class="lede">The people who built, run, defend, and are now starting to dismantle the system. Click any card.</p>
+        </header>
+        <div class="people-tiers" id="people-tiers"></div>
+      </div>
+    </section>
+
+    <!-- NONPROFITS -->
+    <section class="view is-hidden" id="view-nonprofits" data-view="nonprofits">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The nonprofits</h2>
+          <p class="lede">The organizations receiving hundreds of millions in city contracts — many without competitive bidding, most without outcome benchmarks. Click any card for details.</p>
+        </header>
+        <div class="np-cards" id="np-cards"></div>
+      </div>
+    </section>
+
+    <!-- NAMES (human cost) - dark bg -->
+    <section class="view is-hidden memorial-section" id="view-names" data-view="names">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The names</h2>
+          <p class="lede">875 people died of overdoses in the permanent supportive housing the system provided. Hundreds more live in conditions worse than the streets they were taken off of. This is the human cost of spending without accountability.</p>
+        </header>
+        <div class="memorial-stats" id="memorial-stats"></div>
+        <div class="memorial-categories" id="memorial-cats"></div>
+      </div>
+    </section>
+
+    <!-- CONNECTIONS -->
+    <section class="view is-hidden" id="view-connections" data-view="connections">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>Key connections</h2>
+          <p class="lede">Eight structural connections that explain how the system perpetuates itself — and how it links to the drug crisis investigation.</p>
+        </header>
+        <div class="connections-grid" id="connections-grid"></div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="view is-hidden" id="view-sources" data-view="sources">
+      <div class="view-inner sources-inner">
+        <header class="view-head">
+          <h2>The receipts</h2>
+          <p class="lede">Every claim in this investigation is sourced. Primary documents, audits, journalism, and financial filings.</p>
+        </header>
+        <div class="sources-grid" id="sources-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <p>A Public Benefit Investigation by Garry's List. Prototype — Investigation No. 02.</p>
+    </div>
+  </footer>
+
+  <aside class="panel" id="panel" aria-hidden="true">
+    <button class="panel-close" id="panel-close" aria-label="Close">×</button>
+    <div class="panel-inner" id="panel-inner"></div>
+  </aside>
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+<script>
+const DATA = {
+  question: "Why does San Francisco have a homelessness crisis despite spending so much money on it?",
+  shortAnswer: "Over $5 billion spent since 2016 while the homeless population grew. The money flows through nonprofits that operate with minimal oversight, no competitive bidding, and no outcome requirements — all built on a Housing First philosophy that state law made mandatory and that prohibits requiring sobriety or treatment as a condition of housing.",
+  keyStats: [
+    { value: "$5B+", label: "total city spending since 2016", sub: "approximate — and still climbing" },
+    { value: "8,323", label: "homeless (2024 PIT count)", sub: "UP from 7,499 in 2017 despite the spending" },
+    { value: "26%", label: "of Prop C reserves actually spent", sub: "$600M sat unspent while people slept on sidewalks" }
+  ],
+
+  // SANKEY
+  sankey: {
+    funders: [
+      { id: "prop_c", name: "Prop C Business Tax", amount: 330, color: "ochre", detail: "Gross receipts tax on businesses over $50M. Generates $250–490M/year. Passed 2018 with 61% vote. Marc Benioff contributed $2M+. Revenue volatile — dropped to $218M in pandemic year. Only 26% of $600M reserves spent by 2022." },
+      { id: "general_fund", name: "SF General Fund", amount: 346, color: "teal", detail: "40.9% of HSH budget. From the city's $15B annual budget." },
+      { id: "federal_state", name: "Federal & State", amount: 152, color: "teal", detail: "HUD Continuum of Care, FEMA, state grants. ~18% of HSH budget." }
+    ],
+    department: { id: "hsh", name: "HSH", fullName: "Dept. of Homelessness & Supportive Housing", budget: "$846.3M", detail: "Created 2016. 8th largest city dept by budget. Can bypass competitive bidding (authority extended to 2029). Director: Shireen McSpadden (outgoing); Mike Levine (incoming June 2026)." },
+    nonprofits: [
+      { id: "ecs", name: "Episcopal Community Svcs", amount: 31, detail: "$67.7M revenue (FY24). 80% from govt. Mary Stokes (ED, $385,700). Manages city-owned SROs, rapid rehousing.", type: "service" },
+      { id: "thc", name: "Tenderloin Housing Clinic", amount: 28, detail: "SF's largest PSH operator. Randy Shaw (ED since 1982 — 44 years). Manages dozens of SRO hotels. Also runs BeyondChron news site.", type: "service" },
+      { id: "homerise", name: "HomeRise", amount: 19, detail: "$19M revenue (FY24). 18 PSH sites, 1,500+ residents. April 2024 audit: $200K+ unplanned bonuses, millions in unexplained spending.", type: "service" },
+      { id: "abode", name: "Abode Services", amount: 15, detail: "Louis Chicoine (CEO, $361,700). Emergency housing vouchers, rapid rehousing.", type: "service" },
+      { id: "felton", name: "Felton Institute", amount: 9, detail: "$66.8M income (FY23). Al Gilbert (CEO, $392,200). Flexible housing subsidy pool.", type: "service" },
+      { id: "hr360", name: "HealthRIGHT 360", amount: 12, detail: "$44M–$144M/year. Dr. Vitka Eisen (CEO). SoMa RISE Center, treatment, syringe services. Also in drug investigation (Q1).", type: "service" },
+      { id: "five_keys", name: "Five Keys", amount: 8, detail: "Steve Good (CEO, $451,500). Shelter operations, education programs.", type: "service" },
+      { id: "glide", name: "GLIDE", amount: 4.3, detail: "$4.3M+ in housing support contracts.", type: "service" },
+      { id: "uchs", name: "UCHS (terminated)", amount: 5, detail: "Former CEO Gwendolyn Westbrook charged Feb 2026 with embezzling $1.2M — Tesla, jewelry, IVF. First flagged 2017. Continued receiving millions until 2023.", type: "terminated" }
+    ],
+    policies: [
+      { id: "housing_first", name: "Housing First Mandate", detail: "SB 1380 (2016): All state-funded homeless programs must follow Housing First. Programs requiring sobriety/treatment as housing condition are INELIGIBLE for state funding.", effect: "Effectively banned publicly funded treatment-first or abstinence-based programs in California." },
+      { id: "no_bid", name: "No-Bid Contracts", detail: "HSH granted 'streamlined contracting' authority (2019, extended to 2029). Can bypass competitive bidding.", effect: "Same nonprofits receive contracts year after year. Top 20 have received nearly $2B since 2017." },
+      { id: "prop_c_rules", name: "Prop C Spending Rules", detail: "50% permanent housing, 25% mental health, 15% prevention, 10% shelter. Cannot change without 2/3 Board vote.", effect: "Only 26% of $600M reserves spent by 2022. Rigid rules prevented money from reaching immediate needs." }
+    ],
+    outcomes: [
+      { id: "pop_growth", name: "8,323 homeless", sub: "growing — up from 7,499 in 2017", color: "bridgeRed" },
+      { id: "psh_deaths", name: "875 PSH OD deaths", sub: "2020–2025 · 25% of all city OD deaths", color: "bridgeRed" },
+      { id: "cost_per", name: "$57K/person/year", sub: "Hoover Institution calculation", color: "ink" }
+    ]
+  },
+
+  // TIMELINE
+  ideas: {
+    streams: [
+      {
+        id: "housing_first", name: "Housing First Philosophy", color: "#4A90D9",
+        events: [
+          { year: 1992, event: "Sam Tsemberis founds Pathways to Housing in NYC — first Housing First program", type: "origin", title: "Housing First" },
+          { year: 2000, event: "National Alliance to End Homelessness endorses Housing First as preferred model", type: "institutional" },
+          { year: 2002, event: "Gavin Newsom's 'Care Not Cash' (Prop N) — cuts cash grants, redirects to services", type: "sf_arrival" },
+          { year: 2004, event: "Newsom as Mayor: '10-Year Plan to Abolish Chronic Homelessness' — formally adopts Housing First", type: "critical_shift", title: "SF adopts Housing First" },
+          { year: 2007, event: "George W. Bush admin adopts Housing First for federal homelessness policy", type: "policy" },
+          { year: 2016, event: "CA SB 1380 — Housing First becomes STATE LAW", type: "critical_shift", title: "SB 1380" },
+          { year: 2025, event: "CA legislature considers allowing 25% of funds for recovery housing — first crack in mandate", type: "backlash" }
+        ]
+      },
+      {
+        id: "nonprofit_complex", name: "Nonprofit-Industrial Complex", color: "#D94A4A",
+        events: [
+          { year: 1980, event: "Tenderloin Housing Clinic founded — Randy Shaw", type: "origin", title: "THC founded" },
+          { year: 1988, event: "Coalition on Homelessness founded — Jennifer Friedenbach becomes long-time ED", type: "institution" },
+          { year: 2004, event: "SF begins scaling nonprofit contracts for supportive housing services", type: "policy" },
+          { year: 2016, event: "HSH established — consolidates all homeless services under one department", type: "critical_shift", title: "HSH created" },
+          { year: 2019, event: "HSH granted streamlined contracting — can bypass competitive bidding. Extended to 2029.", type: "critical_shift", title: "No-bid contracts" },
+          { year: 2022, event: "Controller audit of UCHS — financial mismanagement, referred to FBI", type: "accountability" },
+          { year: 2024, event: "Controller audit of HomeRise — $200K+ unplanned bonuses, millions unexplained", type: "accountability" },
+          { year: 2026, event: "Former UCHS CEO Westbrook charged with embezzling $1.2M", type: "accountability" }
+        ]
+      },
+      {
+        id: "funding", name: "Funding Escalation", color: "#D9A84A",
+        events: [
+          { year: 2016, event: "HSH created with $221M budget", type: "origin" },
+          { year: 2018, event: "Prop C passes — new gross receipts tax. Benioff $2M+. Expected $250–300M/year.", type: "critical_shift", title: "Prop C" },
+          { year: 2019, event: "First year Prop C revenue: $490M — nearly double projections", type: "funding" },
+          { year: 2020, event: "COVID: HSH budget explodes to $852M (132% increase)", type: "escalation" },
+          { year: 2021, event: "HSH budget hits $1.1 BILLION", type: "escalation" },
+          { year: 2022, event: "Only 26% of $600M Prop C reserves actually spent", type: "failure" },
+          { year: 2025, event: "Lurie proposes $104M in HSH cuts + $185M in nonprofit contract cuts", type: "backlash" }
+        ]
+      },
+      {
+        id: "outcomes", name: "The Outcomes", color: "#333333",
+        events: [
+          { year: 2017, event: "PIT count: 7,499 homeless", type: "baseline" },
+          { year: 2019, event: "PIT count: 8,011 (17% increase from 2017)", type: "escalation" },
+          { year: 2020, event: "875 overdose deaths in PSH units begin accumulating (2020–2025)", type: "crisis" },
+          { year: 2022, event: "PIT count: ~7,778", type: "data" },
+          { year: 2023, event: "SRO OD death rate: 278.7 per 100K — 19.3x the non-SRO rate", type: "crisis" },
+          { year: 2024, event: "PIT count: 8,323 (7% increase). SF Chronicle: SRO maintenance failures, infestations.", type: "escalation" }
+        ]
+      }
+    ],
+    convergencePoints: [
+      { year: 2004, note: "Housing First becomes SF policy" },
+      { year: 2016, note: "HSH created + SB 1380 state mandate" },
+      { year: 2018, note: "Prop C floods system with money" },
+      { year: 2024, note: "8,323 homeless despite $5B+" }
+    ]
+  },
+
+  // PEOPLE
+  people: {
+    tiers: {
+      architects: {
+        label: "Architects", blurb: "Built the intellectual framework and locked it into law.",
+        people: [
+          { id: "tsemberis", name: "Sam Tsemberis", role: "Founder, Housing First Model", org: "Pathways to Housing (NYC, 1992)", relevance: "Created the framework that became California law. Housing First was designed for chronically homeless with mental illness in NYC — never designed to be the ONLY approach to every type of homelessness. But that's what SB 1380 made it." },
+          { id: "newsom", name: "Gavin Newsom", role: "Mayor (2004–2011) → Governor", relevance: "As Supervisor: Care Not Cash (2002). As Mayor: adopted Housing First as SF policy. Promised to end chronic homelessness in 10 years. Didn't. As Governor: signed additional Housing First mandates. 20+ years of Housing First orthodoxy starting with one man." },
+          { id: "benioff", name: "Marc Benioff", role: "CEO, Salesforce; Prop C champion", relevance: "Donated $2M+ to Prop C campaign. Salesforce pays ~$10–11M/year in new taxes. The corporate face of 'we can tax our way to solving homelessness.' Prop C generated hundreds of millions — only 26% spent by 2022." },
+          { id: "friedenbach", name: "Jennifer Friedenbach", role: "ED, Coalition on Homelessness", relevance: "The most persistent voice defending Housing First orthodoxy for decades. Drove Prop C. Opposes encampment sweeps, shelter mandates, drug-free housing. Sued city over clearings. Claims 97% success rate while people die in SROs. Recently removed from Oversight Commission." }
+        ]
+      },
+      operators: {
+        label: "Operators", blurb: "Run the nonprofits and the department. Where the money lands.",
+        people: [
+          { id: "shaw", name: "Randy Shaw", role: "ED, Tenderloin Housing Clinic (since 1982)", relevance: "44 years running SF's largest PSH operator. Manages dozens of SRO hotels. Also runs BeyondChron, a news site that defends the system he profits from. When the Chronicle investigated SRO conditions, BeyondChron published a rebuttal calling it 'shameful.'" },
+          { id: "mcspadden", name: "Shireen McSpadden", role: "ED, HSH (2021–2026)", relevance: "Appointed by Breed. Oversaw peak budget years ($1.1B). Retiring June 2026. Oversaw the period when Prop C money sat unspent while homelessness grew." },
+          { id: "westbrook", name: "Gwendolyn Westbrook", role: "Former CEO, UCHS", relevance: "Charged Feb 2026 with embezzling $1.2M — Tesla, jewelry, IVF. Salary $155K but lived lavishly. First flagged 2017. Continued receiving millions until 2023. Prior: accused of theft from SF Port (1997), illegal blackjack at charity bingo (2015)." },
+          { id: "stokes", name: "Mary Stokes", role: "ED, Episcopal Community Services", relevance: "$385,700 compensation. ECS receives $67.7M in revenue, 80% from government contracts." },
+          { id: "cutler", name: "Blayne Cutler", role: "CEO, Heluna Health", relevance: "~$680,000 compensation — highest-paid CEO in SF homelessness/public health nonprofit sector." },
+          { id: "good", name: "Steve Good", role: "CEO, Five Keys", relevance: "$451,500 compensation. Operates shelter programs." },
+          { id: "gilbert", name: "Al Gilbert", role: "CEO, Felton Institute", relevance: "$392,200 compensation. $66.8M budget. Runs housing subsidy pools." }
+        ]
+      },
+      political: {
+        label: "Political", blurb: "The elected officials who enabled or challenged the system.",
+        people: [
+          { id: "breed", name: "London Breed", role: "Mayor (2018–2025)", relevance: "Oversaw HSH during its biggest spending years. Appointed McSpadden. Did not push for accountability reforms until political pressure built. Homelessness grew on her watch despite record budgets." },
+          { id: "haney", name: "Matt Haney", role: "Former Sup. (D6), now State Assembly", relevance: "Proposed HSH oversight commission in 2019 — it failed. Called HSH the least-accountable large department in city government." },
+          { id: "ronen", name: "Hillary Ronen", role: "Former Supervisor (D9)", relevance: "Progressive bloc member who supported the spending but eventually acknowledged accountability gaps." }
+        ]
+      },
+      backlash: {
+        label: "Backlash", blurb: "Pushing back against the spending-without-results era.",
+        people: [
+          { id: "lurie", name: "Daniel Lurie", role: "Mayor (2025–present)", relevance: "Proposing $104M in HSH cuts + $185M in nonprofit contract cuts. Pushing to reallocate Prop C funds. Founded Tipping Point Community. Represents the political backlash to spending without results." },
+          { id: "ohanian", name: "Lee Ohanian", role: "Senior Fellow, Hoover Institution", relevance: "Most prominent academic critic. Documented $2.8B+ spent since 2016–17 with rising homelessness. Calculated $57K/year per homeless person." },
+          { id: "growsf", name: "GrowSF / Sachin Agarwal", role: "Civic advocacy org", relevance: "Published detailed research on HSH system failures. Documented how Housing First fails vulnerable populations." }
+        ]
+      }
+    }
+  },
+
+  // NONPROFITS
+  nonprofits: [
+    { id: "ecs", name: "Episcopal Community Services", budget: "$67.7M revenue (FY24)", leader: "Mary Stokes (ED, $385,700)", govPct: "79.86%", type: "service", finding: "Largest HSH contractor. Manages city-owned SROs, rapid rehousing, support services. Nearly 80% of revenue from government grants/contracts." },
+    { id: "thc", name: "Tenderloin Housing Clinic", budget: "Major HSH contractor", leader: "Randy Shaw (ED since 1982 — 44 years)", govPct: "High", type: "service", finding: "SF's largest operator of permanent supportive housing. Manages dozens of SRO hotels. Shaw also runs BeyondChron news site that defends the system." },
+    { id: "homerise", name: "HomeRise", budget: "$19M revenue (FY24)", leader: "New executives (hired 2023)", govPct: "High", type: "service", finding: "April 2024 audit found $200K+ in unplanned bonuses, millions in unexplained spending (2019–2023). 18 PSH sites, 1,500+ residents." },
+    { id: "felton", name: "Felton Institute", budget: "$66.8M income (FY23)", leader: "Al Gilbert (CEO, $392,200)", govPct: "Significant", type: "service", finding: "Runs flexible housing subsidy pool, behavioral health services under HSH contracts." },
+    { id: "hr360", name: "HealthRIGHT 360", budget: "$44M–$144M/year", leader: "Dr. Vitka Eisen (CEO)", govPct: "Significant", type: "service", finding: "Also appears in drug use investigation (Q1). SoMa RISE Center, residential treatment, syringe services, MAT." },
+    { id: "abode", name: "Abode Services", budget: "$15M+ (HSH contracts)", leader: "Louis Chicoine (CEO, $361,700)", govPct: "High", type: "service", finding: "Emergency housing vouchers, rapid rehousing programs." },
+    { id: "five_keys", name: "Five Keys Schools and Programs", budget: "Major contractor", leader: "Steve Good (CEO, $451,500)", govPct: "High", type: "service", finding: "Shelter operations, education programs. CEO is among highest-compensated in the system." },
+    { id: "heluna", name: "Heluna Health", budget: "Significant", leader: "Blayne Cutler (CEO, ~$680,000)", govPct: "High", type: "fiscal", finding: "Fiscal sponsor for DOPE Project and other public health programs. Highest-compensated CEO in SF homelessness/public health nonprofit sector." },
+    { id: "glide", name: "GLIDE", budget: "$4.3M+ (HSH contracts)", leader: "GLIDE leadership", govPct: "Moderate", type: "service", finding: "Housing support contracts with HSH." },
+    { id: "uchs", name: "United Council of Human Services", budget: "Millions (terminated)", leader: "Gwendolyn Westbrook (former — charged)", govPct: "High", type: "terminated", finding: "CEO charged Feb 2026 with embezzling $1.2M. First flagged 2017. Continued receiving millions until 2023. Tesla, jewelry, IVF for relative." },
+    { id: "coh", name: "Coalition on Homelessness", budget: "~$62K ED salary", leader: "Jennifer Friedenbach (ED)", govPct: "Low", type: "advocacy", finding: "Primary advocacy org opposing enforcement. Publishes Street Sheet. Drove Prop C. Opposes sweeps, shelter mandates, drug-free housing. Sued city over encampment clearings." }
+  ],
+
+  // HUMAN COST
+  victims: {
+    stats: [
+      { value: "875", label: "overdose deaths in PSH", sub: "2020–2025 — nearly 25% of all city OD deaths" },
+      { value: "278.7", label: "SRO OD death rate per 100K", sub: "19.3× the non-SRO rate" },
+      { value: "86%", label: "died at home — alone", sub: "of SRO residents who overdosed died in the rooms the system provided" },
+      { value: "4,354", label: "unsheltered people (2024)", sub: "that's $194K per unsheltered person at current spending" }
+    ],
+    categories: [
+      { title: "Died in Permanent Supportive Housing", text: "875 overdose deaths in PSH units (2020–2025). The top 5 service providers accounted for 594 of these deaths. SRO overdose death rate (278.7/100K) is 19.3× the non-SRO rate. 86% of SRO residents who overdosed died at home — people dying alone in the rooms the system provided.", sources: "SF Office of Chief Medical Examiner, SF Chronicle 'Broken Homes' investigation" },
+      { title: "Living in SRO Squalor", text: "SF Chronicle documented tenants who abandoned their SRO units to live in tents because conditions were worse inside — rodent and bedbug infestations, cockroaches, elevator breakdowns stranding elderly and disabled residents, ceiling cave-ins, raw sewage leaks, mold. These are people the system 'housed' on paper.", sources: "SF Chronicle SRO investigation, Shelter Monitoring Committee reports" },
+      { title: "On the Streets Despite the Spending", text: "4,354 unsheltered people (2024 PIT count). The city spent $846M that year. That's over $194,000 per unsheltered person — and they're still outside. The system spends $57,000 per homeless person per year overall. Building one unit of permanent supportive housing: $650K–$1M+.", sources: "2024 PIT Count Report, HSH budget documents, Hoover Institution" }
+    ]
+  },
+
+  // CONNECTIONS
+  connections: [
+    { from: "Housing First philosophy", to: "SB 1380 state mandate", type: "codified", detail: "What started as one NYC psychologist's model became California law in 2016. SB 1380 made Housing First the ONLY eligible approach for state funding — banning treatment-first or abstinence-based programs from receiving public money." },
+    { from: "SB 1380", to: "No treatment requirements in PSH", type: "enabling", detail: "Because state law prohibits requiring sobriety as a condition of housing, SF's permanent supportive housing operates as de facto drug-tolerant housing. Result: 875 overdose deaths in PSH units (2020–2025). People die alone in the rooms the system provided." },
+    { from: "Prop C (2018)", to: "Unspent money on sidewalks", type: "failure", detail: "Prop C mandated rigid spending categories: 50% permanent housing, 25% mental health, 10% shelter. But permanent housing takes years to build. Only 26% of $600M in reserves was spent by 2022. Hundreds of millions sat in accounts while people slept on streets." },
+    { from: "No-bid contracting (2019)", to: "Nonprofit entrenchment", type: "enabling", detail: "HSH's streamlined contracting authority means the same nonprofits receive contracts year after year without competing. Top 20 received nearly $2B since 2017. No performance benchmarks required for renewal." },
+    { from: "Coalition on Homelessness", to: "Policy resistance", type: "advocacy capture", detail: "COH simultaneously advocates for more spending, opposes accountability measures, opposes shelter mandates, opposes drug-free housing, and sues the city over encampment clearings. The advocacy org that shaped the system now defends it against reform." },
+    { from: "Tenderloin Housing Clinic", to: "SRO operations + media defense", type: "conflict of interest", detail: "Randy Shaw operates SF's largest SRO portfolio AND runs BeyondChron, a news site that defends the SRO system against criticism. When the Chronicle investigated SRO conditions, BeyondChron published a rebuttal calling it 'shameful.' Shaw profits from the system he defends in print." },
+    { from: "UCHS / Westbrook fraud", to: "Oversight failure", type: "systemic", detail: "Controller flagged problems in 2017 audit. UCHS continued receiving millions until 2023. Westbrook not charged until 2026. Nine years from first warning to first charge — while $1.2M in homeless funds bought Teslas and jewelry." },
+    { from: "Drug use investigation (Q1)", to: "Homelessness investigation (Q2)", type: "cross-link", detail: "Same overlap: HealthRIGHT 360 appears in both. Harm reduction operates in both drug policy and Housing First. SROs are where overdose deaths concentrate. The Tenderloin is ground zero for both crises. Same people, same money, same neighborhood." }
+  ],
+
+  // SOURCES
+  sources: {
+    government: [
+      "SF Dept. of Homelessness & Supportive Housing — budget documents, annual reports",
+      "SF Controller's Office — audits (HomeRise 2024, UCHS 2022, HSH Staffing 2019)",
+      "SF Controller — Our City Our Home Fund annual reports",
+      "2024 San Francisco Point-in-Time Count Report",
+      "CA Legislative Analyst's Office",
+      "SB 1380 text and legislative history",
+      "SF District Attorney — Westbrook charging documents (Feb 2026)"
+    ],
+    journalism: [
+      "SF Chronicle: 'Broken Homes' SRO investigation (award-winning)",
+      "Washington Examiner: Nonprofit CEO salary analysis (2024)",
+      "Mission Local: Nonprofit contracting, budget analysis",
+      "GrowSF: 'SF Homeless System Fails Vulnerable' research (Apr 2025)",
+      "Hoover Institution (Lee Ohanian): '$11 Billion' spending analysis"
+    ],
+    financial: [
+      "ProPublica Nonprofit Explorer: 990 filings for ECS, HomeRise, Felton, THC, UCHS, COH",
+      "Ballotpedia: Prop C (2018) campaign finance",
+      "CauseIQ: Nonprofit financial profiles",
+      "SF Ethics Commission: Campaign finance data"
+    ],
+    academic: [
+      "Cicero Institute: 'Housing First Is a Failure' research",
+      "Terner Center (UC Berkeley): Permanent supportive housing cost analysis",
+      "CalMatters: Housing First policy analysis",
+      "SPUR: Prop C voter guide and analysis"
+    ]
+  }
+};
+</script>
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  const C = {
+    ochre: "#C4923E", teal: "#3D7B7B", bridgeRed: "#B04A32",
+    terracotta: "#C8704F", ink: "#1A1614", inkSoft: "#8A7E73", paper: "#F5F1EA"
+  };
+
+  // ============ HERO ============
+  function renderHero() {
+    $("#question").textContent = DATA.question;
+    $("#short-answer").textContent = DATA.shortAnswer;
+    const stats = $("#key-stats");
+    DATA.keyStats.forEach(s => {
+      const d = document.createElement("div");
+      d.className = "key-stat";
+      d.innerHTML = `<div class="value">${s.value}</div><div class="label">${s.label}</div><div class="sub">${s.sub}</div>`;
+      stats.appendChild(d);
+    });
+  }
+
+  // ============ VIEW SWITCHER ============
+  let rendered = {};
+  function bindViews() {
+    $$(".tab").forEach(t => {
+      t.addEventListener("click", () => {
+        $$(".tab").forEach(x => x.classList.remove("is-active"));
+        t.classList.add("is-active");
+        const view = t.dataset.view;
+        $$(".view").forEach(v => v.classList.toggle("is-hidden", v.dataset.view !== view));
+        if (!rendered[view]) {
+          const fn = renderers[view];
+          if (fn) fn();
+          rendered[view] = true;
+        }
+        window.scrollTo({ top: $(`#view-${view}`).offsetTop - 110, behavior: "smooth" });
+      });
+    });
+  }
+
+  const renderers = {
+    timeline: renderTimeline,
+    people: renderPeople,
+    nonprofits: renderNonprofits,
+    names: renderNames,
+    connections: renderConnections,
+    sources: renderSources
+  };
+
+  // ============ SANKEY ============
+  const SK = { W: 1440, H: 820, TOP: 100, BOT: 780 };
+  const COL_X = [40, 380, 660, 1020, 1260];
+  const COL_LABELS = ["Funding Sources", "Department", "Nonprofits", "Policy Layer", "Outcomes"];
+  const NODE_W = 14;
+  let sankeyLinks = [];
+
+  function el(name, attrs = {}) {
+    const e = document.createElementNS(svgNS, name);
+    Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
+    return e;
+  }
+
+  function renderSankey() {
+    const svg = $("#sankey");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    sankeyLinks = [];
+
+    const { funders, department, nonprofits, policies, outcomes } = DATA.sankey;
+    const positions = new Map();
+
+    // Column headers
+    COL_LABELS.forEach((label, i) => {
+      const t = el("text", { x: COL_X[i] + (i === 1 ? 7 : (i < 2 ? 80 : (i === 2 ? 80 : (i === 3 ? 60 : 40)))), y: 60, class: "sk-col-label", "text-anchor": "middle" });
+      t.textContent = label;
+      svg.appendChild(t);
+    });
+
+    // Links group (drawn under nodes)
+    const linksG = el("g");
+    svg.appendChild(linksG);
+
+    // FUNDERS (col 0)
+    const funderTotal = funders.reduce((a, f) => a + f.amount, 0);
+    let fy = SK.TOP + 60;
+    const funderGap = 40;
+    funders.forEach(f => {
+      const h = Math.max(30, (f.amount / funderTotal) * 300);
+      const color = f.color === "ochre" ? C.ochre : C.teal;
+      positions.set(f.id, { x: COL_X[0] + 120, y: fy, h, color, data: f, layer: "funder" });
+      fy += h + funderGap;
+    });
+
+    // HSH (col 1)
+    const hshH = 200;
+    const hshY = SK.TOP + 100;
+    positions.set("hsh", { x: COL_X[1] + 40, y: hshY, h: hshH, color: C.bridgeRed, data: department, layer: "department" });
+
+    // NONPROFITS (col 2)
+    const npTotal = nonprofits.reduce((a, n) => a + n.amount, 0);
+    let ny = SK.TOP;
+    const npGap = 8;
+    nonprofits.forEach(n => {
+      const h = Math.max(20, (n.amount / npTotal) * 400);
+      const color = n.type === "terminated" ? C.ink : C.terracotta;
+      positions.set(n.id, { x: COL_X[2] + 40, y: ny, h, color, data: n, layer: "nonprofit" });
+      ny += h + npGap;
+    });
+
+    // POLICIES (col 3)
+    let py = SK.TOP + 80;
+    const pGap = 50;
+    policies.forEach(p => {
+      const h = 36;
+      positions.set(p.id, { x: COL_X[3] + 20, y: py, h, color: C.ink, data: p, layer: "policy" });
+      py += h + pGap;
+    });
+
+    // Draw links: funders → hsh
+    const hshPos = positions.get("hsh");
+    let hshInY = hshPos.y;
+    funders.forEach(f => {
+      const src = positions.get(f.id);
+      const w = 2 + (f.amount / funderTotal) * 30;
+      const sy = src.y + src.h / 2;
+      const ty = hshInY + w / 2;
+      hshInY += w + 4;
+      drawLink(linksG, src.x + NODE_W, sy, hshPos.x, ty, w, src.color, f.id, "hsh");
+    });
+
+    // hsh → nonprofits
+    let hshOutY = hshPos.y;
+    nonprofits.forEach(n => {
+      const dst = positions.get(n.id);
+      const w = 2 + (n.amount / npTotal) * 24;
+      const sy = hshOutY + w / 2;
+      hshOutY += w + 2;
+      const ty = dst.y + dst.h / 2;
+      drawLink(linksG, hshPos.x + NODE_W, sy, dst.x, ty, w, C.bridgeRed, "hsh", n.id);
+    });
+
+    // nonprofits → policies (structural)
+    nonprofits.forEach(n => {
+      const src = positions.get(n.id);
+      policies.forEach(p => {
+        const dst = positions.get(p.id);
+        drawLink(linksG, src.x + NODE_W, src.y + src.h / 2, dst.x, dst.y + dst.h / 2, 1.2, C.terracotta, n.id, p.id, 0.12);
+      });
+    });
+
+    // policies → outcomes (structural, thin)
+    const outcomeBaseY = SK.TOP + 40;
+    const outcomeGap = 100;
+    outcomes.forEach((o, i) => {
+      const oy = outcomeBaseY + i * outcomeGap;
+      positions.set(o.id, { x: COL_X[4], y: oy });
+      policies.forEach(p => {
+        const src = positions.get(p.id);
+        drawLink(linksG, src.x + NODE_W, src.y + src.h / 2, COL_X[4], oy + 20, 1.2, C.ink, p.id, o.id, 0.1);
+      });
+    });
+
+    // Draw nodes
+    positions.forEach((pos, id) => {
+      if (["pop_growth", "psh_deaths", "cost_per"].includes(id)) return;
+      const g = el("g", { class: "sk-node", "data-id": id });
+      const r = el("rect", { x: pos.x, y: pos.y, width: NODE_W, height: pos.h, fill: pos.color, rx: 2 });
+      g.appendChild(r);
+      const isLeft = pos.layer === "funder";
+      const labelX = isLeft ? pos.x - 10 : pos.x + NODE_W + 10;
+      const anchor = isLeft ? "end" : "start";
+      const t = el("text", { x: labelX, y: pos.y + pos.h / 2 + 4, "text-anchor": anchor });
+      t.textContent = pos.data.name || pos.data.fullName || id;
+      g.appendChild(t);
+
+      if (pos.layer === "funder") {
+        const amt = el("text", { class: "sk-amt", x: labelX, y: pos.y + pos.h / 2 + 19, "text-anchor": anchor });
+        amt.textContent = "$" + pos.data.amount + "M/yr";
+        g.appendChild(amt);
+      } else if (pos.layer === "department") {
+        const amt = el("text", { class: "sk-amt", x: labelX, y: pos.y + pos.h / 2 + 19, "text-anchor": anchor });
+        amt.textContent = pos.data.budget + " budget";
+        g.appendChild(amt);
+      } else if (pos.layer === "nonprofit" && pos.data.amount) {
+        const amt = el("text", { class: "sk-amt", x: labelX, y: pos.y + pos.h / 2 + 17, "text-anchor": anchor });
+        amt.textContent = "$" + pos.data.amount + "M";
+        g.appendChild(amt);
+      }
+
+      g.addEventListener("mouseenter", () => highlightSankey(id, true));
+      g.addEventListener("mouseleave", () => highlightSankey(id, false));
+      g.addEventListener("click", () => openSankeyNode(id, pos));
+      svg.appendChild(g);
+    });
+
+    // Outcomes as big text on right
+    outcomes.forEach((o, i) => {
+      const oy = outcomeBaseY + i * outcomeGap;
+      const g = el("g", { class: "sk-node", "data-id": o.id });
+      g.style.cursor = "pointer";
+      const val = el("text", {
+        x: COL_X[4] + 10, y: oy + 10, class: "sk-outcome",
+        "text-anchor": "start", "font-size": i === 0 ? 42 : (i === 1 ? 36 : 28)
+      });
+      val.textContent = o.name;
+      g.appendChild(val);
+      const sub = el("text", {
+        x: COL_X[4] + 10, y: oy + 30, class: "sk-outcome-label", "text-anchor": "start"
+      });
+      sub.textContent = o.sub;
+      g.appendChild(sub);
+      g.addEventListener("click", () => openOutcome(o));
+      g.addEventListener("mouseenter", () => highlightSankey(o.id, true));
+      g.addEventListener("mouseleave", () => highlightSankey(o.id, false));
+      svg.appendChild(g);
+    });
+  }
+
+  function drawLink(parent, sx, sy, tx, ty, w, color, srcId, dstId, opacity) {
+    const midX = (sx + tx) / 2;
+    const d = `M ${sx} ${sy} C ${midX} ${sy}, ${midX} ${ty}, ${tx} ${ty}`;
+    const path = el("path", {
+      d, class: "sk-link", stroke: color,
+      "stroke-width": w, "stroke-opacity": opacity || 0.32,
+      "data-src": srcId, "data-dst": dstId
+    });
+    parent.appendChild(path);
+    sankeyLinks.push({ el: path, src: srcId, dst: dstId });
+  }
+
+  function highlightSankey(id, on) {
+    const related = new Set([id]);
+    sankeyLinks.forEach(L => {
+      if (L.src === id || L.dst === id) {
+        related.add(L.src); related.add(L.dst);
+        L.el.classList.toggle("is-hot", on);
+        L.el.classList.toggle("is-dim", false);
+      } else {
+        L.el.classList.toggle("is-dim", on);
+      }
+    });
+    $$("#sankey .sk-node").forEach(n => {
+      n.classList.toggle("is-dim", on && !related.has(n.dataset.id));
+    });
+  }
+
+  function openSankeyNode(id, pos) {
+    const d = pos.data;
+    if (pos.layer === "funder") {
+      openPanel(`
+        <div class="panel-eyebrow">Funding source</div>
+        <h3 class="panel-title">${d.name}</h3>
+        <div class="panel-sub">$${d.amount}M/year</div>
+        <div class="panel-section"><h5>Details</h5><p>${d.detail}</p></div>
+      `);
+    } else if (pos.layer === "department") {
+      openPanel(`
+        <div class="panel-eyebrow">Government department</div>
+        <h3 class="panel-title">${d.fullName}</h3>
+        <div class="panel-sub">${d.budget} (FY24-25)</div>
+        <div class="panel-section"><h5>Details</h5><p>${d.detail}</p></div>
+        <div class="panel-section">
+          <h5>Where the money goes</h5>
+          ${DATA.sankey.nonprofits.map(n => `
+            <div class="flow-row">
+              <div><div class="flow-target">${n.name}</div></div>
+              <div class="flow-amount">$${n.amount}M+</div>
+            </div>
+          `).join("")}
+        </div>
+      `);
+    } else if (pos.layer === "nonprofit") {
+      openPanel(`
+        <div class="panel-eyebrow">Nonprofit contractor</div>
+        <h3 class="panel-title">${d.name}</h3>
+        <div class="panel-sub">$${d.amount}M+ in HSH contracts</div>
+        <div class="panel-section"><h5>Details</h5><p>${d.detail}</p></div>
+      `);
+    } else if (pos.layer === "policy") {
+      openPanel(`
+        <div class="panel-eyebrow">Policy</div>
+        <h3 class="panel-title">${d.name}</h3>
+        <div class="panel-section"><h5>What it is</h5><p>${d.detail}</p></div>
+        <div class="panel-section"><h5>Effect</h5><p>${d.effect}</p></div>
+      `);
+    }
+  }
+
+  function openOutcome(o) {
+    openPanel(`
+      <div class="panel-eyebrow">Outcome</div>
+      <h3 class="panel-title">${o.name}</h3>
+      <div class="panel-section"><h5>Detail</h5><p>${o.sub}</p></div>
+    `);
+  }
+
+  // ============ TIMELINE ============
+  function renderTimeline() {
+    const streams = DATA.ideas.streams;
+    const svg = $("#timeline");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = 1200, H = 560;
+    const left = 200, right = 40, top = 50, bottom = 60;
+    const innerW = W - left - right;
+    const innerH = H - top - bottom;
+    let minY = Infinity, maxY = -Infinity;
+    streams.forEach(s => s.events.forEach(e => { minY = Math.min(minY, e.year); maxY = Math.max(maxY, e.year); }));
+    minY = Math.floor(minY / 5) * 5;
+    maxY = Math.ceil(maxY / 5) * 5;
+    const xOf = y => left + ((y - minY) / (maxY - minY)) * innerW;
+    const laneH = innerH / streams.length;
+    const yOf = i => top + laneH * i + laneH / 2;
+
+    // convergence lines
+    DATA.ideas.convergencePoints.forEach(c => {
+      const x = xOf(c.year);
+      svg.appendChild(el("line", { x1: x, x2: x, y1: top - 16, y2: H - bottom + 4, class: "tl-converge" }));
+      const label = el("text", { x, y: top - 22, class: "tl-converge-label", "text-anchor": "middle" });
+      label.textContent = c.year;
+      svg.appendChild(label);
+    });
+
+    // lanes
+    streams.forEach((s, i) => {
+      const y = yOf(i);
+      svg.appendChild(el("line", { x1: left, x2: W - right, y1: y, y2: y, stroke: s.color, "stroke-width": 1.2, opacity: 0.32 }));
+      const lbl = el("text", { x: left - 12, y, class: "tl-lane-label", "text-anchor": "end", "dominant-baseline": "middle", fill: s.color });
+      lbl.textContent = s.name;
+      svg.appendChild(lbl);
+    });
+
+    // x axis
+    const axisG = el("g", { class: "tl-axis" });
+    for (let y = minY; y <= maxY; y += 5) {
+      const x = xOf(y);
+      axisG.appendChild(el("line", { x1: x, x2: x, y1: H - bottom + 4, y2: H - bottom + 8, stroke: C.inkSoft }));
+      if (y % 10 === 0) {
+        const t = el("text", { x, y: H - bottom + 22, "text-anchor": "middle" });
+        t.textContent = y;
+        axisG.appendChild(t);
+      }
+    }
+    svg.appendChild(axisG);
+
+    // events
+    let prevLandmarkX = {};
+    streams.forEach((s, i) => {
+      const y = yOf(i);
+      prevLandmarkX[i] = -Infinity;
+      let prevHigh = false;
+      s.events.forEach(ev => {
+        const x = xOf(ev.year);
+        const isLandmark = !!ev.title;
+        const isSig = ["critical_shift", "crisis", "failure"].includes(ev.type);
+        const g = el("g", { class: "tl-event", transform: `translate(${x}, ${y})` });
+        if (isLandmark) {
+          g.appendChild(el("circle", { r: 14, fill: C.paper, stroke: s.color, "stroke-width": 2.5, "stroke-opacity": 0.55 }));
+          g.appendChild(el("circle", { r: 9, fill: s.color, stroke: C.paper, "stroke-width": 2.5 }));
+        } else {
+          g.appendChild(el("circle", { r: isSig ? 7 : 5, fill: s.color, stroke: C.paper, "stroke-width": 2 }));
+        }
+        g.addEventListener("click", () => openEvent(ev, s));
+        g.addEventListener("mouseenter", e => showTooltip(e, ev));
+        g.addEventListener("mouseleave", hideTooltip);
+        svg.appendChild(g);
+
+        if (isLandmark) {
+          const tooClose = (x - prevLandmarkX[i]) < 95;
+          const high = tooClose && !prevHigh;
+          const labelY = y + (high ? -38 : -22);
+          svg.appendChild(el("line", { x1: x, x2: x, y1: y - 14, y2: labelY + 6, stroke: s.color, "stroke-width": 1, "stroke-opacity": 0.5 }));
+          const title = el("text", { x, y: labelY, class: "tl-landmark-title", "text-anchor": "middle", fill: C.ink });
+          title.textContent = ev.title;
+          svg.appendChild(title);
+          prevLandmarkX[i] = x;
+          prevHigh = high;
+        }
+        if (["critical_shift", "crisis", "backlash", "failure"].includes(ev.type)) {
+          const yt = el("text", { x, y: y + (isLandmark ? 24 : 18), "text-anchor": "middle" });
+          yt.textContent = ev.year;
+          svg.appendChild(yt);
+        }
+      });
+    });
+
+    // legend
+    const lg = $("#timeline-legend");
+    lg.innerHTML = "";
+    streams.forEach(s => {
+      const sp = document.createElement("span");
+      sp.className = "legend-item";
+      sp.innerHTML = `<span class="swatch" style="background:${s.color}"></span>${s.name}`;
+      lg.appendChild(sp);
+    });
+  }
+
+  // tooltip
+  let tip;
+  function showTooltip(e, ev) {
+    if (!tip) {
+      tip = document.createElement("div");
+      tip.style.cssText = `position:fixed;z-index:20;background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:3px;font-size:13px;max-width:280px;line-height:1.4;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-family:var(--sans);`;
+      document.body.appendChild(tip);
+    }
+    tip.innerHTML = `<div style="font-weight:600;margin-bottom:2px;">${ev.year}</div>${ev.event}`;
+    tip.style.display = "block";
+    moveTooltip(e);
+  }
+  function moveTooltip(e) { if (tip) { tip.style.left = (e.clientX + 14) + "px"; tip.style.top = (e.clientY + 14) + "px"; } }
+  function hideTooltip() { if (tip) tip.style.display = "none"; }
+  document.addEventListener("mousemove", e => { if (tip && tip.style.display !== "none") moveTooltip(e); });
+
+  function openEvent(ev, stream) {
+    openPanel(`
+      <div class="panel-eyebrow" style="color:${stream.color}">${stream.name} · ${ev.year}</div>
+      <h3 class="panel-title">${ev.event}</h3>
+      <div class="panel-section"><h5>Event type</h5><p>${ev.type.replace(/_/g, " ")}</p></div>
+      <div class="panel-section"><h5>Context</h5><p>This event falls in the <em>${stream.name}</em> stream — one of the four parallel histories that converged on San Francisco's homelessness crisis.</p></div>
+    `);
+  }
+
+  // ============ PEOPLE ============
+  function renderPeople() {
+    const wrap = $("#people-tiers");
+    Object.entries(DATA.people.tiers).forEach(([tierKey, tier]) => {
+      const tierEl = document.createElement("div");
+      tierEl.className = "people-tier";
+      tierEl.innerHTML = `
+        <div class="tier-head">
+          <h3>${tier.label}</h3>
+          <span class="tier-blurb">${tier.blurb}</span>
+        </div>
+        <div class="cards"></div>
+      `;
+      const cardsEl = tierEl.querySelector(".cards");
+      tier.people.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card-head">
+            <div class="avatar ${tierKey}">${initials(p.name)}</div>
+            <div>
+              <div class="card-name">${p.name}</div>
+              <div class="card-role">${p.role || ""}</div>
+            </div>
+          </div>
+          ${p.org ? `<div class="card-org">${p.org}</div>` : ""}
+          <div class="card-blurb">${p.relevance || ""}</div>
+          <span class="tier-pill ${tierKey}">${tierKey}</span>
+        `;
+        card.addEventListener("click", () => openPerson(p, tierKey));
+        cardsEl.appendChild(card);
+      });
+      wrap.appendChild(tierEl);
+    });
+  }
+
+  function initials(name) {
+    return name.split(/[\s/]+/).map(w => w[0]).filter(Boolean).slice(0, 2).join("");
+  }
+
+  function openPerson(p, tierKey) {
+    openPanel(`
+      <div class="panel-eyebrow">${tierKey.charAt(0).toUpperCase() + tierKey.slice(1)}</div>
+      <h3 class="panel-title">${p.name}</h3>
+      ${p.role ? `<div class="panel-sub">${p.role}${p.org ? ` · ${p.org}` : ""}</div>` : ""}
+      ${p.relevance ? `<div class="panel-section"><h5>Why they matter</h5><p>${p.relevance}</p></div>` : ""}
+    `);
+  }
+
+  // ============ NONPROFITS ============
+  function renderNonprofits() {
+    const wrap = $("#np-cards");
+    DATA.nonprofits.forEach(np => {
+      const card = document.createElement("div");
+      card.className = "np-card";
+      card.innerHTML = `
+        <span class="np-type-pill ${np.type}">${np.type}</span>
+        <div class="np-name">${np.name}</div>
+        <div class="np-meta">${np.budget}${np.govPct ? ` · ${np.govPct} govt revenue` : ""}</div>
+        ${np.leader ? `<div class="np-leader">${np.leader}</div>` : ""}
+        <div class="np-finding">${np.finding}</div>
+      `;
+      card.addEventListener("click", () => openNonprofit(np));
+      wrap.appendChild(card);
+    });
+  }
+
+  function openNonprofit(np) {
+    openPanel(`
+      <div class="panel-eyebrow">${np.type === "advocacy" ? "Advocacy organization" : np.type === "fiscal" ? "Fiscal sponsor" : np.type === "terminated" ? "Terminated contractor" : "Service provider"}</div>
+      <h3 class="panel-title">${np.name}</h3>
+      ${np.budget ? `<div class="panel-sub">${np.budget}</div>` : ""}
+      ${np.leader ? `<div class="panel-section"><h5>Leadership</h5><p>${np.leader}</p></div>` : ""}
+      <div class="panel-section"><h5>Government revenue share</h5><p>${np.govPct || "Unknown"}</p></div>
+      <div class="panel-section"><h5>Key finding</h5><p>${np.finding}</p></div>
+    `);
+  }
+
+  // ============ NAMES (human cost) ============
+  function renderNames() {
+    const statsWrap = $("#memorial-stats");
+    DATA.victims.stats.forEach(s => {
+      const d = document.createElement("div");
+      d.className = "memorial-stat";
+      d.innerHTML = `<div class="ms-val">${s.value}</div><div class="ms-label">${s.label}</div><div class="ms-sub">${s.sub}</div>`;
+      statsWrap.appendChild(d);
+    });
+    const catsWrap = $("#memorial-cats");
+    DATA.victims.categories.forEach(c => {
+      const d = document.createElement("div");
+      d.className = "memorial-cat";
+      d.innerHTML = `<h4>${c.title}</h4><p>${c.text}</p><p style="font-size:12px;color:var(--fog-dark);margin-top:8px;"><em>Sources: ${c.sources}</em></p>`;
+      d.style.cursor = "pointer";
+      d.addEventListener("click", () => {
+        openPanel(`
+          <div class="panel-eyebrow">Human cost</div>
+          <h3 class="panel-title">${c.title}</h3>
+          <div class="panel-section"><h5>The evidence</h5><p>${c.text}</p></div>
+          <div class="panel-section"><h5>Sources</h5><p style="font-size:13px;color:var(--ink-soft);">${c.sources}</p></div>
+        `);
+      });
+      catsWrap.appendChild(d);
+    });
+  }
+
+  // ============ CONNECTIONS ============
+  function renderConnections() {
+    const grid = $("#connections-grid");
+    DATA.connections.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "conn-card";
+      card.innerHTML = `
+        <div class="conn-type">${c.type}</div>
+        <div class="conn-edge">${c.from} <span class="arrow">→</span> ${c.to}</div>
+        <div class="conn-detail">${c.detail}</div>
+      `;
+      card.addEventListener("click", () => {
+        openPanel(`
+          <div class="panel-eyebrow">${c.type}</div>
+          <h3 class="panel-title">${c.from} → ${c.to}</h3>
+          <div class="panel-section"><h5>Connection</h5><p>${c.detail}</p></div>
+        `);
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // ============ SOURCES ============
+  function renderSources() {
+    const grid = $("#sources-grid");
+    const cols = [
+      ["Government & primary", DATA.sources.government],
+      ["Journalism", DATA.sources.journalism],
+      ["Financial & nonprofit", DATA.sources.financial],
+      ["Academic & policy", DATA.sources.academic]
+    ];
+    cols.forEach(([label, items]) => {
+      const col = document.createElement("div");
+      col.className = "sources-col";
+      col.innerHTML = `<h4>${label}</h4><ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+      grid.appendChild(col);
+    });
+  }
+
+  // ============ DETAIL PANEL ============
+  const panel = $("#panel"), panelInner = $("#panel-inner"), panelScrim = $("#panel-scrim");
+  function openPanel(html) {
+    panelInner.innerHTML = html;
+    panel.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+    panelScrim.classList.add("is-open");
+  }
+  function closePanel() {
+    panel.classList.remove("is-open");
+    panelScrim.classList.remove("is-open");
+    panel.setAttribute("aria-hidden", "true");
+  }
+  $("#panel-close").addEventListener("click", closePanel);
+  panelScrim.addEventListener("click", closePanel);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+  // ============ INIT ============
+  document.addEventListener("DOMContentLoaded", () => {
+    renderHero();
+    bindViews();
+    renderSankey();
+  });
+})();
+</script>
+<script>
+// Post height to parent for iframe resize
+function postHeight() {
+  if (window.parent !== window) {
+    window.parent.postMessage({ type: 'resize', height: document.body.scrollHeight }, '*');
+  }
+}
+window.addEventListener('load', postHeight);
+window.addEventListener('resize', postHeight);
+new MutationObserver(postHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+</script>
+</body>
+</html>
