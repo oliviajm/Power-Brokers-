@@ -1,0 +1,1359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="googlebot" content="noindex, nofollow" />
+<title>Garry's List — Oakland spends $25,634 per student. Why can only 27% do math?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bridge-red: #B04A32;
+  --bridge-red-dark: #8E3924;
+  --terracotta: #C8704F;
+  --ochre: #C4923E;
+  --fog: #D6D4CF;
+  --fog-dark: #A8A39B;
+  --paper: #F5F1EA;
+  --paper-warm: #EFE7D8;
+  --sand: #E8D9C4;
+  --ink: #1A1614;
+  --ink-mid: #5C5048;
+  --ink-soft: #8A7E73;
+  --teal: #3D7B7B;
+  --rule: rgba(26, 22, 20, 0.12);
+  --shadow-soft: 0 1px 2px rgba(26, 22, 20, 0.04), 0 12px 32px rgba(26, 22, 20, 0.08);
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; }
+
+/* ----- MASTHEAD ----- */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+  background-color: rgba(245, 241, 234, 0.92);
+}
+.masthead-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--bridge-red);
+  color: white;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+}
+.brand-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+.kicker {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ----- HERO ----- */
+.hero {
+  padding: 64px 28px 36px;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+.hero-kicker {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  margin-bottom: 18px;
+}
+.hero-question {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(34px, 5.5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+  color: var(--ink);
+  font-variation-settings: "SOFT" 50;
+}
+.hero-answer {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
+  color: var(--ink-mid);
+  margin: 0 0 36px;
+  max-width: 780px;
+}
+.key-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.key-stat .value {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1;
+  color: var(--bridge-red);
+  letter-spacing: -0.02em;
+}
+.key-stat .label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-top: 6px;
+}
+.key-stat .sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.result-line {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-mid);
+}
+.result-line em { font-style: normal; font-weight: 600; color: var(--bridge-red); }
+
+@media (max-width: 720px) {
+  .hero { padding: 40px 22px 24px; }
+  .key-stats { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+}
+
+/* ----- VIEW BAR ----- */
+.view-bar {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 60px;
+  z-index: 4;
+}
+.view-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.view-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.view-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tab {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 8px 14px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-mid);
+  cursor: pointer;
+  border-radius: 999px;
+  letter-spacing: 0;
+  transition: all 0.15s ease;
+}
+.tab:hover { background: rgba(176, 74, 50, 0.08); color: var(--ink); }
+.tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ----- VIEW ----- */
+.view {
+  padding: 48px 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.view.is-hidden { display: none; }
+.view-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.view-head { margin-bottom: 28px; }
+.view-head h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.view-head .lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-mid);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* ----- SANKEY ----- */
+.sankey-wrap {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+#sankey {
+  width: 100%;
+  min-width: 880px;
+  height: auto;
+  display: block;
+}
+.sk-col-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  fill: var(--ink-soft);
+}
+.sk-node rect {
+  transition: opacity 0.15s ease;
+  cursor: pointer;
+}
+.sk-node text {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  fill: var(--ink);
+  pointer-events: none;
+}
+.sk-node text.sk-amt {
+  font-weight: 500;
+  fill: var(--ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+.sk-node:hover rect { opacity: 0.85; }
+.sk-node.is-dim rect { opacity: 0.18; }
+.sk-node.is-dim text { opacity: 0.4; }
+.sk-link {
+  fill: none;
+  stroke-linecap: round;
+  transition: opacity 0.2s ease, stroke 0.2s ease;
+}
+.sk-link.is-dim { opacity: 0.04; }
+.sk-link.is-hot { opacity: 0.85; }
+.sk-outcome {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  fill: var(--bridge-red);
+}
+.sk-outcome-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  fill: var(--ink-mid);
+}
+
+/* ----- LEGEND ----- */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 8px; }
+.dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+.dot-revenue { background: var(--teal); color: var(--teal); }
+.dot-admin { background: var(--bridge-red); color: var(--bridge-red); }
+.dot-classroom { background: var(--ochre); color: var(--ochre); }
+.dot-overhead { background: var(--terracotta); color: var(--terracotta); }
+
+/* ----- DATA CARDS ----- */
+.data-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+.data-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--bridge-red);
+  padding: 22px;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.data-card.teal { border-left-color: var(--teal); }
+.data-card.ochre { border-left-color: var(--ochre); }
+.data-card.terracotta { border-left-color: var(--terracotta); }
+.data-card-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.data-card-stat {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--bridge-red);
+  letter-spacing: -0.02em;
+}
+.data-card-detail {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ----- STAT GRID ----- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+  padding: 22px;
+  background: var(--paper-warm);
+  border-radius: 4px;
+}
+.stat-item .val {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  color: var(--bridge-red);
+  line-height: 1;
+}
+.stat-item .label {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.stat-item .sub {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ----- TIMELINE ----- */
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.timeline-item {
+  background: white;
+  border-left: 3px solid var(--bridge-red);
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: var(--shadow-soft);
+}
+.timeline-item.teal { border-left-color: var(--teal); }
+.timeline-item .tl-year {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  font-weight: 600;
+}
+.timeline-item.teal .tl-year { color: var(--teal); }
+.timeline-item .tl-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin-top: 4px;
+}
+.timeline-item .tl-detail {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* ----- SPIRAL DIAGRAM ----- */
+.spiral-steps {
+  display: grid;
+  gap: 0;
+  margin-top: 24px;
+}
+.spiral-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.spiral-step:last-child { border-bottom: none; }
+.spiral-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  background: var(--bridge-red);
+  flex-shrink: 0;
+}
+.spiral-step:nth-child(even) .spiral-num { background: var(--bridge-red-dark); }
+.spiral-content h4 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.spiral-content p {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+  margin: 0;
+}
+.spiral-arrow {
+  text-align: center;
+  font-size: 24px;
+  color: var(--bridge-red);
+  padding: 4px 0;
+  grid-column: 1 / -1;
+}
+
+/* ----- SOURCES ----- */
+.sources { padding: 48px 28px; }
+.sources-inner { max-width: 1200px; margin: 0 auto; }
+.sources h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 0 24px;
+  letter-spacing: -0.015em;
+}
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+.sources-col h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.sources-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sources-col li {
+  font-size: 13px;
+  color: var(--ink-mid);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.45;
+}
+.sources-col li:last-child { border-bottom: 0; }
+
+/* ----- FOOTER ----- */
+.foot {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px;
+}
+.foot-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--fog);
+}
+
+/* ----- DETAIL PANEL ----- */
+.panel-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 22, 20, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9;
+}
+.panel-scrim.is-open { opacity: 1; pointer-events: auto; }
+.panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(520px, 92vw);
+  height: 100dvh;
+  background: var(--paper);
+  z-index: 10;
+  box-shadow: -8px 0 32px rgba(26, 22, 20, 0.14);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  overflow-y: auto;
+}
+.panel.is-open { transform: translateX(0); }
+.panel-close {
+  position: sticky;
+  top: 8px;
+  margin-left: auto;
+  display: block;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 8px 20px;
+  line-height: 1;
+  z-index: 2;
+}
+.panel-inner { padding: 0 32px 48px; }
+.panel-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bridge-red);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.panel-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.panel-sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.panel-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.panel-section h5 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.panel-section p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-mid);
+}
+
+@media (max-width: 720px) {
+  .view-bar { top: 56px; }
+  .view-bar-inner { padding: 12px 18px; }
+  .view { padding: 32px 18px; }
+  #sankey { min-width: 720px; }
+  .panel-inner { padding: 0 22px 36px; }
+  .data-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <a class="brand" href="#" aria-label="Garry's List">
+        <span class="brand-mark">GL</span>
+        <span class="brand-name">Garry's List</span>
+      </a>
+      <nav class="masthead-nav">
+        <span class="kicker">Public Benefit Investigation &middot; No. 05</span>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-kicker">Oakland &middot; Public Education</div>
+        <h1 class="hero-question">Oakland spends $25,634 per student. Why can only 27% do math?</h1>
+        <p class="hero-answer">Because most of the money never reaches the classroom. A bloated central office, 77 school sites serving a 34,000-student district built for 54,000, and a $100M state bailout that took 22 years to repay have created a system that feeds itself while students fall further behind.</p>
+
+        <div class="key-stats" id="key-stats"></div>
+
+        <div class="result-line">
+          <em>The result:</em> a district that spends 60% more per student than the state average while producing students who perform 30% worse.
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW SWITCHER -->
+    <section class="view-bar">
+      <div class="view-bar-inner">
+        <div class="view-label">Explore the answer</div>
+        <div class="view-tabs" role="tablist">
+          <button class="tab is-active" data-view="money" role="tab">The Money</button>
+          <button class="tab" data-view="schools" role="tab">The Schools</button>
+          <button class="tab" data-view="results" role="tab">The Results</button>
+          <button class="tab" data-view="bailout" role="tab">The Bailout</button>
+          <button class="tab" data-view="spiral" role="tab">The Spiral</button>
+          <button class="tab" data-view="benefits" role="tab">Who Benefits</button>
+          <button class="tab" data-view="whatnow" role="tab">What Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: MONEY -->
+    <section class="view" id="view-money" data-view="money">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The Money</h2>
+          <p class="lede">Where Oakland Unified's $867M budget actually goes. Revenue flows left to right: from state and federal sources, through the central office, splitting between administrative overhead and classroom spending. Line thickness shows relative dollar amounts. Click any node for details.</p>
+        </header>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-revenue"></span> Revenue source</span>
+          <span class="legend-item"><span class="dot dot-admin"></span> Admin / overhead</span>
+          <span class="legend-item"><span class="dot dot-classroom"></span> Classroom / instruction</span>
+          <span class="legend-item"><span class="dot dot-overhead"></span> Facilities / operations</span>
+        </div>
+        <div class="sankey-wrap">
+          <svg id="sankey" viewBox="0 0 1400 680" preserveAspectRatio="xMidYMid meet" role="img" aria-label="OUSD budget money flow diagram"></svg>
+        </div>
+        <div class="data-cards" id="money-cards"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: SCHOOLS -->
+    <section class="view is-hidden" id="view-schools" data-view="schools">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The Schools</h2>
+          <p class="lede">77 school sites for 34,000 students. The district was built for 54,000. Half-empty buildings drain maintenance budgets while children crowd into the schools that remain.</p>
+        </header>
+        <div class="stat-grid" id="schools-stats"></div>
+        <div class="data-cards" id="schools-cards"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: RESULTS -->
+    <section class="view is-hidden" id="view-results" data-view="results">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The Results</h2>
+          <p class="lede">Despite spending $25,634 per student, Oakland Unified produces some of the worst academic outcomes in California. The data tells a story of systemic failure at every level.</p>
+        </header>
+        <div class="stat-grid" id="results-stats"></div>
+        <div class="data-cards" id="results-cards"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: BAILOUT -->
+    <section class="view is-hidden" id="view-bailout" data-view="bailout">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The Bailout</h2>
+          <p class="lede">In 2003, Oakland Unified went insolvent. The state loaned $100M, the largest school bailout in California history. It took 22 years to repay. One month after the final payment: a new $30M deficit.</p>
+        </header>
+        <ul class="timeline-list" id="bailout-timeline"></ul>
+      </div>
+    </section>
+
+    <!-- VIEW: SPIRAL -->
+    <section class="view is-hidden" id="view-spiral" data-view="spiral">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>The Spiral</h2>
+          <p class="lede">Enrollment decline means less state funding. Less funding means cuts. Cuts mean worse schools. Worse schools mean more families leave. The death spiral feeds itself while admin costs stay fixed.</p>
+        </header>
+        <div class="spiral-steps" id="spiral-steps"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: WHO BENEFITS -->
+    <section class="view is-hidden" id="view-benefits" data-view="benefits">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>Who Benefits</h2>
+          <p class="lede">The adults in the system are protected. The kids are not. Admin salary bloat, teacher contract expansions, consulting contracts, and political pressure that prevents consolidation all serve the people who run the district, not the students it exists to educate.</p>
+        </header>
+        <div class="data-cards" id="benefits-cards"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: WHAT NOW -->
+    <section class="view is-hidden" id="view-whatnow" data-view="whatnow">
+      <div class="view-inner">
+        <header class="view-head">
+          <h2>What Now</h2>
+          <p class="lede">$102.5M in cuts approved December 2025. FCMAT is watching. The risk of a second state takeover looms. OUSD would be the first California district to lose local control within a year of regaining it.</p>
+        </header>
+        <div class="stat-grid" id="whatnow-stats"></div>
+        <div class="data-cards" id="whatnow-cards"></div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="sources">
+      <div class="sources-inner">
+        <h2>Sources</h2>
+        <div class="sources-grid" id="sources-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <p>A Public Benefit Investigation by Garry's List. Prototype.</p>
+    </div>
+  </footer>
+
+  <!-- DETAIL PANEL -->
+  <aside class="panel" id="panel" aria-hidden="true">
+    <button class="panel-close" id="panel-close" aria-label="Close">&times;</button>
+    <div class="panel-inner" id="panel-inner"></div>
+  </aside>
+  <div class="panel-scrim" id="panel-scrim"></div>
+
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+  const svgNS = "http://www.w3.org/2000/svg";
+
+  const C = {
+    ochre: "#C4923E",
+    teal: "#3D7B7B",
+    bridgeRed: "#B04A32",
+    bridgeRedDark: "#8E3924",
+    terracotta: "#C8704F",
+    ink: "#1A1614",
+    inkMid: "#5C5048",
+    inkSoft: "#8A7E73",
+    paper: "#F5F1EA",
+    fog: "#D6D4CF"
+  };
+
+  // ============================================================
+  // DATA
+  // ============================================================
+  const DATA = {
+    keyStats: [
+      { value: "$25,634", label: "per student", sub: "vs $16,000 CA average" },
+      { value: "27%", label: "math proficiency", sub: "vs 40% statewide" },
+      { value: "592%", label: "above state average", sub: "for admin supervisor salaries" },
+      { value: "$100M", label: "deficit despite record spending", sub: "2003 state bailout, repeated 2025" }
+    ],
+    money: {
+      summary: [
+        { title: "Supervisor Salaries", stat: "592%", detail: "OUSD admin supervisor salaries are 592% of the state average. The district spends $1,282 more per student on administration alone than comparable California districts." },
+        { title: "Central Office Share", stat: "$215M", detail: "Of the $867M budget, roughly $215M flows to central administration, facilities overhead, and district-level operations before a dollar reaches a classroom." },
+        { title: "Per-Student Premium", stat: "+60%", detail: "Oakland spends $25,634 per student vs. the $16,000 California average. That premium buys the 5th-worst math proficiency rate among large Bay Area districts." },
+        { title: "Instruction Share", stat: "52%", detail: "Only 52 cents of every dollar goes to instruction. The state average is 62 cents. That 10-cent gap across 34,000 students is $87M per year that reaches administrators instead of teachers." }
+      ],
+      // Sankey data
+      sources: [
+        { id: "lcff", name: "State LCFF", amount: 480, color: C.teal },
+        { id: "federal", name: "Federal Funds", amount: 120, color: C.teal },
+        { id: "local", name: "Local / Parcel Tax", amount: 147, color: C.teal },
+        { id: "prop30", name: "Props 30/98 & Grants", amount: 120, color: C.teal }
+      ],
+      destinations: [
+        { id: "central", name: "Central Admin", amount: 130, color: C.bridgeRed, detail: "Executive salaries, HR, legal, board operations, consultants. Supervisor pay 592% of state average." },
+        { id: "facilities", name: "Facilities & Maint.", amount: 85, color: C.terracotta, detail: "Maintaining 77 school sites built for 54,000 students, now serving 34,000. Deferred maintenance backlog exceeds $500M." },
+        { id: "instruction", name: "Classroom Instruction", amount: 452, color: C.ochre, detail: "Teacher salaries, textbooks, classroom supplies, instructional aides. After the 11-13% teacher pay hike, this line consumes an additional $50M annually." },
+        { id: "services", name: "Student Services", amount: 100, color: C.ochre, detail: "Counseling, special education, health services, transportation. Mandated costs rising faster than revenue." },
+        { id: "debtservice", name: "Debt Service", amount: 100, color: C.ink, detail: "Bond payments, $100M state bailout repayment (completed June 2025), pension obligations (CalSTRS/CalPERS unfunded liabilities)." }
+      ],
+      outcomes: [
+        { id: "admin_bloat", name: "Admin Overhead", stat: "$1,282/student above avg", color: C.bridgeRed },
+        { id: "poor_results", name: "27% Math Proficiency", stat: "vs 40% statewide", color: C.bridgeRedDark }
+      ]
+    },
+    schools: {
+      stats: [
+        { val: "77", label: "school sites", sub: "for a district built for 54,000" },
+        { val: "34,000", label: "current enrollment", sub: "down from 54,000 at peak" },
+        { val: "37%", label: "capacity utilization", sub: "average across all sites" },
+        { val: "$500M+", label: "deferred maintenance", sub: "backlog across aging buildings" }
+      ],
+      cards: [
+        { title: "Built for a Bigger City", detail: "Oakland Unified operates 77 school sites designed for 54,000 students. Current enrollment: 34,000 and falling. That means nearly 20,000 empty seats, each one costing the district money in maintenance, utilities, and staffing minimums." },
+        { title: "The 2022 Closure Attempt", detail: "The board voted to close or merge 7 schools in February 2022 to save $8M annually. Community outrage, a DOJ civil rights investigation, and political pressure reversed every closure. The district still operates all 77 sites.", cls: "teal" },
+        { title: "DOJ Civil Rights Finding", detail: "The Department of Justice found that proposed closures would disproportionately impact Black and low-income students, who were already concentrated in the schools slated for closure. The finding effectively froze any consolidation effort.", cls: "teal" },
+        { title: "The Cost of Empty Seats", detail: "California funds schools through Average Daily Attendance. Every student who leaves takes $16,000+ in state funding. But the fixed costs of the building they leave behind remain: custodians, utilities, insurance, minimum administrative staff. The math is simple and devastating." }
+      ]
+    },
+    results: {
+      stats: [
+        { val: "27%", label: "math proficient", sub: "vs 40% statewide" },
+        { val: "34%", label: "ELA proficient", sub: "vs 47% statewide" },
+        { val: "21%", label: "Black student ELA", sub: "lowest of any subgroup" },
+        { val: "5%", label: "English learners meeting standards", sub: "1 in 20" },
+        { val: "79.5%", label: "graduation rate", sub: "vs 86.4% statewide" },
+        { val: "10%", label: "dropout rate", sub: "vs 8.9% statewide" }
+      ],
+      cards: [
+        { title: "Math: A System Failure", detail: "Only 27% of OUSD students meet math standards, 13 points below the state average. In some schools, proficiency drops below 10%. The district spends 60% more per student than the state average and gets 30% worse results." },
+        { title: "The Racial Achievement Gap", detail: "Black students in OUSD: 21% ELA proficiency, even lower in math. The gap between Black and white students in Oakland is wider than the statewide gap. A district that spends $25,634 per student has not closed it in two decades.", cls: "teal" },
+        { title: "English Learners Abandoned", detail: "5% of English learners meet standards. One in twenty. Oakland has the largest English learner population in the East Bay. The district receives supplemental LCFF funding specifically for these students. The money arrives. The results do not." },
+        { title: "Graduation vs. Proficiency", detail: "OUSD graduates 79.5% of its students, only 7 points below the state average. But only 27% can do math and 34% can read at grade level. The district is handing out diplomas to students it has not educated." }
+      ]
+    },
+    bailout: [
+      { year: "2003", title: "Insolvency", detail: "OUSD declares fiscal emergency. The state loans $100M, the largest school district bailout in California history. The elected board loses authority. A state administrator takes control.", teal: false },
+      { year: "2003-2009", title: "State Control", detail: "State administrator runs the district for 6 years. Local board authority suspended. Community has no elected voice in how schools are run. State oversight continues even after partial return of local control.", teal: false },
+      { year: "2009", title: "Partial Local Control Returns", detail: "Board regains some authority but remains under state fiscal oversight. FCMAT monitors every budget decision. The state loan repayment schedule stretches forward two decades.", teal: true },
+      { year: "2009-2025", title: "22 Years of Repayment", detail: "The district makes loan payments for 22 years. During this period, enrollment drops from 46,000 to 34,000, but the debt payment is fixed. Every departing student makes the per-student debt burden heavier.", teal: false },
+      { year: "June 2025", title: "Final Bailout Payment", detail: "OUSD makes its last payment on the $100M state loan. Twenty-two years of debt service complete. The district declares itself free of state financial oversight.", teal: true },
+      { year: "July 2025", title: "New $30M Deficit", detail: "One month after the final bailout payment, OUSD discloses a new $30M deficit for the current fiscal year. The teacher contract signed months earlier added $50M in costs. The cycle restarts.", teal: false },
+      { year: "2026-27 Projection", title: "$78M Projected Shortfall", detail: "Budget projections show the deficit growing to $78M by 2026-27. Without dramatic intervention, OUSD faces a second insolvency within two years of clearing the first one.", teal: false }
+    ],
+    spiral: [
+      { title: "Enrollment Decline", text: "Built for 54,000, now 34,000. Families leave for charter schools, private schools, or other districts. Each departure takes $16,000+ in state per-pupil funding." },
+      { title: "Less State Funding", text: "California funds on Average Daily Attendance. 20,000 fewer students means roughly $320M less per year than a full district would receive. But the buildings, bonds, and bureaucracy remain." },
+      { title: "Cuts to Programs", text: "The district cuts electives, arts, counselors, librarians. Class sizes grow. School sites defer maintenance. The schools that remain open get worse." },
+      { title: "Worse Schools", text: "Test scores fall. Teacher vacancies rise. Experienced educators transfer to better-funded districts. The teachers who stay are stretched thinner every year." },
+      { title: "More Families Leave", text: "Parents who can afford alternatives take them. Charter enrollment grows. Inter-district transfers increase. The students who remain are disproportionately those with the fewest options." },
+      { title: "Admin Costs Stay Fixed", text: "Central office headcount barely changes. 77 school sites still need principals, custodians, and utilities. The per-student overhead climbs even as per-student funding falls. The spiral tightens." }
+    ],
+    benefits: [
+      { title: "Admin Salary Bloat", detail: "OUSD supervisor salaries are 592% of the state average. The central office employs more administrators per student than any comparable district. A superintendent search in 2024 offered $350K+ in total compensation. The average teacher makes $78K.", cls: "" },
+      { title: "The Teacher Contract", detail: "The 2024-25 contract granted 11-13% pay increases, adding $50M to annual costs. The board approved it knowing the district was already running a deficit. Within months, the $30M shortfall was announced. The union got its raise. The students got cuts.", cls: "teal" },
+      { title: "Consulting Contracts", detail: "OUSD spent $42M on outside consultants between 2020-2024. Curriculum design, equity audits, strategic planning, technology implementation. The consultants delivered reports. The test scores did not move.", cls: "terracotta" },
+      { title: "77 Sites, 77 Principals", detail: "Each school site requires a minimum administrative staff regardless of enrollment. A school built for 700 students with 260 enrolled still needs a principal ($150K+), office staff, and custodial crew. Consolidating to 46 sites would save $40M+ annually. Political pressure prevents it.", cls: "" },
+      { title: "Political Protection", detail: "School board members are elected by communities where school closures are deeply unpopular. Teachers unions fund school board campaigns. The incentive structure rewards keeping schools open and salaries rising, regardless of academic outcomes. The adults vote. The children do not.", cls: "ochre" },
+      { title: "The Charter Escape Valve", detail: "14,000 Oakland students now attend charter schools. Charters enroll 29% of the city's students. The families who leave are the most engaged, the most likely to advocate, the most likely to hold the district accountable. Their departure makes OUSD worse and reduces pressure to reform.", cls: "teal" }
+    ],
+    whatnow: {
+      stats: [
+        { val: "$102.5M", label: "in cuts approved", sub: "December 2025 board vote" },
+        { val: "$32M", label: "from school sites", sub: "program and staff reductions" },
+        { val: "$70.5M", label: "from central office", sub: "administrative consolidation" },
+        { val: "2nd", label: "potential state takeover", sub: "would be first district to lose control within a year of regaining it" }
+      ],
+      cards: [
+        { title: "The December 2025 Vote", detail: "The board approved $102.5M in cuts: $32M from school sites (larger class sizes, fewer counselors, eliminated electives) and $70.5M from central office operations. Every board member acknowledged the cuts would hurt students. Every board member voted yes." },
+        { title: "Hiring Freeze", detail: "OUSD imposed a district-wide hiring freeze in October 2025. Open positions go unfilled. Teachers who leave are not replaced. Classrooms are covered by substitutes or combined. The freeze saves money. It also means fewer adults in a building full of children who are already behind.", cls: "teal" },
+        { title: "FCMAT Is Watching", detail: "The Fiscal Crisis and Management Assistance Team, the state body that monitors troubled districts, has OUSD under active review. If FCMAT determines the district cannot balance its budget, it can recommend a second state takeover. The last one lasted 6 years.", cls: "terracotta" },
+        { title: "The Historical First", detail: "If OUSD loses local control again, it would be the first California school district to be taken over by the state twice, and the first to lose control within a year of regaining it. The elected board that fought for 22 years to escape state oversight would have led the district right back into it.", cls: "ochre" }
+      ]
+    },
+    sources: {
+      government: [
+        "California Department of Education, DataQuest: OUSD enrollment and demographics",
+        "OUSD Annual Budget Reports, FY2022-23 through FY2025-26",
+        "Fiscal Crisis and Management Assistance Team (FCMAT) review reports",
+        "California Legislative Analyst's Office, LCFF funding analysis",
+        "CAASPP (CA Assessment of Student Performance), 2023-24 results",
+        "Alameda County Office of Education, fiscal oversight reports"
+      ],
+      journalism: [
+        "Oakland Post: School closure reversal coverage, 2022",
+        "East Bay Times: OUSD budget deficit reporting, 2025",
+        "The Oaklandside: Teacher contract and fiscal impact analysis",
+        "EdSource: Oakland state takeover history and FCMAT oversight",
+        "San Francisco Chronicle: Bay Area education spending comparisons",
+        "CalMatters: California school funding and LCFF analysis"
+      ],
+      financial: [
+        "OUSD Comprehensive Annual Financial Reports (CAFR)",
+        "CalSTRS and CalPERS unfunded liability reports",
+        "Alameda County property tax allocation schedules",
+        "Oakland Parcel Tax revenue and expenditure audits",
+        "Charter school enrollment and ADA transfer data"
+      ]
+    }
+  };
+
+  // ============================================================
+  // HERO STATS
+  // ============================================================
+  function renderHero() {
+    const container = $("#key-stats");
+    DATA.keyStats.forEach(s => {
+      const d = document.createElement("div");
+      d.className = "key-stat";
+      d.innerHTML = `<div class="value">${s.value}</div><div class="label">${s.label}</div><div class="sub">${s.sub}</div>`;
+      container.appendChild(d);
+    });
+  }
+
+  // ============================================================
+  // VIEW SWITCHER
+  // ============================================================
+  const rendered = {};
+  function bindViews() {
+    $$(".tab").forEach(t => {
+      t.addEventListener("click", () => {
+        $$(".tab").forEach(x => x.classList.remove("is-active"));
+        t.classList.add("is-active");
+        const view = t.dataset.view;
+        $$(".view").forEach(v => v.classList.toggle("is-hidden", v.dataset.view !== view));
+        if (!rendered[view]) { renderers[view]?.(); rendered[view] = true; }
+        window.scrollTo({ top: $(`#view-${view}`).offsetTop - 110, behavior: "smooth" });
+      });
+    });
+  }
+
+  // ============================================================
+  // SANKEY DIAGRAM (raw SVG, no D3)
+  // ============================================================
+  function renderMoney() {
+    renderSankey();
+    renderDataCards("money-cards", DATA.money.summary);
+  }
+
+  function renderSankey() {
+    const svg = $("#sankey");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    const W = 1400, H = 680;
+    const colX = [120, 520, 920, 1280];
+    const colLabels = ["Revenue Sources", "OUSD Central Office", "Spending Categories", "Outcomes"];
+    const nodeW = 16;
+    const topY = 80, botY = 640;
+
+    // Column headers
+    colLabels.forEach((label, i) => {
+      const t = document.createElementNS(svgNS, "text");
+      t.setAttribute("x", colX[i]);
+      t.setAttribute("y", 40);
+      t.setAttribute("class", "sk-col-label");
+      t.setAttribute("text-anchor", "middle");
+      t.textContent = label;
+      svg.appendChild(t);
+    });
+
+    const sources = DATA.money.sources;
+    const dests = DATA.money.destinations;
+    const outcomes = DATA.money.outcomes;
+
+    const totalRev = sources.reduce((s, d) => s + d.amount, 0);
+    const totalDest = dests.reduce((s, d) => s + d.amount, 0);
+    const usableH = botY - topY;
+
+    // Position source nodes (col 0)
+    let srcY = topY;
+    const srcPos = sources.map(s => {
+      const h = Math.max(20, (s.amount / totalRev) * usableH);
+      const pos = { ...s, x: colX[0] - nodeW / 2, y: srcY, h };
+      srcY += h + 12;
+      return pos;
+    });
+
+    // Central office node (col 1) - single large node
+    const centralNode = { id: "ousd_central", name: "OUSD Central Office", x: colX[1] - nodeW / 2, y: topY, h: usableH * 0.85, color: C.inkMid, amount: totalRev };
+
+    // Position destination nodes (col 2)
+    let dstY = topY;
+    const dstPos = dests.map(d => {
+      const h = Math.max(20, (d.amount / totalDest) * usableH);
+      const pos = { ...d, x: colX[2] - nodeW / 2, y: dstY, h };
+      dstY += h + 10;
+      return pos;
+    });
+
+    // Outcome nodes (col 3)
+    const outPos = outcomes.map((o, i) => ({
+      ...o, x: colX[3] - nodeW / 2, y: topY + i * 120, h: 80
+    }));
+
+    // Helper: cubic bezier link path
+    function linkPath(x1, y1, x2, y2, thickness) {
+      const mx = (x1 + x2) / 2;
+      const t = thickness / 2;
+      return `M${x1},${y1 - t} C${mx},${y1 - t} ${mx},${y2 - t} ${x2},${y2 - t} L${x2},${y2 + t} C${mx},${y2 + t} ${mx},${y1 + t} ${x1},${y1 + t} Z`;
+    }
+
+    // Draw links: sources -> central
+    let srcOffset = 0;
+    srcPos.forEach(s => {
+      const thickness = Math.max(4, (s.amount / totalRev) * centralNode.h);
+      const y1 = s.y + s.h / 2;
+      const y2 = centralNode.y + srcOffset + thickness / 2;
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", linkPath(s.x + nodeW, y1, centralNode.x, y2, thickness));
+      path.setAttribute("class", "sk-link");
+      path.setAttribute("fill", s.color);
+      path.setAttribute("opacity", "0.25");
+      path.setAttribute("data-src", s.id);
+      svg.appendChild(path);
+      srcOffset += thickness + 4;
+    });
+
+    // Draw links: central -> destinations
+    let dstOffset = 0;
+    dstPos.forEach(d => {
+      const thickness = Math.max(4, (d.amount / totalDest) * centralNode.h);
+      const y1 = centralNode.y + dstOffset + thickness / 2;
+      const y2 = d.y + d.h / 2;
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", linkPath(centralNode.x + nodeW, y1, d.x, y2, thickness));
+      path.setAttribute("class", "sk-link");
+      path.setAttribute("fill", d.color);
+      path.setAttribute("opacity", "0.25");
+      path.setAttribute("data-dst", d.id);
+      svg.appendChild(path);
+      dstOffset += thickness + 4;
+    });
+
+    // Draw links: admin + facilities -> outcomes
+    const adminDests = dstPos.filter(d => d.id === "central" || d.id === "facilities" || d.id === "debtservice");
+    adminDests.forEach((d, i) => {
+      const outNode = outPos[0];
+      const thickness = Math.max(3, 12);
+      const y1 = d.y + d.h / 2;
+      const y2 = outNode.y + outNode.h / 2 + (i - 1) * 16;
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", linkPath(d.x + nodeW, y1, outNode.x, y2, thickness));
+      path.setAttribute("class", "sk-link");
+      path.setAttribute("fill", C.bridgeRed);
+      path.setAttribute("opacity", "0.15");
+      svg.appendChild(path);
+    });
+
+    const instrDests = dstPos.filter(d => d.id === "instruction" || d.id === "services");
+    instrDests.forEach((d, i) => {
+      const outNode = outPos[1];
+      const thickness = Math.max(3, 8);
+      const y1 = d.y + d.h / 2;
+      const y2 = outNode.y + outNode.h / 2 + (i - 0.5) * 14;
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", linkPath(d.x + nodeW, y1, outNode.x, y2, thickness));
+      path.setAttribute("class", "sk-link");
+      path.setAttribute("fill", C.bridgeRedDark);
+      path.setAttribute("opacity", "0.12");
+      svg.appendChild(path);
+    });
+
+    // Draw nodes
+    function drawNode(n, labelSide) {
+      const g = document.createElementNS(svgNS, "g");
+      g.setAttribute("class", "sk-node");
+      g.style.cursor = "pointer";
+
+      const rect = document.createElementNS(svgNS, "rect");
+      rect.setAttribute("x", n.x);
+      rect.setAttribute("y", n.y);
+      rect.setAttribute("width", nodeW);
+      rect.setAttribute("height", n.h);
+      rect.setAttribute("rx", 3);
+      rect.setAttribute("fill", n.color);
+      g.appendChild(rect);
+
+      const textX = labelSide === "left" ? n.x - 10 : n.x + nodeW + 10;
+      const anchor = labelSide === "left" ? "end" : "start";
+
+      const nameText = document.createElementNS(svgNS, "text");
+      nameText.setAttribute("x", textX);
+      nameText.setAttribute("y", n.y + Math.min(n.h / 2, 20));
+      nameText.setAttribute("text-anchor", anchor);
+      nameText.setAttribute("dominant-baseline", "middle");
+      nameText.textContent = n.name;
+      g.appendChild(nameText);
+
+      if (n.amount) {
+        const amtText = document.createElementNS(svgNS, "text");
+        amtText.setAttribute("x", textX);
+        amtText.setAttribute("y", n.y + Math.min(n.h / 2, 20) + 18);
+        amtText.setAttribute("text-anchor", anchor);
+        amtText.setAttribute("dominant-baseline", "middle");
+        amtText.setAttribute("class", "sk-amt");
+        amtText.textContent = "$" + n.amount + "M";
+        g.appendChild(amtText);
+      }
+
+      g.addEventListener("click", () => openPanel(n));
+      svg.appendChild(g);
+    }
+
+    srcPos.forEach(n => drawNode(n, "left"));
+    drawNode(centralNode, "left");
+    dstPos.forEach(n => drawNode(n, "right"));
+
+    // Outcome nodes (special styling)
+    outPos.forEach(o => {
+      const g = document.createElementNS(svgNS, "g");
+      g.setAttribute("class", "sk-node");
+
+      const rect = document.createElementNS(svgNS, "rect");
+      rect.setAttribute("x", o.x);
+      rect.setAttribute("y", o.y);
+      rect.setAttribute("width", nodeW);
+      rect.setAttribute("height", o.h);
+      rect.setAttribute("rx", 3);
+      rect.setAttribute("fill", o.color);
+      g.appendChild(rect);
+
+      const nameText = document.createElementNS(svgNS, "text");
+      nameText.setAttribute("x", o.x + nodeW + 10);
+      nameText.setAttribute("y", o.y + 24);
+      nameText.setAttribute("text-anchor", "start");
+      nameText.setAttribute("class", "sk-outcome");
+      nameText.setAttribute("font-size", "18");
+      nameText.textContent = o.name;
+      g.appendChild(nameText);
+
+      const statText = document.createElementNS(svgNS, "text");
+      statText.setAttribute("x", o.x + nodeW + 10);
+      statText.setAttribute("y", o.y + 48);
+      statText.setAttribute("text-anchor", "start");
+      statText.setAttribute("class", "sk-outcome-label");
+      statText.textContent = o.stat;
+      g.appendChild(statText);
+
+      svg.appendChild(g);
+    });
+
+    // Hover interactions
+    $$(".sk-link", svg).forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        link.setAttribute("opacity", "0.55");
+      });
+      link.addEventListener("mouseleave", () => {
+        link.setAttribute("opacity", link.classList.contains("is-hot") ? "0.55" : "0.25");
+      });
+    });
+  }
+
+  // ============================================================
+  // PANEL
+  // ============================================================
+  function openPanel(node) {
+    const panel = $("#panel");
+    const inner = $("#panel-inner");
+    const scrim = $("#panel-scrim");
+
+    inner.innerHTML = `
+      <div class="panel-eyebrow">${node.id ? node.id.toUpperCase().replace(/_/g, " ") : "DETAIL"}</div>
+      <div class="panel-title">${node.name}</div>
+      ${node.amount ? `<div class="panel-sub">$${node.amount}M</div>` : ""}
+      <div class="panel-section">
+        <h5>Detail</h5>
+        <p>${node.detail || "Revenue and expenditure data from OUSD annual budget reports."}</p>
+      </div>
+    `;
+
+    panel.classList.add("is-open");
+    scrim.classList.add("is-open");
+    panel.setAttribute("aria-hidden", "false");
+  }
+
+  function closePanel() {
+    $("#panel").classList.remove("is-open");
+    $("#panel-scrim").classList.remove("is-open");
+    $("#panel").setAttribute("aria-hidden", "true");
+  }
+
+  $("#panel-close").addEventListener("click", closePanel);
+  $("#panel-scrim").addEventListener("click", closePanel);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+  // ============================================================
+  // GENERIC RENDERERS
+  // ============================================================
+  function renderDataCards(containerId, cards) {
+    const container = $(`#${containerId}`);
+    cards.forEach(c => {
+      const div = document.createElement("div");
+      div.className = `data-card${c.cls ? " " + c.cls : ""}`;
+      div.innerHTML = `
+        <div class="data-card-title">${c.title}</div>
+        ${c.stat ? `<div class="data-card-stat">${c.stat}</div>` : ""}
+        <div class="data-card-detail">${c.detail}</div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function renderStatGrid(containerId, stats) {
+    const container = $(`#${containerId}`);
+    stats.forEach(s => {
+      const div = document.createElement("div");
+      div.className = "stat-item";
+      div.innerHTML = `<div class="val">${s.val}</div><div class="label">${s.label}</div><div class="sub">${s.sub}</div>`;
+      container.appendChild(div);
+    });
+  }
+
+  // ============================================================
+  // TAB RENDERERS
+  // ============================================================
+  function renderSchools() {
+    renderStatGrid("schools-stats", DATA.schools.stats);
+    renderDataCards("schools-cards", DATA.schools.cards);
+  }
+
+  function renderResults() {
+    renderStatGrid("results-stats", DATA.results.stats);
+    renderDataCards("results-cards", DATA.results.cards);
+  }
+
+  function renderBailout() {
+    const container = $("#bailout-timeline");
+    DATA.bailout.forEach(item => {
+      const li = document.createElement("li");
+      li.className = `timeline-item${item.teal ? " teal" : ""}`;
+      li.innerHTML = `
+        <div class="tl-year">${item.year}</div>
+        <div class="tl-title">${item.title}</div>
+        <div class="tl-detail">${item.detail}</div>
+      `;
+      container.appendChild(li);
+    });
+  }
+
+  function renderSpiral() {
+    const container = $("#spiral-steps");
+    DATA.spiral.forEach((step, i) => {
+      const div = document.createElement("div");
+      div.className = "spiral-step";
+      div.innerHTML = `
+        <div class="spiral-num">${i + 1}</div>
+        <div class="spiral-content">
+          <h4>${step.title}</h4>
+          <p>${step.text}</p>
+        </div>
+      `;
+      container.appendChild(div);
+
+      if (i < DATA.spiral.length - 1) {
+        const arrow = document.createElement("div");
+        arrow.className = "spiral-arrow";
+        arrow.innerHTML = "&#8595;";
+        container.appendChild(arrow);
+      }
+    });
+
+    // Add the loop-back indicator
+    const loop = document.createElement("div");
+    loop.className = "spiral-step";
+    loop.innerHTML = `
+      <div class="spiral-num" style="background: ${C.bridgeRedDark};">&#8635;</div>
+      <div class="spiral-content">
+        <h4>The Cycle Repeats</h4>
+        <p>And enrollment drops again. The spiral has been running for 15 years. Nothing in the current plan breaks it.</p>
+      </div>
+    `;
+    container.appendChild(loop);
+  }
+
+  function renderBenefits() {
+    renderDataCards("benefits-cards", DATA.benefits);
+  }
+
+  function renderWhatnow() {
+    renderStatGrid("whatnow-stats", DATA.whatnow.stats);
+    renderDataCards("whatnow-cards", DATA.whatnow.cards);
+  }
+
+  function renderSources() {
+    const grid = $("#sources-grid");
+    Object.entries(DATA.sources).forEach(([key, items]) => {
+      const col = document.createElement("div");
+      col.className = "sources-col";
+      col.innerHTML = `<h4>${key}</h4><ul>${items.map(s => `<li>${s}</li>`).join("")}</ul>`;
+      grid.appendChild(col);
+    });
+  }
+
+  const renderers = {
+    money: renderMoney,
+    schools: renderSchools,
+    results: renderResults,
+    bailout: renderBailout,
+    spiral: renderSpiral,
+    benefits: renderBenefits,
+    whatnow: renderWhatnow
+  };
+
+  // ============================================================
+  // INIT
+  // ============================================================
+  renderHero();
+  bindViews();
+  renderMoney();
+  rendered.money = true;
+  renderSources();
+})();
+</script>
+</body>
+</html>
