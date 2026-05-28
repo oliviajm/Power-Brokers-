@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q6: Teachers' Unions — Hero Image Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,0;9..144,600,0;9..144,700,0&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #1A1614;
+    color: #F5F1EA;
+    min-height: 100vh;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    overflow: hidden;
+  }
+
+  /* Atmospheric dark background — institutional hallway feel */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      /* Vertical lines suggesting hallway/lockers */
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.02) 60px,
+        rgba(255,255,255,0.02) 61px
+      ),
+      /* Horizontal floor line */
+      linear-gradient(
+        to bottom,
+        #1A1614 0%,
+        #1e1b18 40%,
+        #252220 60%,
+        #1A1614 100%
+      );
+    z-index: 0;
+  }
+
+  /* Subtle vignette */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(10,8,6,0.6) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .series-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B04A32;
+    margin-bottom: 1.5rem;
+  }
+
+  .series-label span {
+    color: rgba(245, 241, 234, 0.5);
+  }
+
+  .hero-question {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #F5F1EA;
+    margin-bottom: 1.5rem;
+    text-wrap: balance;
+  }
+
+  .hero-question em {
+    font-style: normal;
+    color: #B04A32;
+  }
+
+  .hero-subtitle {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(245, 241, 234, 0.7);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: #B04A32;
+    margin: 0 auto 3rem;
+  }
+
+  /* Stats row */
+  .stats-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid rgba(176, 74, 50, 0.3);
+  }
+
+  .stat-item {
+    text-align: center;
+    min-width: 140px;
+  }
+
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: #B04A32;
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(245, 241, 234, 0.6);
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero { padding: 3rem 1.5rem 4rem; }
+    .stats-row { gap: 1.5rem 2rem; padding: 2rem 1rem; }
+    .stat-item { min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="series-label">Power Brokers <span>— Question 6</span></div>
+      <h1 class="hero-question">Do teachers' unions protect <em>sexual predators</em>?</h1>
+      <p class="hero-subtitle">
+        Inside the system that costs $450,000 to fire a single teacher, takes up to a decade
+        to remove a predator, and has left over a thousand victims in its wake — while taxpayers
+        foot a billion-dollar bill.
+      </p>
+      <div class="hero-divider"></div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-number">$700M+</div>
+        <div class="stat-label">Sexual Abuse Settlements</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$450K</div>
+        <div class="stat-label">Cost to Fire One Teacher</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2–10 yrs</div>
+        <div class="stat-label">To Remove a Predator</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">$1B+</div>
+        <div class="stat-label">In Bonds to Cover It</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1,100+</div>
+        <div class="stat-label">Victims</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Federal Investigation</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

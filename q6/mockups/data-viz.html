@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q6: Teachers' Unions — Data Visualization Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,0;9..144,600,0;9..144,700,0&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #F5F1EA;
+    color: #1A1614;
+    min-height: 100vh;
+  }
+
+  .hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  .series-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B04A32;
+    margin-bottom: 1rem;
+  }
+
+  .hero-question {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #1A1614;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4A4540;
+    max-width: 700px;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1A1614;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #B04A32;
+    display: inline-block;
+  }
+
+  /* === Bar Chart === */
+  .chart-section { margin-bottom: 3.5rem; }
+
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .bar-label {
+    width: 200px;
+    min-width: 200px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1A1614;
+    text-align: right;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 44px;
+    background: rgba(26, 22, 20, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    transition: width 0.8s ease;
+  }
+
+  .bar-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  /* Bar colors */
+  .bar-fill.settlements { background: #B04A32; width: 93%; }
+  .bar-fill.bonds-2025  { background: #C4714A; width: 67%; }
+  .bar-fill.bonds-2026  { background: #D4956A; width: 33%; }
+
+  /* === Timeline === */
+  .timeline-section { margin-bottom: 2rem; }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0 1rem;
+  }
+
+  /* Horizontal line */
+  .timeline-line {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #B04A32, #D4956A);
+    border-radius: 2px;
+  }
+
+  .timeline-events {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 140px;
+    flex: 1;
+  }
+
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #B04A32;
+    border: 3px solid #F5F1EA;
+    box-shadow: 0 0 0 2px #B04A32;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-event.major .timeline-dot {
+    width: 18px;
+    height: 18px;
+    background: #B04A32;
+    box-shadow: 0 0 0 3px #B04A32, 0 0 12px rgba(176,74,50,0.3);
+  }
+
+  .timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #B04A32;
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-text {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: #4A4540;
+    line-height: 1.35;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .bar-label { width: 120px; min-width: 120px; font-size: 0.8rem; }
+    .bar-track { height: 36px; }
+    .timeline-events { flex-wrap: wrap; gap: 1.5rem; }
+    .timeline-line { display: none; }
+    .timeline-event { max-width: 100%; flex-basis: 45%; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 1.25rem 3rem; }
+    .bar-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+    .bar-label { text-align: left; width: auto; min-width: auto; }
+    .bar-track { width: 100%; }
+    .timeline-event { flex-basis: 100%; }
+  }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="series-label">Power Brokers — Question 6</div>
+    <h1 class="hero-question">Do teachers' unions protect sexual predators?</h1>
+    <p class="hero-subtitle">
+      Mapping the financial wreckage: hundreds of millions in settlements, a billion in bonds,
+      and a system designed to make accountability nearly impossible.
+    </p>
+
+    <!-- Bar Chart -->
+    <div class="chart-section">
+      <h2 class="section-title">The Cost to Taxpayers</h2>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Sexual Abuse Settlements</div>
+          <div class="bar-track">
+            <div class="bar-fill settlements">
+              <span class="bar-value">$700M+</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Bonds Issued (Jun 2025)</div>
+          <div class="bar-track">
+            <div class="bar-fill bonds-2025">
+              <span class="bar-value">$500M</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Bonds Issued (Feb 2026)</div>
+          <div class="bar-track">
+            <div class="bar-fill bonds-2026">
+              <span class="bar-value">$250M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-section">
+      <h2 class="section-title">A Decade of Failures</h2>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div class="timeline-events">
+          <div class="timeline-event">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2014</div>
+            <div class="timeline-text">Vergara v. California filed</div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2016</div>
+            <div class="timeline-text">Vergara overturned on appeal</div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2019</div>
+            <div class="timeline-text">AB 218 passed — retroactive claims</div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024</div>
+            <div class="timeline-text">Ostovich verdict — $24M single case</div>
+          </div>
+          <div class="timeline-event">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025–26</div>
+            <div class="timeline-text">$750M in bonds issued to cover settlements</div>
+          </div>
+          <div class="timeline-event major">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">May 2026</div>
+            <div class="timeline-text">Federal DOE OCR investigation launched</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

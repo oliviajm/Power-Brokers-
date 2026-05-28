@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q6: Teachers' Unions — Stat Cards Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,0;9..144,600,0;9..144,700,0&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #F5F1EA;
+    color: #1A1614;
+    min-height: 100vh;
+  }
+
+  .hero {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 2rem 5rem;
+  }
+
+  .series-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #B04A32;
+    margin-bottom: 1rem;
+  }
+
+  .hero-question {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #1A1614;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #4A4540;
+    max-width: 680px;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+
+  /* Card Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    border-left: 4px solid #B04A32;
+    box-shadow: 0 1px 3px rgba(26, 22, 20, 0.06), 0 4px 12px rgba(26, 22, 20, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(26, 22, 20, 0.08), 0 12px 28px rgba(26, 22, 20, 0.08);
+  }
+
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #B04A32;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1A1614;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-context {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #6B6560;
+    line-height: 1.4;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 1.25rem 3rem; }
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .stat-card { padding: 1.5rem 1.25rem; }
+    .stat-number { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="series-label">Power Brokers — Question 6</div>
+    <h1 class="hero-question">Do teachers' unions protect sexual predators?</h1>
+    <p class="hero-subtitle">
+      The numbers behind LAUSD's sexual abuse crisis — and the structural failures
+      that let it happen.
+    </p>
+
+    <div class="cards-grid">
+      <div class="stat-card">
+        <div class="stat-number">$700M+</div>
+        <div class="stat-label">In Sexual Abuse Settlements</div>
+        <div class="stat-context">Exposed LAUSD taxpayers to catastrophic liability through decades of institutional failure</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">$450K</div>
+        <div class="stat-label">Cost to Fire One Teacher</div>
+        <div class="stat-context">Due process protections negotiated by unions make removal prohibitively expensive</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">2–10 yrs</div>
+        <div class="stat-label">To Remove a Predator</div>
+        <div class="stat-context">Multi-year dismissal timelines leave accused teachers in classrooms or on paid leave</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">$1B+</div>
+        <div class="stat-label">In Bonds Issued</div>
+        <div class="stat-context">Taxpayers will pay interest for decades on debt used to fund abuse settlements</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">1,100+</div>
+        <div class="stat-label">Victims</div>
+        <div class="stat-context">Children harmed across LAUSD — the true scale likely far higher due to underreporting</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Federal Investigation</div>
+        <div class="stat-context">DOE Office for Civil Rights launched probe on May 5, 2026 — unprecedented federal scrutiny</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
