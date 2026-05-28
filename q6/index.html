@@ -137,30 +137,42 @@ a { color: inherit; }
 }
 .key-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   padding: 28px 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+}
+.key-stat {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px 22px;
+  border-left: 4px solid var(--bridge-red);
+  box-shadow: 0 1px 3px rgba(26,22,20,.06), 0 4px 12px rgba(26,22,20,.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+.key-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(26,22,20,.08), 0 12px 28px rgba(26,22,20,.08);
 }
 .key-stat .value {
   font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1;
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 38px);
+  line-height: 1.1;
   color: var(--bridge-red);
   letter-spacing: -0.02em;
+  margin-bottom: 6px;
 }
 .key-stat .label {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--ink);
-  margin-top: 6px;
+  margin-bottom: 5px;
 }
 .key-stat .sub {
   font-size: 13px;
   color: var(--ink-soft);
-  margin-top: 2px;
+  line-height: 1.4;
 }
 .result-line {
   margin-top: 28px;
@@ -173,7 +185,11 @@ a { color: inherit; }
 
 @media (max-width: 720px) {
   .hero { padding: 40px 22px 24px; }
-  .key-stats { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .key-stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+@media (max-width: 480px) {
+  .key-stats { grid-template-columns: 1fr; gap: 12px; }
+  .key-stat { padding: 18px 16px; }
 }
 
 /* ----- VIEW BAR ----- */
@@ -736,10 +752,12 @@ a { color: inherit; }
   // ============================================================
   const DATA = {
     keyStats: [
-      { value: "$700M+", label: "Abuse Settlements", sub: "LAUSD total payouts" },
-      { value: "$450K", label: "Cost to Fire", sub: "Per teacher dismissal" },
-      { value: "2–10 yrs", label: "Dismissal Timeline", sub: "Average process length" },
-      { value: "$1B+", label: "Taxpayer Bonds", sub: "$750M bonds + interest" }
+      { value: "$700M+", label: "In Sexual Abuse Settlements", sub: "Exposed LAUSD taxpayers to catastrophic liability through decades of institutional failure" },
+      { value: "$450K", label: "Cost to Fire One Teacher", sub: "Due process protections negotiated by unions make removal prohibitively expensive" },
+      { value: "2–10 yrs", label: "To Remove a Predator", sub: "Multi-year dismissal timelines leave accused teachers in classrooms or on paid leave" },
+      { value: "$1B+", label: "In Bonds Issued", sub: "Taxpayers will pay interest for decades on debt used to fund abuse settlements" },
+      { value: "1,100+", label: "Victims", sub: "Children harmed across LAUSD. The true scale is likely far higher due to underreporting" },
+      { value: "1", label: "Federal Investigation", sub: "DOE Office for Civil Rights launched probe on May 5, 2026. Unprecedented federal scrutiny" }
     ],
     system: {
       steps: [
