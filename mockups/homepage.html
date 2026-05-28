@@ -6,12 +6,23 @@
 <title>Garry's List — Civic Accountability</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400,0;9..144,500,0;9..144,600,0;9..144,700,0;9..144,400,100;9..144,500,100;9..144,600,100;9..144,700,100&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
+  /* Light mode palette */
+  --bg: #F5F1EA;
+  --bg2: #EFE7D8;
+  --card-dark: #FFFFFF;
+  --text-light: #1A1614;
+  --text-light2: #5C5048;
+  --text-light3: #8A7E73;
+  --red-dark: #B04A32;
+  --red-glow: rgba(176,74,50,.15);
+
+  /* Light homepage palette */
   --bridge-red: #B04A32;
   --bridge-red-dark: #8E3924;
   --ink: #1A1614;
@@ -22,24 +33,25 @@
   --fog: #D6D4CF;
   --sand: #E8D9C4;
   --white: #FFFFFF;
-  --shadow: 0 1px 2px rgba(26, 22, 20, 0.04), 0 12px 32px rgba(26, 22, 20, 0.08);
-  --shadow-sm: 0 1px 2px rgba(26, 22, 20, 0.06), 0 4px 12px rgba(26, 22, 20, 0.06);
-  --shadow-nav: 0 2px 16px rgba(26, 22, 20, 0.12);
-  --font-headline: 'Fraunces', Georgia, serif;
-  --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  --shadow: 0 1px 3px rgba(26, 22, 20, 0.04);
+  --shadow-hover: 0 2px 8px rgba(26, 22, 20, 0.06);
+  --shadow-nav: 0 1px 8px rgba(26, 22, 20, 0.08);
+
+  --font-hed: 'Fraunces', Georgia, serif;
+  --font: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  --mono: 'Source Sans 3', -apple-system, sans-serif;
   --max-width: 1200px;
-  --section-pad: 100px;
+  --section-pad: 120px;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
-  background: var(--paper);
+  font-family: var(--font);
+  background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
@@ -59,15 +71,10 @@ a:hover { color: var(--bridge-red-dark); }
   to { opacity: 1; }
 }
 
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
@@ -75,7 +82,7 @@ a:hover { color: var(--bridge-red-dark); }
   transform: translateY(0);
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== NAVIGATION (dark, fixed) ===== */
 .nav {
   position: fixed;
   top: 0;
@@ -86,9 +93,7 @@ a:hover { color: var(--bridge-red-dark); }
   transition: box-shadow 0.3s ease;
 }
 
-.nav.scrolled {
-  box-shadow: var(--shadow-nav);
-}
+.nav.scrolled { box-shadow: var(--shadow-nav); }
 
 .nav-inner {
   max-width: var(--max-width);
@@ -97,7 +102,7 @@ a:hover { color: var(--bridge-red-dark); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: 50px;
 }
 
 .nav-brand {
@@ -108,23 +113,21 @@ a:hover { color: var(--bridge-red-dark); }
 }
 
 .nav-gl-mark {
-  font-family: var(--font-headline);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-hed);
+  font-size: 13px;
+  font-weight: 500;
   color: var(--bridge-red);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   line-height: 1;
-  opacity: 0.9;
 }
 
 .nav-wordmark {
-  font-family: var(--font-headline);
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-hed);
+  font-size: 15px;
+  font-weight: 500;
   color: var(--paper);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-variant: small-caps;
   line-height: 1;
 }
 
@@ -136,7 +139,7 @@ a:hover { color: var(--bridge-red-dark); }
 }
 
 .nav-links a {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 13px;
   font-weight: 500;
   color: rgba(245, 241, 234, 0.7);
@@ -146,27 +149,24 @@ a:hover { color: var(--bridge-red-dark); }
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: var(--paper);
-}
+.nav-links a:hover { color: var(--paper); }
 
 .nav-cta {
-  background: var(--bridge-red) !important;
+  background: none !important;
   color: var(--paper) !important;
-  padding: 8px 20px !important;
-  border-radius: 4px;
+  padding: 0 !important;
   font-weight: 600 !important;
   letter-spacing: 0.06em !important;
-  transition: background 0.2s, transform 0.15s !important;
+  border-bottom: 1px solid rgba(245, 241, 234, 0.4) !important;
+  border-radius: 0 !important;
+  transition: border-color 0.2s !important;
 }
 
 .nav-cta:hover {
-  background: var(--bridge-red-dark) !important;
   color: var(--paper) !important;
-  transform: translateY(-1px);
+  border-bottom-color: var(--paper) !important;
 }
 
-/* Mobile nav */
 .nav-toggle {
   display: none;
   background: none;
@@ -185,384 +185,226 @@ a:hover { color: var(--bridge-red-dark); }
   border-radius: 1px;
 }
 
-/* ===== HERO ===== */
-.hero {
-  position: relative;
+/* ===== BUCKET HERO SECTION ===== */
+.bucket-hero {
+  margin-top: 50px;
+  background: var(--bg);
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  margin-top: 56px;
-  background: var(--ink);
-  text-align: center;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(176, 74, 50, 0.12) 0%, transparent 70%);
-}
-
-/* Floating particles */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.hero-particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(176, 74, 50, 0.04);
-  animation: hero-drift linear infinite;
-}
-@keyframes hero-drift {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.04; }
-  50% { opacity: 0.08; }
-  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-}
-
-.hero-content {
+  padding: 100px 24px 80px;
   position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 60px 32px;
-  width: 100%;
+  overflow: hidden;
+  gap: 0;
 }
 
-.hero-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
+.bucket-eyebrow {
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-soft);
   text-transform: uppercase;
-  color: var(--bridge-red);
-  margin-bottom: 24px;
+  letter-spacing: .14em;
+  text-align: center;
+  margin-bottom: 16px;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+
+.bucket-hero.active .bucket-eyebrow { opacity: 1; }
+
+.bucket-title {
+  font-family: var(--font-hed);
+  font-size: clamp(28px, 5vw, 46px);
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   opacity: 0;
   transform: translateY(20px);
-  animation: heroReveal 0.8s ease-out 0.2s forwards;
+  transition: all .8s ease;
 }
 
-.hero-number {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  font-size: clamp(48px, 12vw, 130px);
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  color: var(--paper);
-  margin-bottom: 20px;
-  font-variant-numeric: tabular-nums;
-  text-shadow: 0 0 80px rgba(176, 74, 50, 0.3);
+.bucket-hero.active .bucket-title {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.hero-sub {
-  font-family: var(--font-body);
-  font-size: clamp(15px, 2vw, 19px);
-  font-weight: 300;
-  color: rgba(245, 241, 234, 0.6);
-  max-width: 520px;
-  margin: 0 auto 40px;
-  line-height: 1.5;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: heroReveal 0.8s ease-out 0.5s forwards;
-}
-
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bridge-red);
-  color: var(--paper);
-  font-family: var(--font-body);
+.bucket-subtitle {
+  font-family: var(--font);
   font-size: 15px;
-  font-weight: 600;
-  padding: 14px 32px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  font-weight: 300;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 24px;
   letter-spacing: 0.02em;
   opacity: 0;
-  transform: translateY(20px);
-  animation: heroReveal 0.8s ease-out 1.1s forwards;
+  transition: opacity .6s ease .3s;
+  position: relative;
+  z-index: 2;
 }
 
-.hero-cta:hover {
-  background: var(--bridge-red-dark);
-  color: var(--paper);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(176, 74, 50, 0.35);
+.bucket-hero.active .bucket-subtitle { opacity: 1; }
+
+.bucket-canvas-wrap {
+  position: relative;
+  width: 620px;
+  max-width: 90vw;
+  aspect-ratio: 780/660;
+  opacity: 0;
+  transform: scale(.95);
+  transition: all .8s ease .4s;
+  z-index: 1;
 }
 
-.hero-cta svg { transition: transform 0.2s; }
-.hero-cta:hover svg { transform: translateX(3px); }
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: rgba(245, 241, 234, 0.25);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  animation: heroPulse 2s ease-in-out infinite;
+.bucket-hero.active .bucket-canvas-wrap {
+  opacity: 1;
+  transform: scale(1);
 }
-.hero-scroll-arrow {
+
+.bucket-canvas-wrap canvas {
+  width: 100%;
+  height: 100%;
   display: block;
-  margin-top: 6px;
-  font-size: 16px;
-  animation: heroBob 2s ease-in-out infinite;
 }
 
-/* Hero comparison rows */
-.hero-comps {
+.bucket-hole-label {
+  position: absolute;
+  font: 600 clamp(10px, 1.2vw, 14px) 'Source Sans 3', sans-serif;
+  color: var(--ink-mid);
+  text-shadow: none;
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.bucket-hole-label.vis { opacity: 1; }
+.bucket-hole-label.left { text-align: right; }
+.bucket-hole-label.right { text-align: left; }
+
+.bucket-pour-label {
+  display: none;
+}
+
+.bucket-pour-callout {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-bottom: 44px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: heroReveal 0.8s ease-out 0.7s forwards;
-}
-.hero-comp {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 16px;
   align-items: center;
-  background: rgba(245, 241, 234, 0.03);
-  border: 1px solid rgba(176, 74, 50, 0.1);
-  border-radius: 8px;
-  padding: 18px 20px;
-  cursor: pointer;
-  transition: border-color 0.25s, background 0.25s, transform 0.15s;
-  text-decoration: none;
-  color: inherit;
-}
-.hero-comp:hover {
-  border-color: rgba(176, 74, 50, 0.35);
-  background: rgba(245, 241, 234, 0.06);
-  transform: translateY(-2px);
-}
-.hero-comp-side {
-  text-align: center;
-}
-.hero-comp-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.hero-comp-label.paid { color: rgba(245, 241, 234, 0.3); }
-.hero-comp-label.got { color: var(--bridge-red); }
-.hero-comp-value {
-  font-family: var(--font-headline);
-  font-weight: 700;
-  line-height: 1.1;
-}
-.hero-comp-value.paid-val {
-  font-size: clamp(18px, 3vw, 28px);
-  color: rgba(245, 241, 234, 0.7);
-}
-.hero-comp-value.got-val {
-  font-size: clamp(18px, 3vw, 28px);
-  color: var(--bridge-red);
-  text-shadow: 0 0 40px rgba(176, 74, 50, 0.25);
-}
-.hero-comp-context {
-  font-family: var(--font-body);
-  font-size: 11px;
-  color: rgba(245, 241, 234, 0.25);
-  margin-top: 3px;
-}
-.hero-comp-arrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  color: rgba(176, 74, 50, 0.35);
-}
-
-/* Bar visual in comp row */
-.hero-comp-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 36px;
-  justify-content: center;
-  margin-top: 6px;
-}
-.hero-bar {
-  width: 20px;
-  border-radius: 3px 3px 0 0;
-  transition: height 1.2s cubic-bezier(0.25, 0.1, 0, 1);
-}
-.hero-bar.in-bar { background: rgba(245, 241, 234, 0.15); }
-.hero-bar.out-bar { background: var(--bridge-red); opacity: 0.7; }
-
-@keyframes heroReveal {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes heroPulse {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.5; }
-}
-@keyframes heroBob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
-}
-
-/* ===== CITY HALL WATCH ===== */
-.cityhall {
-  background: #1A1816;
-  padding: 56px 0;
+  margin-bottom: 8px;
   position: relative;
-  overflow: hidden;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity .6s ease .35s;
 }
-.cityhall::before {
-  content: '';
+.bucket-hero.active .bucket-pour-callout { opacity: 1; }
+.bucket-pour-callout .amount {
+  font: 600 clamp(18px, 4vw, 34px) 'Fraunces', Georgia, serif;
+  font-style: italic;
+  color: #2874A6;
+}
+.bucket-pour-callout .sub {
+  font: 400 clamp(9px, 1.4vw, 12px) 'Source Sans 3', sans-serif;
+  color: rgba(40,116,166,.5);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.bucket-pour-callout .pour-arrow {
+  margin-top: 4px;
+}
+
+.bucket-pour-label.vis { opacity: 1; }
+
+.bucket-pour-label .amount {
+  font: 600 clamp(18px, 4vw, 36px) 'Fraunces', Georgia, serif;
+  font-style: italic;
+  color: #2874A6;
+  text-shadow: none;
+}
+
+.bucket-pour-label .sub {
+  display: block;
+  font: 400 clamp(9px, 1.6vw, 14px) 'Source Sans 3', sans-serif;
+  color: rgba(40,116,166,.5);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.bucket-trickle-label {
   position: absolute;
-  top: 0;
+  bottom: 3%;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(176,74,50,0.3), transparent);
-}
-.cityhall-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-}
-.cityhall-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.cityhall-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #B04A32;
-  animation: chPulse 2s ease-in-out infinite;
-}
-@keyframes chPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(176,74,50,0.4); }
-  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(176,74,50,0); }
-}
-.cityhall-title h2 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(245,241,234,0.5);
-}
-.cityhall-date {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  color: rgba(245,241,234,0.25);
-  letter-spacing: 0.1em;
-}
-.cityhall-feed {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 28px;
-}
-.ch-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 16px;
-  align-items: start;
-  padding: 16px 20px;
-  background: rgba(245,241,234,0.025);
-  border: 1px solid rgba(245,241,234,0.05);
-  border-radius: 6px;
-  transition: border-color 0.2s, background 0.2s;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-.ch-item:hover {
-  border-color: rgba(176,74,50,0.25);
-  background: rgba(245,241,234,0.045);
-}
-.ch-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 2px;
-}
-.ch-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 2px;
-  white-space: nowrap;
-}
-.ch-tag.board { background: rgba(176,74,50,0.15); color: #B04A32; }
-.ch-tag.budget { background: rgba(196,146,62,0.15); color: #C4923E; }
-.ch-tag.audit { background: rgba(109,176,154,0.15); color: #6db09a; }
-.ch-tag.sfmta { background: rgba(200,112,79,0.15); color: #C8704F; }
-.ch-tag.rules { background: rgba(138,126,115,0.15); color: #8A7E73; }
-.ch-body {
-  min-width: 0;
-}
-.ch-headline {
-  font-family: var(--font-headline);
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(245,241,234,0.85);
-  line-height: 1.3;
-  margin-bottom: 4px;
-  font-variation-settings: 'SOFT' 50;
-}
-.ch-detail {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: rgba(245,241,234,0.4);
-  line-height: 1.4;
-}
-.ch-amount {
-  font-family: var(--font-headline);
-  font-size: 18px;
-  font-weight: 700;
-  color: rgba(245,241,234,0.6);
-  white-space: nowrap;
-  padding-top: 1px;
-}
-.ch-amount.red { color: #B04A32; }
-.cityhall-footer {
   text-align: center;
-}
-.cityhall-cta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font: 500 clamp(10px, 1.8vw, 16px) 'Source Sans 3', sans-serif;
   color: #B04A32;
+  text-shadow: 0 1px 3px rgba(176,74,50,.3);
+  opacity: 0;
+  transition: opacity .6s ease;
+  pointer-events: none;
+}
+
+.bucket-trickle-label.vis { opacity: 1; }
+
+/* Hero CTA link — understated text link */
+.bucket-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  position: relative;
+  z-index: 2;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--bridge-red);
   text-decoration: none;
-  padding: 10px 24px;
-  border: 1px solid rgba(176,74,50,0.3);
-  border-radius: 4px;
-  transition: background 0.2s, border-color 0.2s;
+  letter-spacing: 0.01em;
+  padding: 0;
+  border: none;
+  background: none;
+  transition: color 0.2s ease;
+  opacity: 0;
+  transform: translateY(8px);
 }
-.cityhall-cta:hover {
-  background: rgba(176,74,50,0.1);
-  border-color: rgba(176,74,50,0.5);
-  color: #B04A32;
+
+.bucket-hero.active .bucket-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 4.5s;
+}
+
+.bucket-cta:hover {
+  color: var(--bridge-red-dark);
+}
+
+.bucket-cta svg { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1); }
+.bucket-cta:hover svg { transform: translateX(4px); }
+
+/* Scroll hint — removed for cleaner feel */
+.bucket-scroll-prompt,
+.bucket-scroll-arrow {
+  display: none;
+}
+
+/* ===== TRANSITION ZONE ===== */
+.dark-to-light {
+  height: 0;
+  background: var(--paper);
+}
+
+/* ===== LIGHT SECTIONS (homepage content) ===== */
+.light-zone {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 /* ===== SECTION HEADERS ===== */
@@ -571,37 +413,44 @@ a:hover { color: var(--bridge-red-dark); }
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 40px;
-  padding-top: 4px;
-  border-top: 3px solid var(--bridge-red);
+  padding-top: 0;
+  border-top: none;
 }
 
 .section-title {
-  font-family: var(--font-headline);
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 500;
+  font-family: var(--font-hed);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
   color: var(--ink);
-  font-variation-settings: 'SOFT' 50;
+  letter-spacing: -0.01em;
 }
 
 .section-link {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
   color: var(--bridge-red);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   transition: gap 0.2s;
 }
 
-.section-link:hover { gap: 10px; }
+.section-link:hover { gap: 8px; }
+
+/* Section divider rule */
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--fog);
+  margin: 0;
+}
 
 /* ===== TRACKING SECTION ===== */
 .tracking {
   padding: var(--section-pad) 0;
+  border-top: 1px solid var(--fog);
 }
 
 .tracking-grid {
@@ -613,87 +462,53 @@ a:hover { color: var(--bridge-red-dark); }
 .tracking-card {
   background: var(--white);
   border: 1px solid var(--fog);
-  border-radius: 8px;
-  padding: 36px 32px 32px;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  border-left: 3px solid var(--bridge-red);
+  border-radius: 6px;
+  padding: 32px 28px 28px;
+  transition: box-shadow 0.25s ease;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-}
-
-.tracking-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--bridge-red);
-  opacity: 0;
-  transition: opacity 0.25s;
 }
 
 .tracking-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-hover);
 }
-
-.tracking-card:hover::before { opacity: 1; }
 
 .tracking-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--paper-warm);
-}
-
-.tracking-icon svg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--bridge-red);
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  display: none;
 }
 
 .tracking-card-title {
-  font-family: var(--font-headline);
-  font-size: 22px;
-  font-weight: 600;
+  font-family: var(--font-hed);
+  font-size: 20px;
+  font-weight: 500;
   color: var(--ink);
   margin-bottom: 8px;
-  font-variation-settings: 'SOFT' 50;
+  letter-spacing: -0.01em;
 }
 
 .tracking-card-sub {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 15px;
   color: var(--ink-mid);
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .tracking-tag {
   display: inline-block;
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 11px;
-  font-weight: 700;
-  color: var(--bridge-red);
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(176, 74, 50, 0.08);
-  padding: 5px 12px;
-  border-radius: 100px;
 }
 
 /* ===== LATEST ARTICLES ===== */
 .latest {
-  padding: 0 0 var(--section-pad);
+  padding: var(--section-pad) 0;
+  border-top: 1px solid var(--fog);
 }
 
 .articles-grid {
@@ -705,56 +520,46 @@ a:hover { color: var(--bridge-red-dark); }
 .article-card {
   background: var(--white);
   border: 1px solid var(--fog);
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-hover);
 }
 
 .article-img {
-  height: 180px;
+  height: 160px;
   position: relative;
   overflow: hidden;
 }
 
-.article-img-1 {
-  background: linear-gradient(135deg, var(--paper-warm) 0%, var(--sand) 50%, var(--fog) 100%);
-}
-
-.article-img-2 {
-  background: linear-gradient(135deg, rgba(176, 74, 50, 0.15) 0%, var(--paper-warm) 50%, var(--sand) 100%);
-}
-
+.article-img-1,
+.article-img-2,
 .article-img-3 {
-  background: linear-gradient(135deg, var(--sand) 0%, var(--paper-warm) 40%, rgba(176, 74, 50, 0.1) 100%);
+  background: var(--fog);
 }
 
 .article-img .article-type-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  font-family: var(--font-body);
+  top: 12px; left: 12px;
+  font-family: var(--font);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 4px 10px;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
   border-radius: 3px;
   background: var(--bridge-red);
   color: var(--paper);
 }
 
-.article-body {
-  padding: 24px;
-}
+.article-body { padding: 24px; }
 
 .article-date {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-soft);
@@ -764,40 +569,32 @@ a:hover { color: var(--bridge-red-dark); }
 }
 
 .article-title {
-  font-family: var(--font-headline);
-  font-size: 20px;
-  font-weight: 500;
+  font-family: var(--font-hed);
+  font-size: 19px;
+  font-weight: 400;
   color: var(--ink);
-  line-height: 1.3;
+  line-height: 1.35;
   margin-bottom: 10px;
-  font-variation-settings: 'SOFT' 50;
+  letter-spacing: -0.01em;
   transition: color 0.2s;
 }
 
 .article-card:hover .article-title { color: var(--bridge-red); }
 
 .article-excerpt {
-  font-family: var(--font-body);
-  font-size: 14px;
+  font-family: var(--font);
+  font-size: 15px;
   color: var(--ink-mid);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-/* ===== THE NUMBERS ===== */
+/* ===== THE NUMBERS (light, warm bg) ===== */
 .numbers {
-  background: var(--ink);
-  padding: 72px 0;
+  background: var(--paper-warm);
+  padding: 80px 0;
   position: relative;
-  overflow: hidden;
-}
-
-.numbers::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 40% 80% at 10% 50%, rgba(176, 74, 50, 0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 90% 50%, rgba(232, 217, 196, 0.06) 0%, transparent 70%);
+  border-top: 1px solid var(--fog);
+  border-bottom: 1px solid var(--fog);
 }
 
 .numbers-grid {
@@ -808,25 +605,23 @@ a:hover { color: var(--bridge-red-dark); }
   z-index: 1;
 }
 
-.number-item {
-  text-align: center;
-}
+.number-item { text-align: center; }
 
 .number-value {
-  font-family: var(--font-headline);
-  font-size: clamp(36px, 4.5vw, 56px);
-  font-weight: 600;
+  font-family: var(--font-hed);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
   color: var(--bridge-red);
   line-height: 1.1;
   margin-bottom: 10px;
-  font-variation-settings: 'SOFT' 30;
 }
 
 .number-label {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 14px;
   font-weight: 400;
-  color: var(--ink-soft);
+  color: var(--ink-mid);
   line-height: 1.5;
   max-width: 200px;
   margin: 0 auto;
@@ -835,44 +630,31 @@ a:hover { color: var(--bridge-red-dark); }
 /* ===== NEWSLETTER CTA ===== */
 .newsletter {
   padding: var(--section-pad) 0;
+  background: var(--paper);
+  border-top: 1px solid var(--fog);
 }
 
 .newsletter-inner {
-  background: var(--paper-warm);
-  border-radius: 12px;
-  padding: 64px;
+  max-width: 520px;
+  margin: 0 auto;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.newsletter-inner::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(176, 74, 50, 0.08) 0%, transparent 70%);
-  border-radius: 50%;
 }
 
 .newsletter-title {
-  font-family: var(--font-headline);
-  font-size: clamp(24px, 3vw, 36px);
-  font-weight: 500;
+  font-family: var(--font-hed);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
   color: var(--ink);
-  margin-bottom: 12px;
-  position: relative;
-  font-variation-settings: 'SOFT' 50;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
 .newsletter-sub {
-  font-family: var(--font-body);
-  font-size: 16px;
+  font-family: var(--font);
+  font-size: 15px;
   color: var(--ink-mid);
-  margin-bottom: 32px;
-  position: relative;
+  margin-bottom: 28px;
+  line-height: 1.6;
 }
 
 .newsletter-form {
@@ -886,7 +668,7 @@ a:hover { color: var(--bridge-red-dark); }
 .newsletter-input {
   flex: 1;
   padding: 14px 18px;
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 15px;
   border: 1px solid var(--fog);
   border-radius: 5px;
@@ -897,14 +679,13 @@ a:hover { color: var(--bridge-red-dark); }
 }
 
 .newsletter-input:focus { border-color: var(--bridge-red); }
-
 .newsletter-input::placeholder { color: var(--ink-soft); }
 
 .newsletter-btn {
   padding: 14px 28px;
   background: var(--bridge-red);
   color: var(--paper);
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 15px;
   font-weight: 600;
   border: none;
@@ -921,83 +702,59 @@ a:hover { color: var(--bridge-red-dark); }
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--ink);
-  padding: 48px 0 40px;
-  border-top: 1px solid rgba(245, 241, 234, 0.08);
+  background: var(--paper);
+  padding: 40px 0 36px;
+  border-top: 1px solid var(--fog);
 }
 
 .footer-inner {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
-.footer-brand { }
+.footer-brand { display: none; }
 
 .footer-wordmark {
-  font-family: var(--font-headline);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--paper);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-variant: small-caps;
-  margin-bottom: 8px;
+  display: none;
 }
 
 .footer-tagline {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--ink-soft);
+  display: none;
 }
 
 .footer-links {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   list-style: none;
 }
 
 .footer-links a {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 13px;
-  font-weight: 500;
-  color: rgba(245, 241, 234, 0.55);
+  font-weight: 400;
+  color: var(--ink-soft);
   text-decoration: none;
-  letter-spacing: 0.03em;
   transition: color 0.2s;
 }
 
-.footer-links a:hover { color: var(--paper); }
+.footer-links a:hover { color: var(--ink); }
 
-.footer-social {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-social a {
-  color: rgba(245, 241, 234, 0.45);
-  transition: color 0.2s;
-}
-
-.footer-social a:hover { color: var(--paper); }
-
-.footer-social svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
+.footer-social { display: none; }
 
 .footer-bottom {
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(245, 241, 234, 0.08);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
   text-align: center;
 }
 
 .footer-copy {
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 12px;
-  color: rgba(245, 241, 234, 0.3);
+  color: var(--ink-soft);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -1007,16 +764,14 @@ a:hover { color: var(--bridge-red-dark); }
 }
 
 @media (max-width: 768px) {
-  :root { --section-pad: 64px; }
+  :root { --section-pad: 72px; }
 
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 56px;
-    left: 0;
-    right: 0;
+    top: 50px; left: 0; right: 0;
     background: var(--ink);
     padding: 24px 32px;
     gap: 20px;
@@ -1024,37 +779,767 @@ a:hover { color: var(--bridge-red-dark); }
   }
   .nav-toggle { display: block; }
 
-  .hero { min-height: 90vh; }
-  .hero-content { padding: 48px 20px; }
-  .hero-stats { grid-template-columns: 1fr; gap: 10px; }
-  .ch-item { grid-template-columns: 1fr; gap: 8px; }
-  .ch-tags { flex-direction: row; }
-  .ch-amount { font-size: 15px; }
+  .bucket-hero { min-height: auto; padding: 40px 16px 30px; margin-top: 50px; }
+  .bucket-canvas-wrap { width: 100%; max-width: 100vw; }
+  .bucket-hole-label {
+    font-size: 2.2vw !important;
+  }
+  .bucket-pour-label .amount { font-size: clamp(20px, 6vw, 60px) !important; }
+  .bucket-pour-label .sub { font-size: clamp(10px, 2.2vw, 20px) !important; }
+  .bucket-trickle-label { font-size: clamp(12px, 2.8vw, 24px) !important; }
+  .bucket-cta { font-size: 15px; padding: 12px 28px; margin-top: 20px; }
+  .bucket-subtitle { margin-bottom: 24px; }
 
   .container { padding: 0 20px; }
-
   .tracking-grid { grid-template-columns: 1fr; }
   .articles-grid { grid-template-columns: 1fr; }
+  .numbers { padding: 48px 0; }
   .numbers-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-
   .newsletter-inner { padding: 40px 24px; }
   .newsletter-form { flex-direction: column; }
-
-  .footer-inner {
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    text-align: center;
-  }
-
+  .footer-inner { flex-direction: column; gap: 32px; align-items: center; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
-
   .section-header { flex-direction: column; gap: 12px; }
+
+  .dark-to-light { height: 60px; }
+
+  /* Budget viz mobile — 768 */
+  .budget-viz .hero { padding: 32px 20px; }
+  .budget-viz .comp { padding: 36px 20px; }
+  .budget-viz .bar-pair { height: 140px; gap: 16px; }
+  .budget-viz .scoreboard { padding: 48px 20px; }
+  .budget-viz .score-grid { grid-template-columns: 1fr 1fr; }
+  .budget-viz .close-sec { padding: 48px 20px; min-height: 60vh; }
+  .budget-viz .bucket-sec { padding: 40px 16px 48px; }
+  .budget-viz .bucket-canvas-wrap { width: 100%; max-width: 100vw; }
+  .budget-viz .bucket-hole-label { font-size: 2.2vw !important; }
+  .budget-viz .bucket-pour-label .amount { font-size: clamp(20px, 6vw, 60px) !important; }
+  .budget-viz .bucket-pour-label .sub { font-size: clamp(10px, 2.2vw, 20px) !important; }
+  .budget-viz .bucket-trickle-label { font-size: clamp(12px, 2.8vw, 24px) !important; }
+  .budget-viz .hl-break { min-height: 60vh; padding: 48px 24px; }
+  .budget-viz .chart-sec { padding: 40px 16px; min-height: 70vh; }
 }
 
 @media (max-width: 480px) {
+  :root { --section-pad: 56px; }
+
   .numbers-grid { grid-template-columns: 1fr; gap: 32px; }
   .number-item { padding: 0 20px; }
+
+  .bucket-hero { padding: 32px 12px 24px; }
+  .bucket-title { font-size: clamp(22px, 6vw, 36px) !important; }
+  .bucket-eyebrow { font-size: 10px; letter-spacing: .15em; }
+  .bucket-canvas-wrap { max-width: 100vw; }
+  .bucket-hole-label { display: none !important; }
+  .bucket-pour-label .amount { font-size: clamp(18px, 7vw, 36px) !important; }
+  .bucket-pour-label .sub { font-size: clamp(9px, 2.5vw, 14px) !important; }
+  .bucket-trickle-label { font-size: clamp(11px, 3vw, 18px) !important; }
+  .bucket-cta { font-size: 14px; padding: 11px 22px; }
+  .bucket-scroll-prompt { font-size: 9px; }
+
+  .container { padding: 0 16px; }
+  .tracking-card { padding: 28px 24px 24px; }
+  .tracking-card-title { font-size: 19px; }
+  .tracking-card-sub { font-size: 14px; }
+
+  .article-img { height: 150px; }
+  .article-body { padding: 18px; }
+  .article-title { font-size: 18px; }
+
+  .newsletter-inner { padding: 32px 18px; }
+  .newsletter-title { font-size: clamp(20px, 5vw, 28px); }
+  .newsletter-sub { font-size: 14px; margin-bottom: 24px; }
+  .newsletter-input { padding: 12px 14px; font-size: 14px; }
+  .newsletter-btn { padding: 12px 22px; font-size: 14px; }
+
+  .footer { padding: 36px 0 32px; }
+  .footer-links { gap: 16px; }
+
+  /* Budget viz mobile — 480 */
+  .budget-viz .hero { padding: 24px 16px; min-height: 80vh; }
+  .budget-viz .hero-number { font-size: clamp(36px, 12vw, 72px); }
+  .budget-viz .hero-sub { font-size: clamp(13px, 3.5vw, 16px); }
+  .budget-viz .comp { padding: 32px 16px; min-height: 80vh; }
+  .budget-viz .comp-amount { font-size: clamp(28px, 9vw, 56px); }
+  .budget-viz .comp-result { font-size: clamp(18px, 5vw, 32px); }
+  .budget-viz .comp-compare { font-size: 10px; padding: 8px 12px; }
+  .budget-viz .bar-pair { height: 110px; gap: 12px; }
+  .budget-viz .bar-col { max-width: 100px; }
+  .budget-viz .scoreboard { padding: 36px 16px; }
+  .budget-viz .score-title { font-size: clamp(20px, 5vw, 30px); margin-bottom: 28px; }
+  .budget-viz .score-grid { grid-template-columns: 1fr; }
+  .budget-viz .score-card { padding: 18px 16px; }
+  .budget-viz .close-sec { padding: 36px 16px; min-height: 60vh; }
+  .budget-viz .close-line { font-size: clamp(16px, 4vw, 24px); margin-bottom: 24px; }
+  .budget-viz .close-punch { font-size: clamp(20px, 6vw, 36px); }
+  .budget-viz .bucket-sec { padding: 32px 12px 40px; }
+  .budget-viz .bucket-hole-label { display: none !important; }
+  .budget-viz .bucket-pour-label .amount { font-size: clamp(18px, 7vw, 36px) !important; }
+  .budget-viz .bucket-pour-label .sub { font-size: clamp(9px, 2.5vw, 14px) !important; }
+  .budget-viz .bucket-trickle-label { font-size: clamp(11px, 3vw, 18px) !important; }
+  .budget-viz .hl-break { min-height: 50vh; padding: 36px 18px; }
+  .budget-viz .hl-quote { font-size: clamp(20px, 5.5vw, 32px); }
+  .budget-viz .chart-sec { padding: 32px 12px; min-height: 60vh; }
+  .budget-viz .chart-title { font-size: clamp(18px, 5vw, 28px); margin-bottom: 28px; }
+  .budget-viz .nav { padding: 10px 14px; }
+  .budget-viz .sources-sec { padding: 24px 16px 48px; }
+}
+
+/* ===== City Hall Watch ===== */
+.chw-section {
+  background: var(--paper);
+  border-top: 1px solid var(--fog);
+}
+.chw-cards { display: flex; flex-direction: column; gap: 8px; margin-top: 28px; }
+.chw-card {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 6px;
+  padding: 18px 22px;
+  transition: box-shadow 0.2s;
+}
+.chw-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+.chw-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.chw-tag {
+  font-family: var(--font);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.chw-tag-board,
+.chw-tag-rules,
+.chw-tag-audit { background: rgba(138,126,115,.1); color: var(--ink-soft); }
+.chw-tag-sfmta,
+.chw-tag-budget { background: rgba(176,74,50,.08); color: var(--bridge-red); }
+.chw-headline {
+  font-family: var(--font-hed);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.chw-summary {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.chw-figure {
+  font-family: var(--font-hed);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bridge-red);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 60px;
+}
+@media (max-width: 768px) {
+  .chw-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+  .chw-figure {
+    text-align: left;
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .chw-card { padding: 14px; }
+  .chw-headline { font-size: 14px; }
+  .chw-summary { font-size: 12px; }
+  .chw-figure { font-size: 18px; }
+}
+
+/* ===== Ambient particles — hidden on homepage hero ===== */
+.bucket-hero > .particles-bg {
+  display: none;
+}
+
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(176,74,50,.03);
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: .03; }
+  50% { opacity: .05; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ===== BUDGET RECEIPT VISUALIZATION (namespaced) ===== */
+
+
+.budget-viz {
+  --bg: #F5F1EA;
+  --bg2: #EFE7D8;
+  --card: #FFFFFF;
+  --card-border: #D6D4CF;
+  --text: #1A1614;
+  --text2: #5C5048;
+  --text3: #8A7E73;
+  --red: #B04A32;
+  --red-glow: rgba(176,74,50,.15);
+  --red-dim: rgba(176,74,50,.06);
+  --amber: #b8862e;
+  --teal: #4d9480;
+  --font-hed: 'Fraunces', Georgia, serif;
+  --font: 'Source Sans 3', -apple-system, sans-serif;
+  --mono: 'Source Sans 3', -apple-system, sans-serif;
+}
+
+.budget-viz * { box-sizing: border-box; margin: 0; padding: 0; }
+/* html */ .budget-viz { scroll-behavior: auto; }
+.budget-viz {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+.budget-viz ::-webkit-scrollbar { width: 4px; }
+.budget-viz ::-webkit-scrollbar-track { background: transparent; }
+.budget-viz ::-webkit-scrollbar-thumb { background: rgba(26,22,20,.15); border-radius: 4px; }
+
+/* ── Fixed nav ── */
+.budget-viz .nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 28px;
+  background: linear-gradient(var(--bg) 0%, rgba(245,241,234,0) 100%);
+  pointer-events: none;
+}
+.budget-viz .nav > * { pointer-events: auto; }
+.budget-viz .nav-logo {
+  font-size: 9px; font-weight: 700; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--text3);
+  display: flex; align-items: center; gap: 7px;
+}
+.budget-viz .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.budget-viz .nav-counter {
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
+  font-weight: 500; font-variant-numeric: tabular-nums;
+}
+
+/* ── Progress bar ── */
+.budget-viz .progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 2px; background: var(--red); width: 0%;
+  transition: width .15s linear;
+}
+
+/* ── Sections ── */
+.budget-viz section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+/* ── HERO ── */
+.budget-viz .hero {
+  flex-direction: column; text-align: center;
+  padding: 40px 24px;
+}
+.budget-viz .hero-eyebrow {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  opacity: 0; transform: translateY(20px);
+}
+.budget-viz .hero-number {
+  font-family: var(--font-hed); font-weight: 700;
+  font-size: clamp(42px, 10vw, 120px);
+  letter-spacing: -.04em; line-height: .9;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+.budget-viz .hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text2); font-weight: 300;
+  max-width: 460px; line-height: 1.5;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(20px);
+}
+.budget-viz .hero-prompt {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text3); letter-spacing: .1em;
+  opacity: 0;
+  animation: bv-pulse-soft 2s ease-in-out infinite;
+}
+@keyframes bv-pulse-soft {
+  0%, 100% { opacity: .3; }
+  50% { opacity: .6; }
+}
+.budget-viz .hero-arrow {
+  margin-top: 12px; font-size: 18px; color: var(--text3);
+  animation: bv-bob 2s ease-in-out infinite;
+}
+@keyframes bv-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ── COMPARISON SLIDES ── */
+.budget-viz .comp {
+  flex-direction: column;
+  padding: 48px 24px;
+  text-align: center;
+}
+.budget-viz .comp-inner {
+  max-width: 800px; width: 100%;
+  opacity: 0; transform: translateY(40px);
+  transition: all .8s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .comp-inner.active {
+  opacity: 1; transform: translateY(0);
+}
+
+.budget-viz .comp-label {
+  font-family: var(--mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .3em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.budget-viz .comp-label.you-paid { color: var(--text3); }
+.budget-viz .comp-label.you-got { color: var(--red); }
+
+.budget-viz .comp-amount {
+  font-family: var(--font-hed); font-weight: 700;
+  font-size: clamp(36px, 7vw, 76px);
+  letter-spacing: -.03em; line-height: 1;
+  color: var(--text); margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.budget-viz .comp-context {
+  font-size: 13px; color: var(--text3);
+  margin-bottom: 32px; font-weight: 300;
+}
+
+/* Divider line with dot */
+.budget-viz .comp-divider {
+  width: 40px; height: 1px;
+  background: var(--red);
+  margin: 0 auto 32px;
+  position: relative;
+  opacity: 0; transform: scaleX(0);
+  transition: all .6s cubic-bezier(.25,.1,.0,1) .3s;
+}
+.budget-viz .comp-inner.active .comp-divider {
+  opacity: 1; transform: scaleX(1);
+}
+
+.budget-viz .comp-result {
+  font-family: var(--font-hed); font-weight: 600;
+  font-size: clamp(22px, 4.5vw, 40px);
+  letter-spacing: -.02em; line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 10px;
+  opacity: 0; transform: translateY(20px) scale(.96);
+  transition: all .7s cubic-bezier(.25,.1,.0,1) .5s;
+}
+.budget-viz .comp-inner.active .comp-result {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+
+
+
+/* ── Ambient glow per section ── */
+.budget-viz .comp::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.budget-viz .comp.glow-active::before { opacity: 1; }
+.budget-viz .comp.glow-red::before { background: rgba(176,74,50,.04); top: 20%; left: 50%; transform: translateX(-50%); }
+.budget-viz .comp.glow-amber::before { background: rgba(184,134,46,.04); top: 20%; left: 50%; transform: translateX(-50%); }
+
+/* ── BAR CHART VISUAL ── */
+.budget-viz .bar-pair {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 24px; height: 180px; margin: 20px auto 28px;
+  max-width: 400px; width: 100%;
+}
+.budget-viz .bar-col {
+  flex: 1; max-width: 140px;
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+.budget-viz .bar-fill {
+  width: 100%; border-radius: 4px 4px 0 0;
+  transition: height 1.2s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .bar-fill.paid { background: var(--text3); height: 0; }
+.budget-viz .bar-fill.got { background: var(--red); height: 0; }
+.budget-viz .bar-tag {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); margin-top: 8px;
+  text-transform: uppercase; letter-spacing: .1em;
+}
+
+/* ── SCOREBOARD ── */
+.budget-viz .scoreboard {
+  flex-direction: column;
+  padding: 80px 24px;
+  text-align: center;
+}
+.budget-viz .score-title {
+  font-family: var(--font-hed); font-size: clamp(24px, 4vw, 38px);
+  font-weight: 600; letter-spacing: -.02em;
+  margin-bottom: 40px; color: var(--text);
+}
+.budget-viz .score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px; max-width: 900px; width: 100%;
+}
+.budget-viz .score-card {
+  background: var(--card); border: 1px solid var(--card-border);
+  border-radius: 8px; padding: 22px 20px;
+  text-align: left;
+  opacity: 0; transform: translateY(24px) scale(.97);
+  transition: all .5s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .score-card.show {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+.budget-viz .score-card:hover {
+  border-color: rgba(176,74,50,.3);
+  box-shadow: 0 1px 2px rgba(26,22,20,.04), 0 8px 24px rgba(26,22,20,.08);
+}
+.budget-viz .score-rank {
+  font-family: var(--font-hed); font-size: 30px; font-weight: 700;
+  color: var(--red); margin-bottom: 4px;
+}
+.budget-viz .score-stat {
+  font-size: 13px; font-weight: 600; color: var(--text);
+  margin-bottom: 4px;
+}
+.budget-viz .score-note {
+  font-size: 11px; color: var(--text3); line-height: 1.5;
+}
+
+/* ── GLOBAL COMPARISON CALLOUTS ── */
+.budget-viz .comp-compare {
+  margin-top: 16px; padding: 10px 16px;
+  background: var(--card); border: 1px solid var(--card-border);
+  border-left: 3px solid var(--red); border-radius: 6px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text2); line-height: 1.6;
+  letter-spacing: .01em;
+  opacity: 0; transform: translateY(8px);
+  transition: all .6s ease;
+}
+.budget-viz .comp-compare.show { opacity: 1; transform: translateY(0); }
+.budget-viz .comp-compare strong { color: var(--red); font-weight: 600; }
+.budget-viz .comp-compare .compare-src {
+  display: block; margin-top: 4px;
+  font-size: 9px; color: var(--text3); opacity: .8;
+  letter-spacing: .05em; text-transform: uppercase;
+}
+
+/* ── LEAKY BUCKET ── */
+.budget-viz .bucket-sec {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 24px 80px; position: relative; overflow: visible;
+}
+.budget-viz .bucket-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text3); text-transform: uppercase;
+  letter-spacing: .2em; text-align: center; margin-bottom: 12px;
+  opacity: 0; transition: opacity .8s ease;
+}
+.budget-viz .bucket-sec.active .bucket-eyebrow { opacity: 1; }
+.budget-viz .bucket-title {
+  font-family: var(--font-hed); font-size: clamp(26px, 5vw, 44px);
+  color: var(--text); text-align: center; margin-bottom: 8px;
+  opacity: 0; transform: translateY(20px);
+  transition: all .8s ease;
+}
+.budget-viz .bucket-scroll-prompt {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); letter-spacing: .3em;
+  text-align: center; margin-top: 12px;
+  opacity: 0; transition: opacity .6s ease;
+}
+.budget-viz .bucket-scroll-arrow {
+  font-size: 18px; color: var(--text3);
+  text-align: center; margin-top: 4px;
+  opacity: 0; transition: opacity .6s ease;
+  animation: bv-bobArrow 2s ease-in-out infinite;
+}
+@keyframes bv-bobArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.budget-viz .bucket-sec.active .bucket-scroll-prompt { opacity: .3; transition-delay: 4.5s; }
+.budget-viz .bucket-sec.active .bucket-scroll-arrow { opacity: .3; transition-delay: 4.5s; }
+.budget-viz .bucket-subtitle {
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
+  text-transform: uppercase; letter-spacing: .12em; text-align: center;
+  margin-bottom: 40px;
+  opacity: 0; transition: opacity .6s ease .3s;
+}
+.budget-viz .bucket-canvas-wrap {
+  position: relative; width: 780px; max-width: 98vw; aspect-ratio: 780/660;
+  opacity: 0; transform: scale(.95);
+  transition: all .8s ease .4s;
+}
+.budget-viz .bucket-canvas-wrap canvas {
+  width: 100%; height: 100%; display: block;
+}
+.budget-viz .bucket-label {
+  position: absolute; font: 700 4.6vw 'Source Sans 3', sans-serif;
+  color: #B04A32; text-shadow: none;
+  opacity: 0; transition: opacity .5s ease; pointer-events: none;
+  white-space: nowrap; display: none;
+}
+.budget-viz .bucket-hole-label {
+  position: absolute; font: 700 1.6vw 'Source Sans 3', sans-serif;
+  color: #B04A32; text-shadow: 0 1px 2px rgba(26,22,20,.15);
+  opacity: 0; transition: opacity .5s ease; pointer-events: none;
+  white-space: nowrap; line-height: 1;
+}
+.budget-viz .bucket-hole-label.vis { opacity: 1; }
+.budget-viz .bucket-hole-label.left { text-align: right; }
+.budget-viz .bucket-hole-label.right { text-align: left; }
+.budget-viz .bucket-pour-label {
+  position: absolute; top: 2%; left: 0; right: 0; text-align: center;
+  opacity: 0; transition: opacity .6s ease; pointer-events: none;
+}
+.budget-viz .bucket-pour-label.vis { opacity: 1; }
+.budget-viz .bucket-pour-label .amount {
+  font: 800 8vw 'Fraunces', Georgia, serif; color: #2874A6;
+  text-shadow: 0 1px 3px rgba(40,116,166,.2);
+}
+.budget-viz .bucket-pour-label .sub {
+  display: block; font: 600 2.8vw 'Source Sans 3', sans-serif;
+  color: rgba(40,116,166,.6); margin-top: 2px;
+}
+.budget-viz .bucket-trickle-label {
+  position: absolute; bottom: 8%; left: 0; right: 0; text-align: center;
+  font: 700 3.2vw 'Source Sans 3', sans-serif; color: #B04A32;
+  text-shadow: 0 1px 2px rgba(26,22,20,.15);
+  opacity: 0; transition: opacity .6s ease; pointer-events: none;
+}
+.budget-viz .bucket-trickle-label.vis { opacity: 1; }
+.budget-viz .bucket-sec.active .bucket-title {
+  opacity: 1; transform: translateY(0);
+}
+.budget-viz .bucket-sec.active .bucket-subtitle { opacity: 1; }
+.budget-viz .bucket-sec.active .bucket-canvas-wrap {
+  opacity: 1; transform: scale(1);
+}
+.budget-viz .bucket-bottom-stat {
+  text-align: center; margin-top: 16px;
+  font-family: var(--font-hed); font-size: clamp(14px, 2.5vw, 20px);
+  color: var(--text2); line-height: 1.6;
+  opacity: 0; transform: translateY(10px);
+  transition: all .6s ease;
+}
+.budget-viz .bucket-sec.active .bucket-bottom-stat {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 4s;
+}
+.budget-viz .bucket-bottom-stat strong { color: var(--red); }
+
+/* ── CLOSE ── */
+.budget-viz .close-sec {
+  flex-direction: column; text-align: center;
+  padding: 80px 24px; min-height: 80vh;
+}
+.budget-viz .close-line {
+  font-family: var(--font-hed); font-size: clamp(18px, 3.5vw, 30px);
+  font-weight: 400; line-height: 1.5; max-width: 640px;
+  color: var(--text2); margin-bottom: 32px;
+  opacity: 0; transform: translateY(20px);
+}
+.budget-viz .close-line.active { opacity: 1; transform: translateY(0); transition: all .8s ease; }
+.budget-viz .close-line em { color: var(--red); font-style: normal; font-weight: 700; }
+.budget-viz .close-punch {
+  font-family: var(--font-hed); font-size: clamp(24px, 5vw, 46px);
+  font-weight: 700; letter-spacing: -.03em;
+  color: var(--text);
+  opacity: 0; transform: translateY(20px) scale(.95);
+}
+.budget-viz .close-punch.active { opacity: 1; transform: translateY(0) scale(1); transition: all 1s cubic-bezier(.25,.1,.0,1) .3s; }
+.budget-viz .close-punch span { color: var(--red); }
+
+/* ── SOURCES ── */
+/* ── Input vs Output Chart ── */
+.budget-viz .chart-sec {
+  min-height: 90vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 60px 24px; position: relative;
+}
+.budget-viz .chart-title {
+  font-family: var(--font-hed); font-size: clamp(22px, 4vw, 36px);
+  font-weight: 500; color: var(--text); text-align: center;
+  margin-bottom: 40px;
+  opacity: 0; transform: translateY(16px);
+  transition: all .6s ease;
+}
+.budget-viz .chart-sec.active .chart-title { opacity: 1; transform: translateY(0); }
+.budget-viz .chart-area {
+  width: 100%; max-width: 640px;
+}
+.budget-viz .bar-row {
+  display: grid; grid-template-columns: 110px 1fr 110px;
+  align-items: center; gap: 12px;
+  margin-bottom: 16px;
+  opacity: 0; transform: translateX(-20px);
+  transition: all .5s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .bar-row.show { opacity: 1; transform: translateX(0); }
+.budget-viz .bar-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text); text-align: right;
+  letter-spacing: .02em; line-height: 1.4;
+}
+.budget-viz .bar-track {
+  height: 28px; background: rgba(26,22,20,.06);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.budget-viz .bar-fill {
+  height: 100%; border-radius: 4px;
+  width: 0; transition: width 1.2s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .bar-fill.bar-input { background: var(--red); opacity: .8; }
+.budget-viz .bar-val {
+  font-family: var(--mono); font-size: 11px;
+  font-weight: 600; text-align: left;
+}
+@media (max-width: 500px) {
+  .bar-row { grid-template-columns: 80px 1fr 70px; gap: 8px; }
+  .bar-label { font-size: 9px; }
+  .bar-val { font-size: 10px; }
+}
+
+.budget-viz .sources-sec {
+  min-height: auto; padding: 40px 24px 80px;
+  flex-direction: column;
+}
+.budget-viz .sources-inner {
+  max-width: 600px; text-align: center;
+}
+.budget-viz .sources-inner p {
+  font-size: 11px; color: var(--text3); line-height: 1.8;
+}
+.budget-viz .sources-inner a { color: var(--red); text-decoration: none; }
+.budget-viz .sources-inner a:hover { text-decoration: underline; }
+.budget-viz .sources-inner .gl-mark {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.budget-viz .sources-inner .gl-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); }
+
+/* ── Particles ── */
+.budget-viz .particles-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+.budget-viz .particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(176,74,50,.03);
+  animation: bv-drift linear infinite;
+}
+@keyframes bv-drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: .03; }
+  50% { opacity: .05; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Headline interstitials ── */
+.budget-viz .hl-break {
+  min-height: 80vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 60px 28px;
+  position: relative; overflow: hidden;
+  background-size: cover; background-position: center;
+}
+.budget-viz .hl-break::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(245,241,234,.82);
+}
+.budget-viz .hl-inner {
+  position: relative; max-width: 680px;
+  opacity: 0; transform: translateY(24px) scale(.97);
+  transition: all .8s cubic-bezier(.25,.1,.0,1);
+}
+.budget-viz .hl-inner.active { opacity: 1; transform: translateY(0) scale(1); }
+.budget-viz .hl-context {
+  font-family: var(--mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  opacity: .7;
+}
+.budget-viz .hl-quote {
+  font-family: var(--font-hed);
+  font-size: clamp(24px, 5vw, 44px);
+  font-weight: 500; font-style: italic;
+  line-height: 1.3; color: var(--text);
+  letter-spacing: -.01em;
+}
+.budget-viz .hl-src {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text2); margin-top: 16px;
+  letter-spacing: .05em;
+}
+.budget-viz .hl-break::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(245,241,234,.3) 100%);
+  pointer-events: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .budget-viz .bar-pair { height: 120px; gap: 16px; }
+  .budget-viz .score-grid { grid-template-columns: 1fr; }
+  .budget-viz .nav { padding: 12px 16px; }
+  .budget-viz section { min-height: 80vh; }
+  .budget-viz .bar-row { grid-template-columns: 80px 1fr 70px; gap: 8px; }
+  .budget-viz .bar-label { font-size: 10px; }
+  .budget-viz .bar-val { font-size: 10px; }
+}
+
+
+/* Budget viz section container */
+#budget-receipt {
+  background: #F5F1EA;
+}
+#budget-receipt .budget-viz section {
+  min-height: 100vh;
 }
 </style>
 </head>
@@ -1063,16 +1548,17 @@ a:hover { color: var(--bridge-red-dark); }
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="/mockups/homepage.html" class="nav-brand">
+    <a href="https://garryslist.org" class="nav-brand">
       <span class="nav-gl-mark">GL</span>
       <span class="nav-wordmark">Garry's List</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/">Investigations</a></li>
-      <li><a href="https://garryslist.org/articles">Articles</a></li>
-      <li><a href="https://garryslist.org/scoreboard">Scoreboard</a></li>
-      <li><a href="https://garryslist.org/about">About</a></li>
-      <li><a href="https://garryslist.org/action" class="nav-cta">GL Action</a></li>
+      <li><a href="https://power-brokers.vercel.app" target="_blank">Investigations</a></li>
+      <li><a href="#latest">Articles</a></li>
+      <li><a href="https://garryslist.org/#scoreboard">Scoreboard</a></li>
+      <li><a href="#cityHallWatch">City Hall Watch</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#newsletter" class="nav-cta">Subscribe</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
@@ -1080,246 +1566,175 @@ a:hover { color: var(--bridge-red-dark); }
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-particles" id="heroParticles"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">California Fiscal Year 2025-26</div>
-    <div class="hero-number" id="heroNumber">$0</div>
-    <p class="hero-sub">That's your state budget. Here's what you got for it.</p>
-
-    <div class="hero-comps">
-      <!-- Education -->
-      <a href="/q5/" class="hero-comp">
-        <div class="hero-comp-side">
-          <div class="hero-comp-label paid">You paid</div>
-          <div class="hero-comp-value paid-val">$142.4B</div>
-          <div class="hero-comp-context">K-12 education</div>
-        </div>
-        <div class="hero-comp-arrow">→</div>
-        <div class="hero-comp-side">
-          <div class="hero-comp-label got">You got</div>
-          <div class="hero-comp-value got-val">38th in math</div>
-          <div class="hero-comp-context">25% proficiency</div>
-        </div>
-      </a>
-
-      <!-- Homelessness -->
-      <a href="/q2/" class="hero-comp">
-        <div class="hero-comp-side">
-          <div class="hero-comp-label paid">You paid</div>
-          <div class="hero-comp-value paid-val">$24B</div>
-          <div class="hero-comp-context">Homelessness since 2018</div>
-        </div>
-        <div class="hero-comp-arrow">→</div>
-        <div class="hero-comp-side">
-          <div class="hero-comp-label got">You got</div>
-          <div class="hero-comp-value got-val">+32% more</div>
-          <div class="hero-comp-context">people on the street</div>
-        </div>
-      </a>
-
-      <!-- Criminal Justice -->
-      <a href="/budget/" class="hero-comp">
-        <div class="hero-comp-side">
-          <div class="hero-comp-label paid">You paid</div>
-          <div class="hero-comp-value paid-val">$15.1B</div>
-          <div class="hero-comp-context">Corrections system</div>
-        </div>
-        <div class="hero-comp-arrow">→</div>
-        <div class="hero-comp-side">
-          <div class="hero-comp-label got">You got</div>
-          <div class="hero-comp-value got-val">50% recidivism</div>
-          <div class="hero-comp-context">highest in the nation</div>
-        </div>
-      </a>
-    </div>
-
-    <a href="/budget/" class="hero-cta">
-      See where your money goes
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </a>
+<!-- ===== BUCKET HERO ===== -->
+<section class="bucket-hero" id="bucketHero">
+  <div class="particles-bg" id="particles"></div>
+  <div class="bucket-eyebrow">California · Fiscal Year 2025-26</div>
+  <div class="bucket-title">Where Does California's Money Go?</div>
+  <div class="bucket-subtitle">$248 billion in · Almost nothing out</div>
+  <div class="bucket-pour-callout">
+    <span class="amount">$248 BILLION</span>
+    <span class="sub">TAXPAYER DOLLARS</span>
+    <svg class="pour-arrow" width="20" height="32" viewBox="0 0 20 32"><path d="M10 0v28M4 22l6 6 6-6" stroke="#2874A6" stroke-width="1.5" fill="none" opacity=".4"/></svg>
   </div>
-  <div class="hero-scroll">Scroll<span class="hero-scroll-arrow">↓</span></div>
+  <div class="bucket-canvas-wrap">
+    <canvas id="bucketCanvas" width="1560" height="1120"></canvas>
+    <div class="bucket-pour-label" id="pourLabel"><span class="amount">$248 BILLION</span><span class="sub">TAXPAYER DOLLARS</span></div>
+    <div class="bucket-hole-label left" style="top:22%;right:72%" data-hi="0">38th in math</div>
+    <div class="bucket-hole-label right" style="top:20%;left:70%" data-hi="1">#1 poverty rate</div>
+    <div class="bucket-hole-label left" style="top:29%;right:72%" data-hi="2">0 rail miles</div>
+    <div class="bucket-hole-label right" style="top:27%;left:70%" data-hi="3">Ghost doctors</div>
+    <div class="bucket-hole-label left" style="top:36%;right:72%" data-hi="4">+20% homeless</div>
+    <div class="bucket-hole-label right" style="top:34%;left:70%" data-hi="5">39% recidivism</div>
+    <div class="bucket-hole-label left" style="top:43%;right:72%" data-hi="6">49th roads</div>
+    <div class="bucket-hole-label right" style="top:41%;left:70%" data-hi="7">16% own homes</div>
+    <div class="bucket-trickle-label" id="trickleLabel">WHAT CALIFORNIANS ACTUALLY GET</div>
+  </div>
+  <a href="#budget-receipt" class="bucket-cta">
+    See where your money goes
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
 </section>
 
-<!-- ===== CITY HALL WATCH ===== -->
-<section class="cityhall">
-  <div class="container">
-    <div class="cityhall-header">
-      <div class="cityhall-title">
-        <div class="cityhall-dot"></div>
-        <h2>City Hall Watch</h2>
+<!-- ===== LIGHT ZONE ===== -->
+
+<!-- ===== LIGHT ZONE: HOMEPAGE CONTENT ===== -->
+<div class="light-zone">
+
+  <!-- What We're Tracking -->
+  <section class="tracking">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">What We're Tracking</h2>
       </div>
-      <div class="cityhall-date">Week of May 11 – 19, 2026</div>
-    </div>
-
-    <div class="cityhall-feed">
-
-      <a href="/q1/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag board">Board</span>
-          <span class="ch-tag rules">Rules</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">Commission Streamlining Hits Final Passage</div>
-          <div class="ch-detail">43 commissions eliminated. Passed 6-4. Biggest government reform in years.</div>
-        </div>
-        <div class="ch-amount">43 cut</div>
-      </a>
-
-      <a href="/q1/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag sfmta">SFMTA</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">SFMTA's Fiscal Cliff: $307M Shortfall Starting July</div>
-          <div class="ch-detail">COVID relief gone. 89 positions cut, fare hikes coming. Without Nov ballot measures, Muni service cuts.</div>
-        </div>
-        <div class="ch-amount red">$307M</div>
-      </a>
-
-      <a href="/q1/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag budget">Budget</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">$195M GO Bond for Healthcare, Transit, Public Spaces</div>
-          <div class="ch-detail">Largest single item this week. Covers DPH, DPW, Rec & Park, and MTA.</div>
-        </div>
-        <div class="ch-amount">$195M</div>
-      </a>
-
-      <a href="/q2/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag budget">Budget</span>
-          <span class="ch-tag board">Board</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">~$89M in Homelessness Contract Renewals</div>
-          <div class="ch-detail">Four shelter extensions. Not new programs. HSH faces $10M in cuts while $68M Prop C surplus sits.</div>
-        </div>
-        <div class="ch-amount">$89M</div>
-      </a>
-
-      <a href="/q1/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag board">Board</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">Controller Drops Prop D Report: the CEO Tax Fight</div>
-          <div class="ch-detail">$250-300M/yr in revenue, but 944 jobs lost per year and $206M GDP decline. June 2 ballot.</div>
-        </div>
-        <div class="ch-amount red">Jun 2</div>
-      </a>
-
-      <a href="/q1/" class="ch-item">
-        <div class="ch-tags">
-          <span class="ch-tag audit">Audit</span>
-        </div>
-        <div class="ch-body">
-          <div class="ch-headline">$3.5M in Lawsuit Settlements from Infrastructure Failures</div>
-          <div class="ch-detail">3 sidewalk injuries, 4 water main ruptures. One break cost $2.4M alone. Deferred maintenance has a price.</div>
-        </div>
-        <div class="ch-amount red">$3.5M</div>
-      </a>
-
-    </div>
-
-    <div class="cityhall-footer">
-      <a href="https://garryslist.org/city-hall-watch" class="cityhall-cta">Read Full Digest →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHAT WE'RE TRACKING ===== -->
-<section class="tracking">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="section-title">What We're Tracking</h2>
-    </div>
-    <div class="tracking-grid">
-      <!-- Power Brokers -->
-      <a href="/" class="tracking-card reveal" style="text-decoration:none;color:inherit;">
-        <div class="tracking-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/></svg>
-        </div>
-        <h3 class="tracking-card-title">Power Brokers</h3>
-        <p class="tracking-card-sub">Interactive investigations tracing money, people, and policy across California's civic landscape.</p>
-        <span class="tracking-tag">6 Investigations</span>
-      </a>
-
-      <!-- Scoreboard -->
-      <div class="tracking-card reveal">
-        <div class="tracking-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-        </div>
-        <h3 class="tracking-card-title">The Scoreboard</h3>
-        <p class="tracking-card-sub">How your representatives actually vote — visualized and graded on the issues that matter.</p>
-        <span class="tracking-tag">Assembly + Senate</span>
-      </div>
-
-      <!-- Civic Monitor -->
-      <div class="tracking-card reveal">
-        <div class="tracking-icon">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3 class="tracking-card-title">Civic Monitor</h3>
-        <p class="tracking-card-sub">Real-time tracking of SF spending, homelessness data, and public safety metrics.</p>
-        <span class="tracking-tag">Live Data</span>
+      <div class="tracking-grid">
+        <a href="https://power-brokers.vercel.app" target="_blank" class="tracking-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer">
+          <div class="tracking-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/><line x1="5" y1="19" x2="19" y2="19"/></svg>
+          </div>
+          <h3 class="tracking-card-title">Power Brokers</h3>
+          <p class="tracking-card-sub">Interactive investigations tracing money, people, and policy across California's civic landscape.</p>
+          <span class="tracking-tag">6 Investigations</span>
+        </a>
+        <a href="https://garryslist.org/#scoreboard" class="tracking-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer">
+          <div class="tracking-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+          </div>
+          <h3 class="tracking-card-title">The Scoreboard</h3>
+          <p class="tracking-card-sub">How your representatives actually vote — visualized and graded on the issues that matter.</p>
+          <span class="tracking-tag">Assembly + Senate</span>
+        </a>
+        <a href="https://power-brokers.vercel.app/budget/" target="_blank" class="tracking-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer">
+          <div class="tracking-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="tracking-card-title">Civic Monitor</h3>
+          <p class="tracking-card-sub">Real-time tracking of SF spending, homelessness data, and public safety metrics.</p>
+          <span class="tracking-tag">Live Data</span>
+        </a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== LATEST ARTICLES ===== -->
-<section class="latest">
-  <div class="container">
-    <div class="section-header reveal">
-      <h2 class="section-title">Latest</h2>
-      <a href="https://garryslist.org/articles" class="section-link">
-        See all
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
+  <!-- City Hall Watch -->
+  <section class="chw-section" id="cityHallWatch" style="padding:var(--section-pad) 0">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">City Hall Watch</h2>
+        <span style="font-family:var(--font);font-size:12px;color:var(--ink-soft);font-weight:400">Week of May 19 – 28, 2026</span>
+      </div>
+      <div class="chw-cards">
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-budget">BUDGET</span><span class="chw-tag chw-tag-board">HOMELESSNESS</span></div>
+          <div class="chw-body"><h3 class="chw-headline">Tenderloin Housing Clinic Master Lease Swells to $303.6M</h3><p class="chw-summary">$61.9M increase for master lease stewardship at 16 PSH sites through Dec 2027. Single largest homelessness contract on the books.</p></div>
+          <div class="chw-figure">$303.6M</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-budget">BUDGET</span><span class="chw-tag chw-tag-board">INFRASTRUCTURE</span></div>
+          <div class="chw-body"><h3 class="chw-headline">SFPUC Wastewater Revenue Bonds: $1.17B Authorization</h3><p class="chw-summary">Part of ~$1.9B in total SFPUC bond authorizations across water, wastewater, and power capital projects.</p></div>
+          <div class="chw-figure">$1.17B</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-budget">BUDGET</span><span class="chw-tag chw-tag-board">REAL ESTATE</span></div>
+          <div class="chw-body"><h3 class="chw-headline">1455 Market St Mega-Lease: 502K Sq Ft, 21-Year Term</h3><p class="chw-summary">$14.5M/yr base rent for 12 city departments plus $10.8M in tenant improvements. Locked through 2049.</p></div>
+          <div class="chw-figure">$14.5M/yr</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-board">BOARD</span><span class="chw-tag chw-tag-budget">PUBLIC SAFETY</span></div>
+          <div class="chw-body"><h3 class="chw-headline">Drug-Free PSH Expansion Hits Committee</h3><p class="chw-summary">Would bar the city from funding new drug-tolerant permanent supportive housing. Requires HSH to survey residents. Major policy shift.</p></div>
+          <div class="chw-figure">Pending</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-budget">BUDGET</span><span class="chw-tag chw-tag-board">FIRE</span></div>
+          <div class="chw-body"><h3 class="chw-headline">Fire Dept Shifts $10.4M from Salaries to Overtime</h3><p class="chw-summary">De-appropriating permanent salaries, re-appropriating to OT. Chronic overtime reliance across Fire, DEM, and PUC.</p></div>
+          <div class="chw-figure">$10.4M</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-board">BOARD</span><span class="chw-tag chw-tag-budget">ETHICS</span></div>
+          <div class="chw-body"><h3 class="chw-headline">Behested Payment Waiver: 6 Months, No Disclosure</h3><p class="chw-summary">Mayor's Office and OEWD can solicit donations for economic revitalization without triggering the Behested Payments Ordinance.</p></div>
+          <div class="chw-figure">6 mos</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-budget">BUDGET</span><span class="chw-tag chw-tag-board">ZOO</span></div>
+          <div class="chw-body"><h3 class="chw-headline">SF Zoo Bailout: $8.5M Loan + $2.5M Appropriation</h3><p class="chw-summary">Repayable over 10 years via management fee deductions. City can terminate lease if loan isn't repaid.</p></div>
+          <div class="chw-figure">$11M</div>
+        </div>
+        <div class="chw-card reveal">
+          <div class="chw-tags"><span class="chw-tag chw-tag-board">GOVERNANCE</span><span class="chw-tag chw-tag-board">CHARTER</span></div>
+          <div class="chw-body"><h3 class="chw-headline">Municipal Public Bank Charter Amendment Advances</h3><p class="chw-summary">Establishes a Municipal Finance Corporation as a nonprofit. Headed to November 2026 ballot. 30-day rule applied.</p></div>
+          <div class="chw-figure">Nov '26</div>
+        </div>
+      </div>
+      <div class="reveal" style="text-align:center;margin-top:32px">
+        <a href="#cityHallWatch" style="font-family:var(--font);font-size:15px;font-weight:600;color:var(--bridge-red);letter-spacing:.02em">Read full digest →</a>
+      </div>
     </div>
-    <div class="articles-grid">
-      <!-- Article 1 -->
-      <a href="https://garryslist.org/articles/the-federal-government-is-punishing-immigrants-who-play-by-the-rules" class="article-card reveal" style="text-decoration:none;color:inherit;display:block;">
-        <div class="article-img article-img-1"></div>
-        <div class="article-body">
-          <div class="article-date">May 23, 2026</div>
-          <h3 class="article-title">The Federal Government Is Punishing Immigrants Who Play by the Rules</h3>
-          <p class="article-excerpt">Legal immigrants face mounting bureaucratic barriers while enforcement focuses on those who followed the process.</p>
-        </div>
-      </a>
+  </section>
 
-      <!-- Article 2 -->
-      <a href="https://garryslist.org/articles/the-moral-bankruptcy-of-ro-khanna" class="article-card reveal" style="text-decoration:none;color:inherit;display:block;">
-        <div class="article-img article-img-2">
-          <span class="article-type-badge">Opinion</span>
-        </div>
-        <div class="article-body">
-          <div class="article-date">May 20, 2026</div>
-          <h3 class="article-title">The Moral Bankruptcy of Ro Khanna</h3>
-          <p class="article-excerpt">How a Silicon Valley congressman abandoned his constituents' interests for presidential ambition.</p>
-        </div>
-      </a>
-
-      <!-- Article 3 -->
-      <a href="https://garryslist.org/articles/california-will-lose-a-million-students" class="article-card reveal" style="text-decoration:none;color:inherit;display:block;">
-        <div class="article-img article-img-3"></div>
-        <div class="article-body">
-          <div class="article-date">May 18, 2026</div>
-          <h3 class="article-title">California Will Lose a Million Students</h3>
-          <p class="article-excerpt">Enrollment collapse threatens school districts statewide as families leave and birth rates decline.</p>
-        </div>
-      </a>
+  <!-- Latest Articles -->
+  <section class="latest" id="latest">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Latest</h2>
+        <a href="https://garryslist.org" class="section-link">
+          See all
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="articles-grid">
+        <a href="https://garryslist.org/posts/garry-s-list-civic-impact-awards-2026-voting-is-now-open" class="article-card reveal" style="text-decoration:none;color:inherit;display:block">
+          <div class="article-img article-img-1"></div>
+          <div class="article-body">
+            <div class="article-date">May 27, 2026</div>
+            <h3 class="article-title">Garry's List Civic Impact Awards 2026: Voting Is Now Open</h3>
+            <p class="article-excerpt">The first annual Civic Impact Awards celebrate the people, platforms, and publications holding California accountable.</p>
+          </div>
+        </a>
+        <a href="https://garryslist.org/posts/the-deficit-california-can-t-tax-away" class="article-card reveal" style="text-decoration:none;color:inherit;display:block">
+          <div class="article-img article-img-2">
+            <span class="article-type-badge">Analysis</span>
+          </div>
+          <div class="article-body">
+            <div class="article-date">May 2026</div>
+            <h3 class="article-title">The Deficit California Can't Tax Away</h3>
+            <p class="article-excerpt">The state's own nonpartisan analyst says spending outpaced revenue by 10 points. More taxation won't solve the problem.</p>
+          </div>
+        </a>
+        <a href="https://garryslist.org/posts/california-will-lose-a-million-students" class="article-card reveal" style="text-decoration:none;color:inherit;display:block">
+          <div class="article-img article-img-3"></div>
+          <div class="article-body">
+            <div class="article-date">May 2026</div>
+            <h3 class="article-title">California Will Lose a Million Students</h3>
+            <p class="article-excerpt">Federal data projects a 15.7% enrollment collapse by 2031, the worst of any major state. This isn't inevitable.</p>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== THE NUMBERS ===== -->
+</div><!-- /light-zone -->
+
+<!-- The Numbers (dark section) -->
 <section class="numbers">
   <div class="container">
     <div class="numbers-grid">
@@ -1343,8 +1758,26 @@ a:hover { color: var(--bridge-red-dark); }
   </div>
 </section>
 
-<!-- ===== NEWSLETTER ===== -->
-<section class="newsletter">
+<!-- About -->
+<section id="about" style="padding:var(--section-pad) 0;background:var(--paper);border-top:1px solid var(--fog)">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;text-align:center">
+      <h2 class="section-title reveal" style="margin-bottom:20px">About Garry's List</h2>
+      <p class="reveal" style="font-family:var(--font);font-size:17px;color:var(--ink-mid);line-height:1.75;margin-bottom:20px">
+        Garry's List is a civic accountability publication covering California politics, public spending, and the institutions that shape everyday life in the state. We follow the money, track the votes, and name the people responsible when government fails the public it serves.
+      </p>
+      <p class="reveal" style="font-family:var(--font);font-size:17px;color:var(--ink-mid);line-height:1.75;margin-bottom:20px">
+        We believe Californians deserve to know where their tax dollars go, why outcomes keep getting worse despite record budgets, and who is blocking reform. Our investigations, data tools, and reporting are built to make that information accessible, verifiable, and impossible to ignore.
+      </p>
+      <p class="reveal" style="font-family:var(--font);font-size:15px;color:var(--ink-soft);line-height:1.7;font-style:italic">
+        Founded by Garry Tan. Based in San Francisco.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter" id="newsletter">
   <div class="container">
     <div class="newsletter-inner reveal">
       <h2 class="newsletter-title">Accountability, delivered.</h2>
@@ -1357,120 +1790,1605 @@ a:hover { color: var(--bridge-red-dark); }
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-wordmark">Garry's List</div>
-        <div class="footer-tagline">A civic accountability publication</div>
-      </div>
       <ul class="footer-links">
-        <li><a href="https://garryslist.org/about">About</a></li>
-        <li><a href="https://garryslist.org/contact">Contact</a></li>
-        <li><a href="https://garryslist.org/newsletter">Newsletter</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:hello@garryslist.org">Contact</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
         <li><a href="https://garryslist.org/privacy">Privacy</a></li>
       </ul>
-      <div class="footer-social">
-        <!-- X/Twitter -->
-        <a href="https://x.com/garryslist" aria-label="Follow on X">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <!-- YouTube placeholder -->
-        <a href="https://youtube.com/@garryslist" aria-label="YouTube">
-          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#1A1614" points="9.545 15.568 15.818 12 9.545 8.432"/></svg>
-        </a>
-      </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 Garry's List. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 Garry's List</p>
     </div>
   </div>
 </footer>
 
 <script>
-// ===== HERO COUNTER =====
-(function() {
-  const target = 248000000000;
-  const el = document.getElementById('heroNumber');
-  const duration = 2200;
-  const start = performance.now();
-  function ease(t) { return 1 - Math.pow(1 - t, 4); }
-  function fmt(n) {
-    if (n >= 1e9) return '$' + (n / 1e9).toFixed(n >= target ? 0 : 1) + 'B';
-    if (n >= 1e6) return '$' + (n / 1e6).toFixed(0) + 'M';
-    return '$' + n.toLocaleString();
-  }
-  function tick(now) {
-    const t = Math.min((now - start) / duration, 1);
-    el.textContent = fmt(Math.floor(ease(t) * target));
-    if (t < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
-
-// ===== HERO PARTICLES =====
-(function() {
-  const c = document.getElementById('heroParticles');
-  for (let i = 0; i < 12; i++) {
-    const p = document.createElement('div');
-    p.className = 'hero-particle';
-    const s = Math.random() * 4 + 2;
-    p.style.width = s + 'px';
-    p.style.height = s + 'px';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.top = (60 + Math.random() * 40) + '%';
-    p.style.animationDuration = (12 + Math.random() * 20) + 's';
-    p.style.animationDelay = (Math.random() * 10) + 's';
+// ── Particles (hero background) ──
+(function(){
+  var c = document.getElementById('particles');
+  for (var i = 0; i < 20; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var s = Math.random() * 4 + 2;
+    p.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;top:'+(50+Math.random()*60)+'%;animation-duration:'+(20+Math.random()*30)+'s;animation-delay:'+Math.random()*20+'s';
     c.appendChild(p);
   }
 })();
 
-// Nav scroll shadow
-const nav = document.getElementById('nav');
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 10) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
+// ── Nav scroll shadow + mobile toggle ──
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
-// Mobile nav toggle
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+document.getElementById('navToggle').addEventListener('click', function() {
+  document.getElementById('navLinks').classList.toggle('open');
 });
 
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+// ── Scroll reveal ──
+var reveals = document.querySelectorAll('.reveal');
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      // Stagger siblings
-      const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-      let idx = Array.from(siblings).indexOf(entry.target);
-      setTimeout(() => {
+      var siblings = entry.target.parentElement.querySelectorAll('.reveal');
+      var idx = Array.from(siblings).indexOf(entry.target);
+      setTimeout(function() {
         entry.target.classList.add('visible');
       }, idx * 100);
       revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(function(el) { revealObserver.observe(el); });
 
-reveals.forEach(el => revealObserver.observe(el));
+// ═══════════════════════════════════════════════
+// ── LEAKY BUCKET CANVAS ANIMATION (FULL) ──
+// ═══════════════════════════════════════════════
+(function() {
+  var bucketSec = document.getElementById('bucketHero');
+  var cv = document.getElementById('bucketCanvas');
+  if (!bucketSec || !cv) return;
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var running = false, startT = 0;
 
-// iframe postMessage height
-function postHeight() {
-  const height = document.documentElement.scrollHeight;
-  window.parent.postMessage({ type: 'resize', height: height }, '*');
-}
-window.addEventListener('load', postHeight);
-window.addEventListener('resize', postHeight);
-new MutationObserver(postHeight).observe(document.body, { childList: true, subtree: true });
+  // Bucket geometry
+  var bTop = 160, bBot = 500, bLeft = 570, bRight = 990;
+  var bTopLeft = 540, bTopRight = 1020;
+  var rimRx = 242, rimRy = 28;
+  var rimCx = W/2, rimCy = bTop;
+
+  // Phases
+  var FILL_END = 2.5;
+  var DRAIN_START = 3.2;
+  var waterFull = bTop + 30;
+  var waterEmpty = bBot + 10;
+
+  // Holes
+  var holes = [
+    {x:552, y:230, r:9, side:'l', label:'38th in math'},
+    {x:950, y:210, r:8, side:'r', label:'#1 poverty'},
+    {x:558, y:300, r:10, side:'l', label:'0 rail miles'},
+    {x:945, y:280, r:9, side:'r', label:'Ghost doctors'},
+    {x:565, y:370, r:8, side:'l', label:'+20% homeless'},
+    {x:940, y:350, r:8, side:'r', label:'39% reoffend'},
+    {x:572, y:430, r:7, side:'l', label:'49th roads'},
+    {x:935, y:420, r:7, side:'r', label:'16% own'}
+  ];
+
+  // Water colors
+  var WATER = {
+    top:    [60, 140, 220],
+    mid:    [40, 100, 180],
+    bot:    [25, 70, 140],
+    bright: [90, 170, 255],
+    stream: [70, 155, 240]
+  };
+  function rgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+
+  // Particles
+  var pourDrops = [];
+  var leakDrops = [];
+  var trickleDrops = [];
+  var waterLevel = bBot + 10;
+
+  function bucketLeftAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopLeft + t * (bLeft - bTopLeft);
+  }
+  function bucketRightAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopRight + t * (bRight - bTopRight);
+  }
+
+  function bucketPath() {
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft, bTop);
+    ctx.bezierCurveTo(bTopLeft - 5, bTop + (bBot-bTop)*0.4, bLeft + 5, bBot - 40, bLeft, bBot);
+    ctx.quadraticCurveTo(bLeft - 5, bBot + 30, W/2, bBot + 30);
+    ctx.quadraticCurveTo(bRight + 5, bBot + 30, bRight, bBot);
+    ctx.bezierCurveTo(bRight - 5, bBot - 40, bTopRight + 5, bTop + (bBot-bTop)*0.4, bTopRight, bTop);
+  }
+
+  function drawBucket(time) {
+    var pulse = 0.7 + Math.sin(time * 1.5) * 0.1;
+    var gCol = [90, 170, 255];
+
+    // Handle
+    var hAttachLx = rimCx - 170;
+    var hAttachRx = rimCx + 170;
+    var hRimT = Math.sqrt(1 - Math.pow((170) / rimRx, 2));
+    var hAttachY = rimCy - rimRy * hRimT;
+    var hCy = 285, hR = 222;
+    var hA1 = Math.atan2(hAttachY - hCy, hAttachLx - rimCx);
+    var hA2 = Math.atan2(hAttachY - hCy, hAttachRx - rimCx);
+
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.4)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 4;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    ctx.strokeStyle = '#1a1816';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    var hGrad = ctx.createLinearGradient(rimCx - 200, bTop - 140, rimCx + 200, bTop - 140);
+    hGrad.addColorStop(0, '#2a2622');
+    hGrad.addColorStop(0.3, '#4a4644');
+    hGrad.addColorStop(0.5, '#5a5654');
+    hGrad.addColorStop(0.7, '#4a4644');
+    hGrad.addColorStop(1, '#2a2622');
+    ctx.strokeStyle = hGrad;
+    ctx.lineWidth = 8;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.08, hA2 - 0.08);
+    ctx.strokeStyle = 'rgba(200,195,185,.15)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.04, hA2 - 0.04);
+    ctx.strokeStyle = rgba(gCol, 0.12 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    [{x: hAttachLx, y: hAttachY}, {x: hAttachRx, y: hAttachY}].forEach(function(p) {
+      ctx.beginPath(); ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = '#5a5654'; ctx.fill();
+      ctx.strokeStyle = '#807a78'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.beginPath(); ctx.arc(p.x - 1, p.y - 1, 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(180,175,170,.15)'; ctx.fill();
+    });
+
+    // Bucket body
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.3)';
+    ctx.shadowBlur = 35;
+    ctx.shadowOffsetY = 10;
+    bucketPath(); ctx.closePath();
+    ctx.fillStyle = '#1a1816'; ctx.fill();
+    ctx.restore();
+
+    bucketPath(); ctx.closePath();
+    var bodyGrad = ctx.createLinearGradient(bLeft - 30, 0, bRight + 30, 0);
+    bodyGrad.addColorStop(0, '#1a1816');
+    bodyGrad.addColorStop(0.1, '#2a2622');
+    bodyGrad.addColorStop(0.25, '#3a3632');
+    bodyGrad.addColorStop(0.4, '#4a4440');
+    bodyGrad.addColorStop(0.5, '#504a46');
+    bodyGrad.addColorStop(0.6, '#4a4440');
+    bodyGrad.addColorStop(0.75, '#3a3632');
+    bodyGrad.addColorStop(0.9, '#2a2622');
+    bodyGrad.addColorStop(1, '#1a1816');
+    ctx.fillStyle = bodyGrad;
+    ctx.fill();
+
+    bucketPath(); ctx.closePath();
+    var depthGrad = ctx.createLinearGradient(0, bTop, 0, bBot + 30);
+    depthGrad.addColorStop(0, 'rgba(80,70,60,.15)');
+    depthGrad.addColorStop(0.3, 'rgba(0,0,0,0)');
+    depthGrad.addColorStop(0.8, 'rgba(0,0,0,.2)');
+    depthGrad.addColorStop(1, 'rgba(0,0,0,.3)');
+    ctx.fillStyle = depthGrad;
+    ctx.fill();
+
+    bucketPath(); ctx.closePath();
+    ctx.save(); ctx.clip();
+    var specGrad = ctx.createRadialGradient(W/2 - 80, bTop + 80, 10, W/2 - 80, bTop + 80, 180);
+    specGrad.addColorStop(0, 'rgba(180,175,165,.08)');
+    specGrad.addColorStop(1, 'rgba(180,175,165,0)');
+    ctx.fillStyle = specGrad;
+    ctx.fillRect(bLeft - 20, bTop, bRight - bLeft + 40, bBot - bTop + 30);
+    ctx.restore();
+
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = '#3a3632';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.15 * pulse);
+    ctx.shadowBlur = 6;
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = rgba(gCol, 0.1 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // Bands + rivets
+    for (var band = 0; band < 3; band++) {
+      var by = bTop + 80 + band * 95;
+      var lx = bucketLeftAt(by) + 6;
+      var rx = bucketRightAt(by) - 6;
+      ctx.beginPath();
+      ctx.moveTo(lx, by); ctx.lineTo(rx, by);
+      ctx.strokeStyle = 'rgba(90,85,80,.35)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(lx, by - 1); ctx.lineTo(rx, by - 1);
+      ctx.strokeStyle = 'rgba(140,135,128,.1)';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      for (var ri = 0; ri < 8; ri++) {
+        var rvx = lx + (rx - lx) * (ri / 7);
+        ctx.beginPath(); ctx.arc(rvx, by, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(100,95,90,.4)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(rvx - 0.5, by - 0.5, 1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(160,155,148,.15)'; ctx.fill();
+      }
+    }
+
+    // Bottom ellipse
+    var botW = (bRight - bLeft) / 2;
+    ctx.beginPath();
+    ctx.ellipse(W/2, bBot + 8, botW + 4, 16, 0, 0, Math.PI);
+    ctx.fillStyle = '#1a1816';
+    ctx.fill();
+    ctx.strokeStyle = '#3a3632';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Rim
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    var rimGrad = ctx.createLinearGradient(rimCx - rimRx, rimCy, rimCx + rimRx, rimCy);
+    rimGrad.addColorStop(0, '#1a1816');
+    rimGrad.addColorStop(0.2, '#2a2622');
+    rimGrad.addColorStop(0.4, '#3a3632');
+    rimGrad.addColorStop(0.5, '#4a4440');
+    rimGrad.addColorStop(0.6, '#3a3632');
+    rimGrad.addColorStop(0.8, '#2a2622');
+    rimGrad.addColorStop(1, '#1a1816');
+    ctx.fillStyle = rimGrad;
+    ctx.fill();
+    ctx.strokeStyle = '#5a5654';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy + 5, rimRx - 16, rimRy - 7, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = '#3a3632';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy - 3, rimRx - 8, rimRy - 3, 0, Math.PI * 1.1, Math.PI * 1.9);
+    ctx.strokeStyle = 'rgba(210,200,185,.12)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = rgba(gCol, 0.08 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // Scan overlay
+    ctx.save();
+    bucketPath(); ctx.closePath(); ctx.clip();
+    var scanY = bTop + ((time * 35) % (bBot - bTop + 40));
+    if (scanY < bBot + 20) {
+      var scanGrad = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+      scanGrad.addColorStop(0, rgba(gCol, 0));
+      scanGrad.addColorStop(0.5, rgba(gCol, 0.04));
+      scanGrad.addColorStop(1, rgba(gCol, 0));
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(bLeft - 20, scanY - 20, bRight - bLeft + 40, 40);
+    }
+    ctx.restore();
+
+    // Measurement ticks
+    for (var tk = 0; tk < 6; tk++) {
+      var tky = bTop + 40 + tk * 65;
+      var tkx = bucketLeftAt(tky);
+      ctx.beginPath();
+      ctx.moveTo(tkx + 8, tky); ctx.lineTo(tkx + 20, tky);
+      ctx.strokeStyle = rgba(gCol, 0.12 + Math.sin(time * 2 + tk) * 0.04);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Holes
+    holes.forEach(function(h) {
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      ctx.strokeStyle = '#5a5654';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(h.x + 0.5, h.y + 0.5, h.r - 1.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(40,38,36,.8)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.save();
+      ctx.shadowColor = 'rgba(212,85,62,.4)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r + 0.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(212,85,62,.25)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+      var hg = ctx.createRadialGradient(h.x, h.y, h.r * 0.5, h.x, h.y, h.r * 2.5);
+      hg.addColorStop(0, 'rgba(212,85,62,.1)');
+      hg.addColorStop(1, 'rgba(212,85,62,0)');
+      ctx.fillStyle = hg;
+      ctx.fillRect(h.x - h.r * 3, h.y - h.r * 3, h.r * 6, h.r * 6);
+    });
+  }
+
+  function drawWater(time) {
+    if (waterLevel >= bBot + 5) return;
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft + 6, bTop + 8);
+    ctx.bezierCurveTo(bTopLeft, bTop + (bBot-bTop)*0.4, bLeft + 8, bBot - 40, bLeft + 4, bBot);
+    ctx.quadraticCurveTo(bLeft, bBot + 26, W/2, bBot + 26);
+    ctx.quadraticCurveTo(bRight, bBot + 26, bRight - 4, bBot);
+    ctx.bezierCurveTo(bRight - 8, bBot - 40, bTopRight, bTop + (bBot-bTop)*0.4, bTopRight - 6, bTop + 8);
+    ctx.closePath();
+    ctx.clip();
+
+    var waveY = waterLevel;
+    ctx.beginPath();
+    ctx.moveTo(bLeft - 10, bBot + 30);
+    ctx.lineTo(bLeft - 10, waveY);
+    for (var wx = bLeft - 10; wx <= bRight + 10; wx += 3) {
+      var wy = waveY + Math.sin(wx * 0.022 + time * 2.8) * 5
+                     + Math.sin(wx * 0.013 - time * 2.0) * 3
+                     + Math.sin(wx * 0.04 + time * 4) * 1.5;
+      ctx.lineTo(wx, wy);
+    }
+    ctx.lineTo(bRight + 10, bBot + 30);
+    ctx.closePath();
+
+    var wGrad = ctx.createLinearGradient(0, waveY, 0, bBot + 30);
+    wGrad.addColorStop(0, rgba(WATER.top, .85));
+    wGrad.addColorStop(0.4, rgba(WATER.mid, .75));
+    wGrad.addColorStop(1, rgba(WATER.bot, .6));
+    ctx.fillStyle = wGrad;
+    ctx.fill();
+
+    // Surface highlight
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, .4);
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    for (var sx = bLeft; sx <= bRight; sx += 3) {
+      var sy = waveY + Math.sin(sx * 0.022 + time * 2.8) * 5
+                     + Math.sin(sx * 0.013 - time * 2.0) * 3
+                     + Math.sin(sx * 0.04 + time * 4) * 1.5;
+      if (sx === bLeft) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+    }
+    ctx.strokeStyle = rgba(WATER.bright, .5);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+
+    // Underwater caustics
+    for (var ci = 0; ci < 6; ci++) {
+      var cx2 = 250 + ci * 65 + Math.sin(time * 1.3 + ci) * 20;
+      var cy2 = waveY + 40 + ci * 30 + Math.sin(time * 0.9 + ci * 2) * 15;
+      if (cy2 < waveY || cy2 > bBot) continue;
+      var cg = ctx.createRadialGradient(cx2, cy2, 0, cx2, cy2, 25);
+      cg.addColorStop(0, rgba(WATER.bright, .08));
+      cg.addColorStop(1, rgba(WATER.bright, 0));
+      ctx.fillStyle = cg;
+      ctx.fillRect(cx2 - 30, cy2 - 30, 60, 60);
+    }
+
+    ctx.restore();
+  }
+
+  // Pour stream
+  function drawPourStream(time) {
+    if (time < 0.3 || time > FILL_END + 0.5) return;
+    var alpha = time < 0.8 ? (time - 0.3) * 2 : (time > FILL_END ? Math.max(0, 1 - (time - FILL_END) * 2) : 1);
+    var streamW = 22;
+    var wobble = Math.sin(time * 7) * 2.5;
+    var sx = W/2 + 40 + wobble;
+
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, alpha * 0.7);
+    ctx.shadowBlur = 20;
+    var sg = ctx.createLinearGradient(sx - streamW/2, 0, sx + streamW/2, 0);
+    sg.addColorStop(0, rgba(WATER.mid, alpha * 0.15));
+    sg.addColorStop(0.3, rgba(WATER.stream, alpha * 0.7));
+    sg.addColorStop(0.5, rgba(WATER.bright, alpha * 0.9));
+    sg.addColorStop(0.7, rgba(WATER.stream, alpha * 0.7));
+    sg.addColorStop(1, rgba(WATER.mid, alpha * 0.15));
+    ctx.fillStyle = sg;
+    ctx.fillRect(sx - streamW/2, 0, streamW, bTop + rimRy);
+    ctx.restore();
+
+    var glow = ctx.createRadialGradient(W/2, bTop, 4, W/2, bTop, 60);
+    glow.addColorStop(0, rgba(WATER.bright, alpha * 0.4));
+    glow.addColorStop(1, rgba(WATER.bright, 0));
+    ctx.fillStyle = glow;
+    ctx.fillRect(W/2 - 70, bTop - 50, 140, 100);
+  }
+
+  function spawnPour(time) {
+    if (time < 0.4 || time > FILL_END + 0.3) return;
+    for (var i = 0; i < 3; i++) {
+      pourDrops.push({
+        x: W/2 + 40 + (Math.random() - .5) * 18,
+        y: 15 + Math.random() * 10,
+        vx: (Math.random() - .5) * 1,
+        vy: 4 + Math.random() * 5,
+        r: 2 + Math.random() * 3.5,
+        life: 1
+      });
+    }
+  }
+
+  function spawnLeaks(time) {
+    if (time < DRAIN_START) return;
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + idx * 0.25;
+      if (time < delay) return;
+      if (h.y > waterLevel + 15) return;
+      if (Math.random() > 0.5) return;
+      var dir = h.side === 'l' ? -1 : 1;
+      leakDrops.push({
+        x: h.x + dir * (h.r + 1),
+        y: h.y + (Math.random() - .5) * 5,
+        vx: dir * (2.5 + Math.random() * 3.5),
+        vy: 0.5 + Math.random() * 2,
+        r: 1.5 + Math.random() * 2.5,
+        life: 1,
+        holeIdx: idx
+      });
+    });
+  }
+
+  function spawnTrickle(time) {
+    if (time < DRAIN_START + 1.5) return;
+    if (Math.random() > 0.12) return;
+    trickleDrops.push({
+      x: W/2 + (Math.random() - .5) * 6,
+      y: bBot + 32,
+      vx: (Math.random() - .5) * .4,
+      vy: 1 + Math.random() * 2,
+      r: 1 + Math.random() * 1.5,
+      life: 1
+    });
+  }
+
+  function updateDrops(arr, dt) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+      var d = arr[i];
+      d.vy += 14 * dt;
+      d.x += d.vx;
+      d.y += d.vy;
+      d.life -= dt * 0.45;
+      if (d.life <= 0 || d.y > H || d.x < -20 || d.x > W + 20) arr.splice(i, 1);
+    }
+  }
+
+  function drawDrops(arr) {
+    arr.forEach(function(d) {
+      ctx.save();
+      ctx.shadowColor = rgba(WATER.bright, d.life * 0.6);
+      ctx.shadowBlur = 6;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = rgba(WATER.stream, d.life * 0.9);
+      ctx.fill();
+      ctx.restore();
+    });
+  }
+
+  // HTML overlay labels
+  var holeLabels = document.querySelectorAll('.bucket-hole-label');
+  function drawLeakLabels(time) {
+    if (time < DRAIN_START + 0.5) { holeLabels.forEach(function(el){el.classList.remove('vis')}); return; }
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + 0.5 + idx * 0.35;
+      if (time >= delay && h.y < waterLevel - 5) {
+        holeLabels[idx] && holeLabels[idx].classList.add('vis');
+      }
+    });
+  }
+
+  var pourEl = document.getElementById('pourLabel');
+  function drawPourLabel(time) {
+    if (time >= 0.5 && time < FILL_END + 1.5) {
+      pourEl.classList.add('vis');
+    } else {
+      pourEl.classList.remove('vis');
+    }
+  }
+
+  function drawTrickleLabel(time) {
+    if (time < DRAIN_START + 2.5) return;
+    var a = Math.min(1, (time - DRAIN_START - 2.5) * 0.8);
+    var trickleEl = document.getElementById('trickleLabel');
+    if (a > 0.3) trickleEl.classList.add('vis'); else trickleEl.classList.remove('vis');
+    // Thin glowing arrow
+    ctx.save();
+    ctx.shadowColor = 'rgba(212,85,62,.3)';
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.moveTo(W/2, bBot + 40);
+    ctx.lineTo(W/2, bBot + 88);
+    ctx.strokeStyle = 'rgba(212,85,62,' + (a * 0.4).toFixed(2) + ')';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function frame(ts) {
+    if (!running) return;
+    var time = (ts - startT) / 1000;
+    ctx.clearRect(0, 0, W, H);
+
+    // Phase logic
+    if (time < FILL_END) {
+      var fillT = Math.min(1, time / FILL_END);
+      fillT = 1 - Math.pow(1 - fillT, 2);
+      waterLevel = bBot + 10 - fillT * (bBot + 10 - waterFull);
+    } else if (time < DRAIN_START) {
+      waterLevel = waterFull;
+    } else {
+      var drainT = (time - DRAIN_START);
+      var drainFrac = Math.min(1, drainT / 12);
+      drainFrac = 1 - Math.pow(1 - drainFrac, 2);
+      waterLevel = waterFull + drainFrac * (waterEmpty - waterFull);
+      if (waterLevel > waterEmpty) waterLevel = waterEmpty;
+    }
+
+    drawPourStream(time);
+    drawBucket(time);
+    drawWater(time);
+
+    spawnPour(time);
+    spawnLeaks(time);
+    spawnTrickle(time);
+
+    updateDrops(pourDrops, 0.016);
+    updateDrops(leakDrops, 0.016);
+    updateDrops(trickleDrops, 0.016);
+
+    drawDrops(pourDrops);
+    drawDrops(leakDrops);
+    drawDrops(trickleDrops);
+
+    drawPourLabel(time);
+    drawLeakLabels(time);
+    drawTrickleLabel(time);
+
+    requestAnimationFrame(frame);
+  }
+
+  // Auto-start when section is visible
+  var bucketObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !running) {
+        bucketSec.classList.add('active');
+        running = true;
+        startT = performance.now();
+        requestAnimationFrame(frame);
+        bucketObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  bucketObs.observe(bucketSec);
+})();
 </script>
+
+
+<!-- ===== BUDGET RECEIPT VISUALIZATION ===== -->
+<div id="budget-receipt">
+  <div class="budget-viz">
+    <div class="progress" id="bv-progress"></div>
+
+<nav class="nav">
+  <div class="nav-logo"><div class="nav-dot"></div>Garry's List</div>
+  <div class="nav-counter" id="bv-navCounter"></div>
+</nav>
+
+<div class="particles-bg" id="bv-particles"></div>
+
+<!-- ════════════ LEAKY BUCKET (HERO) ════════════ -->
+<section class="bucket-sec" id="bv-s-bucket">
+  <div class="bucket-eyebrow">California · Fiscal Year 2025-26</div>
+  <div class="bucket-title">Where Does California's Money Go?</div>
+  <div class="bucket-subtitle">$248 billion in · Almost nothing out</div>
+  <div class="bucket-canvas-wrap">
+    <canvas id="bv-bucketCanvas" width="1560" height="1120"></canvas>
+    <div class="bucket-pour-label" id="bv-pourLabel"><span class="amount">$248 BILLION</span><span class="sub">TAXPAYER DOLLARS</span></div>
+    <div class="bucket-hole-label left" style="top:20%;right:66%" data-hi="0">38th in math</div>
+    <div class="bucket-hole-label right" style="top:18%;left:62%" data-hi="1">#1 poverty rate</div>
+    <div class="bucket-hole-label left" style="top:26%;right:66%" data-hi="2">0 rail miles</div>
+    <div class="bucket-hole-label right" style="top:24%;left:62%" data-hi="3">Ghost doctors</div>
+    <div class="bucket-hole-label left" style="top:32%;right:66%" data-hi="4">+20% homeless</div>
+    <div class="bucket-hole-label right" style="top:30%;left:62%" data-hi="5">39% recidivism</div>
+    <div class="bucket-trickle-label" id="bv-trickleLabel">WHAT CALIFORNIANS ACTUALLY GET</div>
+  </div>
+  <div class="bucket-scroll-prompt">SCROLL</div>
+  <div class="bucket-scroll-arrow">↓</div>
+</section>
+
+<!-- ════════════ EDUCATION ════════════ -->
+<section class="comp glow-red" id="bv-s-edu">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="142.4" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">38th in math.</div>
+    <div class="comp-compare">Vietnam spends <strong>35x less</strong> and scores higher.<span class="compare-src">PISA 2022</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ MEDI-CAL ════════════ -->
+<section class="comp glow-red" id="bv-s-med">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="197" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">Ghost networks.<br>Patients can't find doctors.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ POVERTY (new) ════════════ -->
+
+
+<!-- ════════════ HOMELESSNESS ════════════ -->
+<section class="comp glow-red" id="bv-s-home">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="24" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">#1 poverty rate. 20% more homeless.</div>
+    <div class="comp-compare">Higher poverty rate than <strong>Honduras</strong>. $24B spent, homelessness up 20%.<span class="compare-src">Census SPM · CA Auditor</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ CORRECTIONS ════════════ -->
+<section class="comp glow-amber" id="bv-s-corr">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="132860" data-pre="$" data-suf="" data-fmt="comma">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">39% back in prison<br>within 3 years.</div>
+    <div class="comp-compare">Norway spends the same and has <strong>half the recidivism</strong>.<span class="compare-src">Norwegian Correctional Service</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ HIGH-SPEED RAIL ════════════ -->
+<section class="comp glow-red" id="bv-s-rail">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="126" data-pre="$" data-suf="B+">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">Zero miles<br>of track.</div>
+    <div class="comp-compare">Spain built <strong>2,326 miles</strong> for less than California's single line.<span class="compare-src">Ineco 2023</span></div>
+  </div>
+</section>
+<!-- ════════════ INPUT VS OUTPUT CHART ════════════ -->
+<section class="chart-sec" id="bv-s-chart">
+  <div class="chart-title">The Disparity</div>
+  <div class="chart-sub" style="font-family:var(--mono);font-size:11px;color:var(--text3);text-align:center;margin-bottom:32px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .6s ease .4s">What California spends vs. what Californians get</div>
+  <div class="chart-area">
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Education<br><span style="color:var(--text3);font-size:9px">$142.4B</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="85"></div></div>
+      <div class="bar-val" style="color:var(--red)">38th in math</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Healthcare<br><span style="color:var(--text3);font-size:9px">$197B</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="100"></div></div>
+      <div class="bar-val" style="color:var(--red)">Ghost networks</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Poverty<br><span style="color:var(--text3);font-size:9px">Top per-capita</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="70"></div></div>
+      <div class="bar-val" style="color:var(--red)">#1 poverty rate</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Homelessness<br><span style="color:var(--text3);font-size:9px">$24B since 2019</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="30"></div></div>
+      <div class="bar-val" style="color:var(--red)">+20% homeless</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Corrections<br><span style="color:var(--text3);font-size:9px">$133K/inmate</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="80"></div></div>
+      <div class="bar-val" style="color:var(--red)">39% recidivism</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">High-Speed Rail<br><span style="color:var(--text3);font-size:9px">$126B+</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="75"></div></div>
+      <div class="bar-val" style="color:var(--red)">0 miles</div>
+    </div>
+
+  </div>
+  <div class="chart-note" style="font-family:var(--font-hed);font-size:clamp(16px,3vw,22px);font-style:italic;color:var(--text2);text-align:center;margin-top:40px;max-width:500px;opacity:0;transition:opacity .8s ease 2s">Every bar is massive spending.<br>Every outcome is failure.</div>
+</section>
+
+<!-- ════════════ CLOSE ════════════ -->
+<section class="close-sec" id="bv-s-close">
+  <div class="close-line" id="bv-cl1">California has the <em>highest tax rate</em> in America.</div>
+  <div class="close-line" id="bv-cl2">Revenue is up <em>30%</em> in three years.</div>
+  <div class="close-line" id="bv-cl3">And the state is still running a <em>$10 billion structural deficit</em> - during a boom.</div>
+  <div class="close-punch" id="bv-clPunch">Not a revenue problem.<br>A <span>spending accountability</span> problem.</div>
+</section>
+
+<!-- ════════════ SOURCES ════════════ -->
+<section class="sources-sec">
+  <div class="sources-inner">
+    <div class="gl-mark"><div class="gl-dot"></div>Garry's List · CA Budget Watch</div>
+    <p>
+      Data sourced from the <a href="https://lao.ca.gov/Publications/Report/5187">CA Legislative Analyst's Office (Report 5187)</a>,
+      <a href="https://lao.ca.gov/Publications/Report/5101">LAO 5101</a>,
+      NAEP 2024, HUD Point-in-Time Count 2024,
+      CalPERS, CA Department of Corrections (2025 Recidivism Report),
+      U.S. Census Supplemental Poverty Measure 2024,
+      CA Association of Realtors 2025 Forecast,
+      CA High-Speed Rail Authority 2026 Business Plan,
+      and the Governor's May Revision 2026.
+    </p>
+  </div>
+</section>
+  </div>
+</div>
+
+<!-- Back to top button -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">↑</button>
+
+<script>
+// === BUDGET RECEIPT VISUALIZATION SCRIPT ===
+(function() {
+
+// ── Particles ──
+(function(){
+  var c = document.getElementById('bv-particles');
+  for (var i = 0; i < 30; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var s = Math.random() * 4 + 2;
+    p.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;top:'+(50+Math.random()*60)+'%;animation-duration:'+(20+Math.random()*30)+'s;animation-delay:'+Math.random()*20+'s';
+    c.appendChild(p);
+  }
+})();
+
+// ── Progress bar ──
+var prog = document.getElementById('bv-progress');
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (window.scrollY / h * 100) + '%';
+});
+
+// Hero section removed — bucket section now flows directly to content
+
+// ── Counter utility ──
+function countUp(el, from, to, pre, suf, dur, big) {
+  var start = performance.now();
+  (function tick(now) {
+    var t = Math.min((now - start) / dur, 1);
+    t = 1 - Math.pow(1 - t, 3); // ease-out cubic
+    var v = from + t * (to - from);
+    if (big) {
+      el.textContent = pre + formatBig(Math.round(v));
+    } else if (to % 1 !== 0) {
+      el.textContent = pre + v.toFixed(1) + suf;
+    } else {
+      el.textContent = pre + Math.round(v).toLocaleString() + suf;
+    }
+    if (t < 1) requestAnimationFrame(tick);
+  })(start);
+}
+
+function formatBig(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(0) + ',000,000,000';
+  return n.toLocaleString();
+}
+
+// ── Leaky Bucket (Canvas Fluid Simulation) ──
+(function() {
+  var bucketSec = document.getElementById('bv-s-bucket');
+  var cv = document.getElementById('bv-bucketCanvas');
+  if (!bucketSec || !cv) return;
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var running = false, startT = 0;
+
+  // Bucket geometry - centered in 1560-wide canvas
+  var bTop = 160, bBot = 500, bLeft = 570, bRight = 990;
+  var bTopLeft = 540, bTopRight = 1020;
+  var rimRx = 242, rimRy = 28;
+  var rimCx = W/2, rimCy = bTop;
+  var handleTop = 80;
+
+  // Phases: 0-3s fill, 3-4s pause at top, 4s+ drain
+  var FILL_END = 2.5;
+  var DRAIN_START = 3.2;
+  var waterFull = bTop + 30; // near the top
+  var waterEmpty = bBot + 10; // fully drained
+
+  // Holes with OUTCOME labels (58px font, wide canvas)
+  var holes = [
+    {x:552, y:230, r:9, side:'l', label:'38th in math'},
+    {x:950, y:210, r:8, side:'r', label:'#1 poverty'},
+    {x:558, y:300, r:10, side:'l', label:'0 rail miles'},
+    {x:945, y:280, r:9, side:'r', label:'Ghost doctors'},
+    {x:565, y:370, r:8, side:'l', label:'+20% homeless'},
+    {x:940, y:350, r:8, side:'r', label:'39% reoffend'}
+  ];
+
+  // Water color palette (blue)
+  var WATER = {
+    top:    [60, 140, 220],
+    mid:    [40, 100, 180],
+    bot:    [25, 70, 140],
+    bright: [90, 170, 255],
+    stream: [70, 155, 240]
+  };
+  function rgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+
+  // Particles
+  var pourDrops = [];
+  var leakDrops = [];
+  var trickleDrops = [];
+  var waterLevel = bBot + 10;
+
+  function bucketLeftAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopLeft + t * (bLeft - bTopLeft);
+  }
+  function bucketRightAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopRight + t * (bRight - bTopRight);
+  }
+
+  function bucketPath() {
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft, bTop);
+    ctx.bezierCurveTo(bTopLeft - 5, bTop + (bBot-bTop)*0.4, bLeft + 5, bBot - 40, bLeft, bBot);
+    ctx.quadraticCurveTo(bLeft - 5, bBot + 30, W/2, bBot + 30);
+    ctx.quadraticCurveTo(bRight + 5, bBot + 30, bRight, bBot);
+    ctx.bezierCurveTo(bRight - 5, bBot - 40, bTopRight + 5, bTop + (bBot-bTop)*0.4, bTopRight, bTop);
+  }
+
+  function drawBucket(time) {
+    var pulse = 0.7 + Math.sin(time * 1.5) * 0.1;
+    var gCol = [90, 170, 255];
+
+    // ── Handle (anchored to rim) ──
+    // Attachment points on rim ellipse (at ±170px from center)
+    var hAttachLx = rimCx - 170;
+    var hAttachRx = rimCx + 170;
+    // Y on rim ellipse at those x positions
+    var hRimT = Math.sqrt(1 - Math.pow((170) / rimRx, 2));
+    var hAttachY = rimCy - rimRy * hRimT; // top of ellipse
+    // Arc center below attachment points, radius sized for nice curve
+    var hCy = 285, hR = 222;
+    var hA1 = Math.atan2(hAttachY - hCy, hAttachLx - rimCx);
+    var hA2 = Math.atan2(hAttachY - hCy, hAttachRx - rimCx);
+    // Handle shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.4)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 4;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    ctx.strokeStyle = '#3a3836';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    ctx.restore();
+    // Handle body
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    var hGrad = ctx.createLinearGradient(rimCx - 200, bTop - 140, rimCx + 200, bTop - 140);
+    hGrad.addColorStop(0, '#4a4644');
+    hGrad.addColorStop(0.3, '#6a6562');
+    hGrad.addColorStop(0.5, '#787370');
+    hGrad.addColorStop(0.7, '#6a6562');
+    hGrad.addColorStop(1, '#4a4644');
+    ctx.strokeStyle = hGrad;
+    ctx.lineWidth = 8;
+    ctx.stroke();
+    // Handle specular
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.08, hA2 - 0.08);
+    ctx.strokeStyle = 'rgba(200,195,185,.15)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Handle glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.04, hA2 - 0.04);
+    ctx.strokeStyle = rgba(gCol, 0.12 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+    // Pivot rivets anchored on rim
+    [{x: hAttachLx, y: hAttachY}, {x: hAttachRx, y: hAttachY}].forEach(function(p) {
+      ctx.beginPath(); ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = '#5a5654'; ctx.fill();
+      ctx.strokeStyle = '#807a78'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.beginPath(); ctx.arc(p.x - 1, p.y - 1, 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(180,175,170,.15)'; ctx.fill();
+    });
+
+    // ── Bucket body (solid metallic fill) ──
+    // Drop shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.35)';
+    ctx.shadowBlur = 25;
+    ctx.shadowOffsetY = 8;
+    bucketPath(); ctx.closePath();
+    ctx.fillStyle = '#2a2826'; ctx.fill();
+    ctx.restore();
+
+    // Main body gradient (left-to-right metallic sheen)
+    bucketPath(); ctx.closePath();
+    var bodyGrad = ctx.createLinearGradient(bLeft - 30, 0, bRight + 30, 0);
+    bodyGrad.addColorStop(0, '#2a2826');
+    bodyGrad.addColorStop(0.1, '#3e3a38');
+    bodyGrad.addColorStop(0.25, '#504c48');
+    bodyGrad.addColorStop(0.4, '#5c5854');
+    bodyGrad.addColorStop(0.5, '#625e5a');
+    bodyGrad.addColorStop(0.6, '#5c5854');
+    bodyGrad.addColorStop(0.75, '#504c48');
+    bodyGrad.addColorStop(0.9, '#3e3a38');
+    bodyGrad.addColorStop(1, '#2a2826');
+    ctx.fillStyle = bodyGrad;
+    ctx.fill();
+
+    // Top-to-bottom depth gradient (overlay)
+    bucketPath(); ctx.closePath();
+    var depthGrad = ctx.createLinearGradient(0, bTop, 0, bBot + 30);
+    depthGrad.addColorStop(0, 'rgba(100,95,90,.12)');
+    depthGrad.addColorStop(0.3, 'rgba(0,0,0,0)');
+    depthGrad.addColorStop(0.8, 'rgba(0,0,0,.15)');
+    depthGrad.addColorStop(1, 'rgba(0,0,0,.25)');
+    ctx.fillStyle = depthGrad;
+    ctx.fill();
+
+    // Specular highlight (left-center)
+    bucketPath(); ctx.closePath();
+    ctx.save(); ctx.clip();
+    var specGrad = ctx.createRadialGradient(W/2 - 80, bTop + 80, 10, W/2 - 80, bTop + 80, 180);
+    specGrad.addColorStop(0, 'rgba(180,175,165,.08)');
+    specGrad.addColorStop(1, 'rgba(180,175,165,0)');
+    ctx.fillStyle = specGrad;
+    ctx.fillRect(bLeft - 20, bTop, bRight - bLeft + 40, bBot - bTop + 30);
+    ctx.restore();
+
+    // Edge outline
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = '#6a6562';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Edge glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.15 * pulse);
+    ctx.shadowBlur = 6;
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = rgba(gCol, 0.1 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // ── Horizontal bands + rivets ──
+    for (var band = 0; band < 3; band++) {
+      var by = bTop + 80 + band * 95;
+      var lx = bucketLeftAt(by) + 6;
+      var rx = bucketRightAt(by) - 6;
+      // Band
+      ctx.beginPath();
+      ctx.moveTo(lx, by); ctx.lineTo(rx, by);
+      ctx.strokeStyle = 'rgba(90,85,80,.35)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      // Band highlight (above)
+      ctx.beginPath();
+      ctx.moveTo(lx, by - 1); ctx.lineTo(rx, by - 1);
+      ctx.strokeStyle = 'rgba(140,135,128,.1)';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      // Rivets
+      for (var ri = 0; ri < 8; ri++) {
+        var rvx = lx + (rx - lx) * (ri / 7);
+        ctx.beginPath(); ctx.arc(rvx, by, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(100,95,90,.4)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(rvx - 0.5, by - 0.5, 1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(160,155,148,.15)'; ctx.fill();
+      }
+    }
+
+    // ── Bottom ellipse (3D base) ──
+    var botW = (bRight - bLeft) / 2;
+    ctx.beginPath();
+    ctx.ellipse(W/2, bBot + 8, botW + 4, 16, 0, 0, Math.PI);
+    ctx.fillStyle = '#2a2826';
+    ctx.fill();
+    ctx.strokeStyle = '#5a5654';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // ── Rim (thick rolled metal) ──
+    // Rim body
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    var rimGrad = ctx.createLinearGradient(rimCx - rimRx, rimCy, rimCx + rimRx, rimCy);
+    rimGrad.addColorStop(0, '#3a3836');
+    rimGrad.addColorStop(0.2, '#5a5654');
+    rimGrad.addColorStop(0.4, '#6a6664');
+    rimGrad.addColorStop(0.5, '#747070');
+    rimGrad.addColorStop(0.6, '#6a6664');
+    rimGrad.addColorStop(0.8, '#5a5654');
+    rimGrad.addColorStop(1, '#3a3836');
+    ctx.fillStyle = rimGrad;
+    ctx.fill();
+    ctx.strokeStyle = '#807a78';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    // Inner rim (depth ring)
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy + 5, rimRx - 16, rimRy - 7, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = '#3a3632';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Rim specular highlight
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy - 3, rimRx - 8, rimRy - 3, 0, Math.PI * 1.1, Math.PI * 1.9);
+    ctx.strokeStyle = 'rgba(210,200,185,.12)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Rim glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = rgba(gCol, 0.08 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // ── Subtle scan overlay (tech accent, not dominant) ──
+    ctx.save();
+    bucketPath(); ctx.closePath(); ctx.clip();
+    var scanY = bTop + ((time * 35) % (bBot - bTop + 40));
+    if (scanY < bBot + 20) {
+      var scanGrad = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+      scanGrad.addColorStop(0, rgba(gCol, 0));
+      scanGrad.addColorStop(0.5, rgba(gCol, 0.04));
+      scanGrad.addColorStop(1, rgba(gCol, 0));
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(bLeft - 20, scanY - 20, bRight - bLeft + 40, 40);
+    }
+    ctx.restore();
+
+    // ── Measurement ticks ──
+    for (var tk = 0; tk < 6; tk++) {
+      var tky = bTop + 40 + tk * 65;
+      var tkx = bucketLeftAt(tky);
+      ctx.beginPath();
+      ctx.moveTo(tkx + 8, tky); ctx.lineTo(tkx + 20, tky);
+      ctx.strokeStyle = rgba(gCol, 0.12 + Math.sin(time * 2 + tk) * 0.04);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // ── Holes (dark with red glow accent) ──
+    holes.forEach(function(h) {
+      // Dark punch-through
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      // Metal edge ring
+      ctx.strokeStyle = '#5a5654';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      // Inner bevel
+      ctx.beginPath();
+      ctx.arc(h.x + 0.5, h.y + 0.5, h.r - 1.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(40,38,36,.8)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      // Red glow accent
+      ctx.save();
+      ctx.shadowColor = 'rgba(176,74,50,.35)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r + 0.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(176,74,50,.2)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+      // Glow halo
+      var hg = ctx.createRadialGradient(h.x, h.y, h.r * 0.5, h.x, h.y, h.r * 2.5);
+      hg.addColorStop(0, 'rgba(176,74,50,.08)');
+      hg.addColorStop(1, 'rgba(176,74,50,0)');
+      ctx.fillStyle = hg;
+      ctx.fillRect(h.x - h.r * 3, h.y - h.r * 3, h.r * 6, h.r * 6);
+    });
+  }
+
+  function drawWater(time) {
+    if (waterLevel >= bBot + 5) return;
+    ctx.save();
+    // Clip to bucket interior (matching curved body)
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft + 6, bTop + 8);
+    ctx.bezierCurveTo(bTopLeft, bTop + (bBot-bTop)*0.4, bLeft + 8, bBot - 40, bLeft + 4, bBot);
+    ctx.quadraticCurveTo(bLeft, bBot + 26, W/2, bBot + 26);
+    ctx.quadraticCurveTo(bRight, bBot + 26, bRight - 4, bBot);
+    ctx.bezierCurveTo(bRight - 8, bBot - 40, bTopRight, bTop + (bBot-bTop)*0.4, bTopRight - 6, bTop + 8);
+    ctx.closePath();
+    ctx.clip();
+
+    var waveY = waterLevel;
+    ctx.beginPath();
+    ctx.moveTo(bLeft - 10, bBot + 30);
+    ctx.lineTo(bLeft - 10, waveY);
+    for (var wx = bLeft - 10; wx <= bRight + 10; wx += 3) {
+      var wy = waveY + Math.sin(wx * 0.022 + time * 2.8) * 5
+                     + Math.sin(wx * 0.013 - time * 2.0) * 3
+                     + Math.sin(wx * 0.04 + time * 4) * 1.5;
+      ctx.lineTo(wx, wy);
+    }
+    ctx.lineTo(bRight + 10, bBot + 30);
+    ctx.closePath();
+
+    var wGrad = ctx.createLinearGradient(0, waveY, 0, bBot + 30);
+    wGrad.addColorStop(0, rgba(WATER.top, .6));
+    wGrad.addColorStop(0.4, rgba(WATER.mid, .5));
+    wGrad.addColorStop(1, rgba(WATER.bot, .35));
+    ctx.fillStyle = wGrad;
+    ctx.fill();
+
+    // Surface highlight with glow
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, .4);
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    for (var sx = bLeft; sx <= bRight; sx += 3) {
+      var sy = waveY + Math.sin(sx * 0.022 + time * 2.8) * 5
+                     + Math.sin(sx * 0.013 - time * 2.0) * 3
+                     + Math.sin(sx * 0.04 + time * 4) * 1.5;
+      if (sx === bLeft) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+    }
+    ctx.strokeStyle = rgba(WATER.bright, .5);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+
+    // Underwater caustics
+    for (var ci = 0; ci < 6; ci++) {
+      var cx2 = 250 + ci * 65 + Math.sin(time * 1.3 + ci) * 20;
+      var cy2 = waveY + 40 + ci * 30 + Math.sin(time * 0.9 + ci * 2) * 15;
+      if (cy2 < waveY || cy2 > bBot) continue;
+      var cg = ctx.createRadialGradient(cx2, cy2, 0, cx2, cy2, 25);
+      cg.addColorStop(0, rgba(WATER.bright, .08));
+      cg.addColorStop(1, rgba(WATER.bright, 0));
+      ctx.fillStyle = cg;
+      ctx.fillRect(cx2 - 30, cy2 - 30, 60, 60);
+    }
+
+    ctx.restore();
+  }
+
+  // Pour stream
+  function drawPourStream(time) {
+    if (time < 0.3 || time > FILL_END + 0.5) return;
+    var alpha = time < 0.8 ? (time - 0.3) * 2 : (time > FILL_END ? Math.max(0, 1 - (time - FILL_END) * 2) : 1);
+    var streamW = 22;
+    var wobble = Math.sin(time * 7) * 2.5;
+    var sx = W/2 + 40 + wobble;
+
+    // Outer glow
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, alpha * 0.5);
+    ctx.shadowBlur = 20;
+    var sg = ctx.createLinearGradient(sx - streamW/2, 0, sx + streamW/2, 0);
+    sg.addColorStop(0, rgba(WATER.mid, alpha * 0.15));
+    sg.addColorStop(0.3, rgba(WATER.stream, alpha * 0.5));
+    sg.addColorStop(0.5, rgba(WATER.bright, alpha * 0.7));
+    sg.addColorStop(0.7, rgba(WATER.stream, alpha * 0.5));
+    sg.addColorStop(1, rgba(WATER.mid, alpha * 0.15));
+    ctx.fillStyle = sg;
+    ctx.fillRect(sx - streamW/2, 0, streamW, bTop + rimRy);
+    ctx.restore();
+
+    // Impact glow at rim
+    var glow = ctx.createRadialGradient(W/2, bTop, 4, W/2, bTop, 60);
+    glow.addColorStop(0, rgba(WATER.bright, alpha * 0.4));
+    glow.addColorStop(1, rgba(WATER.bright, 0));
+    ctx.fillStyle = glow;
+    ctx.fillRect(W/2 - 70, bTop - 50, 140, 100);
+  }
+
+  function spawnPour(time) {
+    if (time < 0.4 || time > FILL_END + 0.3) return;
+    for (var i = 0; i < 3; i++) {
+      pourDrops.push({
+        x: W/2 + 40 + (Math.random() - .5) * 18,
+        y: 15 + Math.random() * 10,
+        vx: (Math.random() - .5) * 1,
+        vy: 4 + Math.random() * 5,
+        r: 2 + Math.random() * 3.5,
+        life: 1
+      });
+    }
+  }
+
+  function spawnLeaks(time) {
+    if (time < DRAIN_START) return;
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + idx * 0.25;
+      if (time < delay) return;
+      if (h.y > waterLevel + 15) return;
+      if (Math.random() > 0.5) return;
+      var dir = h.side === 'l' ? -1 : 1;
+      leakDrops.push({
+        x: h.x + dir * (h.r + 1),
+        y: h.y + (Math.random() - .5) * 5,
+        vx: dir * (2.5 + Math.random() * 3.5),
+        vy: 0.5 + Math.random() * 2,
+        r: 1.5 + Math.random() * 2.5,
+        life: 1,
+        holeIdx: idx
+      });
+    });
+  }
+
+  function spawnTrickle(time) {
+    if (time < DRAIN_START + 1.5) return;
+    if (Math.random() > 0.12) return;
+    trickleDrops.push({
+      x: W/2 + (Math.random() - .5) * 6,
+      y: bBot + 32,
+      vx: (Math.random() - .5) * .4,
+      vy: 1 + Math.random() * 2,
+      r: 1 + Math.random() * 1.5,
+      life: 1
+    });
+  }
+
+  function updateDrops(arr, dt) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+      var d = arr[i];
+      d.vy += 14 * dt;
+      d.x += d.vx;
+      d.y += d.vy;
+      d.life -= dt * 0.45;
+      if (d.life <= 0 || d.y > H || d.x < -20 || d.x > W + 20) arr.splice(i, 1);
+    }
+  }
+
+  function drawDrops(arr) {
+    arr.forEach(function(d) {
+      ctx.save();
+      ctx.shadowColor = rgba(WATER.bright, d.life * 0.4);
+      ctx.shadowBlur = 6;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = rgba(WATER.stream, d.life * 0.7);
+      ctx.fill();
+      ctx.restore();
+    });
+  }
+
+  // Leak labels — HTML overlays positioned at holes, staggered reveal
+  var holeLabels = document.querySelectorAll('.bucket-hole-label');
+  function drawLeakLabels(time) {
+    if (time < DRAIN_START + 0.5) { holeLabels.forEach(function(el){el.classList.remove('vis')}); return; }
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + 0.5 + idx * 0.35;
+      if (time >= delay && h.y < waterLevel - 5) {
+        holeLabels[idx] && holeLabels[idx].classList.add('vis');
+      }
+    });
+  }
+
+  // Pour label - HTML overlay
+  var pourEl = document.getElementById('bv-pourLabel');
+  function drawPourLabel(time) {
+    if (time >= 0.5 && time < FILL_END + 1.5) {
+      pourEl.classList.add('vis');
+    } else {
+      pourEl.classList.remove('vis');
+    }
+  }
+
+  // Trickle label
+  function drawTrickleLabel(time) {
+    if (time < DRAIN_START + 2.5) return;
+    var a = Math.min(1, (time - DRAIN_START - 2.5) * 0.8);
+    ctx.save();
+    ctx.shadowColor = 'rgba(176,74,50,' + (a * 0.3).toFixed(2) + ')';
+    ctx.shadowBlur = 8;
+    // Trickle label - HTML overlay
+    var trickleEl = document.getElementById('bv-trickleLabel');
+    if (a > 0.3) trickleEl.classList.add('vis'); else trickleEl.classList.remove('vis');
+    ctx.restore();
+    // Thin glowing arrow
+    ctx.save();
+    ctx.shadowColor = 'rgba(176,74,50,.2)';
+    ctx.shadowBlur = 4;
+    ctx.beginPath();
+    ctx.moveTo(W/2, bBot + 40);
+    ctx.lineTo(W/2, bBot + 88);
+    ctx.strokeStyle = 'rgba(176,74,50,' + (a * 0.4).toFixed(2) + ')';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function frame(ts) {
+    if (!running) return;
+    var time = (ts - startT) / 1000;
+    ctx.clearRect(0, 0, W, H);
+
+    // Phase logic
+    if (time < FILL_END) {
+      // Filling: water rises from bottom to near-top
+      var fillT = Math.min(1, time / FILL_END);
+      fillT = 1 - Math.pow(1 - fillT, 2); // ease-out
+      waterLevel = bBot + 10 - fillT * (bBot + 10 - waterFull);
+    } else if (time < DRAIN_START) {
+      // Pause at top
+      waterLevel = waterFull;
+    } else {
+      // Draining: water drops, faster as it empties
+      // Ease-out drain: starts fast, slows as it empties
+      var drainT = (time - DRAIN_START);
+      var drainFrac = Math.min(1, drainT / 12); // fully empty over ~12s
+      drainFrac = 1 - Math.pow(1 - drainFrac, 2); // ease-out (fast start, slow finish)
+      waterLevel = waterFull + drainFrac * (waterEmpty - waterFull);
+      if (waterLevel > waterEmpty) waterLevel = waterEmpty;
+    }
+
+    drawPourStream(time);
+    drawBucket();
+    drawWater(time);
+
+    spawnPour(time);
+    spawnLeaks(time);
+    spawnTrickle(time);
+
+    updateDrops(pourDrops, 0.016);
+    updateDrops(leakDrops, 0.016);
+    updateDrops(trickleDrops, 0.016);
+
+    drawDrops(pourDrops);
+    drawDrops(leakDrops);
+    drawDrops(trickleDrops);
+
+    drawPourLabel(time);
+    drawLeakLabels(time);
+    drawTrickleLabel(time);
+
+    requestAnimationFrame(frame);
+  }
+
+  var bucketObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !running) {
+        bucketSec.classList.add('active');
+        running = true;
+        startT = performance.now();
+        requestAnimationFrame(frame);
+        bucketObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bucketObs.observe(bucketSec);
+})();
+
+// ── Section scroll reveals ──
+var comps = document.querySelectorAll('.comp-inner');
+var compObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('active');
+      e.target.closest('.comp').classList.add('glow-active');
+      // Trigger counter
+      var ctr = e.target.querySelector('[data-counter]');
+      if (ctr && !ctr.dataset.done) {
+        ctr.dataset.done = '1';
+        var to = parseFloat(ctr.dataset.to);
+        var pre = ctr.dataset.pre || '';
+        var suf = ctr.dataset.suf || '';
+        var fmt = ctr.dataset.fmt;
+        if (fmt === 'comma') {
+          countUp(ctr, 0, to, pre, suf, 1400, false);
+        } else {
+          countUp(ctr, 0, to, pre, suf, 1200, false);
+        }
+      }
+    }
+  });
+}, { threshold: 0.25 });
+comps.forEach(function(c) { compObs.observe(c); });
+
+// ── Input vs Output chart ──
+var chartSec = document.querySelector('.chart-sec');
+if (chartSec) {
+  var chartObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        var sub = e.target.querySelector('.chart-sub');
+        if (sub) sub.style.opacity = '1';
+        var bars = e.target.querySelectorAll('[data-bar]');
+        bars.forEach(function(row, i) {
+          setTimeout(function() {
+            row.classList.add('show');
+            var fill = row.querySelector('.bar-fill');
+            if (fill) {
+              var w = fill.dataset.w || '0';
+              setTimeout(function() { fill.style.width = w + '%'; }, 100);
+            }
+          }, 200 + i * 200);
+        });
+        var note = e.target.querySelector('.chart-note');
+        if (note) setTimeout(function() { note.style.opacity = '1'; }, 200 + bars.length * 200 + 400);
+        chartObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  chartObs.observe(chartSec);
+}
+
+// ── Global comparison callouts ──
+var compares = document.querySelectorAll('.comp-compare');
+var compObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var siblings = e.target.parentElement.querySelectorAll('.comp-compare');
+      var idx = Array.from(siblings).indexOf(e.target);
+      setTimeout(function() { e.target.classList.add('show'); }, idx * 400 + 600);
+      compObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+compares.forEach(function(c) { compObs.observe(c); });
+
+// ── Headline interstitials ──
+var hlis = document.querySelectorAll('[data-hli]');
+var hliObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+hlis.forEach(function(h) { hliObs.observe(h); });
+
+// ── Scorecards ──
+var cards = document.querySelectorAll('.score-card');
+var cardObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      // Stagger
+      var idx = Array.from(cards).indexOf(e.target);
+      setTimeout(function() {
+        e.target.classList.add('show');
+      }, idx * 120);
+      cardObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+cards.forEach(function(c) { cardObs.observe(c); });
+
+// ── Close section ──
+var closeLines = document.querySelectorAll('.close-line');
+var closePunch = document.querySelector('.close-punch');
+var closeObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var idx = Array.from(closeLines).indexOf(e.target);
+      setTimeout(function() {
+        e.target.classList.add('active');
+      }, idx >= 0 ? idx * 500 : 0);
+      closeObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+closeLines.forEach(function(c) { closeObs.observe(c); });
+var punchObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('active'); }, 1600);
+      punchObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+punchObs.observe(closePunch);
+
+// ── Nav counter ──
+var sections = document.querySelectorAll('section');
+var navCtr = document.getElementById('bv-navCounter');
+var secNames = ['THE BUCKET', 'EDUCATION', 'MEDI-CAL', 'HOMELESSNESS', 'CORRECTIONS', 'HIGH-SPEED RAIL', 'THE DISPARITY', 'THE BOTTOM LINE', ''];
+var secObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var idx = Array.from(sections).indexOf(e.target);
+      navCtr.textContent = secNames[idx] || '';
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(function(s) { secObs.observe(s); });
+
+})();
+
+// Back to top button visibility
+(function() {
+  var btn = document.getElementById('backToTop');
+  var budgetSection = document.getElementById('budget-receipt');
+  if (btn && budgetSection) {
+    window.addEventListener('scroll', function() {
+      var rect = budgetSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+})();
+</script>
+
 
 </body>
 </html>
