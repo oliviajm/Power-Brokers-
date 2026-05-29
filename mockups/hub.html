@@ -6,231 +6,288 @@
 <title>Garry's List</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --bridge-red: #B04A32;
-  --bridge-red-dark: #8E3924;
+  --red: #B04A32;
+  --red-dark: #8E3924;
   --ink: #1A1614;
   --ink-mid: #5C5048;
   --ink-soft: #8A7E73;
   --paper: #F5F1EA;
   --paper-warm: #EFE7D8;
-  --fog: #D6D4CF;
-  --fog-dark: #A8A39B;
-  --white: #FFFFFF;
-  --font-hed: 'Fraunces', Georgia, serif;
-  --font: 'Source Sans 3', system-ui, sans-serif;
+  --rule: #1A1614;
+  --rule-soft: #CFC8BC;
+  --hed: 'Fraunces', Georgia, serif;
+  --body: 'Source Sans 3', system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; }
 body {
-  font-family: var(--font);
+  font-family: var(--body);
   background: var(--paper);
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01";
+}
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-a { color: var(--bridge-red); text-decoration: none; transition: color .2s; }
-a:hover { color: var(--bridge-red-dark); }
 
-@keyframes fadeUp { from { opacity:0; transform: translateY(14px);} to {opacity:1; transform:translateY(0);} }
-
-/* ===== HEADER ===== */
-.hub {
-  flex: 1;
-  width: 100%;
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 72px 24px 48px;
+/* ===== MASTHEAD ===== */
+.masthead {
+  padding: 40px 0 22px;
+  border-bottom: 2px solid var(--rule);
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
 }
-
-.hub-mark {
-  font-family: var(--font-hed);
-  font-size: 13px;
+.mast-left { display: flex; flex-direction: column; }
+.mast-kicker {
+  font-size: 11px;
   font-weight: 600;
-  color: var(--bridge-red);
-  letter-spacing: .12em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 14px;
-  animation: fadeUp .6s ease both;
+  color: var(--red);
+  margin-bottom: 6px;
 }
-.hub-title {
-  font-family: var(--font-hed);
-  font-size: clamp(34px, 8vw, 48px);
-  font-weight: 500;
+.mast-title {
+  font-family: var(--hed);
+  font-weight: 600;
+  font-size: clamp(30px, 6vw, 46px);
+  letter-spacing: -.02em;
+  line-height: .95;
   color: var(--ink);
-  text-align: center;
-  letter-spacing: -.01em;
-  line-height: 1.05;
-  margin-bottom: 16px;
-  animation: fadeUp .6s ease .05s both;
 }
-.hub-sub {
-  font-size: 16px;
-  font-weight: 300;
+.mast-meta {
+  text-align: right;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===== LEDE ===== */
+.lede {
+  padding: 30px 0 8px;
+  max-width: 56ch;
+}
+.lede p {
+  font-family: var(--hed);
+  font-size: clamp(18px, 2.4vw, 23px);
+  font-weight: 400;
+  line-height: 1.45;
   color: var(--ink-mid);
-  text-align: center;
-  max-width: 44ch;
-  margin: 0 auto 44px;
-  line-height: 1.55;
-  animation: fadeUp .6s ease .1s both;
+  font-style: italic;
 }
 
-/* ===== LINK LIST ===== */
-.links { display: flex; flex-direction: column; gap: 12px; }
+/* ===== INDEX LIST ===== */
+.index {
+  margin-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+}
+.entry {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: baseline;
+  gap: 20px;
+  padding: 26px 4px 24px;
+  border-bottom: 1px solid var(--rule-soft);
+  position: relative;
+  transition: padding-left .25s ease;
+}
+.entry:hover { padding-left: 14px; }
+.entry::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 0; height: 2px;
+  background: var(--red);
+  transition: width .3s ease;
+}
+.entry:hover::after { width: 100%; }
 
-.link-item {
+.entry-num {
+  font-family: var(--hed);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
+}
+.entry-main { min-width: 0; }
+.entry-name {
+  font-family: var(--hed);
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 500;
+  letter-spacing: -.015em;
+  line-height: 1.04;
+  color: var(--ink);
+  margin-bottom: 7px;
+  transition: color .2s;
+}
+.entry:hover .entry-name { color: var(--red-dark); }
+.entry-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  max-width: 48ch;
+}
+.entry-go {
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: var(--white);
-  border: 1px solid var(--fog);
-  border-radius: 8px;
-  padding: 20px 22px;
-  text-decoration: none;
-  color: inherit;
-  transition: border-color .2s, box-shadow .2s, transform .2s;
-  animation: fadeUp .6s ease both;
-}
-.link-item:nth-child(1) { animation-delay: .15s; }
-.link-item:nth-child(2) { animation-delay: .2s; }
-.link-item:nth-child(3) { animation-delay: .25s; }
-.link-item:nth-child(4) { animation-delay: .3s; }
-.link-item:hover {
-  border-color: var(--fog-dark);
-  box-shadow: 0 4px 16px rgba(26,22,20,.07);
-  transform: translateY(-2px);
-}
-
-.link-accent {
-  width: 4px;
-  align-self: stretch;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-.link-1 .link-accent { background: var(--bridge-red); }
-.link-2 .link-accent { background: #3D7B7B; }
-.link-3 .link-accent { background: #C4923E; }
-.link-4 .link-accent { background: var(--ink-soft); }
-
-.link-text { flex: 1; min-width: 0; }
-.link-name {
-  font-family: var(--font-hed);
-  font-size: 19px;
-  font-weight: 500;
-  color: var(--ink);
-  letter-spacing: -.01em;
-  margin-bottom: 2px;
-}
-.link-domain {
-  font-size: 13px;
+  gap: 7px;
+  align-self: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
   color: var(--ink-soft);
-  font-weight: 400;
+  white-space: nowrap;
+  transition: color .2s;
 }
-.link-arrow {
-  color: var(--fog-dark);
-  flex-shrink: 0;
-  transition: transform .2s, color .2s;
-}
-.link-item:hover .link-arrow { transform: translateX(3px); color: var(--bridge-red); }
+.entry:hover .entry-go { color: var(--red); }
+.entry-go svg { transition: transform .25s ease; }
+.entry:hover .entry-go svg { transform: translate(2px, -2px); }
 
-/* ===== FOOTER ===== */
-.hub-footer {
-  background: var(--white);
-  border-top: 1px solid var(--fog);
-  padding: 28px 24px 32px;
-  text-align: center;
-}
-.footer-links {
+/* ===== COLOPHON / FOOTER ===== */
+.colophon {
+  margin-top: auto;
+  padding: 40px 0 36px;
+  border-top: 2px solid var(--rule);
   display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style: none;
-  margin-bottom: 14px;
+  flex-direction: column;
+  gap: 16px;
 }
-.footer-links a { font-size: 13px; color: var(--ink-soft); }
-.footer-links a:hover { color: var(--ink); }
-.footer-disclaimer {
+.colophon-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.colophon-mark {
+  font-family: var(--hed);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.colophon-links { display: flex; gap: 22px; }
+.colophon-links a {
+  font-size: 13px;
+  color: var(--ink-mid);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, color .2s;
+  padding-bottom: 1px;
+}
+.colophon-links a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.colophon-fine {
   font-size: 11px;
   color: var(--ink-soft);
-  max-width: 60ch;
-  margin: 0 auto 8px;
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 70ch;
 }
-.footer-copy { font-size: 12px; color: var(--ink-soft); }
 
-@media (max-width: 480px) {
-  .hub { padding: 52px 18px 40px; }
-  .link-item { padding: 18px 18px; }
+@media (max-width: 560px) {
+  .wrap { padding: 0 22px; }
+  .masthead { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .mast-meta { text-align: left; }
+  .entry { grid-template-columns: 30px 1fr; }
+  .entry-go { display: none; }
 }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<main class="hub">
-  <div class="hub-mark">Garry's List</div>
-  <h1 class="hub-title">California, accounted for.</h1>
-  <p class="hub-sub">A hub for our reporting, civic data, and related work. Choose where to go.</p>
+  <header class="masthead">
+    <div class="mast-left">
+      <span class="mast-kicker">Civic Accountability · California</span>
+      <span class="mast-title">Garry's List</span>
+    </div>
+    <div class="mast-meta">
+      Est. 2026<br>San Francisco
+    </div>
+  </header>
 
-  <nav class="links">
+  <div class="lede">
+    <p>Reporting, civic data, and related work, organized in one place.</p>
+  </div>
 
-    <a href="https://garrysnotes.org" target="_blank" class="link-item link-1">
-      <span class="link-accent"></span>
-      <span class="link-text">
-        <span class="link-name">Articles</span>
-        <span class="link-domain">garrysnotes.org</span>
+  <nav class="index">
+
+    <a href="https://garrysnotes.org" target="_blank" class="entry">
+      <span class="entry-num">01</span>
+      <span class="entry-main">
+        <span class="entry-name">Articles</span>
+        <span class="entry-desc">Reporting and analysis. garrysnotes.org</span>
       </span>
-      <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      <span class="entry-go">Visit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </span>
     </a>
 
-    <a href="https://garrysindex.org" target="_blank" class="link-item link-2">
-      <span class="link-accent"></span>
-      <span class="link-text">
-        <span class="link-name">Civic Engagement</span>
-        <span class="link-domain">garrysindex.org</span>
+    <a href="https://garrysindex.org" target="_blank" class="entry">
+      <span class="entry-num">02</span>
+      <span class="entry-main">
+        <span class="entry-name">Civic Engagement</span>
+        <span class="entry-desc">Power Brokers, data visualizations, and City Hall Watch. garrysindex.org</span>
       </span>
-      <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      <span class="entry-go">Visit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </span>
     </a>
 
-    <a href="https://garrysguide.org" target="_blank" class="link-item link-3">
-      <span class="link-accent"></span>
-      <span class="link-text">
-        <span class="link-name">Garry's List Action</span>
-        <span class="link-domain">garrysguide.org</span>
+    <a href="https://garrysguide.org" target="_blank" class="entry">
+      <span class="entry-num">03</span>
+      <span class="entry-main">
+        <span class="entry-name">Garry's List Action</span>
+        <span class="entry-desc">garrysguide.org</span>
       </span>
-      <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      <span class="entry-go">Visit
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </span>
     </a>
 
-    <a href="#newsletter" class="link-item link-4">
-      <span class="link-accent"></span>
-      <span class="link-text">
-        <span class="link-name">Newsletter</span>
-        <span class="link-domain">Subscribe for updates</span>
+    <a href="#subscribe" class="entry">
+      <span class="entry-num">04</span>
+      <span class="entry-main">
+        <span class="entry-name">Newsletter</span>
+        <span class="entry-desc">Subscribe for updates.</span>
       </span>
-      <svg class="link-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <span class="entry-go">Sign up
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
     </a>
 
   </nav>
-</main>
 
-<footer class="hub-footer" id="newsletter">
-  <ul class="footer-links">
-    <li><a href="mailto:hello@garryslist.org">Contact</a></li>
-    <li><a href="https://garryslist.org/privacy" target="_blank">Privacy</a></li>
-  </ul>
-  <p class="footer-disclaimer">Garry's List operates affiliated organizations across distinct legal entities. Reporting, civic education, and political action are conducted by separate organizations as required by law.</p>
-  <p class="footer-copy">&copy; 2026 Garry's List</p>
-</footer>
+  <footer class="colophon" id="subscribe">
+    <div class="colophon-top">
+      <span class="colophon-mark">Garry's List</span>
+      <div class="colophon-links">
+        <a href="mailto:hello@garryslist.org">Contact</a>
+        <a href="https://garryslist.org/privacy" target="_blank">Privacy</a>
+      </div>
+    </div>
+    <p class="colophon-fine">Garry's List operates affiliated organizations across distinct legal entities. Reporting, civic education, and political action are conducted by separate organizations as required by law. &copy; 2026 Garry's List.</p>
+  </footer>
 
+</div>
 </body>
 </html>
