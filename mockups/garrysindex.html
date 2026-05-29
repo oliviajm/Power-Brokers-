@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Civic Engagement — Garry's Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bridge-red: #B04A32;
+  --bridge-red-dark: #8E3924;
+  --teal: #3D7B7B;
+  --ochre: #C4923E;
+  --ink: #1A1614;
+  --ink-mid: #5C5048;
+  --ink-soft: #8A7E73;
+  --paper: #F5F1EA;
+  --paper-warm: #EFE7D8;
+  --fog: #D6D4CF;
+  --fog-dark: #A8A39B;
+  --white: #FFFFFF;
+  --font-hed: 'Fraunces', Georgia, serif;
+  --font: 'Source Sans 3', system-ui, sans-serif;
+  --max: 1080px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--bridge-red); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--bridge-red-dark); }
+.container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+@keyframes fadeUp { from { opacity:0; transform: translateY(14px);} to {opacity:1; transform:translateY(0);} }
+
+/* ===== TOP BAR ===== */
+.topbar {
+  border-bottom: 1px solid var(--fog);
+  background: var(--white);
+}
+.topbar-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: var(--font-hed);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+.brand span { color: var(--bridge-red); }
+.brand small {
+  display: block;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.back-hub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.back-hub:hover { color: var(--ink); }
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 64px 28px 48px;
+  animation: fadeUp .6s ease both;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: var(--font-hed);
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.hero p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-mid);
+  max-width: 56ch;
+  margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* ===== SECTION ===== */
+.section { padding: 40px 0; border-top: 1px solid var(--fog); }
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font-family: var(--font-hed);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+.section-head .meta {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== INVESTIGATIONS GRID ===== */
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.inv-card {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-left: 3px solid var(--bridge-red);
+  border-radius: 8px;
+  padding: 22px 24px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.inv-card:hover {
+  border-color: var(--fog-dark);
+  border-left-color: var(--bridge-red);
+  box-shadow: 0 4px 16px rgba(26,22,20,.07);
+  transform: translateY(-2px);
+}
+.inv-num {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.inv-title {
+  font-family: var(--font-hed);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
+}
+.inv-teaser {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.5;
+}
+
+/* ===== FEATURE CARDS (budget + monitor) ===== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.feature-card {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 8px;
+  padding: 26px 26px;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.feature-card:hover {
+  border-color: var(--fog-dark);
+  box-shadow: 0 4px 16px rgba(26,22,20,.07);
+  transform: translateY(-2px);
+}
+.feature-card.f-teal { border-top: 3px solid var(--teal); }
+.feature-card.f-ochre { border-top: 3px solid var(--ochre); }
+.feature-card h3 {
+  font-family: var(--font-hed);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
+}
+.feature-card p {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.feature-card .cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bridge-red);
+}
+.feature-card:hover .cta { color: var(--bridge-red-dark); }
+
+/* ===== CITY HALL WATCH ===== */
+.chw-cards { display: flex; flex-direction: column; gap: 8px; }
+.chw-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 6px;
+  padding: 16px 22px;
+  transition: box-shadow .2s;
+}
+.chw-card:hover { box-shadow: 0 2px 8px rgba(26,22,20,.06); }
+.chw-tags { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; }
+.chw-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.chw-tag.budget { background: rgba(176,74,50,.08); color: var(--bridge-red); }
+.chw-tag.board { background: rgba(138,126,115,.12); color: var(--ink-soft); }
+.chw-headline {
+  font-family: var(--font-hed);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+.chw-summary { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+.chw-figure {
+  font-family: var(--font-hed);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--bridge-red);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 70px;
+}
+
+/* ===== FOOTER ===== */
+.foot {
+  background: var(--white);
+  border-top: 1px solid var(--fog);
+  padding: 30px 28px 36px;
+  text-align: center;
+  margin-top: 40px;
+}
+.foot-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 14px;
+}
+.foot-links a { font-size: 13px; color: var(--ink-soft); }
+.foot-links a:hover { color: var(--ink); }
+.foot-disclaimer {
+  font-size: 11px;
+  color: var(--ink-soft);
+  max-width: 64ch;
+  margin: 0 auto 8px;
+  line-height: 1.6;
+}
+.foot-copy { font-size: 12px; color: var(--ink-soft); }
+
+@media (max-width: 720px) {
+  .inv-grid, .feature-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 20px 36px; }
+}
+@media (max-width: 480px) {
+  .chw-card { grid-template-columns: 1fr; }
+  .chw-figure { text-align: left; font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>Garry's</span> Index<small>Civic Engagement · garrysindex.org</small></div>
+    <a href="hub.html" class="back-hub">&larr; All of Garry's List</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">Civic Data &amp; Engagement</div>
+  <h1>Understand how California is governed.</h1>
+  <p>Nonpartisan civic tools: interactive investigations into public money and policy, a weekly digest of local government action, and a visualization of where California's budget goes.</p>
+</header>
+
+<main>
+
+  <!-- POWER BROKERS INDEX -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Power Brokers</h2>
+        <span class="meta">Interactive investigations</span>
+      </div>
+      <div class="inv-grid">
+        <a href="../q1/index.html" class="inv-card">
+          <div class="inv-num">Investigation No. 01</div>
+          <div class="inv-title">Why can people openly use drugs on SF streets?</div>
+          <div class="inv-teaser">From Soros to Prop 47 to 810 dead in 2023</div>
+        </a>
+        <a href="../q2/index.html" class="inv-card">
+          <div class="inv-num">Investigation No. 02</div>
+          <div class="inv-title">Why does SF have a homelessness crisis despite record spending?</div>
+          <div class="inv-teaser">$5B+ spent, 8,323 homeless and growing</div>
+        </a>
+        <a href="../q3/index.html" class="inv-card">
+          <div class="inv-num">Investigation No. 03</div>
+          <div class="inv-title">How is China influencing American AI policy?</div>
+          <div class="inv-teaser">Foreign billionaires funding anti-AI campaigns</div>
+        </a>
+        <a href="../ca/index.html" class="inv-card">
+          <div class="inv-num">Investigation — California</div>
+          <div class="inv-title">Which CA orgs have ties to China's anti-AI network?</div>
+          <div class="inv-teaser">15+ Bay Area organizations, your ballot</div>
+        </a>
+        <a href="../q5/index.html" class="inv-card">
+          <div class="inv-num">Investigation No. 05</div>
+          <div class="inv-title">Oakland spends $25,634 per student. Why can only 27% do math?</div>
+          <div class="inv-teaser">$867M budget, 592% admin salary bloat</div>
+        </a>
+        <a href="../q6/index.html" class="inv-card">
+          <div class="inv-num">Investigation No. 06</div>
+          <div class="inv-title">Do teachers' unions protect sexual predators?</div>
+          <div class="inv-teaser">$700M+ in settlements, $1B in bonds, a federal probe</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE TOOLS -->
+  <section class="section">
+    <div class="container">
+      <div class="feature-grid">
+        <a href="../budget/index.html" class="feature-card f-teal">
+          <h3>Budget Visualization</h3>
+          <p>Where does California's $248 billion go? An interactive walk through the state's spending and what taxpayers get for it.</p>
+          <span class="cta">Explore the budget &rarr;</span>
+        </a>
+        <a href="#cityhall" class="feature-card f-ochre">
+          <h3>City Hall Watch</h3>
+          <p>A weekly digest of San Francisco's most consequential government decisions: contracts, leases, bonds, and policy shifts.</p>
+          <span class="cta">See this week &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY HALL DIGEST -->
+  <section class="section" id="cityhall">
+    <div class="container">
+      <div class="section-head">
+        <h2>City Hall Watch</h2>
+        <span class="meta">Week of May 19 &ndash; 28, 2026</span>
+      </div>
+      <div class="chw-cards">
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag budget">Budget</span><span class="chw-tag board">Homelessness</span></div>
+            <h3 class="chw-headline">Tenderloin Housing Clinic Master Lease Swells to $303.6M</h3>
+            <p class="chw-summary">A $61.9M increase for master-lease stewardship at 16 supportive-housing sites through Dec 2027.</p>
+          </div>
+          <div class="chw-figure">$303.6M</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag budget">Budget</span><span class="chw-tag board">Infrastructure</span></div>
+            <h3 class="chw-headline">SFPUC Wastewater Revenue Bonds: $1.17B Authorization</h3>
+            <p class="chw-summary">Part of roughly $1.9B in total SFPUC bond authorizations across water, wastewater, and power.</p>
+          </div>
+          <div class="chw-figure">$1.17B</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag budget">Budget</span><span class="chw-tag board">Real Estate</span></div>
+            <h3 class="chw-headline">1455 Market St Mega-Lease: 502K Sq Ft, 21-Year Term</h3>
+            <p class="chw-summary">$14.5M/yr base rent for 12 city departments plus $10.8M in tenant improvements. Locked through 2049.</p>
+          </div>
+          <div class="chw-figure">$14.5M/yr</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag board">Board</span><span class="chw-tag board">Public Safety</span></div>
+            <h3 class="chw-headline">Drug-Free PSH Expansion Hits Committee</h3>
+            <p class="chw-summary">Would bar the city from funding new drug-tolerant permanent supportive housing and require resident surveys.</p>
+          </div>
+          <div class="chw-figure">Pending</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag budget">Budget</span><span class="chw-tag board">Fire</span></div>
+            <h3 class="chw-headline">Fire Dept Shifts $10.4M from Salaries to Overtime</h3>
+            <p class="chw-summary">De-appropriating permanent salaries and re-appropriating to overtime across Fire, DEM, and PUC.</p>
+          </div>
+          <div class="chw-figure">$10.4M</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag board">Board</span><span class="chw-tag board">Ethics</span></div>
+            <h3 class="chw-headline">Behested Payment Waiver: 6 Months, No Disclosure</h3>
+            <p class="chw-summary">Mayor's Office and OEWD can solicit donations for economic revitalization without triggering disclosure rules.</p>
+          </div>
+          <div class="chw-figure">6 mos</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag budget">Budget</span><span class="chw-tag board">Zoo</span></div>
+            <h3 class="chw-headline">SF Zoo Bailout: $8.5M Loan + $2.5M Appropriation</h3>
+            <p class="chw-summary">Repayable over 10 years via management-fee deductions. City can terminate the lease if the loan isn't repaid.</p>
+          </div>
+          <div class="chw-figure">$11M</div>
+        </div>
+        <div class="chw-card">
+          <div>
+            <div class="chw-tags"><span class="chw-tag board">Governance</span><span class="chw-tag board">Charter</span></div>
+            <h3 class="chw-headline">Municipal Public Bank Charter Amendment Advances</h3>
+            <p class="chw-summary">Establishes a Municipal Finance Corporation as a nonprofit. Headed to the November 2026 ballot.</p>
+          </div>
+          <div class="chw-figure">Nov '26</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <ul class="foot-links">
+    <li><a href="hub.html">All of Garry's List</a></li>
+    <li><a href="mailto:hello@garryslist.org">Contact</a></li>
+    <li><a href="https://garryslist.org/privacy" target="_blank">Privacy</a></li>
+  </ul>
+  <p class="foot-disclaimer">Garry's Index provides nonpartisan civic data and education. It is operated by a 501(c)(3) organization, separate from Garry's List's reporting and political-action affiliates.</p>
+  <p class="foot-copy">&copy; 2026 Garry's List</p>
+</footer>
+
+</body>
+</html>

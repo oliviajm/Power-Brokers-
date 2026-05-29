@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Redirecting — Garry's List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bridge-red: #B04A32;
+  --bridge-red-dark: #8E3924;
+  --ink: #1A1614;
+  --ink-mid: #5C5048;
+  --ink-soft: #8A7E73;
+  --paper: #F5F1EA;
+  --fog: #D6D4CF;
+  --white: #FFFFFF;
+  --font-hed: 'Fraunces', Georgia, serif;
+  --font: 'Source Sans 3', system-ui, sans-serif;
+}
+body {
+  font-family: var(--font);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(12px);} to {opacity:1; transform:translateY(0);} }
+@keyframes spin { to { transform: rotate(360deg); } }
+.card {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  animation: fadeUp .5s ease both;
+}
+.mark {
+  font-family: var(--font-hed);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bridge-red);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.spinner {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 28px;
+  border: 3px solid var(--fog);
+  border-top-color: var(--bridge-red);
+  border-radius: 50%;
+  animation: spin .9s linear infinite;
+}
+.lede {
+  font-family: var(--font-hed);
+  font-size: clamp(20px, 5vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.01em;
+  margin-bottom: 14px;
+}
+.sub {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  max-width: 40ch;
+  margin: 0 auto 28px;
+}
+.dest {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--ink-soft);
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin-bottom: 24px;
+  word-break: break-all;
+}
+.dest strong { color: var(--bridge-red); font-weight: 600; }
+.manual {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.manual a { color: var(--bridge-red); text-decoration: none; }
+.manual a:hover { color: var(--bridge-red-dark); }
+.back {
+  display: block;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="mark">Garry's List</div>
+  <div class="spinner"></div>
+  <h1 class="lede" id="lede">Redirecting you now…</h1>
+  <p class="sub" id="sub">You are leaving Garry's List (a 501(c)(3) organization) and being redirected to a separate, affiliated entity.</p>
+  <div class="dest" id="dest"></div>
+  <p class="manual">Not redirected automatically? <a href="#" id="manualLink">Continue &rarr;</a></p>
+  <a href="hub.html" class="back">&larr; Back to Garry's List</a>
+</div>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var to = params.get('to') || '';
+  var label = params.get('label') || '';
+  var entity = params.get('entity') || '';
+
+  // Whitelist of allowed destinations (placeholder mockups + live entities)
+  var allowed = {
+    'garrysnotes': { url: 'https://garryslist.org', name: 'Articles (C4)', from: 'C3', dest: 'C4 activity' },
+    'garrysguide': { url: 'https://garrysguide.org', name: "Garry's List Action (PAC)", from: 'C3', dest: 'political action (PAC)' }
+  };
+
+  var info = allowed[to];
+  if (!info) {
+    // Fallback: stay on hub
+    document.getElementById('lede').textContent = 'Returning to Garry\u2019s List…';
+    setTimeout(function(){ window.location.replace('hub.html'); }, 1500);
+    return;
+  }
+
+  document.getElementById('sub').textContent =
+    'You are now leaving Garry\u2019s List ' + info.from + ' and being redirected to our ' + info.dest + '.';
+  document.getElementById('dest').innerHTML =
+    'Now visiting: <strong>' + info.name + '</strong>';
+
+  var link = document.getElementById('manualLink');
+  link.setAttribute('href', info.url);
+
+  setTimeout(function () {
+    window.location.replace(info.url);
+  }, 2200);
+})();
+</script>
+</body>
+</html>
