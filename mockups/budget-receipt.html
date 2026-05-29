@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>California's $248 Billion Receipt</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #1a1816;
+  --bg2: #221f1c;
+  --card: #2a2622;
+  --text: #f5f3f0;
+  --text2: rgba(245,243,240,.6);
+  --text3: rgba(245,243,240,.3);
+  --red: #d4553e;
+  --red-glow: rgba(212,85,62,.3);
+  --red-dim: rgba(212,85,62,.08);
+  --amber: #d4a03e;
+  --teal: #6db09a;
+  --font-hed: 'Fraunces', Georgia, serif;
+  --font: 'Source Sans 3', -apple-system, sans-serif;
+  --mono: 'Source Sans 3', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(245,243,240,.15); border-radius: 4px; }
+
+/* ── Fixed nav ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 28px;
+  background: linear-gradient(var(--bg), transparent);
+  pointer-events: none;
+}
+.nav > * { pointer-events: auto; }
+.nav-logo {
+  font-size: 9px; font-weight: 700; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--text3);
+  display: flex; align-items: center; gap: 7px;
+}
+.nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.nav-counter {
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
+  font-weight: 500; font-variant-numeric: tabular-nums;
+}
+
+/* ── Progress bar ── */
+.progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 2px; background: var(--red); width: 0%;
+  transition: width .15s linear;
+}
+
+/* ── Sections ── */
+section {
+  min-height: 70vh;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  flex-direction: column; text-align: center;
+  padding: 40px 24px;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  opacity: 0; transform: translateY(20px);
+}
+.hero-number {
+  font-family: var(--font-hed); font-weight: 700;
+  font-size: clamp(42px, 10vw, 120px);
+  letter-spacing: -.04em; line-height: .9;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 80px var(--red-glow);
+}
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text2); font-weight: 300;
+  max-width: 460px; line-height: 1.5;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(20px);
+}
+.hero-prompt {
+  font-family: var(--mono); font-size: 12px;
+  color: var(--text3); letter-spacing: .1em;
+  opacity: 0;
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: .3; }
+  50% { opacity: .6; }
+}
+.hero-arrow {
+  margin-top: 12px; font-size: 18px; color: var(--text3);
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ── COMPARISON SLIDES ── */
+.comp {
+  flex-direction: column;
+  padding: 48px 24px;
+  text-align: center;
+}
+.comp-inner {
+  max-width: 800px; width: 100%;
+  opacity: 0; transform: translateY(40px);
+  transition: all .8s cubic-bezier(.25,.1,.0,1);
+}
+.comp-inner.active {
+  opacity: 1; transform: translateY(0);
+}
+
+.comp-label {
+  font-family: var(--mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .3em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.comp-label.you-paid { color: var(--text3); }
+.comp-label.you-got { color: var(--red); }
+
+.comp-amount {
+  font-family: var(--font-hed); font-weight: 700;
+  font-size: clamp(36px, 7vw, 76px);
+  letter-spacing: -.03em; line-height: 1;
+  color: var(--text); margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.comp-context {
+  font-size: 13px; color: var(--text3);
+  margin-bottom: 32px; font-weight: 300;
+}
+
+/* Divider line with dot */
+.comp-divider {
+  width: 40px; height: 1px;
+  background: var(--red);
+  margin: 0 auto 32px;
+  position: relative;
+  opacity: 0; transform: scaleX(0);
+  transition: all .6s cubic-bezier(.25,.1,.0,1) .3s;
+}
+.comp-inner.active .comp-divider {
+  opacity: 1; transform: scaleX(1);
+}
+
+.comp-result {
+  font-family: var(--font-hed); font-weight: 600;
+  font-size: clamp(22px, 4.5vw, 40px);
+  letter-spacing: -.02em; line-height: 1.2;
+  color: var(--red);
+  margin-bottom: 10px;
+  text-shadow: 0 0 60px var(--red-glow);
+  opacity: 0; transform: translateY(20px) scale(.96);
+  transition: all .7s cubic-bezier(.25,.1,.0,1) .5s;
+}
+.comp-inner.active .comp-result {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+
+
+
+/* ── Ambient glow per section ── */
+.comp::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.comp.glow-active::before { opacity: 1; }
+.comp.glow-red::before { background: rgba(212,85,62,.06); top: 20%; left: 50%; transform: translateX(-50%); }
+.comp.glow-amber::before { background: rgba(212,160,62,.06); top: 20%; left: 50%; transform: translateX(-50%); }
+
+/* ── BAR CHART VISUAL ── */
+.bar-pair {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 24px; height: 180px; margin: 20px auto 28px;
+  max-width: 400px; width: 100%;
+}
+.bar-col {
+  flex: 1; max-width: 140px;
+  display: flex; flex-direction: column;
+  align-items: center;
+}
+.bar-fill {
+  width: 100%; border-radius: 4px 4px 0 0;
+  transition: height 1.2s cubic-bezier(.25,.1,.0,1);
+}
+.bar-fill.paid { background: var(--text3); height: 0; }
+.bar-fill.got { background: var(--red); height: 0; }
+.bar-tag {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); margin-top: 8px;
+  text-transform: uppercase; letter-spacing: .1em;
+}
+
+/* ── SCOREBOARD ── */
+.scoreboard {
+  flex-direction: column;
+  padding: 48px 24px;
+  text-align: center;
+}
+.score-title {
+  font-family: var(--font-hed); font-size: clamp(24px, 4vw, 38px);
+  font-weight: 600; letter-spacing: -.02em;
+  margin-bottom: 40px; color: var(--text);
+}
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px; max-width: 900px; width: 100%;
+}
+.score-card {
+  background: var(--card); border: 1px solid rgba(245,243,240,.06);
+  border-radius: 8px; padding: 22px 20px;
+  text-align: left;
+  opacity: 0; transform: translateY(24px) scale(.97);
+  transition: all .5s cubic-bezier(.25,.1,.0,1);
+}
+.score-card.show {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+.score-card:hover {
+  border-color: rgba(212,85,62,.2);
+  box-shadow: 0 0 40px rgba(212,85,62,.05);
+}
+.score-rank {
+  font-family: var(--font-hed); font-size: 30px; font-weight: 700;
+  color: var(--red); margin-bottom: 4px;
+}
+.score-stat {
+  font-size: 13px; font-weight: 600; color: var(--text);
+  margin-bottom: 4px;
+}
+.score-note {
+  font-size: 11px; color: var(--text3); line-height: 1.5;
+}
+
+/* ── GLOBAL COMPARISON CALLOUTS ── */
+.comp-compare {
+  margin-top: 16px; padding: 10px 16px;
+  border-left: 2px solid var(--red);
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text3); line-height: 1.6;
+  letter-spacing: .01em;
+  opacity: 0; transform: translateY(8px);
+  transition: all .6s ease;
+}
+.comp-compare.show { opacity: 1; transform: translateY(0); }
+.comp-compare strong { color: var(--red); font-weight: 600; }
+.comp-compare .compare-src {
+  display: block; margin-top: 4px;
+  font-size: 9px; color: var(--text3); opacity: .6;
+  letter-spacing: .05em; text-transform: uppercase;
+}
+
+/* ── LEAKY BUCKET ── */
+.bucket-sec {
+  min-height: 70vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 24px 48px; position: relative; overflow: visible;
+}
+.bucket-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text3); text-transform: uppercase;
+  letter-spacing: .2em; text-align: center; margin-bottom: 12px;
+  opacity: 0; transition: opacity .8s ease;
+}
+.bucket-sec.active .bucket-eyebrow { opacity: 1; }
+.bucket-title {
+  font-family: var(--font-hed); font-size: clamp(26px, 5vw, 44px);
+  color: var(--text); text-align: center; margin-bottom: 8px;
+  opacity: 0; transform: translateY(20px);
+  transition: all .8s ease;
+}
+.bucket-scroll-prompt {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text3); letter-spacing: .3em;
+  text-align: center; margin-top: 12px;
+  opacity: 0; transition: opacity .6s ease;
+}
+.bucket-scroll-arrow {
+  font-size: 18px; color: var(--text3);
+  text-align: center; margin-top: 4px;
+  opacity: 0; transition: opacity .6s ease;
+  animation: bobArrow 2s ease-in-out infinite;
+}
+@keyframes bobArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.bucket-sec.active .bucket-scroll-prompt { opacity: .3; transition-delay: 4.5s; }
+.bucket-sec.active .bucket-scroll-arrow { opacity: .3; transition-delay: 4.5s; }
+.bucket-subtitle {
+  font-family: var(--mono); font-size: 11px; color: var(--text3);
+  text-transform: uppercase; letter-spacing: .12em; text-align: center;
+  margin-bottom: 40px;
+  opacity: 0; transition: opacity .6s ease .3s;
+}
+.bucket-canvas-wrap {
+  position: relative; width: 780px; max-width: 98vw; aspect-ratio: 780/660;
+  opacity: 0; transform: scale(.95);
+  transition: all .8s ease .4s;
+}
+.bucket-canvas-wrap canvas {
+  width: 100%; height: 100%; display: block;
+}
+.bucket-label {
+  position: absolute; font: 700 4.6vw 'JetBrains Mono', monospace;
+  color: #d4553e; text-shadow: 0 0 14px rgba(212,85,62,.6), 0 0 6px rgba(0,0,0,.95);
+  opacity: 0; transition: opacity .5s ease; pointer-events: none;
+  white-space: nowrap; display: none;
+}
+.bucket-hole-label {
+  position: absolute; font: 700 1.6vw 'JetBrains Mono', monospace;
+  color: #d4553e; text-shadow: 0 0 10px rgba(212,85,62,.5), 0 2px 4px rgba(0,0,0,.9);
+  opacity: 0; transition: opacity .5s ease; pointer-events: none;
+  white-space: nowrap; line-height: 1;
+}
+.bucket-hole-label.vis { opacity: 1; }
+.bucket-hole-label.left { text-align: right; }
+.bucket-hole-label.right { text-align: left; }
+.bucket-pour-label {
+  position: absolute; top: 2%; left: 0; right: 0; text-align: center;
+  opacity: 0; transition: opacity .6s ease; pointer-events: none;
+}
+.bucket-pour-label.vis { opacity: 1; }
+.bucket-pour-label .amount {
+  font: 800 8vw 'Fraunces', Georgia, serif; color: #6ec8f5;
+  text-shadow: 0 0 20px rgba(110,200,245,.5);
+}
+.bucket-pour-label .sub {
+  display: block; font: 600 2.8vw 'JetBrains Mono', monospace;
+  color: rgba(110,200,245,.6); margin-top: 2px;
+}
+.bucket-trickle-label {
+  position: absolute; bottom: 8%; left: 0; right: 0; text-align: center;
+  font: 700 3.2vw 'JetBrains Mono', monospace; color: #d4553e;
+  text-shadow: 0 0 10px rgba(212,85,62,.5);
+  opacity: 0; transition: opacity .6s ease; pointer-events: none;
+}
+.bucket-trickle-label.vis { opacity: 1; }
+.bucket-sec.active .bucket-title {
+  opacity: 1; transform: translateY(0);
+}
+.bucket-sec.active .bucket-subtitle { opacity: 1; }
+.bucket-sec.active .bucket-canvas-wrap {
+  opacity: 1; transform: scale(1);
+}
+.bucket-bottom-stat {
+  text-align: center; margin-top: 16px;
+  font-family: var(--font-hed); font-size: clamp(14px, 2.5vw, 20px);
+  color: var(--text2); line-height: 1.6;
+  opacity: 0; transform: translateY(10px);
+  transition: all .6s ease;
+}
+.bucket-sec.active .bucket-bottom-stat {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 4s;
+}
+.bucket-bottom-stat strong { color: var(--red); }
+
+/* ── CLOSE ── */
+.close-sec {
+  flex-direction: column; text-align: center;
+  padding: 48px 24px; min-height: 60vh;
+}
+.close-line {
+  font-family: var(--font-hed); font-size: clamp(18px, 3.5vw, 30px);
+  font-weight: 400; line-height: 1.5; max-width: 640px;
+  color: var(--text2); margin-bottom: 32px;
+  opacity: 0; transform: translateY(20px);
+}
+.close-line.active { opacity: 1; transform: translateY(0); transition: all .8s ease; }
+.close-line em { color: var(--red); font-style: normal; font-weight: 700; }
+.close-punch {
+  font-family: var(--font-hed); font-size: clamp(24px, 5vw, 46px);
+  font-weight: 700; letter-spacing: -.03em;
+  color: var(--text);
+  text-shadow: 0 0 80px var(--red-glow);
+  opacity: 0; transform: translateY(20px) scale(.95);
+}
+.close-punch.active { opacity: 1; transform: translateY(0) scale(1); transition: all 1s cubic-bezier(.25,.1,.0,1) .3s; }
+.close-punch span { color: var(--red); }
+
+/* ── SOURCES ── */
+/* ── Input vs Output Chart ── */
+.chart-sec {
+  min-height: 60vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 24px; position: relative;
+}
+.chart-title {
+  font-family: var(--font-hed); font-size: clamp(22px, 4vw, 36px);
+  font-weight: 500; color: var(--text); text-align: center;
+  margin-bottom: 40px;
+  opacity: 0; transform: translateY(16px);
+  transition: all .6s ease;
+}
+.chart-sec.active .chart-title { opacity: 1; transform: translateY(0); }
+.chart-area {
+  width: 100%; max-width: 640px;
+}
+.bar-row {
+  display: grid; grid-template-columns: 110px 1fr 110px;
+  align-items: center; gap: 12px;
+  margin-bottom: 16px;
+  opacity: 0; transform: translateX(-20px);
+  transition: all .5s cubic-bezier(.25,.1,.0,1);
+}
+.bar-row.show { opacity: 1; transform: translateX(0); }
+.bar-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--text); text-align: right;
+  letter-spacing: .02em; line-height: 1.4;
+}
+.bar-track {
+  height: 28px; background: rgba(255,255,255,.06);
+  border-radius: 4px; overflow: hidden; position: relative;
+}
+.bar-fill {
+  height: 100%; border-radius: 4px;
+  width: 0; transition: width 1.2s cubic-bezier(.25,.1,.0,1);
+}
+.bar-fill.bar-input { background: var(--text2); opacity: .6; }
+.bar-val {
+  font-family: var(--mono); font-size: 11px;
+  font-weight: 600; text-align: left;
+}
+@media (max-width: 500px) {
+  .bar-row { grid-template-columns: 80px 1fr 70px; gap: 8px; }
+  .bar-label { font-size: 9px; }
+  .bar-val { font-size: 10px; }
+}
+
+.sources-sec {
+  min-height: auto; padding: 40px 24px 80px;
+  flex-direction: column;
+}
+.sources-inner {
+  max-width: 600px; text-align: center;
+}
+.sources-inner p {
+  font-size: 11px; color: var(--text3); line-height: 1.8;
+}
+.sources-inner a { color: var(--red); text-decoration: none; }
+.sources-inner a:hover { text-decoration: underline; }
+.sources-inner .gl-mark {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.sources-inner .gl-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--red); }
+
+/* ── Particles ── */
+.particles-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+.particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(212,85,62,.04);
+  animation: drift linear infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: .04; }
+  50% { opacity: .07; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Headline interstitials ── */
+.hl-break {
+  min-height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 40px 28px;
+  position: relative; overflow: hidden;
+  background-size: cover; background-position: center;
+}
+.hl-break::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(26,24,22,.78);
+}
+.hl-inner {
+  position: relative; max-width: 680px;
+  opacity: 0; transform: translateY(24px) scale(.97);
+  transition: all .8s cubic-bezier(.25,.1,.0,1);
+}
+.hl-inner.active { opacity: 1; transform: translateY(0) scale(1); }
+.hl-context {
+  font-family: var(--mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 20px;
+  opacity: .7;
+}
+.hl-quote {
+  font-family: var(--font-hed);
+  font-size: clamp(24px, 5vw, 44px);
+  font-weight: 500; font-style: italic;
+  line-height: 1.3; color: var(--text);
+  letter-spacing: -.01em;
+  text-shadow: 0 2px 30px rgba(0,0,0,.5);
+}
+.hl-src {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text2); margin-top: 16px;
+  letter-spacing: .05em;
+  text-shadow: 0 1px 10px rgba(0,0,0,.5);
+}
+.hl-break::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(26,24,22,.4) 100%);
+  pointer-events: none;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .bar-pair { height: 120px; gap: 16px; }
+  .score-grid { grid-template-columns: 1fr; }
+  .nav { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav">
+  <div class="nav-logo"><div class="nav-dot"></div>Garry's List</div>
+  <div class="nav-counter" id="navCounter"></div>
+</nav>
+
+<div class="particles-bg" id="particles"></div>
+
+<!-- ════════════ LEAKY BUCKET (HERO) ════════════ -->
+<section class="bucket-sec" id="s-bucket">
+  <div class="bucket-eyebrow">California · Fiscal Year 2025-26</div>
+  <div class="bucket-title">Where Does California's Money Go?</div>
+  <div class="bucket-subtitle">$248 billion in · Almost nothing out</div>
+  <div class="bucket-canvas-wrap">
+    <canvas id="bucketCanvas" width="1560" height="1120"></canvas>
+    <div class="bucket-pour-label" id="pourLabel"><span class="amount">$248 BILLION</span><span class="sub">TAXPAYER DOLLARS</span></div>
+    <div class="bucket-hole-label left" style="top:20%;right:66%" data-hi="0">38th in math</div>
+    <div class="bucket-hole-label right" style="top:18%;left:62%" data-hi="1">#1 poverty rate</div>
+    <div class="bucket-hole-label left" style="top:26%;right:66%" data-hi="2">0 rail miles</div>
+    <div class="bucket-hole-label right" style="top:24%;left:62%" data-hi="3">Ghost doctors</div>
+    <div class="bucket-hole-label left" style="top:32%;right:66%" data-hi="4">+20% homeless</div>
+    <div class="bucket-hole-label right" style="top:30%;left:62%" data-hi="5">39% recidivism</div>
+    <div class="bucket-trickle-label" id="trickleLabel">WHAT CALIFORNIANS ACTUALLY GET</div>
+  </div>
+  <div class="bucket-scroll-prompt">SCROLL</div>
+  <div class="bucket-scroll-arrow">↓</div>
+</section>
+
+<!-- ════════════ EDUCATION ════════════ -->
+<section class="comp glow-red" id="s-edu">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="142.4" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">38th in math.</div>
+    <div class="comp-compare">Vietnam spends <strong>35x less</strong> and scores higher.<span class="compare-src">PISA 2022</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ MEDI-CAL ════════════ -->
+<section class="comp glow-red" id="s-med">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="197" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">Ghost networks.<br>Patients can't find doctors.</div>
+  </div>
+</section>
+
+
+<!-- ════════════ POVERTY (new) ════════════ -->
+
+
+<!-- ════════════ HOMELESSNESS ════════════ -->
+<section class="comp glow-red" id="s-home">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="24" data-pre="$" data-suf="B">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">#1 poverty rate. 20% more homeless.</div>
+    <div class="comp-compare">Higher poverty rate than <strong>Honduras</strong>. $24B spent, homelessness up 20%.<span class="compare-src">Census SPM · CA Auditor</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ CORRECTIONS ════════════ -->
+<section class="comp glow-amber" id="s-corr">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="132860" data-pre="$" data-suf="" data-fmt="comma">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">39% back in prison<br>within 3 years.</div>
+    <div class="comp-compare">Norway spends the same and has <strong>half the recidivism</strong>.<span class="compare-src">Norwegian Correctional Service</span></div>
+  </div>
+</section>
+
+
+<!-- ════════════ HIGH-SPEED RAIL ════════════ -->
+<section class="comp glow-red" id="s-rail">
+  <div class="comp-inner">
+    <div class="comp-label you-paid">You paid</div>
+    <div class="comp-amount" data-counter data-to="126" data-pre="$" data-suf="B+">$0</div>
+    <div class="comp-divider"></div>
+    <div class="comp-label you-got">You got</div>
+    <div class="comp-result">Zero miles<br>of track.</div>
+    <div class="comp-compare">Spain built <strong>2,326 miles</strong> for less than California's single line.<span class="compare-src">Ineco 2023</span></div>
+  </div>
+</section>
+<!-- ════════════ INPUT VS OUTPUT CHART ════════════ -->
+<section class="chart-sec" id="s-chart">
+  <div class="chart-title">The Disparity</div>
+  <div class="chart-sub" style="font-family:var(--mono);font-size:11px;color:var(--text3);text-align:center;margin-bottom:32px;letter-spacing:.1em;text-transform:uppercase;opacity:0;transition:opacity .6s ease .4s">What California spends vs. what Californians get</div>
+  <div class="chart-area">
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Education<br><span style="color:var(--text3);font-size:9px">$142.4B</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="85"></div></div>
+      <div class="bar-val" style="color:var(--red)">38th in math</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Healthcare<br><span style="color:var(--text3);font-size:9px">$197B</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="100"></div></div>
+      <div class="bar-val" style="color:var(--red)">Ghost networks</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Poverty<br><span style="color:var(--text3);font-size:9px">Top per-capita</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="70"></div></div>
+      <div class="bar-val" style="color:var(--red)">#1 poverty rate</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Homelessness<br><span style="color:var(--text3);font-size:9px">$24B since 2019</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="30"></div></div>
+      <div class="bar-val" style="color:var(--red)">+20% homeless</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">Corrections<br><span style="color:var(--text3);font-size:9px">$133K/inmate</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="80"></div></div>
+      <div class="bar-val" style="color:var(--red)">39% recidivism</div>
+    </div>
+    <div class="bar-row" data-bar>
+      <div class="bar-label">High-Speed Rail<br><span style="color:var(--text3);font-size:9px">$126B+</span></div>
+      <div class="bar-track"><div class="bar-fill bar-input" data-w="75"></div></div>
+      <div class="bar-val" style="color:var(--red)">0 miles</div>
+    </div>
+
+  </div>
+  <div class="chart-note" style="font-family:var(--font-hed);font-size:clamp(16px,3vw,22px);font-style:italic;color:var(--text2);text-align:center;margin-top:40px;max-width:500px;opacity:0;transition:opacity .8s ease 2s">Every bar is massive spending.<br>Every outcome is failure.</div>
+</section>
+
+<!-- ════════════ CLOSE ════════════ -->
+<section class="close-sec" id="s-close">
+  <div class="close-line" id="cl1">California has the <em>highest tax rate</em> in America.</div>
+  <div class="close-line" id="cl2">Revenue is up <em>30%</em> in three years.</div>
+  <div class="close-line" id="cl3">And the state is still running a <em>$10 billion structural deficit</em> - during a boom.</div>
+  <div class="close-punch" id="clPunch">Not a revenue problem.<br>A <span>spending accountability</span> problem.</div>
+</section>
+
+<!-- ════════════ SOURCES ════════════ -->
+<section class="sources-sec">
+  <div class="sources-inner">
+    <div class="gl-mark"><div class="gl-dot"></div>Garry's List · CA Budget Watch</div>
+    <p>
+      Data sourced from the <a href="https://lao.ca.gov/Publications/Report/5187">CA Legislative Analyst's Office (Report 5187)</a>,
+      <a href="https://lao.ca.gov/Publications/Report/5101">LAO 5101</a>,
+      NAEP 2024, HUD Point-in-Time Count 2024,
+      CalPERS, CA Department of Corrections (2025 Recidivism Report),
+      U.S. Census Supplemental Poverty Measure 2024,
+      CA Association of Realtors 2025 Forecast,
+      CA High-Speed Rail Authority 2026 Business Plan,
+      and the Governor's May Revision 2026.
+    </p>
+  </div>
+</section>
+
+<script>
+// ── Particles ──
+(function(){
+  var c = document.getElementById('particles');
+  for (var i = 0; i < 30; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    var s = Math.random() * 4 + 2;
+    p.style.cssText = 'width:'+s+'px;height:'+s+'px;left:'+Math.random()*100+'%;top:'+(50+Math.random()*60)+'%;animation-duration:'+(20+Math.random()*30)+'s;animation-delay:'+Math.random()*20+'s';
+    c.appendChild(p);
+  }
+})();
+
+// ── Progress bar ──
+var prog = document.getElementById('progress');
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  prog.style.width = (window.scrollY / h * 100) + '%';
+});
+
+// Hero section removed — bucket section now flows directly to content
+
+// ── Counter utility ──
+function countUp(el, from, to, pre, suf, dur, big) {
+  var start = performance.now();
+  (function tick(now) {
+    var t = Math.min((now - start) / dur, 1);
+    t = 1 - Math.pow(1 - t, 3); // ease-out cubic
+    var v = from + t * (to - from);
+    if (big) {
+      el.textContent = pre + formatBig(Math.round(v));
+    } else if (to % 1 !== 0) {
+      el.textContent = pre + v.toFixed(1) + suf;
+    } else {
+      el.textContent = pre + Math.round(v).toLocaleString() + suf;
+    }
+    if (t < 1) requestAnimationFrame(tick);
+  })(start);
+}
+
+function formatBig(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(0) + ',000,000,000';
+  return n.toLocaleString();
+}
+
+// ── Leaky Bucket (Canvas Fluid Simulation) ──
+(function() {
+  var bucketSec = document.getElementById('s-bucket');
+  var cv = document.getElementById('bucketCanvas');
+  if (!bucketSec || !cv) return;
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height;
+  var running = false, startT = 0;
+
+  // Bucket geometry - centered in 1560-wide canvas
+  var bTop = 160, bBot = 500, bLeft = 570, bRight = 990;
+  var bTopLeft = 540, bTopRight = 1020;
+  var rimRx = 242, rimRy = 28;
+  var rimCx = W/2, rimCy = bTop;
+  var handleTop = 80;
+
+  // Phases: 0-3s fill, 3-4s pause at top, 4s+ drain
+  var FILL_END = 2.5;
+  var DRAIN_START = 3.2;
+  var waterFull = bTop + 30; // near the top
+  var waterEmpty = bBot + 10; // fully drained
+
+  // Holes with OUTCOME labels (58px font, wide canvas)
+  var holes = [
+    {x:552, y:230, r:9, side:'l', label:'38th in math'},
+    {x:950, y:210, r:8, side:'r', label:'#1 poverty'},
+    {x:558, y:300, r:10, side:'l', label:'0 rail miles'},
+    {x:945, y:280, r:9, side:'r', label:'Ghost doctors'},
+    {x:565, y:370, r:8, side:'l', label:'+20% homeless'},
+    {x:940, y:350, r:8, side:'r', label:'39% reoffend'}
+  ];
+
+  // Water color palette (blue)
+  var WATER = {
+    top:    [60, 140, 220],
+    mid:    [40, 100, 180],
+    bot:    [25, 70, 140],
+    bright: [90, 170, 255],
+    stream: [70, 155, 240]
+  };
+  function rgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+
+  // Particles
+  var pourDrops = [];
+  var leakDrops = [];
+  var trickleDrops = [];
+  var waterLevel = bBot + 10;
+
+  function bucketLeftAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopLeft + t * (bLeft - bTopLeft);
+  }
+  function bucketRightAt(y) {
+    var t = (y - bTop) / (bBot - bTop);
+    return bTopRight + t * (bRight - bTopRight);
+  }
+
+  function bucketPath() {
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft, bTop);
+    ctx.bezierCurveTo(bTopLeft - 5, bTop + (bBot-bTop)*0.4, bLeft + 5, bBot - 40, bLeft, bBot);
+    ctx.quadraticCurveTo(bLeft - 5, bBot + 30, W/2, bBot + 30);
+    ctx.quadraticCurveTo(bRight + 5, bBot + 30, bRight, bBot);
+    ctx.bezierCurveTo(bRight - 5, bBot - 40, bTopRight + 5, bTop + (bBot-bTop)*0.4, bTopRight, bTop);
+  }
+
+  function drawBucket(time) {
+    var pulse = 0.7 + Math.sin(time * 1.5) * 0.1;
+    var gCol = [90, 170, 255];
+
+    // ── Handle (anchored to rim) ──
+    // Attachment points on rim ellipse (at ±170px from center)
+    var hAttachLx = rimCx - 170;
+    var hAttachRx = rimCx + 170;
+    // Y on rim ellipse at those x positions
+    var hRimT = Math.sqrt(1 - Math.pow((170) / rimRx, 2));
+    var hAttachY = rimCy - rimRy * hRimT; // top of ellipse
+    // Arc center below attachment points, radius sized for nice curve
+    var hCy = 285, hR = 222;
+    var hA1 = Math.atan2(hAttachY - hCy, hAttachLx - rimCx);
+    var hA2 = Math.atan2(hAttachY - hCy, hAttachRx - rimCx);
+    // Handle shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.4)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 4;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    ctx.strokeStyle = '#3a3836';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    ctx.restore();
+    // Handle body
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1, hA2);
+    var hGrad = ctx.createLinearGradient(rimCx - 200, bTop - 140, rimCx + 200, bTop - 140);
+    hGrad.addColorStop(0, '#4a4644');
+    hGrad.addColorStop(0.3, '#6a6562');
+    hGrad.addColorStop(0.5, '#787370');
+    hGrad.addColorStop(0.7, '#6a6562');
+    hGrad.addColorStop(1, '#4a4644');
+    ctx.strokeStyle = hGrad;
+    ctx.lineWidth = 8;
+    ctx.stroke();
+    // Handle specular
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.08, hA2 - 0.08);
+    ctx.strokeStyle = 'rgba(200,195,185,.15)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Handle glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.arc(rimCx, hCy, hR, hA1 + 0.04, hA2 - 0.04);
+    ctx.strokeStyle = rgba(gCol, 0.12 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+    // Pivot rivets anchored on rim
+    [{x: hAttachLx, y: hAttachY}, {x: hAttachRx, y: hAttachY}].forEach(function(p) {
+      ctx.beginPath(); ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = '#5a5654'; ctx.fill();
+      ctx.strokeStyle = '#807a78'; ctx.lineWidth = 1.5; ctx.stroke();
+      ctx.beginPath(); ctx.arc(p.x - 1, p.y - 1, 2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(180,175,170,.15)'; ctx.fill();
+    });
+
+    // ── Bucket body (solid metallic fill) ──
+    // Drop shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,.35)';
+    ctx.shadowBlur = 25;
+    ctx.shadowOffsetY = 8;
+    bucketPath(); ctx.closePath();
+    ctx.fillStyle = '#2a2826'; ctx.fill();
+    ctx.restore();
+
+    // Main body gradient (left-to-right metallic sheen)
+    bucketPath(); ctx.closePath();
+    var bodyGrad = ctx.createLinearGradient(bLeft - 30, 0, bRight + 30, 0);
+    bodyGrad.addColorStop(0, '#2a2826');
+    bodyGrad.addColorStop(0.1, '#3e3a38');
+    bodyGrad.addColorStop(0.25, '#504c48');
+    bodyGrad.addColorStop(0.4, '#5c5854');
+    bodyGrad.addColorStop(0.5, '#625e5a');
+    bodyGrad.addColorStop(0.6, '#5c5854');
+    bodyGrad.addColorStop(0.75, '#504c48');
+    bodyGrad.addColorStop(0.9, '#3e3a38');
+    bodyGrad.addColorStop(1, '#2a2826');
+    ctx.fillStyle = bodyGrad;
+    ctx.fill();
+
+    // Top-to-bottom depth gradient (overlay)
+    bucketPath(); ctx.closePath();
+    var depthGrad = ctx.createLinearGradient(0, bTop, 0, bBot + 30);
+    depthGrad.addColorStop(0, 'rgba(100,95,90,.12)');
+    depthGrad.addColorStop(0.3, 'rgba(0,0,0,0)');
+    depthGrad.addColorStop(0.8, 'rgba(0,0,0,.15)');
+    depthGrad.addColorStop(1, 'rgba(0,0,0,.25)');
+    ctx.fillStyle = depthGrad;
+    ctx.fill();
+
+    // Specular highlight (left-center)
+    bucketPath(); ctx.closePath();
+    ctx.save(); ctx.clip();
+    var specGrad = ctx.createRadialGradient(W/2 - 80, bTop + 80, 10, W/2 - 80, bTop + 80, 180);
+    specGrad.addColorStop(0, 'rgba(180,175,165,.08)');
+    specGrad.addColorStop(1, 'rgba(180,175,165,0)');
+    ctx.fillStyle = specGrad;
+    ctx.fillRect(bLeft - 20, bTop, bRight - bLeft + 40, bBot - bTop + 30);
+    ctx.restore();
+
+    // Edge outline
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = '#6a6562';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Edge glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.15 * pulse);
+    ctx.shadowBlur = 6;
+    bucketPath(); ctx.closePath();
+    ctx.strokeStyle = rgba(gCol, 0.1 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // ── Horizontal bands + rivets ──
+    for (var band = 0; band < 3; band++) {
+      var by = bTop + 80 + band * 95;
+      var lx = bucketLeftAt(by) + 6;
+      var rx = bucketRightAt(by) - 6;
+      // Band
+      ctx.beginPath();
+      ctx.moveTo(lx, by); ctx.lineTo(rx, by);
+      ctx.strokeStyle = 'rgba(90,85,80,.35)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      // Band highlight (above)
+      ctx.beginPath();
+      ctx.moveTo(lx, by - 1); ctx.lineTo(rx, by - 1);
+      ctx.strokeStyle = 'rgba(140,135,128,.1)';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+      // Rivets
+      for (var ri = 0; ri < 8; ri++) {
+        var rvx = lx + (rx - lx) * (ri / 7);
+        ctx.beginPath(); ctx.arc(rvx, by, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(100,95,90,.4)'; ctx.fill();
+        ctx.beginPath(); ctx.arc(rvx - 0.5, by - 0.5, 1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(160,155,148,.15)'; ctx.fill();
+      }
+    }
+
+    // ── Bottom ellipse (3D base) ──
+    var botW = (bRight - bLeft) / 2;
+    ctx.beginPath();
+    ctx.ellipse(W/2, bBot + 8, botW + 4, 16, 0, 0, Math.PI);
+    ctx.fillStyle = '#2a2826';
+    ctx.fill();
+    ctx.strokeStyle = '#5a5654';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // ── Rim (thick rolled metal) ──
+    // Rim body
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    var rimGrad = ctx.createLinearGradient(rimCx - rimRx, rimCy, rimCx + rimRx, rimCy);
+    rimGrad.addColorStop(0, '#3a3836');
+    rimGrad.addColorStop(0.2, '#5a5654');
+    rimGrad.addColorStop(0.4, '#6a6664');
+    rimGrad.addColorStop(0.5, '#747070');
+    rimGrad.addColorStop(0.6, '#6a6664');
+    rimGrad.addColorStop(0.8, '#5a5654');
+    rimGrad.addColorStop(1, '#3a3836');
+    ctx.fillStyle = rimGrad;
+    ctx.fill();
+    ctx.strokeStyle = '#807a78';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    // Inner rim (depth ring)
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy + 5, rimRx - 16, rimRy - 7, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = '#3a3632';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Rim specular highlight
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy - 3, rimRx - 8, rimRy - 3, 0, Math.PI * 1.1, Math.PI * 1.9);
+    ctx.strokeStyle = 'rgba(210,200,185,.12)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Rim glow accent
+    ctx.save();
+    ctx.shadowColor = rgba(gCol, 0.2 * pulse);
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.ellipse(rimCx, rimCy, rimRx, rimRy, 0, 0, Math.PI * 2);
+    ctx.strokeStyle = rgba(gCol, 0.08 * pulse);
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    // ── Subtle scan overlay (tech accent, not dominant) ──
+    ctx.save();
+    bucketPath(); ctx.closePath(); ctx.clip();
+    var scanY = bTop + ((time * 35) % (bBot - bTop + 40));
+    if (scanY < bBot + 20) {
+      var scanGrad = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+      scanGrad.addColorStop(0, rgba(gCol, 0));
+      scanGrad.addColorStop(0.5, rgba(gCol, 0.04));
+      scanGrad.addColorStop(1, rgba(gCol, 0));
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(bLeft - 20, scanY - 20, bRight - bLeft + 40, 40);
+    }
+    ctx.restore();
+
+    // ── Measurement ticks ──
+    for (var tk = 0; tk < 6; tk++) {
+      var tky = bTop + 40 + tk * 65;
+      var tkx = bucketLeftAt(tky);
+      ctx.beginPath();
+      ctx.moveTo(tkx + 8, tky); ctx.lineTo(tkx + 20, tky);
+      ctx.strokeStyle = rgba(gCol, 0.12 + Math.sin(time * 2 + tk) * 0.04);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // ── Holes (dark with red glow accent) ──
+    holes.forEach(function(h) {
+      // Dark punch-through
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+      ctx.fillStyle = '#0a0a0c';
+      ctx.fill();
+      // Metal edge ring
+      ctx.strokeStyle = '#5a5654';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      // Inner bevel
+      ctx.beginPath();
+      ctx.arc(h.x + 0.5, h.y + 0.5, h.r - 1.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(40,38,36,.8)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      // Red glow accent
+      ctx.save();
+      ctx.shadowColor = 'rgba(212,85,62,.4)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.r + 0.5, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(212,85,62,.25)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+      // Glow halo
+      var hg = ctx.createRadialGradient(h.x, h.y, h.r * 0.5, h.x, h.y, h.r * 2.5);
+      hg.addColorStop(0, 'rgba(212,85,62,.1)');
+      hg.addColorStop(1, 'rgba(212,85,62,0)');
+      ctx.fillStyle = hg;
+      ctx.fillRect(h.x - h.r * 3, h.y - h.r * 3, h.r * 6, h.r * 6);
+    });
+  }
+
+  function drawWater(time) {
+    if (waterLevel >= bBot + 5) return;
+    ctx.save();
+    // Clip to bucket interior (matching curved body)
+    ctx.beginPath();
+    ctx.moveTo(bTopLeft + 6, bTop + 8);
+    ctx.bezierCurveTo(bTopLeft, bTop + (bBot-bTop)*0.4, bLeft + 8, bBot - 40, bLeft + 4, bBot);
+    ctx.quadraticCurveTo(bLeft, bBot + 26, W/2, bBot + 26);
+    ctx.quadraticCurveTo(bRight, bBot + 26, bRight - 4, bBot);
+    ctx.bezierCurveTo(bRight - 8, bBot - 40, bTopRight, bTop + (bBot-bTop)*0.4, bTopRight - 6, bTop + 8);
+    ctx.closePath();
+    ctx.clip();
+
+    var waveY = waterLevel;
+    ctx.beginPath();
+    ctx.moveTo(bLeft - 10, bBot + 30);
+    ctx.lineTo(bLeft - 10, waveY);
+    for (var wx = bLeft - 10; wx <= bRight + 10; wx += 3) {
+      var wy = waveY + Math.sin(wx * 0.022 + time * 2.8) * 5
+                     + Math.sin(wx * 0.013 - time * 2.0) * 3
+                     + Math.sin(wx * 0.04 + time * 4) * 1.5;
+      ctx.lineTo(wx, wy);
+    }
+    ctx.lineTo(bRight + 10, bBot + 30);
+    ctx.closePath();
+
+    var wGrad = ctx.createLinearGradient(0, waveY, 0, bBot + 30);
+    wGrad.addColorStop(0, rgba(WATER.top, .6));
+    wGrad.addColorStop(0.4, rgba(WATER.mid, .5));
+    wGrad.addColorStop(1, rgba(WATER.bot, .35));
+    ctx.fillStyle = wGrad;
+    ctx.fill();
+
+    // Surface highlight with glow
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, .4);
+    ctx.shadowBlur = 10;
+    ctx.beginPath();
+    for (var sx = bLeft; sx <= bRight; sx += 3) {
+      var sy = waveY + Math.sin(sx * 0.022 + time * 2.8) * 5
+                     + Math.sin(sx * 0.013 - time * 2.0) * 3
+                     + Math.sin(sx * 0.04 + time * 4) * 1.5;
+      if (sx === bLeft) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+    }
+    ctx.strokeStyle = rgba(WATER.bright, .5);
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+
+    // Underwater caustics
+    for (var ci = 0; ci < 6; ci++) {
+      var cx2 = 250 + ci * 65 + Math.sin(time * 1.3 + ci) * 20;
+      var cy2 = waveY + 40 + ci * 30 + Math.sin(time * 0.9 + ci * 2) * 15;
+      if (cy2 < waveY || cy2 > bBot) continue;
+      var cg = ctx.createRadialGradient(cx2, cy2, 0, cx2, cy2, 25);
+      cg.addColorStop(0, rgba(WATER.bright, .08));
+      cg.addColorStop(1, rgba(WATER.bright, 0));
+      ctx.fillStyle = cg;
+      ctx.fillRect(cx2 - 30, cy2 - 30, 60, 60);
+    }
+
+    ctx.restore();
+  }
+
+  // Pour stream
+  function drawPourStream(time) {
+    if (time < 0.3 || time > FILL_END + 0.5) return;
+    var alpha = time < 0.8 ? (time - 0.3) * 2 : (time > FILL_END ? Math.max(0, 1 - (time - FILL_END) * 2) : 1);
+    var streamW = 22;
+    var wobble = Math.sin(time * 7) * 2.5;
+    var sx = W/2 + 40 + wobble;
+
+    // Outer glow
+    ctx.save();
+    ctx.shadowColor = rgba(WATER.bright, alpha * 0.5);
+    ctx.shadowBlur = 20;
+    var sg = ctx.createLinearGradient(sx - streamW/2, 0, sx + streamW/2, 0);
+    sg.addColorStop(0, rgba(WATER.mid, alpha * 0.15));
+    sg.addColorStop(0.3, rgba(WATER.stream, alpha * 0.5));
+    sg.addColorStop(0.5, rgba(WATER.bright, alpha * 0.7));
+    sg.addColorStop(0.7, rgba(WATER.stream, alpha * 0.5));
+    sg.addColorStop(1, rgba(WATER.mid, alpha * 0.15));
+    ctx.fillStyle = sg;
+    ctx.fillRect(sx - streamW/2, 0, streamW, bTop + rimRy);
+    ctx.restore();
+
+    // Impact glow at rim
+    var glow = ctx.createRadialGradient(W/2, bTop, 4, W/2, bTop, 60);
+    glow.addColorStop(0, rgba(WATER.bright, alpha * 0.4));
+    glow.addColorStop(1, rgba(WATER.bright, 0));
+    ctx.fillStyle = glow;
+    ctx.fillRect(W/2 - 70, bTop - 50, 140, 100);
+  }
+
+  function spawnPour(time) {
+    if (time < 0.4 || time > FILL_END + 0.3) return;
+    for (var i = 0; i < 3; i++) {
+      pourDrops.push({
+        x: W/2 + 40 + (Math.random() - .5) * 18,
+        y: 15 + Math.random() * 10,
+        vx: (Math.random() - .5) * 1,
+        vy: 4 + Math.random() * 5,
+        r: 2 + Math.random() * 3.5,
+        life: 1
+      });
+    }
+  }
+
+  function spawnLeaks(time) {
+    if (time < DRAIN_START) return;
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + idx * 0.25;
+      if (time < delay) return;
+      if (h.y > waterLevel + 15) return;
+      if (Math.random() > 0.5) return;
+      var dir = h.side === 'l' ? -1 : 1;
+      leakDrops.push({
+        x: h.x + dir * (h.r + 1),
+        y: h.y + (Math.random() - .5) * 5,
+        vx: dir * (2.5 + Math.random() * 3.5),
+        vy: 0.5 + Math.random() * 2,
+        r: 1.5 + Math.random() * 2.5,
+        life: 1,
+        holeIdx: idx
+      });
+    });
+  }
+
+  function spawnTrickle(time) {
+    if (time < DRAIN_START + 1.5) return;
+    if (Math.random() > 0.12) return;
+    trickleDrops.push({
+      x: W/2 + (Math.random() - .5) * 6,
+      y: bBot + 32,
+      vx: (Math.random() - .5) * .4,
+      vy: 1 + Math.random() * 2,
+      r: 1 + Math.random() * 1.5,
+      life: 1
+    });
+  }
+
+  function updateDrops(arr, dt) {
+    for (var i = arr.length - 1; i >= 0; i--) {
+      var d = arr[i];
+      d.vy += 14 * dt;
+      d.x += d.vx;
+      d.y += d.vy;
+      d.life -= dt * 0.45;
+      if (d.life <= 0 || d.y > H || d.x < -20 || d.x > W + 20) arr.splice(i, 1);
+    }
+  }
+
+  function drawDrops(arr) {
+    arr.forEach(function(d) {
+      ctx.save();
+      ctx.shadowColor = rgba(WATER.bright, d.life * 0.4);
+      ctx.shadowBlur = 6;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fillStyle = rgba(WATER.stream, d.life * 0.7);
+      ctx.fill();
+      ctx.restore();
+    });
+  }
+
+  // Leak labels — HTML overlays positioned at holes, staggered reveal
+  var holeLabels = document.querySelectorAll('.bucket-hole-label');
+  function drawLeakLabels(time) {
+    if (time < DRAIN_START + 0.5) { holeLabels.forEach(function(el){el.classList.remove('vis')}); return; }
+    holes.forEach(function(h, idx) {
+      var delay = DRAIN_START + 0.5 + idx * 0.35;
+      if (time >= delay && h.y < waterLevel - 5) {
+        holeLabels[idx] && holeLabels[idx].classList.add('vis');
+      }
+    });
+  }
+
+  // Pour label - HTML overlay
+  var pourEl = document.getElementById('pourLabel');
+  function drawPourLabel(time) {
+    if (time >= 0.5 && time < FILL_END + 1.5) {
+      pourEl.classList.add('vis');
+    } else {
+      pourEl.classList.remove('vis');
+    }
+  }
+
+  // Trickle label
+  function drawTrickleLabel(time) {
+    if (time < DRAIN_START + 2.5) return;
+    var a = Math.min(1, (time - DRAIN_START - 2.5) * 0.8);
+    ctx.save();
+    ctx.shadowColor = 'rgba(212,85,62,' + (a * 0.5).toFixed(2) + ')';
+    ctx.shadowBlur = 12;
+    // Trickle label - HTML overlay
+    var trickleEl = document.getElementById('trickleLabel');
+    if (a > 0.3) trickleEl.classList.add('vis'); else trickleEl.classList.remove('vis');
+    ctx.restore();
+    // Thin glowing arrow
+    ctx.save();
+    ctx.shadowColor = 'rgba(212,85,62,.3)';
+    ctx.shadowBlur = 6;
+    ctx.beginPath();
+    ctx.moveTo(W/2, bBot + 40);
+    ctx.lineTo(W/2, bBot + 88);
+    ctx.strokeStyle = 'rgba(212,85,62,' + (a * 0.4).toFixed(2) + ')';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function frame(ts) {
+    if (!running) return;
+    var time = (ts - startT) / 1000;
+    ctx.clearRect(0, 0, W, H);
+
+    // Phase logic
+    if (time < FILL_END) {
+      // Filling: water rises from bottom to near-top
+      var fillT = Math.min(1, time / FILL_END);
+      fillT = 1 - Math.pow(1 - fillT, 2); // ease-out
+      waterLevel = bBot + 10 - fillT * (bBot + 10 - waterFull);
+    } else if (time < DRAIN_START) {
+      // Pause at top
+      waterLevel = waterFull;
+    } else {
+      // Draining: water drops, faster as it empties
+      // Ease-out drain: starts fast, slows as it empties
+      var drainT = (time - DRAIN_START);
+      var drainFrac = Math.min(1, drainT / 12); // fully empty over ~12s
+      drainFrac = 1 - Math.pow(1 - drainFrac, 2); // ease-out (fast start, slow finish)
+      waterLevel = waterFull + drainFrac * (waterEmpty - waterFull);
+      if (waterLevel > waterEmpty) waterLevel = waterEmpty;
+    }
+
+    drawPourStream(time);
+    drawBucket();
+    drawWater(time);
+
+    spawnPour(time);
+    spawnLeaks(time);
+    spawnTrickle(time);
+
+    updateDrops(pourDrops, 0.016);
+    updateDrops(leakDrops, 0.016);
+    updateDrops(trickleDrops, 0.016);
+
+    drawDrops(pourDrops);
+    drawDrops(leakDrops);
+    drawDrops(trickleDrops);
+
+    drawPourLabel(time);
+    drawLeakLabels(time);
+    drawTrickleLabel(time);
+
+    requestAnimationFrame(frame);
+  }
+
+  var bucketObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting && !running) {
+        bucketSec.classList.add('active');
+        running = true;
+        startT = performance.now();
+        requestAnimationFrame(frame);
+        bucketObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bucketObs.observe(bucketSec);
+})();
+
+// ── Section scroll reveals ──
+var comps = document.querySelectorAll('.comp-inner');
+var compObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('active');
+      e.target.closest('.comp').classList.add('glow-active');
+      // Trigger counter
+      var ctr = e.target.querySelector('[data-counter]');
+      if (ctr && !ctr.dataset.done) {
+        ctr.dataset.done = '1';
+        var to = parseFloat(ctr.dataset.to);
+        var pre = ctr.dataset.pre || '';
+        var suf = ctr.dataset.suf || '';
+        var fmt = ctr.dataset.fmt;
+        if (fmt === 'comma') {
+          countUp(ctr, 0, to, pre, suf, 1400, false);
+        } else {
+          countUp(ctr, 0, to, pre, suf, 1200, false);
+        }
+      }
+    }
+  });
+}, { threshold: 0.25 });
+comps.forEach(function(c) { compObs.observe(c); });
+
+// ── Input vs Output chart ──
+var chartSec = document.querySelector('.chart-sec');
+if (chartSec) {
+  var chartObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('active');
+        var sub = e.target.querySelector('.chart-sub');
+        if (sub) sub.style.opacity = '1';
+        var bars = e.target.querySelectorAll('[data-bar]');
+        bars.forEach(function(row, i) {
+          setTimeout(function() {
+            row.classList.add('show');
+            var fill = row.querySelector('.bar-fill');
+            if (fill) {
+              var w = fill.dataset.w || '0';
+              setTimeout(function() { fill.style.width = w + '%'; }, 100);
+            }
+          }, 200 + i * 200);
+        });
+        var note = e.target.querySelector('.chart-note');
+        if (note) setTimeout(function() { note.style.opacity = '1'; }, 200 + bars.length * 200 + 400);
+        chartObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  chartObs.observe(chartSec);
+}
+
+// ── Global comparison callouts ──
+var compares = document.querySelectorAll('.comp-compare');
+var compObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var siblings = e.target.parentElement.querySelectorAll('.comp-compare');
+      var idx = Array.from(siblings).indexOf(e.target);
+      setTimeout(function() { e.target.classList.add('show'); }, idx * 400 + 600);
+      compObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+compares.forEach(function(c) { compObs.observe(c); });
+
+// ── Headline interstitials ──
+var hlis = document.querySelectorAll('[data-hli]');
+var hliObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+hlis.forEach(function(h) { hliObs.observe(h); });
+
+// ── Scorecards ──
+var cards = document.querySelectorAll('.score-card');
+var cardObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      // Stagger
+      var idx = Array.from(cards).indexOf(e.target);
+      setTimeout(function() {
+        e.target.classList.add('show');
+      }, idx * 120);
+      cardObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+cards.forEach(function(c) { cardObs.observe(c); });
+
+// ── Close section ──
+var closeLines = document.querySelectorAll('.close-line');
+var closePunch = document.querySelector('.close-punch');
+var closeObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var idx = Array.from(closeLines).indexOf(e.target);
+      setTimeout(function() {
+        e.target.classList.add('active');
+      }, idx >= 0 ? idx * 500 : 0);
+      closeObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+closeLines.forEach(function(c) { closeObs.observe(c); });
+var punchObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('active'); }, 1600);
+      punchObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+punchObs.observe(closePunch);
+
+// ── Nav counter ──
+var sections = document.querySelectorAll('section');
+var navCtr = document.getElementById('navCounter');
+var secNames = ['THE BUCKET', 'EDUCATION', 'MEDI-CAL', 'HOMELESSNESS', 'CORRECTIONS', 'HIGH-SPEED RAIL', 'THE DISPARITY', 'THE BOTTOM LINE', ''];
+var secObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var idx = Array.from(sections).indexOf(e.target);
+      navCtr.textContent = secNames[idx] || '';
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(function(s) { secObs.observe(s); });
+</script>
+</body>
+</html>
