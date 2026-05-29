@@ -448,6 +448,23 @@ a:hover { color: var(--bridge-red-dark); }
 .perso-banner .pb-reset:hover { color: var(--bridge-red-dark); }
 .inv-card[data-dim], .chw-card[data-dim] { opacity: .5; }
 .inv-card.match { border-left-color: var(--bridge-red); }
+.chw-card.geo-hide { display: none; }
+.geo-note {
+  display: none;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-left: 3px solid var(--ochre);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.geo-note.show { display: block; animation: fadeUp .3s ease both; }
+.geo-note h4 {
+  font-family: var(--font-hed);
+  font-size: 17px; font-weight: 500; color: var(--ink);
+  letter-spacing: -.01em; margin-bottom: 6px;
+}
+.geo-note p { font-size: 14px; color: var(--ink-mid); line-height: 1.55; }
+.geo-note .gn-cta { font-size: 13px; font-weight: 600; color: var(--bridge-red); margin-top: 10px; display: inline-block; }
 .match-tag {
   display: none;
   font-size: 9px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
@@ -606,7 +623,12 @@ a:hover { color: var(--bridge-red-dark); }
     <div class="container">
       <div class="section-head">
         <h2>City Hall Watch</h2>
-        <span class="meta">Week of May 19 &ndash; 28, 2026</span>
+        <span class="meta" id="chwMeta">San Francisco &middot; Week of May 19 &ndash; 28, 2026</span>
+      </div>
+      <div class="geo-note" id="chwGeoNote">
+        <h4>We don't track your city hall yet.</h4>
+        <p>City Hall Watch currently covers San Francisco. We're expanding to more California cities. In the meantime, the investigations and statewide budget data above apply everywhere in California.</p>
+        <a href="mailto:hello@garryslist.org?subject=City%20Hall%20Watch%20request" class="gn-cta">Request your city &rarr;</a>
       </div>
       <div class="chw-cards">
         <div class="chw-card" data-issues="homelessness budget">
@@ -701,7 +723,7 @@ a:hover { color: var(--bridge-red-dark); }
     if(!/^\d{5}$/.test(zip)) return null;
     var p3 = zip.slice(0,3);
     if(p3 === '941') return {geo:'sf', label:'San Francisco'};
-    var bay = ['940','944','945','946','947','948','949','950','951'];
+    var bay = ['940','943','944','945','946','947','948','949','950','951','954'];
     if(bay.indexOf(p3) > -1) return {geo:'bay', label:'the Bay Area'};
     if(zip[0] === '9') return {geo:'state', label:'California'};
     return {geo:'out', label:null};
@@ -769,15 +791,40 @@ a:hover { color: var(--bridge-red-dark); }
   function apply(p){
     if(!p || p.skipped) return;
     var issues = p.issues || [];
-    // Reorder investigations + city hall by issue match
+    var geo = p.geo; // 'sf' | 'bay' | 'state' | 'out' | null
+    var localCity = (geo === 'sf' || geo === 'bay'); // City Hall data exists for SF metro
+
+    // Clear any prior geo state (handles re-applying after preference change)
+    document.querySelectorAll('.chw-card.geo-hide').forEach(function(c){ c.classList.remove('geo-hide'); });
+    document.querySelectorAll('.inv-card[data-dim]').forEach(function(c){ c.removeAttribute('data-dim'); });
+
+    // Reorder investigations by issue match
     var invGrid = document.querySelector('.inv-grid');
     if(invGrid) reorder(invGrid, '.inv-card', issues);
-    var chw = document.querySelector('.chw-cards');
-    if(chw) reorder(chw, '.chw-card', issues);
 
-    // Banner copy
-    var bits = [];
-    if(p.regionLabel) bits.push('<strong>' + p.regionLabel + '</strong>');
+    // ---- GEO FILTER: City Hall Watch ----
+    var chw = document.querySelector('.chw-cards');
+    var geoNote = document.getElementById('chwGeoNote');
+    var chwMeta = document.getElementById('chwMeta');
+    if(geo && !localCity){
+      // Outside SF metro: hide local SF items, show the geo note.
+      if(chw) chw.querySelectorAll('.chw-card').forEach(function(c){ c.classList.add('geo-hide'); });
+      if(geoNote) geoNote.classList.add('show');
+      if(chwMeta) chwMeta.textContent = (p.regionLabel || 'Your area') + ' \u00b7 coverage coming soon';
+    } else {
+      // SF / Bay (or no ZIP given): show full digest, reorder by issue.
+      if(chw) reorder(chw, '.chw-card', issues);
+      if(geoNote) geoNote.classList.remove('show');
+    }
+
+    // ---- De-emphasize SF-only investigations for non-SF visitors ----
+    if(geo && !localCity && invGrid){
+      invGrid.querySelectorAll('.inv-card').forEach(function(c){
+        if(c.dataset.geo === 'sf'){ c.setAttribute('data-dim',''); }
+      });
+    }
+
+    // ---- Banner copy ----
     var parts = 'Showing your civic dashboard';
     if(p.regionLabel) parts += ' for <strong>' + p.regionLabel + '</strong>';
     if(issues.length){
